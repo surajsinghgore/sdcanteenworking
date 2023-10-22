@@ -5,9 +5,20 @@ height: auto;
 
 }
 .Status .banner{
-z-index: -1;
-
+/* z-index: -1; */
+position: relative;
+width: 100%;
+height: 30vw;
 }
+
+
+
+/* image banner styling*/
+.Status .banner .imageContainer{
+    position: relative;
+}
+
+
 .Status .path{
 position: absolute;
 top: 0;

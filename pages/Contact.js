@@ -20,7 +20,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 import { HiOutlineMailOpen } from 'react-icons/hi';
 import { FaFax } from 'react-icons/fa';
 import { useEffect, useState } from "react";
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm } from '@formspree/react';
 export default function Contact() {
 const [userName,setUserName]=useState("");
 const [userEmail,setUserEmail]=useState("");
