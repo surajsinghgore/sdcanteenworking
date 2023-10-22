@@ -1,7 +1,6 @@
 import Image from 'next/image';
 // Import Swiper React components
 import { Swiper, SwiperSlide  } from "swiper/react";
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
 
 import useNextBlurhash from "use-next-blurhash";
 
@@ -51,7 +50,7 @@ navigation
         <div className="div1">
 <div className="imgs-section">
                               
-<Image src={Img1} alt="img1" height={700} width={1400}  blurDataURL={blurDataUrl1} placeholder="blur" priority/>
+<Image src={Img1} alt="img1"  blurDataURL={blurDataUrl1} placeholder="blur" priority layout='fill'/>
 </div>
 <div className="details">
 <h1 id="hh1">You can	&#39;t make everyone happy. You	&#39;re not pizza</h1>
@@ -65,7 +64,7 @@ navigation
         <SwiperSlide>
         <div className="div1">
 <div className="imgs-section">
-<Image src={Img3} alt="img1" height={700} width={1400}  blurDataURL={blurDataUrl3} placeholder="blur" priority/>
+<Image src={Img3} alt="img1" layout='fill'  blurDataURL={blurDataUrl3} placeholder="blur" priority/>
 </div>
 <div className="details">
 <h1 id="hh1">I don	&#39;t drink coffee to wake up. I wake up to drink coffee.</h1>
@@ -77,7 +76,7 @@ navigation
         <SwiperSlide>
         <div className="div1">
 <div className="imgs-section">
-<Image src={Img4} alt="img1" height={700} width={1400}  blurDataURL={blurDataUrl4} placeholder="blur" priority/>
+<Image src={Img4} alt="img1" layout='fill'  blurDataURL={blurDataUrl4} placeholder="blur" priority/>
 </div>
 <div className="details">
 <h1 id="hh1">Breakfast isn	&#39;t complete without quality juice.</h1>
@@ -90,7 +89,7 @@ navigation
         <SwiperSlide>
         <div className="div1">
 <div className="imgs-section">
-<Image src={Img2} alt="img1" height={700} width={1400}  blurDataURL={blurDataUrl2} placeholder="blur" priority/>
+<Image src={Img2} alt="img1" layout='fill'  blurDataURL={blurDataUrl2} placeholder="blur" priority/>
 </div>
 <div className="details">
 <h1 id="hh1">After a good dinner one can forgive anybody, even one	&#39;s own relatives.</h1>
@@ -102,7 +101,7 @@ navigation
         <SwiperSlide>
         <div className="div1">
 <div className="imgs-section">
-<Image src={Img5} alt="img1" height={700} width={1400}  blurDataURL={blurDataUrl5} placeholder="blur" priority />
+<Image src={Img5} alt="img1" layout='fill'  blurDataURL={blurDataUrl5} placeholder="blur" priority />
 </div>
 <div className="details">
 <h1 id="hh1">Since I had my first sip of coke, life was never the same again.</h1>
