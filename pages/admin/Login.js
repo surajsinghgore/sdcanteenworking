@@ -158,7 +158,8 @@ localStorage.setItem('adminlogin',"true")
               required
               value={secret}
               onChange={(e) => setSecret(e.target.value)} 
-              autoComplete="new-password"       
+              autoComplete="new-password"  
+              autoFocus     
             />
             <input
               type="password"

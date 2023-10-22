@@ -219,7 +219,7 @@ router.push("/")
 <form onSubmit={Login}>
 <li>
 <h6>Enter Email/Mobile To Login</h6>
-<input type="text" name="" placeholder="Email / Mobile" value={email} onChange={(e)=>setEmail(e.target.value)}  autoComplete="new-password"  />
+<input type="text" name="" placeholder="Email / Mobile" value={email} onChange={(e)=>setEmail(e.target.value)}  autoComplete="new-password"  autoFocus/>
 <MdOutlineAlternateEmail className={ClientStyle.icon} />
 </li>
 <li>
