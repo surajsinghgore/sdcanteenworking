@@ -9,8 +9,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import home from "../styles/Home.module.css";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
+import ItemSkeleton from './ItemSkeleton';
 
-  
+
 const TopFoodItems = () => {
   const [countOn, setCountOn] = useState(false);
   const [topSearchData, setTopSearchData] = useState([]);
@@ -42,8 +43,10 @@ useEffect(() => {
   }, []);
     return (
         <>
+
+
               {/* top trending items cards */}
-{(topSearchData.length==0)? <h1 className={home.loading}>Loading ....</h1>: <div className={home.homeCards} >
+{(topSearchData.length==0)? <ItemSkeleton />: <div className={home.homeCards} >
         {topSearchData!=undefined ? (
           <>
             <h1>Top 5 Trending Food Items</h1>
@@ -83,7 +86,8 @@ useEffect(() => {
         )}
       </div>}
      
-     {(topRateData.length===0)?<h1 className={home.loading}>Loading...</h1>:     <div className={home.homeCards}>
+      {/* top rated items */}
+     {(topRateData.length===0)?<ItemSkeleton />:     <div className={home.homeCards}>
         {topRateData !=undefined ? (
           <>
             <h1> Five Best Rated Foods Items</h1>
@@ -122,7 +126,7 @@ useEffect(() => {
           ""
         )}
       </div>}
-      {/* top rated items */}
+     
  
 
       {/* facts */}
@@ -174,7 +178,6 @@ useEffect(() => {
           </div>
         </div>
       </ScrollTrigger>
-
 
         </>
     )

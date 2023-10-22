@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { CartProvider } from "react-use-cart"; 
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 import Link from 'next/link';
-
+import 'react-loading-skeleton/dist/skeleton.css';
 let  cooking =`https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014402/cooking_ggqydy.gif`;
 import Image from 'next/image'
 function MyApp({ Component, pageProps }) {

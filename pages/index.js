@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-let HOST = process.env.NEXT_PUBLIC_API_URL;
 
 const Styles = dynamic(() => import('../styles/admin.module.css'))
 import home from "../styles/Home.module.css";
@@ -35,7 +34,6 @@ let p1 = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014245/p1_pvhtm
 let p2 = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014246/p2_g5k0gk.svg`;
 import { Autoplay } from "swiper";
 import TopFoodItems from '../Components/TopFoodItems';
-import { useEffect } from 'react';
 
 
 

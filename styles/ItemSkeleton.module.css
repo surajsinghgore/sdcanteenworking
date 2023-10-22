@@ -1,0 +1,35 @@
+.Main {
+  margin-top: 2%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: wrap;
+}
+ .heading{
+    margin-top: 2%;
+    width: 60%;
+    height: 40px;
+    margin-left: 20%;
+}
+
+.Main .card {
+    margin-bottom: 4%;
+  width: 29%;
+  height: auto;
+  margin-left: 4%;
+}
+
+.Main .card .ImagePad {
+  height: 260px;
+  width: 360px;
+}
+.Main .card .Title {
+  height: 20px;
+  width: 220px;
+  margin-left: 15%;
+}
+.Main .card .desc {
+  height: 10px;
+  width: 80%;
+  margin-left: 4%;
+}
