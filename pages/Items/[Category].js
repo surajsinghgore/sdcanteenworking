@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import HeadTag from "../../Components/Head";
 import Header from "../../Components/Header";
 import Loader from '../../Components/Loader'
@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer";
 import Styles from "../../styles/admin.module.css";
 import style from "../../styles/FilterWithCategory.module.css";
 import Link from 'next/link'
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 
@@ -51,7 +51,9 @@ fetchData();
       </div>
       <div className={style.category}>
       <div className={style.banner}>
-      <Image src={Banner} width="1400" height="450" alt="banner inside"/>
+      <div className={style.BannerImage}>
+      <Image src={Banner} layout="fill" alt="banner inside"/>
+      </div>
       <h1>{query}</h1>
       <div className={style.divs}>
      <Link href="/" >Home </Link>- Items - {query}

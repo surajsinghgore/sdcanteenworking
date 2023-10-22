@@ -13,10 +13,15 @@ padding-left: 5%;
 
 
 .category .banner{
-width: 100%;
-position: relative;
+    width: 100%;
+    position: relative;
+    height: auto;
+}
+.category .banner .BannerImage{
 
-height: auto;
+    position: relative;
+    width: 100%;
+    height: 30vw;
 }
 .category .banner h1{
 position: absolute;
@@ -43,7 +48,7 @@ text-shadow: 0px 0px 20px rgb(251, 205, 205);
 
 .category .Its{
 background-color: white;
-
+padding-bottom: 20px;
 }
 .category .Items{
 margin-bottom: 5%;
