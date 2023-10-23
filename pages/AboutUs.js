@@ -31,7 +31,7 @@ export default function AboutUS() {
   {/* banner section */}
 <div className={about.banner}>
 <div className={about.imgs}>
-<Image src={bannerImg} alt="banner" width={1350} height={500} /> 
+<Image src={bannerImg} alt="banner" layout="fill" /> 
 </div>
 <div className={about.heading}>
 <div className={about.title}>About Us</div>

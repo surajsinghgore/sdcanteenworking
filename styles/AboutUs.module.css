@@ -7,10 +7,10 @@ margin-top: 5%;
 
 
 .aboutUs .banner{
+  position: relative;
 width: 100%;
-height: auto;
+height: 60vh;
 background-color: #fafbf8;
-position: relative;
 }
 .aboutUs .banner .imgs{
 width: 100%;
