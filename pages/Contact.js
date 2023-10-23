@@ -108,7 +108,7 @@ getData();
      <div className={Styles.admin}>
      <HeadTag title="Contact Us" />
    <Header />
-<Banner BannerImage={banner} Height={400} Width={1350}
+<Banner BannerImage={banner} 
 CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" H1Style={{paddingRight:"75%",marginTop:"0%"}} PStyle={{paddingRight:"71%"}}/>
  </div>
 <div className={ContactStyle.contactIcons}>

@@ -93,7 +93,7 @@ x
 return <SwiperSlide key={index}>
            <div className={gallery.inner}>
            <div className={gallery.imageSection}>
-           <Image src={item.ImagePath} width={960} height={450} alt="img"/>
+           <Image src={item.ImagePath} alt="img" layout="fill"/>
            </div>
           <div className={gallery.ps}>
          {item.title}
