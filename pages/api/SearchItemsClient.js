@@ -15,24 +15,25 @@ export default async function SearchItemsClient(req, res) {
         }
         if(category=='foodItems'){
         
-        let Res=await FoodItemSchema.find({'FoodName':{$regex : search},Active:"ON"}).select("-Active -createdAt -updatedAt")
+        let Res=await FoodItemSchema.find({'FoodName':{$regex :  new RegExp(search, "i")},Active:"ON"}).select("-Active -createdAt -updatedAt")
         let data=await Res.slice(0,15);
      return res.status(201).json({ data });
+
         }
         if(category=='coffeeItems'){  
-         let Res=await CoffeeItemSchema.find({'CoffeeName':{$regex : search},Active:"ON"}).select("-Active -createdAt -updatedAt")
+         let Res=await CoffeeItemSchema.find({'CoffeeName':{$regex : new RegExp(search, "i")},Active:"ON"}).select("-Active -createdAt -updatedAt")
         let data=await Res.slice(0,15);
      return res.status(201).json({ data });
         }
         if(category=='juiceItems'){
         
-         let Res=await JuiceItemSchema.find({'JuiceName':{$regex : search},Active:"ON"}).select("-Active -createdAt -updatedAt")
+         let Res=await JuiceItemSchema.find({'JuiceName':{$regex : new RegExp(search, "i")},Active:"ON"}).select("-Active -createdAt -updatedAt")
         let data=await Res.slice(0,15);
      return res.status(201).json({ data });
         }
         if(category=='drinkItems'){
         
-         let Res=await DrinkItemSchema.find({'DrinkName':{$regex : search},Active:"ON"}).select("-Active -createdAt -updatedAt")
+         let Res=await DrinkItemSchema.find({'DrinkName':{$regex : new RegExp(search, "i")},Active:"ON"}).select("-Active -createdAt -updatedAt")
         let data=await Res.slice(0,15);
      return res.status(201).json({ data });
         }
