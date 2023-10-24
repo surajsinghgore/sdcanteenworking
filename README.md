@@ -4,6 +4,11 @@
 allow students to book college food items online from their college cafeteria
 
 
+## Demo
+
+https://sdcanteen.onrender.com
+
+
 ## Screenshots
 
 ![App Screenshot](https://res.cloudinary.com/dnxv21hr0/image/upload/v1698147307/sdcanteen/coyemfanikf9hbbja5vz.png)
