@@ -498,10 +498,13 @@ const dataRatingFetchOfClient = async () => {
     );
     const dataRess = await fetchRate.json();
 
-    if (dataRess.data.length != 0) {
-      if (dataRess.data[0].ItemsReviwers.length != 0) {
-        setClient(dataRess.data[0]);
-      }
+if(dataRess.data!==undefined){
+
+  if (dataRess.data.length != 0) {
+    if (dataRess.data[0].ItemsReviwers.length != 0) {
+      setClient(dataRess.data[0]);
+    }
+  } 
     }
   }
 };
