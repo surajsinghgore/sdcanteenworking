@@ -200,7 +200,7 @@ data.append('normalPriceName', normalPrice);
       return ;
     }
         if (res.status == 501) {
-      toast.warn(`${datas.message}`, {
+      toast.error(`Internal Server Error`, {
         position: "bottom-right",
         autoClose: 1200,
         hideProgressBar: false,

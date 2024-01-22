@@ -54,6 +54,7 @@ cloudinary.config({
   api_key: CLOUDAPIKEY,
   api_secret: CLOUDAPISECRET,
 });
+
 handler.use(upload.single("Image"));
 handler.post(async (req, res) => {
     let fileName = `./public/${req.file.filename}`;
@@ -136,11 +137,14 @@ handler.post(async (req, res) => {
       return res
         .status(400)
         .json({ message: "Item with this Name Already Exits" });
-    }
-
+    }   
+    
+    console.log(fileName,"dd = ",randomImageNameGen)
     const ressGetCloud = await cloudinary.uploader.upload(fileName, {
       public_id: randomImageNameGen,
     });
+
+
     let imageDbUrl = ressGetCloud.url;
     let Items = new FoodItemSchema({
       FoodName,
@@ -154,9 +158,7 @@ handler.post(async (req, res) => {
     });
 
     let ressGets = await Items.save();
-    fs.unlink(fileName, (err) => {
-      console.log(err);
-    });
+    fs.unlink(fileName);
     if (ressGets) {
       res.status(201).json({ message: "successfully upload" });
     } else {
