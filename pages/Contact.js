@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import Styles from "../styles/admin.module.css";
 import ContactStyle from "../styles/Contact.module.css";
 let token=process.env.NEXT_PUBLIC_FORMSPACETOKEN;
+import LoadingBar from "react-top-loading-bar";
 
 let banner = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014251/contactbanner_ujd9dh.jpg`;
 let shape = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014248/shape_rftir3.png`;
@@ -27,11 +28,13 @@ const [userEmail,setUserEmail]=useState("");
 const [userMobile,setUserMobile]=useState("");
 const [userMessage,setUserMessage]=useState("");
 
+const [progress, setProgress] = useState(0);
 
  const [state, handleSubmit] = useForm(token);
 
 useEffect(()=>{
   const fire=()=>{
+    setProgress(40);
 if((userName=="")||(userEmail=="")||(userMobile=="")||(userMessage=="")){
    toast.warn('Please Fill all the form fields', {
       position: "bottom-right",
@@ -42,9 +45,11 @@ if((userName=="")||(userEmail=="")||(userMobile=="")||(userMessage=="")){
       draggable: true,
       progress: undefined,
     });
+    setProgress(100);
+
     return ;
 }
-
+setProgress(100);
     toast.success('Message Successfully Send', {
       position: "bottom-right",
       autoClose: 2000,
@@ -54,6 +59,7 @@ if((userName=="")||(userEmail=="")||(userMobile=="")||(userMessage=="")){
       draggable: true,
       progress: undefined,
     });
+   
     setTimeout(Redirect, 1200);
     function Redirect() {
       router.push("/");
@@ -62,7 +68,9 @@ if((userName=="")||(userEmail=="")||(userMobile=="")||(userMessage=="")){
 
 
   if (state.succeeded) {
-      fire();
+    setProgress(40);
+    fire();
+    setProgress(100);
   }
 },[handleSubmit])
 
@@ -105,6 +113,13 @@ getData();
 
   return (
     <>
+    <LoadingBar
+        color="rgb(255 82 0)"
+        height={3.5}
+        waitingTime={400}
+        progress={progress}
+        transitionTime={100}
+      />  
      <div className={Styles.admin}>
      <HeadTag title="Contact Us" />
    <Header />
