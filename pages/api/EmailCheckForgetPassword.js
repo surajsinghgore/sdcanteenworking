@@ -27,18 +27,14 @@ body('Email',"Email id is not valid").isEmail() ,async(req, res) => {
     DbConnection();
     let optGenerateNumber=otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false ,lowerCaseAlphabets:false});
 
-    
-let numberGenerate=parseInt(optGenerateNumber);
-let count=0;
-let sum=0;
-while (numberGenerate) {
-    sum += numberGenerate % 10;
-    ++count;
-    numberGenerate = Math.floor(numberGenerate / 10);
-}
-if(count!==6){
-return res.status(400).json({message:"Sorry Something went wrong,Please Register Again",otpError:"true"})
-}
+
+// check 6 digit otp generated or not
+if(optGenerateNumber.length>6 || optGenerateNumber.length<6){
+  return res.status(500).json({message:"Sorry Something went wrong,Please Register Again",otpError:"true"})
+  }
+
+
+  
     let Email = req.body.Email;
 const errors = validationResult(req);
     if (!errors.isEmpty()) {

@@ -30,9 +30,11 @@ body('Password',"Password must be contain atleast 5 character").isLength({ min: 
   try {
     DbConnection();
     let optGenerateNumber=otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false ,lowerCaseAlphabets:false});
-let counts=optGenerateNumber.toString()
-if(counts.length!=6){
-return res.status(400).json({message:"Sorry Something went wrong,Please Register Again",otpError:"true"})
+
+
+// check 6 digit otp generated or not
+if(optGenerateNumber.length>6 || optGenerateNumber.length<6){
+return res.status(500).json({message:"Sorry Something went wrong,Please Register Again",otpError:"true"})
 }
 
 
