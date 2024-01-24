@@ -253,6 +253,7 @@ setTimeout(resendOtps, 300000);
                 placeholder="Enter OTP"
                 maxLength={6}
                 value={otp}
+                autoFocus
                 onChange={(e) => setOtp(e.target.value)}
               />
               <TbDeviceMobileMessage className={ClientStyle.icon} />

@@ -269,10 +269,10 @@ localStorage.setItem('clientRegistrationEmail',data.data.Email)
 <div className={ClientStyle.clientLogin}>
 <div className={ClientStyle.form}>
 <h3>SD CANTEEN</h3>
-<form>
+<form onSubmit={sendData}>
 <li>
 <h6>Enter Full Name <span>*</span></h6>
-<input type="text" name="fullname" placeholder="Enter full name" value={fullName} onChange={(e)=>setFullName(e.target.value)} required/>
+<input type="text" name="fullname" placeholder="Enter full name" value={fullName} onChange={(e)=>setFullName(e.target.value)} autoFocus required/>
 <BiUserPin className={ClientStyle.icon} />
 </li>
 

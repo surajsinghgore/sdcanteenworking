@@ -12,9 +12,8 @@ import ProfileStyles from "../styles/ClientProfileUpload.module.css";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 import React, { useEffect,useState } from "react";
 
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
-let boyProfile = `${ImagePath}/ExtraImages/men.png`
-let girlProfile = `${ImagePath}/ExtraImages/girl.png`
+let boyProfile = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014242/men_uuulzd.png`
+let girlProfile = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014244/girl_vzok8n.png`
 
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 export default function ClientProfileUpload() {
