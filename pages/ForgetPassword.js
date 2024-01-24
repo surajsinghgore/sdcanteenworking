@@ -36,6 +36,19 @@ const otpSend=async(e)=>{
 e.preventDefault();
 setSt1(true)
 setProgress(40)
+if(email==""){
+  toast.warn(`Please Enter Email Id`, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+      setProgress(100)
+       return ;
+  }
 const res = await fetch(`${HOST}/api/EmailCheckForgetPassword`, {
       method: "POST",
       headers: {
@@ -243,15 +256,16 @@ return ;
 
 
 <div className={forget.emailSection}>
+<form onSubmit={otpSend}>
 <div className={forget.email}>
 <AiOutlineMail className={forget.icons}/>
 
-{(st)? <input type="email" value={email} readOnly/>:<input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter Email Id to Reset Password"/> }
-
+{(st)? <input type="email" value={email} readOnly/>:<input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter Email Id to Reset Password" autoFocus required/> }
 </div>
 
 
 {(st1)?'':<button onClick={otpSend}>Send Otp</button>}
+</form>
 </div>
 
 
@@ -260,11 +274,12 @@ return ;
 <div className={forget.otp}>
 <div className={forget.email}>
 <BiMessageCheck className={forget.icons}/>
-<input type="Number" value={otp} onChange={(e)=>setOtp(e.target.value)} placeholder="Enter 6 Digit Otp send to email id" maxLength={6}/>
+<input type="Number" value={otp} onChange={(e)=>setOtp(e.target.value)} placeholder="Enter 6 Digit Otp send to email id" maxLength={6} autoFocus required/>
 </div>
 </div>
 
 <div className={forget.pass}>
+<form onSubmit={resetPassword}>
 <div className={forget.email}>
 <RiLockPasswordLine className={forget.icons}/>
 <input type="password" value={npass} onChange={(e)=>seNpass(e.target.value)} placeholder="Enter New Password" autoComplete="new-password"/>
@@ -277,6 +292,7 @@ return ;
 </div>
 
 {(disbaleBtn)?<button disabled style={{cursor:'not-allowed'}}>Waiting...</button>:<button onClick={resetPassword}>Change Password</button>}
+</form>
 </div>
 </>: ""}
 
