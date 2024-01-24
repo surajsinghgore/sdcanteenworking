@@ -12,7 +12,6 @@ let CLOUDAPISECRET = process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET;
 import nextConnect from "next-connect";
 const handler = nextConnect();
 
-
 export const config = {
   api: {
     bodyParser: false,
@@ -43,7 +42,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage: storage,
   limits: {
-    fileSize: 1024 * 1024 * 5,
+    fileSize: 1024 * 1024 * 8,
   },
   fileFilter: fileFilter,
 });
@@ -55,54 +54,50 @@ cloudinary.config({
   api_secret: CLOUDAPISECRET,
 });
 
- handler.use(upload.single("Profile"));
+handler.use(upload.single("Profile"));
 
-
-handler.post(async(req, res) => {
-    let fileName = `./public/${req.file.filename}`;
-
+handler.post(async (req, res) => {
+  let fileName = `./public/${req.file.filename}`;
+console.log(fileName)
   try {
-
     DbConnection();
-     await VerifyClientUser(req, res); 
-      let _id = req.cookies.clinetId;
+    await VerifyClientUser(req, res);
+    let _id = req.cookies.clinetId;
     if (!_id) {
-    fs.unlink(fileName,(err=>{console.log(err)}))
-      return res.status(401).json({ message: "Please Login with Valid Credentails" });
+      fs.unlink(fileName, (err) => {
+        console.log(err);
+      });
+      return res
+        .status(401)
+        .json({ message: "Please Login with Valid Credentails" });
     }
-   let randomImageNameGen =
+    let randomImageNameGen =
       crypto.randomBytes(16).toString("hex") + req.file.filename;
-      const ressGetCloud = await cloudinary.uploader.upload(fileName, {
+    const ressGetCloud = await cloudinary.uploader.upload(fileName, {
       public_id: randomImageNameGen,
     });
+   
     let imageDbUrl = ressGetCloud.url;
 
+    const ress = await ClientData.findByIdAndUpdate(_id, {
+      Profile: imageDbUrl,
+      ProfileName: randomImageNameGen,
+    }).select("-Password");
+    if (ress) {
+      fs.unlink(fileName, (err) => {
+        console.log(err);
+      });
 
-
-
-const ress=await ClientData.findByIdAndUpdate(_id, { Profile: imageDbUrl,ProfileName:randomImageNameGen }).select('-Password');
-    if(ress){
-
-    fs.unlink(fileName,(err=>{console.log(err)}))
-    
-return res.status(201).json({data:ress})
-    
+      return res.status(201).json({ data: ress });
     }
-   
   } catch (e) {
-   fs.unlink(fileName,(err=>{console.log(err)}))
-
-    console.log(e)
+    fs.unlink(fileName, (err) => {
+      console.log(err);
+    });
+console.log(e);
+    
     res.status(501).json({ message: "Internal Server Error", status: "501" });
   }
 });
-
-
-
-
-
-
-
-
 
 export default handler;

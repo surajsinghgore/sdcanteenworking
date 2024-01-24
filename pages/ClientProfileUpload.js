@@ -91,6 +91,7 @@ getData();
     if (e.target.files[0]) {
       var file = e.target.files[0];
       setFiles(file);
+  
       let url = await URL.createObjectURL(file);
       setImgs(url);
     }
@@ -117,6 +118,24 @@ return ;
 setProgress(40)
 const data = new FormData();
     data.append("Profile", files);
+    let sizeInMb = files.size / (1024 * 1024);
+    let size=parseFloat(sizeInMb.toFixed(2))
+  
+// file size check
+if(size>5){
+  console.log('fired')
+  toast.warn('Please Upload File Less Than 5 Mb', {
+  position: "bottom-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  });   setProgress(100);setDisableBtn(false)
+  return ;
+  }
+   
  let res = await fetch(`${HOST}/api/ClientProfile`, {
       method: "POST",
       body: data,
