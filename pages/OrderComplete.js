@@ -4,7 +4,8 @@ import Footer from "../Components/Footer";
 import Styles from "../styles/admin.module.css";
 import Style1 from "../styles/OrderDetails.module.css";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Loader from "../Components/Loader";
 import Link from 'next/link'
 import VerifyClientMiddleware from "./VerifyClientMiddleware";
@@ -73,8 +74,19 @@ let ress = await fetch(`${HOST}/api/ShowOrderDeatilsClient`);
 }
 fetchOrder();
 },[])
-
-
+// copy to clipboard 
+function copy(text){
+  navigator.clipboard.writeText(text);
+  toast.success(`${text} copy to clipboard`, {
+    position: "bottom-right",
+    autoClose: 1200,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}
   return (
     <>
 <Loader loader={loader}/>
@@ -100,7 +112,7 @@ return (
 <div className={Style1.orders} key={item._id}>
 <div className={Style1.top}>
 <div className={Style1.left}>
-<h3>ORDER TOKEN :- <span>{item.TokenUser}</span></h3>
+<h3>ORDER TOKEN :- <span onClick={() => copy(item.TokenUser)} style={{cursor:'pointer'}}>{item.TokenUser}</span></h3>
 <p>Estimated Delivery time</p>
 </div>
 <CountDownTimer date={item.OrderDate} time={item.PickUpTime2}/>
@@ -239,6 +251,18 @@ return <div key={itx._id}>
 
 
       <Footer />
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1200}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }

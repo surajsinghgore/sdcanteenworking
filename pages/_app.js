@@ -25,7 +25,6 @@ const checks=async()=>{
  if(localStorage.getItem('login')!=undefined){
 let ress = await fetch(`${HOST}/api/CookingEnableDisable`);
               let datas=await ress.json();
-              console.log(sessionStorage.getItem('cooking'))
               if(ress.status==201){
     
               if(datas.len==0){
@@ -123,11 +122,9 @@ setProgress(100)
 if(checkCooking){
 if(sessionStorage.getItem('cooking')=="false"){
 setOrderView(false)
-console.log('false')
 }
 else{
 setOrderView(true)
-console.log('true')
 
 }
 }

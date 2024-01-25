@@ -8,6 +8,8 @@ import Loader from "../Components/Loader";
 import VerifyClientMiddleware from "./VerifyClientMiddleware";
 import { useState } from "react";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function PastOrder() {
 const [data,setData]=useState([]);
 const [temp,setTemp]=useState([]);
@@ -98,7 +100,19 @@ setLoader(false)
 }
 setTimeout(loaderOff,300);
 }
-
+// copy to clipboard 
+function copy(text){
+  navigator.clipboard.writeText(text);
+  toast.success(`${text} copy to clipboard`, {
+    position: "bottom-right",
+    autoClose: 1200,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+}
   return (
     <>
 <Loader loader={loader}/>
@@ -139,7 +153,7 @@ setTimeout(loaderOff,300);
 {data.map((item)=>{
 return <div className={style.allItems} key={item._id}>
 <div className={style.hdatas}>
-<li className={style.token}>{item.TokenUser}</li>
+<li className={style.token} onClick={() => copy(item.TokenUser)} style={{cursor:'pointer'}}>{item.TokenUser}</li>
 <li>{item.OrderDate}</li>
 <li>{item.PickUpTime}</li>
 <li>{item.PaymentMethod}</li>
@@ -185,6 +199,17 @@ return <div className={style.itemsMenu} key={sub._id}>
 
        </div> 
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1200}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }
