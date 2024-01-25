@@ -195,7 +195,7 @@ progress: undefined,
         transitionTime={100}
       />  
     <div className={Styles.admin}>
-      <HeadTag title="Uploard Client Profile" />
+      <HeadTag title="Upload Client Profile" />
    <Header />
        </div>
 

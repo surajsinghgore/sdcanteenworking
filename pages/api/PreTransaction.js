@@ -11,6 +11,10 @@ var randtoken = require('rand-token');
 export default async function PreTransaction(req, res) {
   if (req.method == "POST") {
 try{
+
+
+
+
  DbConnection();
  let res1=await VerifyClientUser(req, res);
   if(res1==undefined){
@@ -41,7 +45,7 @@ OrderTimes=currentDate.getHours()+"-"+m+" PM";
 else{
 OrderTimes=currentDate.getHours()+"-"+m+" AM";
 }
-      
+
       const Mobile=findClientData.Mobile;
       const FullAddress=findClientData.FullAddress;
       const FullName=findClientData.FullName;
@@ -87,6 +91,7 @@ await PaymentSchemaDataBase.findByIdAndDelete(findData._id)
 
 }
 
+ 
 
 
 
@@ -94,9 +99,9 @@ await PaymentSchemaDataBase.findByIdAndDelete(findData._id)
 var paytmParams = {};
 paytmParams.body = {
     "requestType"   : "Payment",
-    "mid"           : `${mid}`,
+    "mid"           : mid,
     "websiteName"   : "sdcanteen",
-    "orderId"       : `${TokenId}`,
+    "orderId"       : TokenId,
     "callbackUrl"   : `${HOST}/api/PostTransaction?`,
     "txnAmount"     : {
         "value"     : `${amount}`,
@@ -107,49 +112,67 @@ paytmParams.body = {
     },
 };
 
+let checksum=await PaytmChecksum.generateSignature(JSON.stringify(paytmParams.body), mkey)
+ 
 
-PaytmChecksum.generateSignature(JSON.stringify(paytmParams.body), `${mkey}`).then(function(checksum){
+        paytmParams.head = {
+            "signature"    : checksum
+        };
 
-    paytmParams.head = {
-        "signature"    : checksum
-    };
+ 
 
-    let post_data = JSON.stringify(paytmParams);
+    let post_data = JSON.stringify(paytmParams);
+    console.log(post_data)
+    const requestAsync=async()=>{
+      return new Promise((resolve,reject)=>{
 
-    let options = {
+            let options = {
+    
+                  /* for Staging */
+                  hostname: 'securegw-stage.paytm.in',
+          
+                  /* for Production */
+                  // hostname: 'securegw.paytm.in',
+          
+                  port: 443,
+                  path: `/theia/api/v1/initiateTransaction?mid=${mid}&orderId=${TokenId}`,
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'Content-Length': post_data.length
+                  }
+              };
+          
+              var response = "";
+              var post_req =https.request(options, function(post_res) {
+                  post_res.on('data', async function (chunk) {
+                      response += chunk;
+                  });
+          
+                  post_res.on('end',async function(){
+                    
+           let token=await JSON.parse(response).body.txnToken;
 
-        /* for Staging */
-        hostname: 'securegw-stage.paytm.in',
+          resolve(token)
+                  });
+              });
+          
+              post_req.write(post_data);
+              post_req.end();
+      })
+    }
+ let token=await requestAsync();
+if(token){
 
-        /* for Production */
-        // hostname: 'securegw.paytm.in',
+  return res.status(200).json(token)
+}
+else{
+  
+  return res.status(400).json({status:"400",message:"sorry something went wrong , try again"})
+  
+}
 
-        port: 443,
-        path: `/theia/api/v1/initiateTransaction?mid=${mid}&orderId=${TokenId}`,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': post_data.length
-        }
-    };
 
-    var response = "";
-    var post_req = https.request(options, function(post_res) {
-        post_res.on('data', function (chunk) {
-            response += chunk;
-        });
-
-        post_res.on('end', function(){
-          
-let token=JSON.parse(response);
-
-return res.status(200).json(token)
-        });
-    });
-
-    post_req.write(post_data);
-    post_req.end();
-});
 
  }
  catch(error){
