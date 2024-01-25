@@ -202,24 +202,7 @@ let ress = await fetch(`${HOST}/api/PreTransaction`, {
 setProgress(40)
               let TxnToken=await ress.json();
       
-             console.log(TxnToken)
-              // if(datas.body.extraParamsMap===null){
-              //     toast.error(
-              //     "Payment Portal is under maintenance",
-              //     {
-              //       position: "bottom-right",
-              //       autoClose: 1000,
-              //       hideProgressBar: false,
-              //       closeOnClick: true,
-              //       pauseOnHover: true,
-              //       draggable: true,
-              //       progress: undefined,
-              //     }
-              //   );
-              //  setProgress(100)
-              //   return ;
-
-              // }
+          
             
 setProgress(60);
 
