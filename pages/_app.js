@@ -18,10 +18,14 @@ const hide=()=>{
 sessionStorage.setItem('cooking','false');
 setOrderView(false)
 }
+
+
+
 const checks=async()=>{
  if(localStorage.getItem('login')!=undefined){
 let ress = await fetch(`${HOST}/api/CookingEnableDisable`);
               let datas=await ress.json();
+              console.log(sessionStorage.getItem('cooking'))
               if(ress.status==201){
     
               if(datas.len==0){
@@ -29,8 +33,15 @@ let ress = await fetch(`${HOST}/api/CookingEnableDisable`);
               setOrderView(false)
               }
               else{
-              setCheckCooking(true)
-              setOrderView(true)
+                if(sessionStorage.getItem('cooking')=="false"){
+                  setCheckCooking(false)
+                  setOrderView(false)
+                }else{
+
+
+                  setCheckCooking(true)
+                  setOrderView(true)
+                }
               }
               }
            
