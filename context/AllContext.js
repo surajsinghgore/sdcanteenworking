@@ -1,7 +1,8 @@
 import React, { createContext, useState } from 'react'
 let HOST=process.env.NEXT_PUBLIC_API_URL;
 const AllContext=createContext();
-
+let boyProfile = 'https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014242/men_uuulzd.png'
+let girlProfile = 'https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014244/girl_vzok8n.png'
 
 const Provider=({children})=>{
 
@@ -16,6 +17,10 @@ const [statesForRealtime,setStateForRealtime]=useState(true);
 const [deletes,setDeletes]=useState(false);
 const [userData,setUserData]=useState([]);
 const [barData,setBarData]=useState([]);
+// profile image
+const [profileImg,setProfileImage]=useState({state:false,url:''});
+
+
 
 const updateFoodCategories=async(id)=>{
 let ress=await fetch(`${HOST}/api/ShowFoodCategory`);
@@ -181,7 +186,7 @@ return (<AllContext.Provider value={{
 // useState
 filterAllFoodCategoriesData,
 deletes,setDeletes,setStateForRealtime,
-filterFoodItemsData,
+filterFoodItemsData,profileImg,setProfileImage,
 filterCoffeeItemsData,
 statesForRealtime,userData,
 filterDrinkItemsData,
@@ -193,6 +198,7 @@ updateJuiceCategories,
 updateFoodItem,setUserData,
 updateCoffeeItem,
 updateDrinkItem,
+
 updateJuiceItem,refresh,setRefresh,barData,setBarData
 }}>{children}</AllContext.Provider>)
 }

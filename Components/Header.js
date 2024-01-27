@@ -27,7 +27,7 @@ import { useContext } from "react";
 
 export default function Header() {
 const [blurDataUrl1] = useNextBlurhash("LFH-#}OA1*XPLg#Rr=WB?vR*IUsA");
-  const { setUserData } = useContext(AllContext);
+  const {profileImg, setUserData } = useContext(AllContext);
 const [search,setSearch]=useState('');
 const [searchData,setSerachData]=useState([]);
 const [imgs,setImgs]=useState(boyProfile);
@@ -322,12 +322,26 @@ suggestion.style.display="none"
     <div className="links">
     <li> <i><MdFoodBank/></i> <span className='heading'><Link href="/OrderNow">Order Now</Link> </span></li>
       <li id="heading"> <i><IoMdArrowDropdown /></i> <span className='heading' >Pages</span></li>
-   {(userLogin)?  <li id="user"><i><IoMdArrowDropdown /></i><div style={{marginTop:"10%"}}>
+   {(userLogin)? 
    
   
-   <Image src={imgs} alt="profile" height={40} width="40" style={{borderRadius:"60px",marginLeft:"4%"}}  blurDataURL={blurDataUrl1} placeholder="blur" /><span id='heading1' style={{textAlign:"center"}}>Hii , {fullName}</span></div></li> : 
    
-      <li id="login"> <i style={{marginTop:"2%",marginLeft:"18%",fontSize:"28px"}}><BiLogIn/></i><Link href="/ClientLogin"><span id='heading2'>Login</span></Link></li> }
+    <li id="user"><i><IoMdArrowDropdown /></i><div style={{marginTop:"10%"}}>
+   
+  
+{console.log(profileImg)}
+   <Image src={(profileImg.state)? profileImg.url : imgs} alt="profile" height={40} width="40" style={{borderRadius:"60px",marginLeft:"4%"}}  blurDataURL={blurDataUrl1} placeholder="blur" /><span id='heading1' style={{textAlign:"center"}}>Hii , {fullName}</span></div></li> 
+   
+   
+   : 
+   
+
+
+
+      <li id="login" style={{cursor:'default'}}> <i style={{marginTop:"2%",marginLeft:"18%",fontSize:"28px"}}><BiLogIn/></i><Link href="/ClientLogin" ><span id='heading2' style={{cursor:'pointer'}}>Login</span></Link></li> }
+
+
+      
      <li  className='cart'> <Link href="/Cart"><a>
     <div id="count">{cartSize}</div>
     <span><AiOutlineShoppingCart/></span></a></Link></li>

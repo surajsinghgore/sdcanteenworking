@@ -12,6 +12,8 @@ import LoadingBar from "react-top-loading-bar";
 
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import router from "next/router";
+import { AllContext } from "../context/AllContext";
+import { useContext } from "react";
 
 import Image from "next/image";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
@@ -33,6 +35,10 @@ export default function ClientManage() {
   const [opass, setOpass] = useState("");
   const [npass, setNpass] = useState("");
   const [cnpass, setCnpass] = useState("");
+
+  const {profileImg,setProfileImage} = useContext(AllContext);
+
+
   const [ud, setUd] = useState(false);
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
@@ -43,7 +49,7 @@ export default function ClientManage() {
   const [gen, setGen] = useState(true);
   const [uprofile, setUprofile] = useState(false);
   const [data, setData] = useState([]);
-
+const [loadingState,setLoadingState]=useState(false);
   const getDataClient = async () => {
     setLoader(true);
     if (localStorage.getItem("login") != undefined) {
@@ -93,6 +99,7 @@ export default function ClientManage() {
           if (data.data !== undefined) {
             setData(data.data);
             setImgs(data.data.Profile);
+            setProfileImage({...profileImg,url:data.data.Profile,state:true})
             setFullName(data.data.FullName);
             setAge(data.data.Age);
             setEmail(data.data.Email);
@@ -332,6 +339,7 @@ export default function ClientManage() {
       });
       return;
     }
+    setLoadingState(true);
     const data = new FormData();
     data.append("Profile", files);
     setProgress(40);
@@ -351,6 +359,7 @@ export default function ClientManage() {
         progress: undefined,
       });
       setProgress(100);
+    setLoadingState(false);
      
       return;
     }
@@ -359,6 +368,7 @@ export default function ClientManage() {
       body: data,
     });
     setProgress(100);
+    setLoadingState(false);
 
     let datas = await res.json();
     if (res.status == 400) {
@@ -398,6 +408,9 @@ export default function ClientManage() {
       return;
     }
     if (res.status == 201) {
+
+console.log(datas)
+
       toast.success("Profile Photo Successfully updated", {
         position: "bottom-right",
         autoClose: 5000,
@@ -890,9 +903,12 @@ export default function ClientManage() {
                         Select Profile
                       </label>
                     </div>
-                    <button onClick={uploadProfileImage}>
-                      Click to upload
-                    </button>
+                      {(loadingState)?<button disabled>
+                  uploading ...
+                    </button>:<button onClick={uploadProfileImage}>
+                    Click to upload
+                    </button>}
+                    
                   </div>
 
                   <div className={style.rights}>

@@ -47,7 +47,7 @@ let findForgetPass=await ForgetPasswordSchema.findOne({EmailId:Email});
 
 
 if(findForgetPass.Otp==null){
-return res.status(403).json({message:"Otp Exired, Please Try Again with new Otp"})
+return res.status(403).json({message:"Otp Expired, Please Try Again with new Otp"})
 }
 if(findForgetPass.Otp!=Otp){
 return res.status(400).json({message:"Otp Is wrong, please give correct Otp"})
@@ -55,7 +55,7 @@ return res.status(400).json({message:"Otp Is wrong, please give correct Otp"})
 
 const compnewPassword=await bcrypt.compare(newPassword,findClientData.Password);
 if(compnewPassword){
-   return res.status(400).json({message:"Reset Password is same as current password"})
+   return res.status(400).json({message:"The new password has been used in the past. Please enter a new one"})
 }
 
 
