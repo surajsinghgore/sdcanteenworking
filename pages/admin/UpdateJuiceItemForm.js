@@ -384,7 +384,7 @@ active="OFF"
                 type="Number"
                 name="JuiceQty"
                 className={StyleFood.prices}
-                value={normalPrice}
+                value={normalPrice}  onWheel={(e) => e.target.blur()}
                 onChange={(e) => setNormalPrice(e.target.value)}
               /> </p>
 <h4>Or</h4>
@@ -394,7 +394,7 @@ active="OFF"
                 type="Number"
                 name="JuiceQty"
                 className={StyleFood.prices}
-                value={smallPrice}
+                value={smallPrice}  onWheel={(e) => e.target.blur()}
                 onChange={(e) => setSmallPrice(e.target.value)}
               /> </p>
 
@@ -404,7 +404,7 @@ active="OFF"
                 type="Number"
                 name="JuiceQty"
                 className={StyleFood.prices}
-                value={mediumPrice}
+                value={mediumPrice}  onWheel={(e) => e.target.blur()}
                 onChange={(e) => setMediumPrice(e.target.value)}
               /> </p>  
 
@@ -413,7 +413,7 @@ active="OFF"
                 type="Number"
                 name="JuiceQty"
                 className={StyleFood.prices}
-                value={largePrice}
+                value={largePrice}  onWheel={(e) => e.target.blur()}
                 onChange={(e) => setLargePrice(e.target.value)}
               /> </p>                
 </li>
