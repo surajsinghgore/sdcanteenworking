@@ -123,7 +123,7 @@ const data = new FormData();
   
 // file size check
 if(size>5){
-  console.log('fired')
+
   toast.warn('Please Upload File Less Than 5 Mb', {
   position: "bottom-right",
   autoClose: 5000,

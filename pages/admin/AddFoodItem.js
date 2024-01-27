@@ -147,6 +147,22 @@ toast.warn("Price Not Be Zero Or Below Zero", {
       });
        return ;
 }
+
+
+if(!files){
+  toast.warn('Please Upload Food Image', {
+  position: "bottom-right",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  });  
+   
+  return ;
+  }
+
 let active;
 if(checked==true){
 active="ON"
@@ -160,6 +176,9 @@ active="OFF"
     data.append("Category", Category);
     data.append("Description", description);
     data.append("Image", files);
+
+
+
 data.append("Active", active);
 if(largePrice!=""){
 data.append('largePrice', largePrice);
@@ -179,6 +198,25 @@ data.append('normalPriceName', normalPrice);
  setProgress(40)
 
 
+
+
+ let sizeInMb = files.size / (1024 * 1024);
+ let size=parseFloat(sizeInMb.toFixed(2))
+
+// file size check
+if(size>5){
+
+toast.warn('Please Upload Image Less Than 5 Mb', {
+position: "bottom-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+});   setProgress(100);
+return ;
+}
     let res = await fetch(`${HOST}/api/AddFoodItem`, {
       method: "POST",
       body:  data,
