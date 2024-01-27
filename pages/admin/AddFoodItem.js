@@ -199,11 +199,9 @@ data.append('normalPriceName', normalPrice);
 
 
 
-
+// file size check
  let sizeInMb = files.size / (1024 * 1024);
  let size=parseFloat(sizeInMb.toFixed(2))
-
-// file size check
 if(size>5){
 
 toast.warn('Please Upload Image Less Than 5 Mb', {
