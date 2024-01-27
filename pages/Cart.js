@@ -79,6 +79,7 @@ for (let i = 0; i < items.length; i++) {
 // clear all cart items
 const cleanAllCartItem=()=>{
 emptyCart();
+setPayableAmount(0)
  toast.error('Cart Clean Successfully', {
       position: "bottom-right",
       autoClose: 1200,
