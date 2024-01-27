@@ -520,6 +520,7 @@ export default function OrderItem() {
         `${HOST}/api/ShowRatingOfItems?productId=${productId}`
       );
       const dataRess = await fetchRate.json();
+     
       if (fetchRate.status == 201) {
         if (dataRess.data.length != 0) {
           await setCopyData(dataRess.data);
@@ -1020,7 +1021,7 @@ export default function OrderItem() {
       setLoader(false);
     }
   };
-  //filter using lattest or oldest
+  //filter using latest or oldest
   const fetchOldData = async () => {
     setLoader(true);
     if (productId != undefined) {

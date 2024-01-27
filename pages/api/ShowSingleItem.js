@@ -9,10 +9,10 @@ export default async function ShowSingleItem(req, res) {
     try {
       DbConnection();
       let itemName=req.query.item;
-      let juiceData = await JuiceItemSchema.find({"JuiceName":itemName}).select('-createdAt -updatedAt');
-      let coffeeData = await CoffeeItemSchema.find({"CoffeeName":itemName}).select('-createdAt -updatedAt');
+      let juiceData = await JuiceItemSchema.find({"JuiceName":itemName}).select('-createdAt -updatedAt -Active');
+      let coffeeData = await CoffeeItemSchema.find({"CoffeeName":itemName}).select('-createdAt -updatedAt -Active');
       let foodData = await FoodItemSchema.find({"FoodName":itemName}).select('-createdAt -updatedAt');
-      let drinkData = await DrinkItemSchema.find({"DrinkName":itemName}).select('-createdAt -updatedAt');
+      let drinkData = await DrinkItemSchema.find({"DrinkName":itemName}).select('-createdAt -updatedAt -Active');
       if(foodData.length!=0){
        return res.status(201).json({ data:foodData });
       }
