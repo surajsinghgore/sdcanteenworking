@@ -47,7 +47,7 @@ setImgs(filterFoodItemsData.datas.Image)
     dataImage.append("Image", files);
 
     if (!files) {
-      toast.warn("Please Uploard New Photo To Change", {
+      toast.warn("Please Upload New Photo To Change", {
         position: "bottom-right",
         autoClose: 1200,
         hideProgressBar: false,
@@ -58,6 +58,26 @@ setImgs(filterFoodItemsData.datas.Image)
       });
       return ;
     } setProgress(40)
+
+
+
+// file size check
+let sizeInMb = files.size / (1024 * 1024);
+let size=parseFloat(sizeInMb.toFixed(2))
+if(size>5){
+
+toast.warn('Please Upload Image Less Than 5 Mb', {
+position: "bottom-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+});   setProgress(100);
+return ;
+}
+
     let response = await fetch(`${HOST}/api/UpdateFoodImage`, {
       method: "POST",
       body: dataImage,
