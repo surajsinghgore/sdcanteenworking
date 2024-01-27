@@ -330,7 +330,7 @@ suggestion.style.display="none"
    
   
 {console.log(profileImg)}
-   <Image src={(profileImg.state)? profileImg.url : imgs} alt="profile" height={40} width="40" style={{borderRadius:"60px",marginLeft:"4%"}}  blurDataURL={blurDataUrl1} placeholder="blur" /><span id='heading1' style={{textAlign:"center"}}>Hii , {fullName}</span></div></li> 
+   <Image src={(profileImg.state)? profileImg.url : imgs} alt="profile" height={40} width="40" style={{borderRadius:"60px",marginLeft:"4%"}}  blurDataURL={blurDataUrl1} placeholder="blur" /><span id='heading1' style={{textAlign:"center"}}>Hi , {fullName}</span></div></li> 
    
    
    : 

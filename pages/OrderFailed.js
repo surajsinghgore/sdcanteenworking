@@ -9,9 +9,9 @@ import VerifyClientMiddleware from "./VerifyClientMiddleware";
 import { useState } from "react";
 import {useRouter}from 'next/router'
 import Image from 'next/image';
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
-let failed = `${ImagePath}/ExtraImages/paymentFailed.gif`;
-let pending = `${ImagePath}/ExtraImages/pending.gif`;
+let failed = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014248/paymentFailed_qngsej.gif`;
+
+let pending = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014247/pending_sxghrh.gif`;
 import { useEffect } from "react";
 export default function OrderFailed() {
 const [token,setToken]=useState('');
@@ -68,11 +68,7 @@ temp();
     });
 
 
-    useEffect(()=>{
-    console.log(router.query.pending)
-    console.log(router.query.id)
-    console.log(router.query.temp)
-    })
+
   return (
     <>
     <VerifyClientMiddleware />
@@ -98,7 +94,7 @@ temp();
      <div className={Style1.failed}>
 <h2>Sorry Payment Failed</h2>
 <div className={Style1.Div1} >
-<Image src={failed} alt="payment reject" width={390} height={240}/>
+<Image src={failed} alt="payment reject" width={390} height={250}/>
 </div>
 {/* <h3>Bank Transaction Id : <span>{token}</span></h3> */}
 <h3>Bank Transaction Id : <span>{token}</span></h3>

@@ -48,21 +48,21 @@ let clientDataFind=await ClientData.findById(findComment.MessageSenderId);
    const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:clientDataFind.Email,
-subject:"Inappropriate Comment Found on SD CANTEEN posted by You",
+subject:"Inappropriate comment found on SD CANTEEN posted by you",
  html:`
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${clientDataFind.FullName}</h4></div>
+ <div style="text-align:center;font-size:3.5vw"><h4>Hi , ${clientDataFind.FullName}</h4></div>
 
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Inappropriate Comment Found </div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;;font-size:3vw">Inappropriate Comment Found </div>
 
-<div style="font-size:3.5vw;color:#4f4f4f;margin-top:4%">Your Comment : <b>${findComment.Message}</b> contain inappropriate tex</div>
+<div style="font-size:3.5vw;color:#f73b3b;margin-top:4%;;font-size:3.3vw">Your Comment : <b>${findComment.Message}</b> contain inappropriate text.</div>
 
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">You Can Change this comment with proper text in item review section</div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Please use sd canteen website with proper rules and regulations</div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Don't use toxic languages in comment sections of items</div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3vw;">You can change this comment to include proper text in the item review section</div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3vw;">Please use the SD CANTEEN website in accordance with the proper rules and regulations.</div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3vw;">Don't use toxic language in the comment sections of items.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
-<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">Please follow proper guidelines issued by sd canteen</div> 
+<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">Please follow proper guidelines issued by SD canteen</div> 
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
 `}
 transporter.sendMail(mailoption,function(error,info){

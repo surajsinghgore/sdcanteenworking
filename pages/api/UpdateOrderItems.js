@@ -55,19 +55,19 @@ else{
           const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:dataUpdate[i].Email,
-subject:"Order Rejected on SD CANTEEN",
+subject:"Order Rejected on the SD CANTEEN",
  html:`
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${dataUpdate[i].FullName}</h4></div>
+ <div style="text-align:center"><h4>Hi, ${dataUpdate[i].FullName}</h4></div>
  <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
 Welcome to SD CANTEEN!
  </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your Order Token Number :<b> ${dataUpdate[i].TokenUser}</b> is reject</div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please placed order responsibly </div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery is Disabled from your account for lifetime</div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.6vw">Your order with Token Number : <b> ${dataUpdate[i].TokenUser}</b> has been <span style="color:red;">rejected</span></div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please place your order responsibly.</div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery has been disabled for your account for a lifetime.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
-<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request made wrongly , you can contact customer support</div> 
+<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request was made wrongly, you can contact customer support.</div> 
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
 `}
 
@@ -139,19 +139,19 @@ rej=rej+1;
      const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:dataUpdate[i].Email,
-subject:"Order Complete on SD CANTEEN",
+subject:"Your order is complete on SD CANTEEN",
  html:`
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${dataUpdate[i].FullName}</h4></div>
+ <div style="text-align:center"><h4>Hi, ${dataUpdate[i].FullName}</h4></div>
  <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
 Welcome to SD CANTEEN!
  </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your Order Token Number :<b> ${dataUpdate[i].TokenUser}</b> is completed</div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Thanks for placed order using sd canteen website </div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please Don't forget to give ratings about the items by opening the items in sd canteen website</div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.5vw">Your order with Token Number : <b> ${dataUpdate[i].TokenUser}</b> has been <span style="color:blue;">completed</span></div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Thanks for placing an order using the SD CANTEEN </div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please don't forget to give ratings to the items by opening them on the SD CANTEEN website.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
-<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request made wrongly , you can contact customer support</div> 
+<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request was made wrongly, you can contact customer support.</div> 
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
 `}
 
@@ -182,20 +182,20 @@ else{
      const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:dataUpdate[i].Email,
-subject:"Order Rejected on SD CANTEEN",
- html:`
- <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${dataUpdate[i].FullName}</h4></div>
- <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
+subject:"Order Rejected on the SD CANTEEN",
+html:`
+<div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
+<div style="text-align:center"><h4>Hi, ${dataUpdate[i].FullName}</h4></div>
+<div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
 Welcome to SD CANTEEN!
- </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your Order Token Number :<b> ${dataUpdate[i].TokenUser} </b>is reject</div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please placed order responsibly </div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery is Disabled from your account for lifetime</div>
+</div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.6vw">Your order with Token Number : <b> ${dataUpdate[i].TokenUser}</b> has been <span style="color:red;">rejected</span></div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please place your order responsibly.</div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery has been disabled for your account for a lifetime.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
-<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request made wrongly , you can contact customer support</div> 
- <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
+<div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request was made wrongly, you can contact customer support.</div> 
+<div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
 `}
 
 transporter.sendMail(mailoption,function(error,info){

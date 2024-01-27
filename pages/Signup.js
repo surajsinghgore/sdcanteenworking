@@ -278,7 +278,7 @@ localStorage.setItem('clientRegistrationEmail',data.data.Email)
 
 <li>
 <h6>Enter Age <span>*</span></h6>
-<input type="number" name="age" placeholder="Enter your age" value={age} onChange={(e)=>setAge(e.target.value)} required/>
+<input type="number" name="age" placeholder="Enter your age" value={age} onWheel={(e) => e.target.blur()} onChange={(e)=>setAge(e.target.value)} required/>
 <BsPersonBoundingBox className={ClientStyle.icon} />
 </li>
 
@@ -291,7 +291,9 @@ localStorage.setItem('clientRegistrationEmail',data.data.Email)
 
 <li>
 <h6>Enter Mobile Number <span>*</span></h6>
-<input type="number" name="mobile" placeholder="Enter email id" value={mobile} onChange={(e)=>setMobile(e.target.value)} required/>
+<input type="number" name="mobile" placeholder="Enter email id" value={mobile} onChange={(e)=>setMobile(e.target.value)} 
+onWheel={(e) => e.target.blur()}
+required/>
 <GoDeviceMobile className={ClientStyle.icon} />
 </li>
 

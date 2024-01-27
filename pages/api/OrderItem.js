@@ -109,7 +109,7 @@ let datas=await ejs.renderFile(dataFile,{data:data,userName:FullName,TotalAmount
  const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:ress.Email,
-subject:"Order Confirmed !",
+subject:"Order Confirmed ",
  html:datas
  }
  transporter.sendMail(mailoption,function(error,info){

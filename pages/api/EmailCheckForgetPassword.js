@@ -73,16 +73,16 @@ setTimeout(OtpExpired, 600000);
    const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:checkEmail[0].Email,
-subject:"Reset Password for your SD CANTEEN Account",
+subject:"reset password for your SD canteen account",
  html:`
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${checkEmail[0].FullName}</h4></div>
- <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
-Welcome to SD CANTEEN!
+ <div style="text-align:center"><h4>Hi , ${checkEmail[0].FullName}</h4></div>
+ <div style="color:rgb(104, 104, 104);text-align:center;font-size:3vw">
+Welcome to SD CANTEEN
  </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your 6 Digit Otp for reset Password  : </div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.5vw">Your 6-digit OTP for resetting the password  : </div>
 <div style="border:2px dotted rgb(255, 98, 0);padding:1% 3% 1% 3%;font-size:6vw;text-align:center;color:red;margin-top:10%;margin-bottom:10%">${optGenerateNumber}</div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> The OTP will expire in 10 minutes and can only be used once.</div>
+<div style="font-size:2.5vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> The OTP will expire in 10 minutes and can only be used once.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
 <div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you did not make this request, you can safely ignore this message.</div> 

@@ -1096,7 +1096,7 @@ export default function OrderItem() {
     }
     confirmAlert({
       title: "Confirm to Report ",
-      message: "Are you sure to report this comment ?",
+      message: "Are you sure you want to report this comment?",
       buttons: [
         {
           label: "Yes",

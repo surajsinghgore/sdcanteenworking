@@ -56,16 +56,16 @@ const securePassword=await bcrypt.hash(newPassword,salt);
     const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:find.Email,
-subject:"Password Changed for Your SD CANTEEN Account",
+subject:"Password changed for Your SD CANTEEN Account",
  html:`
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${find.FullName}</h4></div>
+ <div style="text-align:center"><h4>Hi, ${find.FullName}</h4></div>
  <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
 Welcome to SD CANTEEN!
  </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your Sd Canteen Account Password Changed  </div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3vw">Your Sd Canteen Account Password Changed.</div>
 
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> Please Contact Help Center if you not make this request</div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> Please contact the Help Center if you did not make this request.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
 <div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you did not make this request, you can safely ignore this message.</div> 

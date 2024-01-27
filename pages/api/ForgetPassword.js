@@ -77,13 +77,13 @@ attachments: [{
  <div style="text-align:center">
   <img src="cid:img" style="width:150px;margin-top:2%"/>
  </div>
- <div style="text-align:center"><h4>Hii , ${findClientData.FullName}</h4></div>
+ <div style="text-align:center"><h4>Hi, ${findClientData.FullName}</h4></div>
  <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
 Welcome to SD CANTEEN!
  </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your Sd Canteen Account Password Recovered Successfully  </div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.3vw">Your SD CANTEEN account password has been successfully recovered.</div>
 
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> Please Contact Help Center if you not make this request</div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> Please contact the Help Center if you did not make this request.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
 <div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you did not make this request, you can safely ignore this message.</div> 

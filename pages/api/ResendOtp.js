@@ -54,15 +54,15 @@ await ClientRegistrationTemporary.findByIdAndUpdate(checkEmail._id,{"Otp":optGen
    const mailoption={
 from:process.env.NODEMAILER_GMAIL_ID,
 to:checkEmail.Email,
-subject:"Resend OTP for Finishing creating your account on SD CANTEEN",
+subject:"Resend OTP to finish creating your account on SD CANTEEN",
  html:`
 
  <div style="color:blue;background-color:rgb(255, 98, 0);padding:1% 0% 1% 3%;color:white;font-size:4vw">SD CANTEEN</div>
- <div style="text-align:center"><h4>Hii , ${checkEmail.FullName}</h4></div>
+ <div style="text-align:center"><h4>Hi, ${checkEmail.FullName}</h4></div>
  <div style="color:rgb(104, 104, 104);text-align:center;font-size:4vw">
 Welcome to SD CANTEEN!
  </div>
-<div style="text-align:center;margin-top:3%;margin-bottom:2%">Your 6 Digit Otp is : </div>
+<div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.5vw">Your 6 Digit Otp is : </div>
 <div style="border:2px dotted rgb(255, 98, 0);padding:1% 3% 1% 3%;font-size:6vw;text-align:center;color:red;margin-top:10%;margin-bottom:10%">${optGenerateNumber}</div>
 <div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b> The OTP will expire in 10 minutes and can only be used once.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>

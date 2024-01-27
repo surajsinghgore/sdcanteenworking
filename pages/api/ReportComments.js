@@ -48,7 +48,7 @@ return item.ReportUserId==ReportUserId;
 })
 
 if(AlreadyGiveOrNot.length!=0){
-return res.status(400).json({message:"You Already Report this comment"});
+return res.status(400).json({message:"You have already reported this comment"});
 }
 NumberOfReports=(findWheatherNewOrNot[0].NumberOfReports)+1;
 await CommentReports.updateOne({CommentReportId:CommentReportId}, 
