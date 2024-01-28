@@ -64,7 +64,7 @@ handler.post(async (req, res) => {
     let verify = await VerifyAdmin(req, res);
     if (verify == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
 
       res.status(401).json({ message: "Please login with admin credentails" });
@@ -98,13 +98,13 @@ handler.post(async (req, res) => {
     }
     if (FoodName == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
 
       return res.status(400).json({ message: "Please Enter Food Name" });
     } else if (Description == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
 
       return res
@@ -112,13 +112,13 @@ handler.post(async (req, res) => {
         .json({ message: "Please Enter Description Of Item" });
     } else if (Category == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
 
       return res.status(400).json({ message: "Please Enter category Of Item" });
     } else if (Active == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
 
       return res
@@ -131,7 +131,7 @@ handler.post(async (req, res) => {
     let ress = await FoodItemSchema.find({ FoodName: FoodName });
     if (ress.length != 0) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+       
       });
 
       return res
@@ -158,13 +158,17 @@ handler.post(async (req, res) => {
     });
 
     let ressGets = await Items.save();
-    fs.unlink(fileName);
+    fs.unlink(fileName, (err) => {
+      
+    });
+
+
     if (ressGets) {
       res.status(201).json({ message: "successfully upload" });
     } else {
       return res
         .status(400)
-        .json({ message: "Please login with admin credentails" });
+        .json({ message: "Please login with admin credentials" });
     }
   } catch (e) {
    fs.unlink(fileName,(err=>{console.log(err)}))

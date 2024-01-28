@@ -64,7 +64,7 @@ handler.post(async (req, res) => {
     let verify = await VerifyAdmin(req, res);
     if (verify == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
 
       res.status(401).json({ message: "Please login with admin credentails" });
@@ -99,24 +99,24 @@ handler.post(async (req, res) => {
     }
     if (DrinkName == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
       return res.status(400).json({ message: "Please Enter Juice Name" });
     } else if (Description == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
       return res
         .status(400)
         .json({ message: "Please Enter Description Of Item" });
     } else if (Category == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
       return res.status(400).json({ message: "Please Enter category Of Item" });
     } else if (Active == undefined) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
       return res
         .status(400)
@@ -127,7 +127,7 @@ handler.post(async (req, res) => {
     let ress = await DrinkItemSchema.find({ DrinkName: DrinkName });
     if (ress.length != 0) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+        
       });
       return res
         .status(400)
@@ -150,18 +150,18 @@ handler.post(async (req, res) => {
 
     let ressGets = await Items.save();
     fs.unlink(fileName, (err) => {
-      console.log(err);
+      
     });
     if (ressGets) {
       res.status(201).json({ message: "successfully upload" });
     } else {
       return res
         .status(400)
-        .json({ message: "Please login with admin credentails" });
+        .json({ message: "Please login with admin credentials" });
     }
   } catch (e) {
     fs.unlink(fileName, (err) => {
-      console.log(err);
+      
     });
     console.log("error", e);
     res.status(501).json({ message: "Internal Server Error" });

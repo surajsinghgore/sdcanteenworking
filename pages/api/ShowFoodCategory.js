@@ -6,7 +6,7 @@ export default async function ShowFoodCategory(req, res) {
     try {
       DbConnection();
 
-      let data = await FoodCategory.find();
+      let data = await FoodCategory.find().select("-createdAt -updatedAt");;
       res.status(201).json({ data, status: "201" });
     } catch (error) {
       console.log(error);

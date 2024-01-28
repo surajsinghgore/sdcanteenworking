@@ -6,7 +6,7 @@ export default async function ShowJuiceCategory(req, res) {
     try {
       DbConnection();
 
-      let data = await JuiceCategorySchema.find();
+      let data = await JuiceCategorySchema.find().select("-createdAt -updatedAt");;
       res.status(201).json({ data, status: "201" });
     } catch (error) {
       console.log(error);

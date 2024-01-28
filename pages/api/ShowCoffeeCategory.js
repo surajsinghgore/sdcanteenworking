@@ -5,7 +5,7 @@ export default async function ShowCoffeeCategory(req, res) {
   if (req.method == "GET") {
     try {
       DbConnection();
-      let data = await CoffeeCategorySchema.find();
+      let data = await CoffeeCategorySchema.find().select("-createdAt -updatedAt");
       res.status(201).json({ data, status: "201" });
     } catch (error) {
       console.log(error);
