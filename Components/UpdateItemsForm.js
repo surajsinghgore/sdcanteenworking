@@ -21,7 +21,9 @@ function UpdateItemsForm({ category }) {
     filterCoffeeItemsData,
     updateCoffeeItem,
     filterFoodItemsData,
-    updateFoodItem,filterDrinkItemsData,updateDrinkItem,
+    updateFoodItem,
+    filterDrinkItemsData,
+    updateDrinkItem,
     filterJuiceItemsData,
     updateJuiceItem,
   } = useContext(AllContext);
@@ -44,51 +46,52 @@ function UpdateItemsForm({ category }) {
 
   const send = () => {
     // food Items Load
-    if(category=="FoodItem"){
-    if (filterFoodItemsData.datas != undefined ||
-      filterFoodItemsData.datas != null) {
-      
-        
-           setItemName(filterFoodItemsData.datas.FoodName)
-        
-      setQtys(filterFoodItemsData.datas.Qty);
-      setCategory(filterFoodItemsData.datas.Category);
-      setDescription(filterFoodItemsData.datas.Description);
-      if (filterFoodItemsData.datas.Active == "ON") {
-        setChecked(true);
-      } else {
-        setChecked(false);
-      }
+    if (category == "FoodItem") {
+      if (
+        filterFoodItemsData.datas != undefined ||
+        filterFoodItemsData.datas != null
+      ) {
+        setItemName(filterFoodItemsData.datas.FoodName);
 
-      if (filterFoodItemsData.normal != null) {
-        setNormalPrice(parseInt(filterFoodItemsData.normal));
-      } else {
-        setNormalPrice("");
+        setQtys(filterFoodItemsData.datas.Qty);
+        setCategory(filterFoodItemsData.datas.Category);
+        setDescription(filterFoodItemsData.datas.Description);
+        if (filterFoodItemsData.datas.Active == "ON") {
+          setChecked(true);
+        } else {
+          setChecked(false);
+        }
+
+        if (filterFoodItemsData.normal != null) {
+          setNormalPrice(parseInt(filterFoodItemsData.normal));
+        } else {
+          setNormalPrice("");
+        }
+        if (filterFoodItemsData.medium != null) {
+          setMediumPrice(parseInt(filterFoodItemsData.medium));
+        } else {
+          setMediumPrice("");
+        }
+        if (filterFoodItemsData.large != null) {
+          setLargePrice(parseInt(filterFoodItemsData.large));
+        } else {
+          setLargePrice("");
+        }
+        if (filterFoodItemsData.half != null) {
+          setSmallPrice(parseInt(filterFoodItemsData.half));
+        } else {
+          setSmallPrice("");
+        }
       }
-      if (filterFoodItemsData.medium != null) {
-        setMediumPrice(parseInt(filterFoodItemsData.medium));
-      } else {
-        setMediumPrice("");
-      }
-      if (filterFoodItemsData.large != null) {
-        setLargePrice(parseInt(filterFoodItemsData.large));
-      } else {
-        setLargePrice("");
-      }
-      if (filterFoodItemsData.half != null) {
-        setSmallPrice(parseInt(filterFoodItemsData.half));
-      } else {
-        setSmallPrice("");
-      }
-    } }
+    }
     // juice item
-    else if(category=="JuiceItem"){
-      if (filterJuiceItemsData.datas != undefined ||
-        filterJuiceItemsData.datas != null) {
-        
-          
-             setItemName(filterJuiceItemsData.datas.JuiceName)
-          
+    else if (category == "JuiceItem") {
+      if (
+        filterJuiceItemsData.datas != undefined ||
+        filterJuiceItemsData.datas != null
+      ) {
+        setItemName(filterJuiceItemsData.datas.JuiceName);
+
         setQtys(filterJuiceItemsData.datas.Qty);
         setCategory(filterJuiceItemsData.datas.Category);
         setDescription(filterJuiceItemsData.datas.Description);
@@ -97,7 +100,7 @@ function UpdateItemsForm({ category }) {
         } else {
           setChecked(false);
         }
-  
+
         if (filterJuiceItemsData.normal != null) {
           setNormalPrice(parseInt(filterJuiceItemsData.normal));
         } else {
@@ -119,54 +122,54 @@ function UpdateItemsForm({ category }) {
           setSmallPrice("");
         }
       }
-      
     }
     // coffee item
-    else if(category=="CoffeeItem"){ 
-      if (filterCoffeeItemsData.datas != undefined ||
-      filterCoffeeItemsData.datas != null) {
-      
-        
-           setItemName(filterCoffeeItemsData.datas.CoffeeName)
-        
-      setQtys(filterCoffeeItemsData.datas.Qty);
-      setCategory(filterCoffeeItemsData.datas.Category);
-      setDescription(filterCoffeeItemsData.datas.Description);
-      if (filterCoffeeItemsData.datas.Active == "ON") {
-        setChecked(true);
-      } else {
-        setChecked(false);
-      }
+    else if (category == "CoffeeItem") {
+      if (
+        filterCoffeeItemsData.datas != undefined ||
+        filterCoffeeItemsData.datas != null
+      ) {
+        setItemName(filterCoffeeItemsData.datas.CoffeeName);
 
-      if (filterCoffeeItemsData.normal != null) {
-        setNormalPrice(parseInt(filterCoffeeItemsData.normal));
-      } else {
-        setNormalPrice("");
+        setQtys(filterCoffeeItemsData.datas.Qty);
+        setCategory(filterCoffeeItemsData.datas.Category);
+        setDescription(filterCoffeeItemsData.datas.Description);
+        if (filterCoffeeItemsData.datas.Active == "ON") {
+          setChecked(true);
+        } else {
+          setChecked(false);
+        }
+
+        if (filterCoffeeItemsData.normal != null) {
+          setNormalPrice(parseInt(filterCoffeeItemsData.normal));
+        } else {
+          setNormalPrice("");
+        }
+        if (filterCoffeeItemsData.medium != null) {
+          setMediumPrice(parseInt(filterCoffeeItemsData.medium));
+        } else {
+          setMediumPrice("");
+        }
+        if (filterCoffeeItemsData.large != null) {
+          setLargePrice(parseInt(filterCoffeeItemsData.large));
+        } else {
+          setLargePrice("");
+        }
+        if (filterCoffeeItemsData.small != null) {
+          setSmallPrice(parseInt(filterCoffeeItemsData.small));
+        } else {
+          setSmallPrice("");
+        }
       }
-      if (filterCoffeeItemsData.medium != null) {
-        setMediumPrice(parseInt(filterCoffeeItemsData.medium));
-      } else {
-        setMediumPrice("");
-      }
-      if (filterCoffeeItemsData.large != null) {
-        setLargePrice(parseInt(filterCoffeeItemsData.large));
-      } else {
-        setLargePrice("");
-      }
-      if (filterCoffeeItemsData.small != null) {
-        setSmallPrice(parseInt(filterCoffeeItemsData.small));
-      } else {
-        setSmallPrice("");
-      }
-    }}
+    }
     // drink item
-    else if(category=="DrinkItem"){
-      if (filterDrinkItemsData.datas != undefined ||
-        filterDrinkItemsData.datas != null) {
-        
-          
-             setItemName(filterDrinkItemsData.datas.DrinkName)
-          
+    else if (category == "DrinkItem") {
+      if (
+        filterDrinkItemsData.datas != undefined ||
+        filterDrinkItemsData.datas != null
+      ) {
+        setItemName(filterDrinkItemsData.datas.DrinkName);
+
         setQtys(filterDrinkItemsData.datas.Qty);
         setCategory(filterDrinkItemsData.datas.Category);
         setDescription(filterDrinkItemsData.datas.Description);
@@ -175,7 +178,7 @@ function UpdateItemsForm({ category }) {
         } else {
           setChecked(false);
         }
-  
+
         if (filterDrinkItemsData.normal != null) {
           setNormalPrice(parseInt(filterDrinkItemsData.normal));
         } else {
@@ -197,10 +200,12 @@ function UpdateItemsForm({ category }) {
           setSmallPrice("");
         }
       }
-
     }
   };
   useEffect(() => {
+
+
+   
     send();
     setProgress(40);
     async function dataFetch() {
@@ -220,7 +225,12 @@ function UpdateItemsForm({ category }) {
       setProgress(100);
     }
     dataFetch();
-  }, [filterFoodItemsData,filterCoffeeItemsData,filterDrinkItemsData,filterJuiceItemsData]);
+  }, [
+    filterFoodItemsData,
+    filterCoffeeItemsData,
+    filterDrinkItemsData,
+    filterJuiceItemsData,
+  ]);
 
   const handleChanges = () => {
     setChecked(!checked);
@@ -432,7 +442,7 @@ function UpdateItemsForm({ category }) {
         return;
       }
       if (response.status == 201) {
-        toast.success(`${itemName} is Successfully Addeds`, {
+        toast.success(`${itemName} is Successfully Updated`, {
           position: "bottom-right",
           autoClose: 1200,
           hideProgressBar: false,
@@ -441,13 +451,13 @@ function UpdateItemsForm({ category }) {
           draggable: true,
           progress: undefined,
         });
+const redirectToPage=()=>{
 
-        // setTimeout(RedirectFunction, 1500);
-        // function RedirectFunction() {
-        console.log("success");
-        updateFoodItem(filterFoodItemsData.datas._id);
-        router.push("/admin/UpdateFoodItem");
-        // }
+  updateFoodItem(filterFoodItemsData.datas._id);
+  router.push("/admin/UpdateFoodItem");
+}
+setTimeout(redirectToPage,1200)
+
       }
     }
     // coffee item update
@@ -539,7 +549,7 @@ function UpdateItemsForm({ category }) {
         return;
       }
       if (response.status == 201) {
-        toast.success(`${itemName} is Successfully Added`, {
+        toast.success(`${itemName} is Successfully Updated`, {
           position: "bottom-right",
           autoClose: 1200,
           hideProgressBar: false,
@@ -643,7 +653,7 @@ function UpdateItemsForm({ category }) {
         return;
       }
       if (response.status == 201) {
-        toast.success(`${itemName} is Successfully Added`, {
+        toast.success(`${itemName} is Successfully Updated`, {
           position: "bottom-right",
           autoClose: 1200,
           hideProgressBar: false,
@@ -652,9 +662,13 @@ function UpdateItemsForm({ category }) {
           draggable: true,
           progress: undefined,
         });
+const redirectToPage=()=>{
 
-        router.push("/admin/UpdateDrinkItem");
-        updateDrinkItem(filterDrinkItemsData.datas._id);
+  router.push("/admin/UpdateDrinkItem");
+  updateDrinkItem(filterDrinkItemsData.datas._id);
+}
+setTimeout(redirectToPage,1200)
+
       }
     }
     // juice item update
@@ -746,7 +760,7 @@ function UpdateItemsForm({ category }) {
         return;
       }
       if (response.status == 201) {
-        toast.success(`${itemName} is Successfully Added`, {
+        toast.success(`${itemName} is Successfully Updated`, {
           position: "bottom-right",
           autoClose: 1200,
           hideProgressBar: false,
@@ -755,11 +769,15 @@ function UpdateItemsForm({ category }) {
           draggable: true,
           progress: undefined,
         });
+        function redirectToPage() {
+          router.push("/admin/UpdateJuiceItem");
+          updateJuiceItem(filterJuiceItemsData.datas._id);
+        }
+        setTimeout(redirectToPage,1200)
 
-        router.push("/admin/UpdateJuiceItem");
-        updateJuiceItem(filterJuiceItemsData.datas._id);
       }
     }
+  
   };
 
   return (

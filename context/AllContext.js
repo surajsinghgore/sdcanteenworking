@@ -34,7 +34,7 @@ await setFilterAllFoodCategoriesData(dd)
 }
 
 const updateCoffeeCategories=async(id)=>{
-    console.log('coffee')
+    
 let ress=await fetch(`${HOST}/api/ShowCoffeeCategory`);
 let datas=await ress.json();
 let d=datas.data;
@@ -67,7 +67,7 @@ await setFilterAllFoodCategoriesData(dd)
 }
 
 const updateFoodItem=async(id)=>{
-    console.log('food')
+   
 let ress=await fetch(`${HOST}/api/ShowFoodItemById?id=${id}`);
 let datas=await ress.json();
 if(ress.status==201){
