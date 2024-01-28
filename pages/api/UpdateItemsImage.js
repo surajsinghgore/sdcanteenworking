@@ -74,6 +74,7 @@ handler.post(async (req, res) => {
 
     let verify = await VerifyAdmin(req, res);
     if (verify == undefined) {
+      fs.unlink(fileName, (err) => {});
       return res
         .status(401)
         .json({ message: "Please login with admin credentials" });
@@ -81,17 +82,20 @@ handler.post(async (req, res) => {
 
     let _id = req.body._id;
     if (_id == undefined) {
+      fs.unlink(fileName, (err) => {});
       return res.status(400).json({ message: "Please Provide Id" });
     }
     // food Items
     if (query.category == "food") {
       let find = await FoodItemSchema.findById(_id);
       if (find == null || find == undefined) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Item With This Id Not Found" });
       }
       const oldImage = find.ImageName;
 
       if (oldImage == undefined || oldImage == null) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Please Provide Old Image" });
       }
 
@@ -101,9 +105,7 @@ handler.post(async (req, res) => {
       let imageDbUrl = ressGetCloud.url;
       await FoodItemSchema.findByIdAndUpdate(_id, { Image: imageDbUrl });
 
-      fs.unlink(fileName, (err) => {
-        console.log(err);
-      });
+      fs.unlink(fileName, (err) => {});
 
       return res
         .status(201)
@@ -113,11 +115,13 @@ handler.post(async (req, res) => {
     else if (query.category == "coffee") {
       let find = await CoffeeItemSchema.findById(_id);
       if (find == null || find == undefined) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Item With This Id Not Found" });
       }
       const oldImage = find.ImageName;
 
       if (oldImage == undefined || oldImage == null) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Please Provide Old Image" });
       }
 
@@ -127,9 +131,7 @@ handler.post(async (req, res) => {
       let imageDbUrl = ressGetCloud.url;
       await CoffeeItemSchema.findByIdAndUpdate(_id, { Image: imageDbUrl });
 
-      fs.unlink(fileName, (err) => {
-        console.log(err);
-      });
+      fs.unlink(fileName, (err) => {});
       return res
         .status(201)
         .json({ message: "Coffee Item Image Successfully Update" });
@@ -138,11 +140,13 @@ handler.post(async (req, res) => {
     else if (query.category == "drink") {
       let find = await DrinkItemSchema.findById(_id);
       if (find == null || find == undefined) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Item With This Id Not Found" });
       }
       const oldImage = find.ImageName;
 
       if (oldImage == undefined || oldImage == null) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Please Provide Old Image" });
       }
 
@@ -152,9 +156,7 @@ handler.post(async (req, res) => {
       let imageDbUrl = ressGetCloud.url;
       await DrinkItemSchema.findByIdAndUpdate(_id, { Image: imageDbUrl });
 
-      fs.unlink(fileName, (err) => {
-        console.log(err);
-      });
+      fs.unlink(fileName, (err) => {});
       return res
         .status(201)
         .json({ message: "Drink Item Successfully Update" });
@@ -165,6 +167,7 @@ handler.post(async (req, res) => {
 
       const oldImage = find.ImageName;
       if (oldImage == undefined || oldImage == null) {
+        fs.unlink(fileName, (err) => {});
         return res.status(400).json({ message: "Please Provide Old Image" });
       }
 
@@ -180,9 +183,7 @@ handler.post(async (req, res) => {
         .json({ message: "Juice Item Successfully Update" });
     }
   } catch (e) {
-    fs.unlink(fileName, (err) => {
-      console.log(err);
-    });
+    fs.unlink(fileName, (err) => {});
     console.log(e);
     res.status(501).json({ message: "Internal Server Error" });
   }
