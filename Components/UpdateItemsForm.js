@@ -1,89 +1,130 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import Styles from "../styles/admin.module.css";
 import StyleFood from "../styles/AddFood.module.css";
-import HeadTag from "../Components/Head";
-import AdminLeftMenu from "../Components/AdminLeftMenu";
-import PathNavigate from "../Components/PathNavigate";
-import AdminRightInnerHeader from "../Components/AdminRightInnerHeader";
-import Image from "next/image";
+import HeadTag from "./Head";
+import AdminLeftMenu from "./AdminLeftMenu";
+import PathNavigate from "./PathNavigate";
+import AdminRightInnerHeader from "./AdminRightInnerHeader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
-let HOST = process.env.NEXT_PUBLIC_API_URL;
 import VerifyAdminLogin from "../pages/admin/VerifyAdminLogin";
 import LoadingBar from "react-top-loading-bar";
-
 import Switch from "react-switch";
-export default function AddItems({ pageStatus }) {
+
+import { AllContext } from "../context/AllContext";
+import Link from "next/link";
+let HOST = process.env.NEXT_PUBLIC_API_URL;
+
+function UpdateItemsForm({ category }) {
   const [progress, setProgress] = useState(0);
+  const { filterFoodItemsData, updateFoodItem } = useContext(AllContext);
   const [checked, setChecked] = useState(true);
-  const [data, setData] = useState([]);
-  const [itemName, setItemName] = useState("");
-  const [normalPrice, setNormalPrice] = useState("");
+  const [normalPrice, setNormalPrice] = useState(0);
 
   const [normalPriceName, setNormalPriceName] = useState("Normal Size Price");
-
-  const [mediumPrice, setMediumPrice] = useState("");
-
+  const [mediumPrice, setMediumPrice] = useState(0);
   const [mediumPriceName, setMediumPriceName] = useState("Medium Size Price");
-  const [smallPrice, setSmallPrice] = useState("");
-  const [smallPriceName, setSmallPriceName] = useState(
-    pageStatus == "FoodItem" ? "Half Size Price" : "Small Size Price"
-  );
-
-  const [largePrice, setLargePrice] = useState("");
+  const [smallPrice, setSmallPrice] = useState(0);
+  const [smallPriceName, setSmallPriceName] = useState(category == "FoodItem" ? "Half Size Price" : "Small Size Price");
+  const [largePrice, setLargePrice] = useState(0);
   const [largePriceName, setLargePriceName] = useState("Large Size Price");
-  const [Qtys, setQtys] = useState(1);
-  const [Category, setCategory] = useState("");
-  const [Images, setImages] = useState("");
-  const [imgs, setImgs] = useState();
-  const [showImage, setShowImage] = useState(true);
-  const [files, setFiles] = useState("");
+
+
+  const [data, setData] = useState([]);
+  const [itemName, setItemName] = useState();
+  const [Qtys, setQtys] = useState();
+  const [Category, setCategory] = useState();
   const [description, setDescription] = useState("");
+
+  const send = () => {
+    if (
+      filterFoodItemsData.datas != undefined ||
+      filterFoodItemsData.datas != null
+    ) {
+      console.log(filterFoodItemsData.datas)
+
+      {
+        category == "FoodItem"
+          ? setItemName(filterFoodItemsData.datas.FoodName)
+          : category == "CoffeeItem"
+          ? setItemName(filterFoodItemsData.datas.CoffeeName)
+          : category == "DrinkItem"
+          ? setItemName(filterFoodItemsData.datas.DrinkName)
+          : setItemName(filterFoodItemsData.datas.JuiceName)
+      }
+    
+      setQtys(filterFoodItemsData.datas.Qty);
+      setCategory(filterFoodItemsData.datas.Category);
+      setDescription(filterFoodItemsData.datas.Description);
+      if (filterFoodItemsData.datas.Active == "ON") {
+        setChecked(true);
+      } else {
+        setChecked(false);
+      }
+
+      if (filterFoodItemsData.normal != null) {
+        setNormalPrice(parseInt(filterFoodItemsData.normal));
+      } else {
+        setNormalPrice("");
+      }
+      if (filterFoodItemsData.medium != null) {
+        setMediumPrice(parseInt(filterFoodItemsData.medium));
+      } else {
+        setMediumPrice("");
+      }
+      if (filterFoodItemsData.large != null) {
+        setLargePrice(parseInt(filterFoodItemsData.large));
+      } else {
+        setLargePrice("");
+      }
+      if (filterFoodItemsData.half != null) {
+        setSmallPrice(parseInt(filterFoodItemsData.half));
+      } else {
+        setSmallPrice("");
+      }
+    }
+    // else{
+    //   router.push('/admin/UpdateFoodItem')
+    //     return;
+
+    // }
+  };
+  useEffect(() => {
+    send();
+    setProgress(40);
+    async function dataFetch() {
+      let ress = await fetch(`${HOST}/api/ShowCategory?category=${
+        category == "FoodItem"
+          ? "food"
+          : category == "CoffeeItem"
+          ? "coffee"
+          : category == "DrinkItem"
+          ? "drink"
+          : "juice"
+      }`);
+      let datas = await ress.json();
+      await setData(datas.data);
+      setProgress(100);
+    }
+    dataFetch();
+  }, [filterFoodItemsData]);
 
   const handleChanges = () => {
     setChecked(!checked);
   };
-  // images handle
-  const handleChange = async (e) => {
-    if (e.target.files[0]) {
-      var file = e.target.files[0];
-      setFiles(file);
-      let url = await URL.createObjectURL(file);
-      setImgs(url);
-      setImages(url);
-      setShowImage(false);
-    } else {
-      setShowImage(true);
-    }
-  };
 
-  const AddItemToDB = async (e) => {
-    e.preventDefault();
+  const updateItems = async () => {
     if (!itemName) {
-      toast.warn(
-        `Please Enter ${
-          pageStatus == "FoodItem"
-            ? "Food"
-            : pageStatus == "CoffeeItem"
-            ? "Coffee"
-            : pageStatus == "DrinkItem"
-            ? "Drink"
-            : "Juice"
-        } Name`,
-        {
-          position: "bottom-right",
-          autoClose: 1200,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
-      return;
-    }
-    if (!Category) {
-      toast.warn("Please select Category Of Item", {
+      toast.warn(`Please Enter ${
+        pageStatus == "FoodItem"
+          ? "Food"
+          : pageStatus == "CoffeeItem"
+          ? "Coffee"
+          : pageStatus == "DrinkItem"
+          ? "Drink"
+          : "Juice"
+      } Name`, {
         position: "bottom-right",
         autoClose: 1200,
         hideProgressBar: false,
@@ -94,7 +135,6 @@ export default function AddItems({ pageStatus }) {
       });
       return;
     }
-
     if (!description) {
       toast.warn("Please Enter Description of Item", {
         position: "bottom-right",
@@ -107,30 +147,31 @@ export default function AddItems({ pageStatus }) {
       });
       return;
     }
-
-    if (!Images) {
-      toast.warn(
-        `Please Upload ${
-          pageStatus == "FoodItem"
-            ? "Food"
-            : pageStatus == "CoffeeItem"
-            ? "Coffee"
-            : pageStatus == "DrinkItem"
-            ? "Drink"
-            : "Juice"
-        } Image`,
-        {
-          position: "bottom-right",
-          autoClose: 1200,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
+    if (!Category) {
+      toast.warn("Please Enter Category of Item", {
+        position: "bottom-right",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
+    if (Category == "no") {
+      toast.warn("Please Select Category of Item", {
+        position: "bottom-right",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    // normal Prize Get
     if (smallPrice == "" && mediumPrice == "" && largePrice == "") {
       if (normalPrice == "") {
         toast.warn("Please Enter Atleast Normal Price Of Item", {
@@ -146,7 +187,7 @@ export default function AddItems({ pageStatus }) {
       }
     }
 
-    if ((smallPrice != "" && mediumPrice != "") || largePrice != "") {
+    if (smallPrice != "" || mediumPrice != "" || largePrice != "") {
       if (normalPrice != "") {
         toast.warn("Please Enter Only Normal Price or Different Size Price", {
           position: "bottom-right",
@@ -178,31 +219,6 @@ export default function AddItems({ pageStatus }) {
       return;
     }
 
-    if (!files) {
-      toast.warn(
-        `Please Upload ${
-          pageStatus == "FoodItem"
-            ? "Food"
-            : pageStatus == "CoffeeItem"
-            ? "Coffee"
-            : pageStatus == "DrinkItem"
-            ? "Drink"
-            : "Juice"
-        } Image`,
-        {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
-
-      return;
-    }
-
     let active;
     if (checked == true) {
       active = "ON";
@@ -210,89 +226,151 @@ export default function AddItems({ pageStatus }) {
       active = "OFF";
     }
 
-    const data = new FormData();
-    data.append(
-      `${
-        pageStatus == "FoodItem"
-          ? "FoodName"
-          : pageStatus == "CoffeeItem"
-          ? "CoffeeName"
-          : pageStatus == "DrinkItem"
-          ? "DrinkName"
-          : "JuiceName"
-      }`,
-      itemName
-    );
-    data.append("Qty", Qtys);
-    data.append("Category", Category);
-    data.append("Description", description);
-    data.append("Image", files);
-    data.append("Active", active);
-
-    if (largePrice != "") {
-      {
-        pageStatus == "FoodItem"
-          ? data.append("largePrice", largePrice)
-          : data.append("largePriceName", largePrice);
-      }
-    }
-    if (mediumPrice != "") {
-      {
-        pageStatus == "FoodItem"
-          ? data.append("mediumPrice", mediumPrice)
-          : data.append("mediumPriceName", mediumPrice);
-      }
-    }
-    if (smallPrice != "") {
-      {
-        pageStatus == "FoodItem"
-          ? data.append("halfPrice", smallPrice)
-          : data.append("smallPriceName", smallPrice);
-      }
-    }
-
-    if (normalPrice != "") {
-      data.append("normalPriceName", normalPrice);
-    }
-
     setProgress(40);
-
-    // file size check
-    let sizeInMb = files.size / (1024 * 1024);
-    let size = parseFloat(sizeInMb.toFixed(2));
-    if (size > 5) {
-      toast.warn("Please Upload Image Less Than 5 Mb", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setProgress(100);
-      return;
-    }
-    let res = await fetch(
-      `${HOST}/api/AddItems?category=${
-        pageStatus == "FoodItem"
-          ? "food"
-          : pageStatus == "CoffeeItem"
-          ? "coffee"
-          : pageStatus == "DrinkItem"
-          ? "drink"
-          : "juice"
-      }`,
-      {
+    if(category=="FoodItem"){
+      let response = await fetch(`${HOST}/api/UpdateFoodItem`, {
         method: "POST",
-        body: data,
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: filterFoodItemsData.datas._id,
+          FoodName: itemName,
+          Qty: Qtys,
+          Category: Category,
+          Description: description,
+          largesize: largePrice,
+          mediumsize: mediumPrice,
+          Active: active,
+          normalsize: normalPrice,
+          halfsize: smallPrice,
+        }),
+      });
+  
+      let datas = await response.json();
+      setProgress(100);
+      if (response.status == 401) {
+        toast.error("Please Login With Admin Credentials", {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(RedirectFunction, 1500);
+        function RedirectFunction() {
+          router.push("/admin/Login");
+        }
       }
-    );
+  
+      if (response.status == 204) {
+        toast.error(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 409) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+  
+      if (response.status == 400) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 404) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 201) {
+        toast.success(`${itemName} is Successfully Added`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        updateFoodItem(filterFoodItemsData.datas._id);
+        setTimeout(RedirectFunction, 1500);
+        function RedirectFunction() {
+          router.push("/admin/UpdateFoodItem");
+        }
+      }
+    }
+  else if(category=="CoffeeItem"){
+    let response = await fetch(`${HOST}/api/UpdateCoffeeItem`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        _id: filterFoodItemsData.datas._id,
+        CoffeeName: itemName,
+        Qty: Qtys,
+        Category: Category,
+        Description: description,
+        largesize: largePrice,
+        mediumsize: mediumPrice,
+        Active: active,
+        normalsize: normalPrice,
+        smallsize: smallPrice,
+      }),
+    });
 
+    let datas = await response.json();
     setProgress(100);
+    if (response.status == 401) {
+      toast.error("Please Login With Admin Credentials", {
+        position: "bottom-right",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setTimeout(RedirectFunction, 1500);
+      function RedirectFunction() {
+        router.push("/admin/Login");
+      }
+    }
 
-    if (res.status === 500) {
-      toast.error("Only JPG , PNG , JPEG Images are Allowed To Upload", {
+    if (response.status == 204) {
+      toast.error(`${datas.message}`, {
         position: "bottom-right",
         autoClose: 1200,
         hideProgressBar: false,
@@ -303,22 +381,7 @@ export default function AddItems({ pageStatus }) {
       });
       return;
     }
-    if (res.status == 501) {
-      toast.error(`Internal Server Error`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
-    let datas = await res.json();
-
-    // empty filed error message
-    if (res.status == 400) {
+    if (response.status == 409) {
       toast.warn(`${datas.message}`, {
         position: "bottom-right",
         autoClose: 1200,
@@ -331,7 +394,31 @@ export default function AddItems({ pageStatus }) {
       return;
     }
 
-    if (res.status == 201) {
+    if (response.status == 400) {
+      toast.warn(`${datas.message}`, {
+        position: "bottom-right",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (response.status == 404) {
+      toast.warn(`${datas.message}`, {
+        position: "bottom-right",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    if (response.status == 201) {
       toast.success(`${itemName} is Successfully Added`, {
         position: "bottom-right",
         autoClose: 1200,
@@ -341,59 +428,28 @@ export default function AddItems({ pageStatus }) {
         draggable: true,
         progress: undefined,
       });
-
+      updateFoodItem(filterFoodItemsData.datas._id);
       setTimeout(RedirectFunction, 1500);
       function RedirectFunction() {
-        {
-          pageStatus == "FoodItem"
-            ? router.push("/admin/ShowFoodItem")
-            : pageStatus == "CoffeeItem"
-            ? router.push("/admin/ShowCoffeeItem")
-            : pageStatus == "DrinkItem"
-            ? router.push("/admin/ShowDrinkItem")
-            : router.push("/admin/ShowJuiceItem");
-        }
+        router.push("/admin/UpdateCoffeeItem");
       }
     }
+
+  }
+  else if(category=="DrinkItem"){
+
+  }
+
+  else{
+
+
+
+  }
   };
-
-  // category data load
-  useEffect(() => {
-    setProgress(40);
-
-    {
-      pageStatus == "FoodItem"
-        ? "Add Food Page"
-        : pageStatus == "CoffeeItem"
-        ? "Add Coffee Page"
-        : pageStatus == "JuiceItem"
-        ? "Add Juice Page"
-        : "Add Drink Page";
-    }
-
-    async function dataFetch() {
-      let ress = await fetch(
-        `${HOST}/api/ShowCategory?category=${
-          pageStatus == "FoodItem"
-            ? "food"
-            : pageStatus == "CoffeeItem"
-            ? "coffee"
-            : pageStatus == "DrinkItem"
-            ? "drink"
-            : "juice"
-        }`
-      );
-      let datas = await ress.json();
-
-      setProgress(100);
-
-      await setData(datas.data);
-    }
-    dataFetch();
-  }, []);
 
   return (
     <>
+      {" "}
       <LoadingBar
         color="rgb(255 82 0)"
         height={3.5}
@@ -401,84 +457,113 @@ export default function AddItems({ pageStatus }) {
         progress={progress}
         transitionTime={100}
       />
-
       <HeadTag
         title={
-          pageStatus == "FoodItem"
-            ? "Add Food Item"
-            : pageStatus == "CoffeeItem"
-            ? "Add Coffee Item"
-            : pageStatus == "JuiceItem"
-            ? "Add Juice Item"
-            : "Add Drink Item"
+          category == "FoodItem"
+            ? "Update Food Item Form"
+            : category == "CoffeeItem"
+            ? "Update Coffee Item Form"
+            : category == "DrinkItem"
+            ? "Update Drink Item Form"
+            : "Update Juice Item Form"
         }
       />
+      <VerifyAdminLogin />
       {/* left panel bar */}
       <AdminLeftMenu />
-      <VerifyAdminLogin />
       {/* right bar */}
       <div className={StyleFood.rightSideBar}>
         <AdminRightInnerHeader
           title={
-            pageStatus == "FoodItem"
-              ? "Add Food Page"
-              : pageStatus == "CoffeeItem"
-              ? "Add Coffee Page"
-              : pageStatus == "JuiceItem"
-              ? "Add Juice Page"
-              : "Add Drink Page"
+            category == "FoodItem"
+              ? "Update Food Item Page"
+              : category == "CoffeeItem"
+              ? "Update Coffee Item Page"
+              : category == "JuiceItem"
+              ? "Update Juice Item Page"
+              : "Update Drink Item Page"
           }
         />
-
         <PathNavigate
           mainSection="Admin"
           mainSectionURL="/admin"
-          subsection=""
+          subsection={
+            category == "FoodItem"
+              ? "Update Food Item"
+              : category == "CoffeeItem"
+              ? "Update Coffee Item"
+              : category == "JuiceItem"
+              ? "Update Juice Item"
+              : "Update Drink Item"
+          }
           subsectionURL={
-            pageStatus == "FoodItem"
-              ? "/admin/ShowFoodItem"
-              : pageStatus == "CoffeeItem"
-              ? "/admin/ShowCoffeeItem"
-              : pageStatus == "JuiceItem"
-              ? "/admin/ShowJuiceItem"
-              : "/admin/ShowDrinkItem"
+            category == "FoodItem"
+              ? "/admin/UpdateFoodItem"
+              : category == "CoffeeItem"
+              ? "/admin/UpdateCoffeeItem"
+              : category == "JuiceItem"
+              ? "/admin/UpdateJuiceItem"
+              : "/admin/UpdateDrinkItem"
           }
           current={
-            pageStatus == "FoodItem"
-              ? "ADD FOOD ITEM"
-              : pageStatus == "CoffeeItem"
-              ? "ADD COFFEE ITEM"
-              : pageStatus == "JuiceItem"
-              ? "ADD JUICE ITEM"
-              : "ADD DRINK ITEM"
+            category == "FoodItem"
+              ? "UPDATE FOOD ITEM GENERAL DATA"
+              : category == "CoffeeItem"
+              ? "UPDATE COFFEE ITEM GENERAL DATA"
+              : category == "JuiceItem"
+              ? "UPDATE JUICE ITEM GENERAL DATA"
+              : "UPDATE DRINK ITEM GENERAL DATA"
           }
         />
 
         {/* form add food */}
 
-        <div className={StyleFood.Form} style={{ marginTop: "0.5%" }}>
+        <div className={StyleFood.Form}>
           <div className={StyleFood.heading}>
             <h1>
               Enter New{" "}
-              {pageStatus == "FoodItem"
+              {category == "FoodItem"
                 ? "Food"
-                : pageStatus == "CoffeeItem"
+                : category == "CoffeeItem"
                 ? "Coffee"
-                : pageStatus == "JuiceItem"
+                : category == "JuiceItem"
                 ? "Juice"
                 : "Drink"}{" "}
               Item For Website
             </h1>
           </div>
           <div className={StyleFood.form_element}>
+            <div
+              className="imageChange"
+              style={{ textAlign: "center", color: "blue" }}
+            >
+              <h3>
+                {category == "FoodItem" ? (
+                  <Link href="/admin/UpdateFoodImage">
+                    <a>Click Here To Change Food Item Image</a>
+                  </Link>
+                ) :category == "CoffeeItem" ? (
+                  <Link href="/admin/UpdateCoffeeImage">
+                  <a> Click Here To Change Coffee Item Image</a>
+                  </Link>
+                ) :category == "DrinkItem" ? (
+                  <Link href="/admin/UpdateDrinkImage">
+                  <a> Click Here To Change Drink Item Image</a>
+                  </Link>
+                ) :<Link href="/admin/UpdateJuiceImage">
+                <a> Click Here To Change Juice Item Image</a>
+                  </Link>
+        }
+              </h3>
+            </div>
             <li>
               <p>
                 Enter{" "}
-                {pageStatus == "FoodItem"
+                {category == "FoodItem"
                   ? "Food"
-                  : pageStatus == "CoffeeItem"
+                  : category == "CoffeeItem"
                   ? "Coffee"
-                  : pageStatus == "JuiceItem"
+                  : category == "JuiceItem"
                   ? "Juice"
                   : "Drink"}{" "}
                 Name <span>*</span>
@@ -492,17 +577,13 @@ export default function AddItems({ pageStatus }) {
             </li>
 
             <li>
-              <p>
-                Enter{" "}
-                {pageStatus == "FoodItem"
+              <p>Enter {category == "FoodItem"
                   ? "Food"
-                  : pageStatus == "CoffeeItem"
+                  : category == "CoffeeItem"
                   ? "Coffee"
-                  : pageStatus == "JuiceItem"
+                  : category == "JuiceItem"
                   ? "Juice"
-                  : "Drink"}{" "}
-                Qty
-              </p>
+                  : "Drink"} Qty</p>
               <input
                 type="text"
                 name="itemQty"
@@ -514,15 +595,13 @@ export default function AddItems({ pageStatus }) {
 
             <li className={StyleFood.selects}>
               <p>
-                Enter{" "}
-                {pageStatus == "FoodItem"
+                Enter {category == "FoodItem"
                   ? "Food"
-                  : pageStatus == "CoffeeItem"
+                  : category == "CoffeeItem"
                   ? "Coffee"
-                  : pageStatus == "JuiceItem"
+                  : category == "JuiceItem"
                   ? "Juice"
-                  : "Drink"}{" "}
-                Category <span>*</span>
+                  : "Drink"} Category <span>*</span>
               </p>
               <select
                 name="itemCategory"
@@ -537,21 +616,21 @@ export default function AddItems({ pageStatus }) {
                       return (
                         <option
                           value={
-                            pageStatus == "FoodItem"
+                            category == "FoodItem"
                               ? item.FoodCategoryName
-                              : pageStatus == "CoffeeItem"
+                              : category == "CoffeeItem"
                               ? item.CoffeeCategoryName
-                              : pageStatus == "JuiceItem"
+                              : category == "JuiceItem"
                               ? item.JuiceCategoryName
                               : item.DrinkCategoryName
                           }
                           key={item._id}
                         >
-                          {pageStatus == "FoodItem"
+                          {category == "FoodItem"
                             ? item.FoodCategoryName
-                            : pageStatus == "CoffeeItem"
+                            : category == "CoffeeItem"
                             ? item.CoffeeCategoryName
-                            : pageStatus == "JuiceItem"
+                            : category == "JuiceItem"
                             ? item.JuiceCategoryName
                             : item.DrinkCategoryName}
                         </option>
@@ -564,8 +643,7 @@ export default function AddItems({ pageStatus }) {
               </select>
             </li>
 
-            {/*  */}
-            {pageStatus == "FoodItem" ? (
+            {category == "FoodItem" ? (
               <li className={StyleFood.Pricess}>
                 <h6>
                   Enter Price <span>*</span>
@@ -739,42 +817,6 @@ export default function AddItems({ pageStatus }) {
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </li>
-            <li>
-              <p>
-                Upload{" "}
-                {pageStatus == "FoodItem"
-                  ? "Food"
-                  : pageStatus == "CoffeeItem"
-                  ? "Coffee"
-                  : pageStatus == "JuiceItem"
-                  ? "Juice"
-                  : "Drink"}{" "}
-                Photo <span>*</span>
-              </p>
-              <input
-                type="file"
-                name="photo"
-                id="photoJuice"
-                onChange={handleChange}
-              />
-            </li>
-            <li>
-              <p>Photo Realtime Preview</p>
-              <div className={StyleFood.preview_photo}>
-                {showImage ? (
-                  <h1>please upload Image</h1>
-                ) : (
-                  <Image
-                    src={imgs}
-                    alt="item images"
-                    id="output"
-                    width={600}
-                    height={600}
-                  />
-                )}
-              </div>
-            </li>
-
             <li className={StyleFood.btns}>
               <p>Product Visibility Status </p>
               <Switch
@@ -784,17 +826,13 @@ export default function AddItems({ pageStatus }) {
                 offColor="#FF1E1E"
               />
             </li>
-            <button onClick={AddItemToDB}>
-              {" "}
-              ADD{" "}
-              {pageStatus == "FoodItem"
-                ? "FOOD"
-                : pageStatus == "CoffeeItem"
-                ? "COFFEE"
-                : pageStatus == "JuiceItem"
-                ? "JUICE"
-                : "DRINK"}{" "}
-            </button>
+            <button onClick={updateItems}>UPDATE {category == "FoodItem"
+                  ? "FOOD"
+                  : category == "CoffeeItem"
+                  ? "COFFEE"
+                  : category == "JuiceItem"
+                  ? "JUICE"
+                  : "DRINK"}</button>
           </div>
         </div>
       </div>
@@ -812,3 +850,5 @@ export default function AddItems({ pageStatus }) {
     </>
   );
 }
+
+export default UpdateItemsForm;

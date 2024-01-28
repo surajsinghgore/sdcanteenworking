@@ -84,12 +84,13 @@ mm=item.Price
 if(item.sizeName=="largesize"){
 lar=item.Price
 }
-if(item.sizeName=="halfsize"){
+
+if(item.sizeName=="halfprice"){
 small=item.Price
 }
 })
-
- setFilterFoodItemsData({datas:datas.data,normal:nor,medium:mm,large:lar,small:small})
+console.log(small)
+ setFilterFoodItemsData({datas:datas.data,normal:nor,medium:mm,large:lar,half:small})
 }
 
 }
