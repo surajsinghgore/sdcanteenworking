@@ -17,7 +17,7 @@ export default async function UpdateFoodItem(req, res) {
       if (verify == undefined) {
         return res
           .status(401)
-          .json({ message: "Please login with admin credentails" });
+          .json({ message: "Please login with admin credentials" });
       }
       let id=req.body._id;
       if(id==undefined){
@@ -30,17 +30,17 @@ export default async function UpdateFoodItem(req, res) {
       let Active=req.body.Active;
 let mediumsize=req.body.mediumsize;
 let largesize=req.body.largesize;
-let halfsize=req.body.halfsize;
+let halfprice=req.body.halfprice;
 let Description=req.body.Description;
 let normalsize=req.body.normalsize;
 
 
 
-// find records and check new name not dublicated
+// find records and check new name not duplicated
 let findData=await FoodItemSchema.findById(id);
 
 
-// seacrh Data in
+// search Data in
 let searhData=await TopSearchSchema.findOne({ItemName:findData.FoodName})
 
 
@@ -80,7 +80,7 @@ return res.status(201).json({message:"successfully updated"})
 }
 fired();
 }
-if(item.sizeName=="halfsize"){ss=true}
+if(item.sizeName=="halfprice"){ss=true}
 if(item.sizeName=="mediumsize"){ms=true}
 if(item.sizeName=="largesize"){ls=true}
 })
@@ -88,7 +88,7 @@ if(ms){
  await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"mediumsize"}}})
 }
 if(ss){
- await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfsize"}}})
+ await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfprice"}}})
 
 }
 if(ls){
@@ -108,7 +108,7 @@ await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"n
 return res.status(201).json({message:"successfully updated"})
 }
 
-if((mediumsize!='')&&(halfsize!='')&&(largesize!='')){
+if((mediumsize!='')&&(halfprice!='')&&(largesize!='')){
 let nss=false;
 // update exiting login
 findData.ItemCost.map((item)=>{
@@ -119,9 +119,9 @@ await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}},
 }
 fired();
 }
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 const fired=async()=>{
-await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfsize}})
+await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfprice}})
 }
 fired();
 }
@@ -149,7 +149,7 @@ ms=true;
 if(item.sizeName=="largesize"){
 ls=true;
 }
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 ss=true;
 }
 })
@@ -161,7 +161,7 @@ await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"l
 }
 
 if(ss==false){
-await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfsize","Price":halfsize} }})
+await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfprice","Price":halfprice} }})
 }
 
 
@@ -169,7 +169,7 @@ return res.status(201).json({message:"successfully updated"})
 
 }
 
-if((mediumsize!='')&&(halfsize!='')){
+if((mediumsize!='')&&(halfprice!='')){
 let nss=false;
 let ls=false;
 // update exiting login
@@ -182,9 +182,9 @@ await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}},
 }
 fired();
 }
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 const fired=async()=>{
-await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfsize}})
+await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfprice}})
 }
 fired();
 }
@@ -204,7 +204,7 @@ newData.ItemCost.map((item)=>{
 if(item.sizeName=="mediumsize"){
 ms=true;
 }
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 ss=true;
 }
 })
@@ -212,7 +212,7 @@ if(ms==false){
 await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"mediumsize","Price":mediumsize} }})
 }
 if(ss==false){
-await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfsize","Price":halfsize} }})
+await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfprice","Price":halfprice} }})
 }
 
 
@@ -226,7 +226,7 @@ let hs=false;
 // update exiting login
 findData.ItemCost.map((item)=>{
 if(item.sizeName=="normalsize"){nss=true}
-if(item.sizeName=="halfsize"){hs=true}
+if(item.sizeName=="halfprice"){hs=true}
 if(item.sizeName=="mediumsize"){
 const fired=async()=>{
 await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":mediumsize}})
@@ -245,7 +245,7 @@ if(nss){
  await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"normalsize"}}})
 }
 if(hs){
- await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfsize"}}})
+ await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfprice"}}})
 }
 // new entry
 let ms=false;
@@ -271,16 +271,16 @@ return res.status(201).json({message:"successfully updated"})
 
 }
 
-if((halfsize!='')&&(largesize!='')){
+if((halfprice!='')&&(largesize!='')){
 let nss=false;
 let ms=false;
 // update exiting login
 findData.ItemCost.map((item)=>{
 if(item.sizeName=="normalsize"){nss=true}
 if(item.sizeName=="normalsize"){ms=true}
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 const fired=async()=>{
-await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfsize}})
+await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfprice}})
 }
 fired();
 }
@@ -307,7 +307,7 @@ newData.ItemCost.map((item)=>{
 if(item.sizeName=="largesize"){
 ls=true;
 }
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 ss=true;
 }
 })
@@ -317,7 +317,7 @@ await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"l
 }
 
 if(ss==false){
-await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfsize","Price":halfsize} }})
+await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfprice","Price":halfprice} }})
 }
 
 
@@ -330,7 +330,7 @@ let nss=false;let ss=false;let ls=false;
 // update exiting login
 findData.ItemCost.map((item)=>{
 if(item.sizeName=="normalsize"){nss=true}
-if(item.sizeName=="halfsize"){ss=true}
+if(item.sizeName=="halfprice"){ss=true}
 if(item.sizeName=="largesize"){ls=true}
 if(item.sizeName=="mediumsize"){
 const fired=async()=>{
@@ -344,7 +344,7 @@ if(nss){
  await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"normalsize"}}})
 }
 if(ss){
- await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfsize"}}})
+ await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfprice"}}})
 }
 if(ls){
  await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"largesize"}}})
@@ -366,7 +366,7 @@ return res.status(201).json({message:"successfully updated"})
 
 }
 
-if((halfsize!='')){
+if((halfprice!='')){
 let nss=false;
 let ms=false;
 let ls=false;
@@ -375,9 +375,9 @@ findData.ItemCost.map((item)=>{
 if(item.sizeName=="normalsize"){nss=true}
 if(item.sizeName=="mediumsize"){ms=true}
 if(item.sizeName=="largesize"){ls=true}
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 const fired=async()=>{
-await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfsize}})
+await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":halfprice}})
 }
 fired();
 }
@@ -396,12 +396,12 @@ if(ls){
 let ss=false
 let newData=await FoodItemSchema.findById(id);
 newData.ItemCost.map((item)=>{
-if(item.sizeName=="halfsize"){
+if(item.sizeName=="halfprice"){
 ss=true;
 }
 })
 if(ss==false){
-await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfsize","Price":halfsize} }})
+await FoodItemSchema.updateOne( { _id: id},{ $push: { "ItemCost": {"sizeName":"halfprice","Price":halfprice} }})
 }
 return res.status(201).json({message:"successfully updated"})
 
@@ -415,7 +415,7 @@ let ms=false;
 findData.ItemCost.map((item)=>{
 if(item.sizeName=="normalsize"){nss=true}
 if(item.sizeName=="mediumsize"){ms=true}
-if(item.sizeName=="halfsize"){ss=true}
+if(item.sizeName=="halfprice"){ss=true}
 if(item.sizeName=="largesize"){
 const fired=async()=>{
 await FoodItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":largesize}})
@@ -430,7 +430,7 @@ if(ms){
  await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"mediumsize"}}})
 }
 if(ss){
- await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfsize"}}})
+ await FoodItemSchema.updateOne({_id:id},{$pull:{"ItemCost" : {"sizeName":"halfprice"}}})
 }
 // new entry
 

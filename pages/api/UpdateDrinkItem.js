@@ -6,13 +6,13 @@ import TopSearchSchema from './Schema/NumberOfSearch'
 
 export default async function UpdateDrinkItem(req, res) {
   if (req.method == "POST") {
-  try {
+    try {
       DbConnection();
       let verify = await VerifyAdmin(req, res);
       if (verify == undefined) {
         return res
           .status(401)
-          .json({ message: "Please login with admin credentails" });
+          .json({ message: "Please login with admin credentials" });
       }
       let id=req.body._id;
       if(id==undefined){
@@ -31,18 +31,18 @@ let normalsize=req.body.normalsize;
 
 
 
-// find records and check new name not dublicated
+// find records and check new name not duplicated
 let findData=await DrinkItemSchema.findById(id);
-if(DrinkName!=findData.DrinkName){
-let resDouble=await DrinkItemSchema.find({DrinkName:DrinkName});
 // seacrh Data in
 let searhData=await TopSearchSchema.findOne({ItemName:findData.DrinkName})
 
+
+if(DrinkName!=findData.DrinkName){
+let resDouble=await DrinkItemSchema.find({DrinkName:DrinkName});
 if(resDouble.length!=0){
       return  res.status(400).json({ message: "Item Already Exits with this Item Name" });
  }
 }
-
 
 // change new name searchData
 if(searhData!=null){
@@ -62,7 +62,7 @@ findData.ItemCost.map((item)=>{
 if(item.sizeName=="normalsize"){
 const fired=async()=>{
 await DrinkItemSchema.findOneAndUpdate({ItemCost: {$elemMatch: {_id: item._id}}}, {$set:{"ItemCost.$.Price":normalsize}})
-return res.status(201).json({message:"successfully updated1"})
+return res.status(201).json({message:"successfully updated"})
 }
 fired();
 }
@@ -437,7 +437,7 @@ return res.status(201).json({message:"successfully updated"})
 
 }
 
-    }catch (error) {
+    } catch (error) {
       console.log(error);
       res.status(501).json({ message: error, status: "501" });
     }

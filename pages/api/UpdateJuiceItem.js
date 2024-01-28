@@ -12,7 +12,7 @@ export default async function UpdateJuiceItem(req, res) {
       if (verify == undefined) {
         return res
           .status(401)
-          .json({ message: "Please login with admin credentails" });
+          .json({ message: "Please login with admin credentials" });
       }
       let id=req.body._id;
       if(id==undefined){
@@ -31,9 +31,9 @@ let normalsize=req.body.normalsize;
 
 
 
-// find records and check new name not dublicated
+// find records and check new name not duplicated
 let findData=await JuiceItemSchema.findById(id);
-// seacrh Data in
+// search Data in
 let searhData=await TopSearchSchema.findOne({ItemName:findData.JuiceName})
 
 if(JuiceName!=findData.JuiceName){

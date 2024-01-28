@@ -29,9 +29,9 @@ let normalsize=req.body.normalsize;
 
 
 
-// find records and check new name not dublicated
+// find records and check new name not duplicated
 let findData=await CoffeeItemSchema.findById(id);
-// seacrh Data in
+// search Data in
 let searhData=await TopSearchSchema.findOne({ItemName:findData.CoffeeName})
 
 

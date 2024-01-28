@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import Styles from "../styles/admin.module.css";
 import StyleFood from "../styles/AddFood.module.css";
 import HeadTag from "./Head";
 import AdminLeftMenu from "./AdminLeftMenu";
@@ -18,19 +17,25 @@ let HOST = process.env.NEXT_PUBLIC_API_URL;
 
 function UpdateItemsForm({ category }) {
   const [progress, setProgress] = useState(0);
-  const { filterFoodItemsData, updateFoodItem } = useContext(AllContext);
+  const {
+    filterCoffeeItemsData,
+    updateCoffeeItem,
+    filterFoodItemsData,
+    updateFoodItem,filterDrinkItemsData,updateDrinkItem,
+    filterJuiceItemsData,
+    updateJuiceItem,
+  } = useContext(AllContext);
   const [checked, setChecked] = useState(true);
   const [normalPrice, setNormalPrice] = useState(0);
-
   const [normalPriceName, setNormalPriceName] = useState("Normal Size Price");
   const [mediumPrice, setMediumPrice] = useState(0);
   const [mediumPriceName, setMediumPriceName] = useState("Medium Size Price");
   const [smallPrice, setSmallPrice] = useState(0);
-  const [smallPriceName, setSmallPriceName] = useState(category == "FoodItem" ? "Half Size Price" : "Small Size Price");
+  const [smallPriceName, setSmallPriceName] = useState(
+    category == "FoodItem" ? "Half Size Price" : "Small Size Price"
+  );
   const [largePrice, setLargePrice] = useState(0);
   const [largePriceName, setLargePriceName] = useState("Large Size Price");
-
-
   const [data, setData] = useState([]);
   const [itemName, setItemName] = useState();
   const [Qtys, setQtys] = useState();
@@ -38,22 +43,14 @@ function UpdateItemsForm({ category }) {
   const [description, setDescription] = useState("");
 
   const send = () => {
-    if (
-      filterFoodItemsData.datas != undefined ||
-      filterFoodItemsData.datas != null
-    ) {
-      console.log(filterFoodItemsData.datas)
-
-      {
-        category == "FoodItem"
-          ? setItemName(filterFoodItemsData.datas.FoodName)
-          : category == "CoffeeItem"
-          ? setItemName(filterFoodItemsData.datas.CoffeeName)
-          : category == "DrinkItem"
-          ? setItemName(filterFoodItemsData.datas.DrinkName)
-          : setItemName(filterFoodItemsData.datas.JuiceName)
-      }
-    
+    // food Items Load
+    if(category=="FoodItem"){
+    if (filterFoodItemsData.datas != undefined ||
+      filterFoodItemsData.datas != null) {
+      
+        
+           setItemName(filterFoodItemsData.datas.FoodName)
+        
       setQtys(filterFoodItemsData.datas.Qty);
       setCategory(filterFoodItemsData.datas.Category);
       setDescription(filterFoodItemsData.datas.Description);
@@ -83,32 +80,147 @@ function UpdateItemsForm({ category }) {
       } else {
         setSmallPrice("");
       }
+    } }
+    // juice item
+    else if(category=="JuiceItem"){
+      if (filterJuiceItemsData.datas != undefined ||
+        filterJuiceItemsData.datas != null) {
+        
+          
+             setItemName(filterJuiceItemsData.datas.JuiceName)
+          
+        setQtys(filterJuiceItemsData.datas.Qty);
+        setCategory(filterJuiceItemsData.datas.Category);
+        setDescription(filterJuiceItemsData.datas.Description);
+        if (filterJuiceItemsData.datas.Active == "ON") {
+          setChecked(true);
+        } else {
+          setChecked(false);
+        }
+  
+        if (filterJuiceItemsData.normal != null) {
+          setNormalPrice(parseInt(filterJuiceItemsData.normal));
+        } else {
+          setNormalPrice("");
+        }
+        if (filterJuiceItemsData.medium != null) {
+          setMediumPrice(parseInt(filterJuiceItemsData.medium));
+        } else {
+          setMediumPrice("");
+        }
+        if (filterJuiceItemsData.large != null) {
+          setLargePrice(parseInt(filterJuiceItemsData.large));
+        } else {
+          setLargePrice("");
+        }
+        if (filterJuiceItemsData.small != null) {
+          setSmallPrice(parseInt(filterJuiceItemsData.small));
+        } else {
+          setSmallPrice("");
+        }
+      }
+      
     }
-    // else{
-    //   router.push('/admin/UpdateFoodItem')
-    //     return;
+    // coffee item
+    else if(category=="CoffeeItem"){ 
+      if (filterCoffeeItemsData.datas != undefined ||
+      filterCoffeeItemsData.datas != null) {
+      
+        
+           setItemName(filterCoffeeItemsData.datas.CoffeeName)
+        
+      setQtys(filterCoffeeItemsData.datas.Qty);
+      setCategory(filterCoffeeItemsData.datas.Category);
+      setDescription(filterCoffeeItemsData.datas.Description);
+      if (filterCoffeeItemsData.datas.Active == "ON") {
+        setChecked(true);
+      } else {
+        setChecked(false);
+      }
 
-    // }
+      if (filterCoffeeItemsData.normal != null) {
+        setNormalPrice(parseInt(filterCoffeeItemsData.normal));
+      } else {
+        setNormalPrice("");
+      }
+      if (filterCoffeeItemsData.medium != null) {
+        setMediumPrice(parseInt(filterCoffeeItemsData.medium));
+      } else {
+        setMediumPrice("");
+      }
+      if (filterCoffeeItemsData.large != null) {
+        setLargePrice(parseInt(filterCoffeeItemsData.large));
+      } else {
+        setLargePrice("");
+      }
+      if (filterCoffeeItemsData.small != null) {
+        setSmallPrice(parseInt(filterCoffeeItemsData.small));
+      } else {
+        setSmallPrice("");
+      }
+    }}
+    // drink item
+    else if(category=="DrinkItem"){
+      if (filterDrinkItemsData.datas != undefined ||
+        filterDrinkItemsData.datas != null) {
+        
+          
+             setItemName(filterDrinkItemsData.datas.DrinkName)
+          
+        setQtys(filterDrinkItemsData.datas.Qty);
+        setCategory(filterDrinkItemsData.datas.Category);
+        setDescription(filterDrinkItemsData.datas.Description);
+        if (filterDrinkItemsData.datas.Active == "ON") {
+          setChecked(true);
+        } else {
+          setChecked(false);
+        }
+  
+        if (filterDrinkItemsData.normal != null) {
+          setNormalPrice(parseInt(filterDrinkItemsData.normal));
+        } else {
+          setNormalPrice("");
+        }
+        if (filterDrinkItemsData.medium != null) {
+          setMediumPrice(parseInt(filterDrinkItemsData.medium));
+        } else {
+          setMediumPrice("");
+        }
+        if (filterDrinkItemsData.large != null) {
+          setLargePrice(parseInt(filterDrinkItemsData.large));
+        } else {
+          setLargePrice("");
+        }
+        if (filterDrinkItemsData.small != null) {
+          setSmallPrice(parseInt(filterDrinkItemsData.small));
+        } else {
+          setSmallPrice("");
+        }
+      }
+
+    }
   };
   useEffect(() => {
     send();
     setProgress(40);
     async function dataFetch() {
-      let ress = await fetch(`${HOST}/api/ShowCategory?category=${
-        category == "FoodItem"
-          ? "food"
-          : category == "CoffeeItem"
-          ? "coffee"
-          : category == "DrinkItem"
-          ? "drink"
-          : "juice"
-      }`);
+      let ress = await fetch(
+        `${HOST}/api/ShowCategory?category=${
+          category == "FoodItem"
+            ? "food"
+            : category == "CoffeeItem"
+            ? "coffee"
+            : category == "DrinkItem"
+            ? "drink"
+            : "juice"
+        }`
+      );
       let datas = await ress.json();
       await setData(datas.data);
       setProgress(100);
     }
     dataFetch();
-  }, [filterFoodItemsData]);
+  }, [filterFoodItemsData,filterCoffeeItemsData,filterDrinkItemsData,filterJuiceItemsData]);
 
   const handleChanges = () => {
     setChecked(!checked);
@@ -116,23 +228,26 @@ function UpdateItemsForm({ category }) {
 
   const updateItems = async () => {
     if (!itemName) {
-      toast.warn(`Please Enter ${
-        pageStatus == "FoodItem"
-          ? "Food"
-          : pageStatus == "CoffeeItem"
-          ? "Coffee"
-          : pageStatus == "DrinkItem"
-          ? "Drink"
-          : "Juice"
-      } Name`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.warn(
+        `Please Enter ${
+          pageStatus == "FoodItem"
+            ? "Food"
+            : pageStatus == "CoffeeItem"
+            ? "Coffee"
+            : pageStatus == "DrinkItem"
+            ? "Drink"
+            : "Juice"
+        } Name`,
+        {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
       return;
     }
     if (!description) {
@@ -227,7 +342,9 @@ function UpdateItemsForm({ category }) {
     }
 
     setProgress(40);
-    if(category=="FoodItem"){
+
+    // food Item Update
+    if (category == "FoodItem") {
       let response = await fetch(`${HOST}/api/UpdateFoodItem`, {
         method: "POST",
         headers: {
@@ -243,10 +360,10 @@ function UpdateItemsForm({ category }) {
           mediumsize: mediumPrice,
           Active: active,
           normalsize: normalPrice,
-          halfsize: smallPrice,
+          halfprice: smallPrice,
         }),
       });
-  
+
       let datas = await response.json();
       setProgress(100);
       if (response.status == 401) {
@@ -264,7 +381,7 @@ function UpdateItemsForm({ category }) {
           router.push("/admin/Login");
         }
       }
-  
+
       if (response.status == 204) {
         toast.error(`${datas.message}`, {
           position: "bottom-right",
@@ -289,7 +406,114 @@ function UpdateItemsForm({ category }) {
         });
         return;
       }
-  
+
+      if (response.status == 400) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 404) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 201) {
+        toast.success(`${itemName} is Successfully Addeds`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        // setTimeout(RedirectFunction, 1500);
+        // function RedirectFunction() {
+        console.log("success");
+        updateFoodItem(filterFoodItemsData.datas._id);
+        router.push("/admin/UpdateFoodItem");
+        // }
+      }
+    }
+    // coffee item update
+    else if (category == "CoffeeItem") {
+      let response = await fetch(`${HOST}/api/UpdateCoffeeItem`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: filterCoffeeItemsData.datas._id,
+          CoffeeName: itemName,
+          Qty: Qtys,
+          Category: Category,
+          Description: description,
+          largesize: largePrice,
+          mediumsize: mediumPrice,
+          Active: active,
+          normalsize: normalPrice,
+          smallsize: smallPrice,
+        }),
+      });
+      setProgress(100);
+
+      let datas = await response.json();
+      if (response.status == 401) {
+        toast.error("Please Login With Admin Credentials", {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(RedirectFunction, 1500);
+        function RedirectFunction() {
+          router.push("/admin/Login");
+        }
+      }
+
+      if (response.status == 204) {
+        toast.error(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 409) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+
       if (response.status == 400) {
         toast.warn(`${datas.message}`, {
           position: "bottom-right",
@@ -324,127 +548,218 @@ function UpdateItemsForm({ category }) {
           draggable: true,
           progress: undefined,
         });
-        updateFoodItem(filterFoodItemsData.datas._id);
+
+        router.push("/admin/UpdateCoffeeItem");
+        updateCoffeeItem(filterCoffeeItemsData.datas._id);
+      }
+    }
+
+    // drink item update
+    else if (category == "DrinkItem") {
+      let response = await fetch(`${HOST}/api/UpdateDrinkItem`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: filterDrinkItemsData.datas._id,
+          DrinkName: itemName,
+          Qty: Qtys,
+          Category: Category,
+          Description: description,
+          largesize: largePrice,
+          mediumsize: mediumPrice,
+          Active: active,
+          normalsize: normalPrice,
+          smallsize: smallPrice,
+        }),
+      });
+
+      let datas = await response.json();
+      setProgress(100);
+      if (response.status == 401) {
+        toast.error("Please Login With Admin Credentials", {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         setTimeout(RedirectFunction, 1500);
         function RedirectFunction() {
-          router.push("/admin/UpdateFoodItem");
+          router.push("/admin/Login");
         }
       }
-    }
-  else if(category=="CoffeeItem"){
-    let response = await fetch(`${HOST}/api/UpdateCoffeeItem`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        _id: filterFoodItemsData.datas._id,
-        CoffeeName: itemName,
-        Qty: Qtys,
-        Category: Category,
-        Description: description,
-        largesize: largePrice,
-        mediumsize: mediumPrice,
-        Active: active,
-        normalsize: normalPrice,
-        smallsize: smallPrice,
-      }),
-    });
 
-    let datas = await response.json();
-    setProgress(100);
-    if (response.status == 401) {
-      toast.error("Please Login With Admin Credentials", {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      setTimeout(RedirectFunction, 1500);
-      function RedirectFunction() {
-        router.push("/admin/Login");
+      if (response.status == 204) {
+        toast.error(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 409) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+
+      if (response.status == 400) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 404) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 201) {
+        toast.success(`${itemName} is Successfully Added`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        router.push("/admin/UpdateDrinkItem");
+        updateDrinkItem(filterDrinkItemsData.datas._id);
       }
     }
+    // juice item update
+    else if (category == "JuiceItem") {
+      let response = await fetch(`${HOST}/api/UpdateJuiceItem`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: filterJuiceItemsData.datas._id,
+          JuiceName: itemName,
+          Qty: Qtys,
+          Category: Category,
+          Description: description,
+          largesize: largePrice,
+          mediumsize: mediumPrice,
+          Active: active,
+          normalsize: normalPrice,
+          smallsize: smallPrice,
+        }),
+      });
 
-    if (response.status == 204) {
-      toast.error(`${datas.message}`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
-    if (response.status == 409) {
-      toast.warn(`${datas.message}`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
+      let datas = await response.json();
+      setProgress(100);
+      if (response.status == 401) {
+        toast.error("Please Login With Admin Credentials", {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(RedirectFunction, 1500);
+        function RedirectFunction() {
+          router.push("/admin/Login");
+        }
+      }
 
-    if (response.status == 400) {
-      toast.warn(`${datas.message}`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
-    if (response.status == 404) {
-      toast.warn(`${datas.message}`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return;
-    }
-    if (response.status == 201) {
-      toast.success(`${itemName} is Successfully Added`, {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      updateFoodItem(filterFoodItemsData.datas._id);
-      setTimeout(RedirectFunction, 1500);
-      function RedirectFunction() {
-        router.push("/admin/UpdateCoffeeItem");
+      if (response.status == 204) {
+        toast.error(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 409) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+
+      if (response.status == 400) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 404) {
+        toast.warn(`${datas.message}`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      if (response.status == 201) {
+        toast.success(`${itemName} is Successfully Added`, {
+          position: "bottom-right",
+          autoClose: 1200,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        router.push("/admin/UpdateJuiceItem");
+        updateJuiceItem(filterJuiceItemsData.datas._id);
       }
     }
-
-  }
-  else if(category=="DrinkItem"){
-
-  }
-
-  else{
-
-
-
-  }
   };
 
   return (
@@ -542,18 +857,19 @@ function UpdateItemsForm({ category }) {
                   <Link href="/admin/UpdateFoodImage">
                     <a>Click Here To Change Food Item Image</a>
                   </Link>
-                ) :category == "CoffeeItem" ? (
+                ) : category == "CoffeeItem" ? (
                   <Link href="/admin/UpdateCoffeeImage">
-                  <a> Click Here To Change Coffee Item Image</a>
+                    <a> Click Here To Change Coffee Item Image</a>
                   </Link>
-                ) :category == "DrinkItem" ? (
+                ) : category == "DrinkItem" ? (
                   <Link href="/admin/UpdateDrinkImage">
-                  <a> Click Here To Change Drink Item Image</a>
+                    <a> Click Here To Change Drink Item Image</a>
                   </Link>
-                ) :<Link href="/admin/UpdateJuiceImage">
-                <a> Click Here To Change Juice Item Image</a>
+                ) : (
+                  <Link href="/admin/UpdateJuiceImage">
+                    <a> Click Here To Change Juice Item Image</a>
                   </Link>
-        }
+                )}
               </h3>
             </div>
             <li>
@@ -577,13 +893,17 @@ function UpdateItemsForm({ category }) {
             </li>
 
             <li>
-              <p>Enter {category == "FoodItem"
+              <p>
+                Enter{" "}
+                {category == "FoodItem"
                   ? "Food"
                   : category == "CoffeeItem"
                   ? "Coffee"
                   : category == "JuiceItem"
                   ? "Juice"
-                  : "Drink"} Qty</p>
+                  : "Drink"}{" "}
+                Qty
+              </p>
               <input
                 type="text"
                 name="itemQty"
@@ -595,13 +915,15 @@ function UpdateItemsForm({ category }) {
 
             <li className={StyleFood.selects}>
               <p>
-                Enter {category == "FoodItem"
+                Enter{" "}
+                {category == "FoodItem"
                   ? "Food"
                   : category == "CoffeeItem"
                   ? "Coffee"
                   : category == "JuiceItem"
                   ? "Juice"
-                  : "Drink"} Category <span>*</span>
+                  : "Drink"}{" "}
+                Category <span>*</span>
               </p>
               <select
                 name="itemCategory"
@@ -826,13 +1148,16 @@ function UpdateItemsForm({ category }) {
                 offColor="#FF1E1E"
               />
             </li>
-            <button onClick={updateItems}>UPDATE {category == "FoodItem"
-                  ? "FOOD"
-                  : category == "CoffeeItem"
-                  ? "COFFEE"
-                  : category == "JuiceItem"
-                  ? "JUICE"
-                  : "DRINK"}</button>
+            <button onClick={updateItems}>
+              UPDATE{" "}
+              {category == "FoodItem"
+                ? "FOOD"
+                : category == "CoffeeItem"
+                ? "COFFEE"
+                : category == "JuiceItem"
+                ? "JUICE"
+                : "DRINK"}
+            </button>
           </div>
         </div>
       </div>

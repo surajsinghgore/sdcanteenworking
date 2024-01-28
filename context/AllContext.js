@@ -1,8 +1,7 @@
 import React, { createContext, useState } from 'react'
 let HOST=process.env.NEXT_PUBLIC_API_URL;
 const AllContext=createContext();
-let boyProfile = 'https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014242/men_uuulzd.png'
-let girlProfile = 'https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014244/girl_vzok8n.png'
+
 
 const Provider=({children})=>{
 
@@ -23,6 +22,7 @@ const [profileImg,setProfileImage]=useState({state:false,url:''});
 
 
 const updateFoodCategories=async(id)=>{
+    console.log('fired')
 let ress=await fetch(`${HOST}/api/ShowFoodCategory`);
 let datas=await ress.json();
 let d=datas.data;
@@ -34,7 +34,7 @@ await setFilterAllFoodCategoriesData(dd)
 }
 
 const updateCoffeeCategories=async(id)=>{
-
+    console.log('coffee')
 let ress=await fetch(`${HOST}/api/ShowCoffeeCategory`);
 let datas=await ress.json();
 let d=datas.data;
@@ -67,6 +67,7 @@ await setFilterAllFoodCategoriesData(dd)
 }
 
 const updateFoodItem=async(id)=>{
+    console.log('food')
 let ress=await fetch(`${HOST}/api/ShowFoodItemById?id=${id}`);
 let datas=await ress.json();
 if(ress.status==201){
@@ -89,7 +90,7 @@ if(item.sizeName=="halfprice"){
 small=item.Price
 }
 })
-console.log(small)
+
  setFilterFoodItemsData({datas:datas.data,normal:nor,medium:mm,large:lar,half:small})
 }
 
