@@ -11,7 +11,7 @@ import router from 'next/router'
 import { useRouter } from "next/router";
 import { RiDeleteBin2Line } from 'react-icons/ri';
 import { useEffect, useState } from "react";
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
+
 
 export default function Cart() {
 const routers=useRouter();

@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import Styles from "../styles/admin.module.css";
 import order from "../styles/OrderNow.module.css";
 import Link from 'next/link'
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
+
 import Image from 'next/image'
 let food = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014247/food_jxjsba.png`
 let coffee = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014251/coffee_i2cfjf.webp`

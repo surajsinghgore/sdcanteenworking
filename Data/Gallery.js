@@ -1,4 +1,3 @@
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
 
 let img1 = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014583/1_sjhcjg.webp`
 let img2 = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014638/2_ud9sw2.jpg`

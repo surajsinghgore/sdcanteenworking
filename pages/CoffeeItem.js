@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Style from '../styles/FoodItem.module.css'
 import Styles from "../styles/admin.module.css";
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
+
 //      ${ImagePath}
 let banner = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014250/banner3_xdfqnn.jpg`;
 

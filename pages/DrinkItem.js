@@ -5,7 +5,6 @@ import Loader from "../Components/Loader";
 import Style from '../styles/FoodItem.module.css'
 import Styles from "../styles/admin.module.css";
 
-let ImagePath=process.env.NEXT_PUBLIC_IMAGESPACEPATH;
 let banner = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014251/banner4_upvf40.jpg`;
 import "react-toastify/dist/ReactToastify.css";
 import { IoMdArrowDropright } from 'react-icons/io';
