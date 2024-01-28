@@ -122,7 +122,7 @@ let checksum=await PaytmChecksum.generateSignature(JSON.stringify(paytmParams.bo
  
 
     let post_data = JSON.stringify(paytmParams);
-    console.log(post_data)
+
     const requestAsync=async()=>{
       return new Promise((resolve,reject)=>{
 

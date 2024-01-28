@@ -64,7 +64,7 @@ handler.post(async (req, res) => {
 
     let verify=await VerifyClientUser(req, res);
      if(verify==undefined){
-     fs.unlink(fileName,(err=>{console.log(err)}))
+     fs.unlink(fileName,(err=>{}))
     return res.status(401).json({ message: "Please login with client account" });
     }
     let id=verify.id;
@@ -77,7 +77,7 @@ if(find==null||find==undefined){
 
 
     if (oldImage==undefined) {
-    fs.unlink(fileName,(err=>{console.log(err)}))
+    fs.unlink(fileName,(err=>{}))
       res.status(400).json({ message: "Please Provide Old Image" });
     }
        
@@ -87,13 +87,13 @@ const ressGetCloud = await cloudinary.uploader.upload(fileName, {
       public_id: oldImage,
     });
     let imageDbUrl = ressGetCloud.url;
-fs.unlink(fileName,(err=>{console.log(err)}))
+fs.unlink(fileName,(err=>{}))
  await ClientData.findByIdAndUpdate(id, { Profile: imageDbUrl });
 return res.status(201).json({ message:"successfully upload profile"});
     
    
   } catch (e) {
-  fs.unlink(fileName,(err=>{console.log(err)}))
+  fs.unlink(fileName,(err=>{}))
     console.log(e);
     res.status(501).json({ message: "Internal Server Error" });
   }

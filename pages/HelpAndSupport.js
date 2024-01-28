@@ -36,7 +36,7 @@ if(document.getElementById("searchss").value=="")
   }
   
   const enable=(searchs)=>{
-  console.log(document.getElementById(searchs).style.display)
+
   if((document.getElementById(searchs).style.display)=="block"){
   document.getElementById(searchs).style.display="none"
   let up=`up${searchs}`

@@ -22,7 +22,7 @@ const [profileImg,setProfileImage]=useState({state:false,url:''});
 
 
 const updateFoodCategories=async(id)=>{
-    console.log('fired')
+  
 let ress=await fetch(`${HOST}/api/ShowFoodCategory`);
 let datas=await ress.json();
 let d=datas.data;

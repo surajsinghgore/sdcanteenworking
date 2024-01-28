@@ -10,7 +10,7 @@ export default async function AddCoffeeCategory(req, res) {
     try {
       DbConnection();
       let verify = await VerifyAdmin(req, res);
-      console.log(req.body);
+  
       if (verify == undefined) {
         return res
           .status(401)

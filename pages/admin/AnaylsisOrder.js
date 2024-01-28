@@ -69,7 +69,7 @@ getData()
 
 
 useEffect(()=>{
-// console.log(allData)
+
 if(allData.totalOrder!=undefined){
 let datasSet=[]
 for(let i=0;i<allData.totalOrder.length;i++){
@@ -150,7 +150,7 @@ else{
 datasSet.push({label:`No`,data:allData.topFoodItemMontWise[0][i].count})
 
 }
-console.log(datasSet)
+
 
 // [1] second year
 

@@ -228,7 +228,7 @@ setProgress(100);
   
 window.Paytm.CheckoutJS.invoke();
 }).catch(function onError(error){
-console.log("error => ",error);
+
 });
 
 

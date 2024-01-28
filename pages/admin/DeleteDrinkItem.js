@@ -16,8 +16,7 @@ let HOST = process.env.NEXT_PUBLIC_API_URL;
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import LoadingBar from "react-top-loading-bar";
-import VerifyAdminLogin from './VerifyAdminLogin';
-
+import VerifyAdminLogin from "./VerifyAdminLogin";
 
 export default function DeleteDrinkItem({ datas }) {
   const [useEffectCall, setUseEffectCall] = useState(false);
@@ -25,7 +24,7 @@ export default function DeleteDrinkItem({ datas }) {
   const [categorySearch, setCategorySearch] = useState("");
   const [data, setData] = useState([]);
 
-const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const [fetchData, setFetchData] = useState([]);
   const [demmyData, setDummyData] = useState([]);
@@ -78,7 +77,7 @@ const [progress, setProgress] = useState(0);
                 draggable: true,
                 progress: undefined,
               });
-              return ;
+              return;
             }
             if (!item.Image) {
               toast.warn("Please Provide Correct Image Of Item", {
@@ -90,9 +89,9 @@ const [progress, setProgress] = useState(0);
                 draggable: true,
                 progress: undefined,
               });
-              return ;
+              return;
             }
- setProgress(40)
+            setProgress(40);
             let res = await fetch(`${HOST}/api/DeleteDrinkItem`, {
               method: "DELETE",
               headers: {
@@ -100,22 +99,21 @@ const [progress, setProgress] = useState(0);
               },
               body: JSON.stringify({
                 _id: item._id,
-               
               }),
             });
- setProgress(100)
-  if (res.status == 401) {
-      toast.error("Please Login With Admin Credentials", {
-        position: "bottom-right",
-        autoClose: 1200,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-      return ;
-      }
+            setProgress(100);
+            if (res.status == 401) {
+              toast.error("Please Login With Admin Credentials", {
+                position: "bottom-right",
+                autoClose: 1200,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
+              return;
+            }
             let data = await res.json();
             if (data.status == "501") {
               toast.error(`${data.message}`, {
@@ -127,7 +125,7 @@ const [progress, setProgress] = useState(0);
                 draggable: true,
                 progress: undefined,
               });
-              return ;
+              return;
             }
 
             if (data.status == "400") {
@@ -140,7 +138,7 @@ const [progress, setProgress] = useState(0);
                 draggable: true,
                 progress: undefined,
               });
-              return ;
+              return;
             }
             if (data.status == "201") {
               toast.success(`Drink Item Successfully Deleted`, {
@@ -166,43 +164,40 @@ const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     async function dataFetch() {
-    
- setProgress(40)
+      setProgress(40);
       let ress = await fetch(`${HOST}/api/ShowDrinkCategory`);
       let datas = await ress.json();
-      
- setProgress(100)
+
+      setProgress(100);
       await setData(datas.data);
     }
     dataFetch();
 
     async function dataCategoryFetch() {
-    
- setProgress(40)
+      setProgress(40);
       let ress = await fetch(`${HOST}/api/ShowDrinkItem`);
       let datas = await ress.json();
-      
- setProgress(100)
+
+      setProgress(100);
       await setFetchData(datas.data);
       await setDummyData(datas.data);
     }
     dataCategoryFetch();
   }, [useEffectCall]);
   return (
-    <div className={Styles.admin}> <LoadingBar
+    <div className={Styles.admin}>
+      {" "}
+      <LoadingBar
         color="rgb(255 82 0)"
         height={3.5}
         waitingTime={400}
         progress={progress}
         transitionTime={100}
-      />  
+      />
       <HeadTag title="Delete Drink Item" />
-<VerifyAdminLogin />
-
-
+      <VerifyAdminLogin />
       {/* left panel bar */}
       <AdminLeftMenu />
-
       {/* right bar */}
       <div className={StyleFood.rightSideBar}>
         <AdminRightInnerHeader title="Delete Drink Item Page" />
@@ -275,33 +270,42 @@ const [progress, setProgress] = useState(0);
                       <li className={ShowStyles.Item_Name}>
                         <p>{item.DrinkName}</p>
                       </li>
-                     <li className={ShowStyles.Item_Price}>
-                            {(item.ItemCost!=undefined) ?
-                            <>
-                            {(item.ItemCost.length==1)?
-                             <>
-                          {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.One}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                             </>:
-                            <>
-     {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.Many}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                            </>
-                            }
-                       
-                      </>
-                      :""}
-                     
+                      <li className={ShowStyles.Item_Price}>
+                        {item.ItemCost != undefined ? (
+                          <>
+                            {item.ItemCost.length == 1 ? (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.One}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            ) : (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.Many}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          ""
+                        )}
                       </li>
                       <li className={ShowStyles.Item_Category}>
                         <p>{item.Category}</p>

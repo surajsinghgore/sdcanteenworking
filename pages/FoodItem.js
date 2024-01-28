@@ -48,7 +48,7 @@ getCategory();
 
 const searchHandle=(e)=>{
 setSearch(e.target.value);
-   console.log(e.target.value)
+
 setSear(true)
 const getCategory=async()=>{
 let ress1 = await fetch(`${HOST}/api/SearchItemsClient?category=foodItems&search=${e.target.value}`);

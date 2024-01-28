@@ -58,14 +58,14 @@ handler.use(upload.single("Profile"));
 
 handler.post(async (req, res) => {
   let fileName = `./public/${req.file.filename}`;
-console.log(fileName)
+
   try {
     DbConnection();
     await VerifyClientUser(req, res);
     let _id = req.cookies.clinetId;
     if (!_id) {
       fs.unlink(fileName, (err) => {
-        console.log(err);
+    
       });
       return res
         .status(401)
@@ -92,9 +92,9 @@ console.log(fileName)
     }
   } catch (e) {
     fs.unlink(fileName, (err) => {
-      console.log(err);
+    
     });
-console.log(e);
+
     
     res.status(501).json({ message: "Internal Server Error", status: "501" });
   }

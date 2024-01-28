@@ -86,7 +86,7 @@ body:JSON.stringify({month,year,status})
 })
 const data=await res.json();setLoader(false)
 
-console.log(data.data)
+
 if(res.status==200){
 setPaymentData(data.data)
 }

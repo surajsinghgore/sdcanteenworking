@@ -33,7 +33,7 @@ if(arr3.length!=0){
 newArray.push(arr3[0])
 }
 
-console.log(newArray,datas)
+
   const data={
 labels:[2024,2023,2022],
 datasets: [{data:[2,6]},{data:[2,6]},{data:[2,6]},{data:[2,6]},{data:[22,63]}],

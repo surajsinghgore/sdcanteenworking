@@ -409,7 +409,6 @@ const [loadingState,setLoadingState]=useState(false);
     }
     if (res.status == 201) {
 
-console.log(datas)
 
       toast.success("Profile Photo Successfully updated", {
         position: "bottom-right",
