@@ -274,14 +274,14 @@ export default function AddItems({ pageStatus }) {
       return;
     }
     let res = await fetch(
-      `${HOST}/api/${
+      `${HOST}/api/AddItems?category=${
         pageStatus == "FoodItem"
-          ? "AddFoodItem"
+          ? "food"
           : pageStatus == "CoffeeItem"
-          ? "AddCoffeeItem"
+          ? "coffee"
           : pageStatus == "DrinkItem"
-          ? "AddDrinkItem"
-          : "AddJuiceItem"
+          ? "drink"
+          : "juice"
       }`,
       {
         method: "POST",
