@@ -107,7 +107,7 @@ if(value == "Online"){
 
 confirmAlert({
         title: "Confirm To Placed Order Using Online Payment ?",
-        message: "Orders can't be canceled once placed",
+        message: "Orders can't be cancelled once placed",
         buttons: [
           {
             label: "Yes",
@@ -257,7 +257,7 @@ InitiatePayment();
     if (value == "COD") {
       confirmAlert({
         title: "Confirm the placed order using COD ?",
-        message: "Orders can't be canceled once placed",
+        message: "Orders can't be cancelled once placed",
         buttons: [
           {
             label: "Yes",

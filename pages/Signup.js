@@ -291,7 +291,7 @@ localStorage.setItem('clientRegistrationEmail',data.data.Email)
 
 <li>
 <h6>Enter Mobile Number <span>*</span></h6>
-<input type="number" name="mobile" placeholder="Enter email id" value={mobile} onChange={(e)=>setMobile(e.target.value)} 
+<input type="number" name="mobile" placeholder="Enter Mobile Number" value={mobile} onChange={(e)=>setMobile(e.target.value)} 
 onWheel={(e) => e.target.blur()}
 required/>
 <GoDeviceMobile className={ClientStyle.icon} />
