@@ -139,7 +139,7 @@ return;
               if (totals <= 0) {
                 emptyCart();
                 toast.warn(
-                  "Tempering Is Not Allowed In Cart,Plese Add Item Again",
+                  "Tempering Is Not Allowed In Cart,Please Add Item Again",
                   {
                     position: "bottom-right",
                     autoClose: 1000,
@@ -182,7 +182,7 @@ return;
 
 const InitiatePayment=async()=>{
 setProgress(20)
-// get token for transcation
+// get token for transaction
          
 
 let ress = await fetch(`${HOST}/api/PreTransaction`, {
@@ -201,9 +201,8 @@ let ress = await fetch(`${HOST}/api/PreTransaction`, {
 
 setProgress(40)
               let TxnToken=await ress.json();
-      
-          
-            
+
+        
 setProgress(60);
 
         var config = {
@@ -216,20 +215,23 @@ setProgress(60);
           "amount":TotalAmount
          },
          "handler": {
-            "notifyMerchant": function(eventName,data){
-              
+          "notifyMerchant": function(eventName,data){
+            console.log("notifyMerchant handler function called");
+            console.log("eventName => ",eventName);
+            console.log("data => ",data);
             } 
           }
         };
 setProgress(80);
 
 window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
-setProgress(100);
-  
-window.Paytm.CheckoutJS.invoke();
-}).catch(function onError(error){
 
-});
+  window.Paytm.CheckoutJS.invoke();
+  }).catch(function onError(error){
+  console.log("error => ",error);
+  });
+
+
 
 
    
