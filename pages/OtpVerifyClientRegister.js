@@ -243,6 +243,7 @@ setTimeout(resendOtps, 300000);
             <h2>
               Otp Successfully send to <span>{email}</span>
             </h2>
+            <form onSubmit={VerifyUser}>
             <li>
               <h6 style={{ top: "-48%" }}>
                 Enter 6 Digit Otp send to Email Id <span>*</span>
@@ -265,10 +266,12 @@ setTimeout(resendOtps, 300000);
      
               Verify User
             </button>}
+</form>
+
             <div className={ClientStyle.path}>
            
               {(resend)? <h4 onClick={resendOtp}>Resend Otp Again 
-              </h4>: <h4 style={{cursor:"text"}}>New Otp request avaible in 5 mintues 
+              </h4>: <h4 style={{cursor:"text"}}>New Otp request available in 5 minutes 
               </h4>}
                
               <h4 style={{ marginLeft: "12%" }}>
