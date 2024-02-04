@@ -18,6 +18,7 @@ setYear(date.getFullYear())
 <li><Link href="/RefundAndCancellation"><a><IoMdArrowDropright />Refund & Cancellation</a></Link></li>
 <li><Link href="/Privacy"><a><IoMdArrowDropright />Privacy Policy</a></Link></li>
 <li><Link href="/OfferTerm"><a><IoMdArrowDropright />Offer Terms</a></Link></li>
+<li><Link href="https://surajsingh.vercel.app"><a><IoMdArrowDropright />Developer</a></Link></li>
     </div>
     {/* menu links */}
 <div className="menu">
