@@ -308,7 +308,11 @@ suggestion.style.display="none"
   return (
     <header>
     <div className="logo" id="Header">
-    <Link href={"/"}><a><Image src={sdLogo} alt="sd logo " height="60px" width="180px" priority  /></a></Link> </div>
+    <Link href={"/"}><a>
+    
+    <Image src={sdLogo} alt="sd logo " layout='fill' priority  />
+    
+    </a></Link> </div>
 
         <div className="search">
         <i> <AiOutlineSearch/></i>
@@ -323,14 +327,10 @@ suggestion.style.display="none"
     <li> <i><MdFoodBank/></i> <span className='heading'><Link href="/OrderNow">Order Now</Link> </span></li>
       <li id="heading"> <i><IoMdArrowDropdown /></i> <span className='heading' >Pages</span></li>
    {(userLogin)? 
-   
-  
-   
-    <li id="user"><i><IoMdArrowDropdown /></i><div style={{marginTop:"10%"}}>
-   
-  
-
-   <Image src={(profileImg.state)? profileImg.url : imgs} alt="profile" height={40} width="40" style={{borderRadius:"60px",marginLeft:"4%"}}  blurDataURL={blurDataUrl1} placeholder="blur" /><span id='heading1' style={{textAlign:"center"}}>Hi , {fullName}</span></div></li> 
+    
+      <li id="user"><i><IoMdArrowDropdown /></i><div>
+   <div className="profileImg">  
+   <Image src={(profileImg.state)? profileImg.url : imgs} alt="profile" layout='fill'  blurDataURL={blurDataUrl1} placeholder="blur" /> </div><span id='heading1' style={{textAlign:"center"}}>Hi, {fullName}</span></div></li> 
    
    
    : 
@@ -338,7 +338,7 @@ suggestion.style.display="none"
 
 
 
-      <li id="login" style={{cursor:'default'}}> <i style={{marginTop:"2%",marginLeft:"18%",fontSize:"28px"}}><BiLogIn/></i><Link href="/ClientLogin" ><span id='heading2' style={{cursor:'pointer'}}>Login</span></Link></li> }
+      <li id="login" > <i ><BiLogIn/></i><Link href="/ClientLogin" ><span id='heading2' >Login</span></Link></li> }
 
 
       
