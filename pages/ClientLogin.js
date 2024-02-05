@@ -239,7 +239,8 @@ router.push("/")
 </div>
 
 <div className={ClientStyle.image}>
-<Image src={LoginImage} alt="login image" height={320} width={300} className={ClientStyle.img} priority="true" />
+<Image src={LoginImage} alt="login image" layout="fill" className={ClientStyle.img} priority="true" />
+{/* <Image src={LoginImage} alt="login image" height={320} width={300} className={ClientStyle.img} priority="true" /> */}
 </div>
 </div>
 

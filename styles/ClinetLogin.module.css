@@ -101,8 +101,128 @@ color: rgb(44, 42, 42);
 
 
 .clientLogin .image{
-width: 40%;
-padding-top: 8%;
-padding-left: 6%;
+    position: relative;
+width: 21%;
+height: 24vw;
+margin-top: 7%;
+margin-left: 4%;
 }
 
+
+
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+
+
+    .clientLogin{
+        width: 100%;
+        height: auto;
+    
+        margin-top: 20vw;
+        padding-bottom: 6%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+   
+        }
+        .clientLogin .form{
+        width: 100%;
+        position: relative;
+        }
+        .clientLogin .form p{
+            clear: both;
+        position: absolute;
+        bottom: 14%;
+        color:red;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 2vw;
+        right: 16%;
+        }
+        .clientLogin .form h3{
+        text-align: center;
+        padding-top: 5%;
+        color: rgb(243, 41, 14);
+        font-size: 4vw;
+        }
+        
+        .clientLogin .form li{
+        margin-left: 5%;
+ 
+        width: 90%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        }
+        
+        .clientLogin .form li h6{
+        position: relative;
+        top: 0;
+        color: rgb(104, 104, 104);
+        left: 10%;
+        margin-bottom: 1%;
+        font-size: 3vw;
+        }
+        .clientLogin .form li .icon{
+        position: absolute;
+        top: 60%;
+        color: rgb(68, 68, 68);
+        right: 13%;
+        font-size: 3vw;
+        }
+        .clientLogin .form li input{
+        width: 80%;
+        font-size: 3vw;
+        padding-left: 2%;
+        border: 1px solid rgb(187, 187, 187);
+        height: auto;
+        margin-left: 10%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        outline: none;
+        }
+       
+        .clientLogin .form button{
+        margin-left: 35%;
+    
+        margin-top: 3%;
+     
+        padding: 1.5% 10% 1.5% 10%;
+        border-radius: 30px;
+    
+        font-size: 3vw;
+ 
+        }
+     
+        .clientLogin .form .path{
+        width: 100%;
+        display: flex;
+        padding-left: 19%;
+        padding-top: 5%;
+        font-size: 2vw;
+        }
+        
+        .clientLogin .form .path h4{
+        margin-right: 29%;
+        cursor: pointer;
+        color: rgb(247, 108, 1);
+        transition: all 0.4s;
+        }
+        
+        .clientLogin .form .path h4:hover{
+        color: rgb(44, 42, 42);
+        }
+        
+        
+        
+        .clientLogin .image{
+            clear: both;
+            position: relative;
+        width: 35%;
+        height: 35vw;
+        margin-top: 7%;
+        margin-left: 30%;
+        }
+        
+        
+        
+}

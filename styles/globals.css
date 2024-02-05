@@ -990,7 +990,7 @@ footer{
   height: auto;
   
   }
-  /* lega */
+  /* legal */
   footer .footer .legal{
   padding-left: 5%;
   width: 33%;
@@ -1020,58 +1020,56 @@ footer{
   footer .footer .menu{
   padding-left: 5%;
   width: 33%;
-  list-style: none;
+
   }
   
   footer .footer .menu h1{
-  margin-top: 15%;
+
   font-size: 4vw;
-  color: white;
-  margin-left: 2%;
-  margin-bottom: 6%;
+ 
   }
   footer .footer .menu li{
-  margin-top: 4%;
-  text-align: left;
+
   font-size: 3.5vw;
-  color: white;
-  margin-bottom: 2%;
+
   }
 
   /* timing */
   footer .footer .timing{
   width: 40%;
-  list-style: none;
+
   }
   footer .footer .timing h1{
   margin-top: 12%;
   font-size: 4vw;
-  color: white;
-  margin-bottom: 4%;
+
   }
   footer .footer .timing li{
-  display: block;
-  margin-top: 2%;
-  text-align: left;
+
   font-size: 3.5vw;
-  color: white;
-  margin-bottom: 2%;
+ 
   }
   
   
   
   footer .copyright{
-  width: 100%;
+
   margin-top: 5%;
-  display: flex;
+
   font-size: 2vw;
-  font-weight: 600;
-  color: white;
+
   }
   footer .copyright hr{
   width: 10%;
 
   }
+  
+
+
+
+
+
+
   
   
   }
