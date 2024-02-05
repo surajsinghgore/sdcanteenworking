@@ -122,7 +122,6 @@ margin-left: 4%;
         padding-bottom: 6%;
         display: flex;
         flex-flow: row wrap;
-        justify-content: flex-start;
    
         }
         .clientLogin .form{
