@@ -156,25 +156,26 @@ margin-left: 4%;
         .clientLogin .form li h6{
         position: relative;
         top: 0;
+        margin-top: 3%;
         color: rgb(104, 104, 104);
-        left: 10%;
-        margin-bottom: 1%;
+        left:4%;
+        margin-bottom: 2%;
         font-size: 3vw;
         }
         .clientLogin .form li .icon{
         position: absolute;
         top: 60%;
         color: rgb(68, 68, 68);
-        right: 13%;
+        right: 8%;
         font-size: 3vw;
         }
         .clientLogin .form li input{
-        width: 80%;
+        width: 92%;
         font-size: 3vw;
         padding-left: 2%;
         border: 1px solid rgb(187, 187, 187);
         height: auto;
-        margin-left: 10%;
+        margin-left: 4%;
         padding-top: 2%;
         padding-bottom: 2%;
         outline: none;
