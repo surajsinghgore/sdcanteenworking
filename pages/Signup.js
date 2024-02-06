@@ -325,11 +325,11 @@ required/>
 <RiLockPasswordLine className={ClientStyle.icon} />
 </li>
 
-{(disbaleBtn)?<button disabled style={{cursor:'not-allowed'}}>Waiting...</button>:<button style={{marginLeft:"35%"}} onClick={sendData}>Create Account</button>}
+{(disbaleBtn)?<button disabled style={{cursor:'not-allowed'}}>Waiting...</button>:<button  onClick={sendData}>Create Account</button>}
 </form>
 <div className={ClientStyle.path}>
 <h4><Link href="/ClientLogin">Already Registered ?</Link></h4>
-<h4 style={{marginLeft:"15%"}}><Link href="/admin">Admin Login </Link></h4>
+<h3><Link href="/admin">Admin Login </Link></h3>
 
 </div>
 </div>
