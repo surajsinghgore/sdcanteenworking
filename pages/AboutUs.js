@@ -47,8 +47,8 @@ export default function AboutUS() {
 
 <div className={about.FullCard}>
 <div className={about.left}>
-<div className={about.imgs}>
-<Image src={food} width={500} height={400} alt="food" />
+<div className={about.FoodImage}>
+<Image src={food} layout="fill" alt="food" />
 </div>
 </div>
 <div className={about.right}>
@@ -66,8 +66,8 @@ It’s a mistake to design a space for students to sit and eat. Students visit f
 
 <div className={about.FullCard1}>
 <div className={about.left}>
-<div className={about.imgs}>
-<Image src={coffee} width={500} height={400} alt="coffee" />
+<div className={about.Nescafe}>
+<Image src={coffee} layout="fill" alt="coffee" />
 </div>
 </div>
 <div className={about.right}>
@@ -80,8 +80,8 @@ By setting up and running a coffee stand, students can actually benefit from han
 
 <div className={about.FullCard}>
 <div className={about.left}>
-<div className={about.imgs}>
-<Image src={juice} width={500} height={400} alt="juice" />
+<div className={about.FoodImage}>
+<Image src={juice} layout="fill" alt="juice" />
 </div>
 </div>
 <div className={about.right}>
@@ -107,7 +107,7 @@ However, there no scientific evidence that extracted juices are healthier than t
 {/* crew section */}
 <div className={about.crew}>
 <div className={about.crewImg}>
-<Image src={crew} alt="creq" width={900} height={500}/>
+<Image src={crew} alt="creq" layout="fill"/>
 </div>
 
 </div>
@@ -176,7 +176,7 @@ Our clients fully satisfied with the service we provide
 </div>
 <div className={about.details}>
 
-Our canteen proccess the order as fast as possible so that our client not have to wait or standing in lines 
+Our canteen process the order as fast as possible so that our client not have to wait or standing in lines 
 </div>
 </div>
 
@@ -199,10 +199,10 @@ we design our website site in that manner so that any technical and non-technica
 <MdOutlineFastfood />
 </div>
 <div className={about.title}>
-<h2>Varoius Item Options</h2>
+<h2>Various Item Options</h2>
 </div>
 <div className={about.details}>
-we offers best and huge options to our clints so that they try something new every time without compromise their taste
+we offers best and huge options to our clients so that they try something new every time without compromise their taste
 </div>
 </div>
 
