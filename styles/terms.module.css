@@ -41,21 +41,28 @@ color: rgb(74, 74, 74);
         }
         
         .term p{
-        margin-top: -1%;
-        font-size: 18px;
-        text-align: left;
-        color: rgb(74, 74, 74);
-        }
+            width: 92%;
+            margin-left: 4%;
         
+        font-size: 3vw;
+        }
+       .term li{
+            width: 92%;
+            margin-left: 1%;
+        
+        font-size: 3vw;  
+        }
+        .term h2{
+            font-size: 4vw;
+       margin-left: 4%;
+        }
         .term h3{
-        font-size: 25px;
-        text-align: left;
-        color: rgb(74, 74, 74);
+            font-size: 4vw;
+       margin-left: 4%;
         }
         
         .term h5{
-        font-size: 20px;
-        text-align: left;
-        color: rgb(74, 74, 74);
+            font-size: 4vw;
+            margin-left: 4%;
         }
 }
