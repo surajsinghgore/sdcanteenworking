@@ -19,10 +19,11 @@ cursor: pointer;
 
 
 .login .left_section .image{
+    position: relative;
 width: 99%;
-height: auto;
-padding-top: 12%;
- box-sizing: content-box;
+height: 70%;
+margin-top: 12%;
+
 }
 
 
@@ -36,10 +37,11 @@ text-align: center;
 }
 
 .login .right_section .image{
+    position: relative;
 margin-top: 15%;
-width:  16%;
+width:  15%;
 margin-left: 43%;
-height: auto;
+height: 17%;
  box-sizing: content-box;
 }
 
@@ -75,8 +77,80 @@ border-radius: 15px;
 
 
 
+@media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
 
-@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
 
 
+    .login{
+        width: 100%;
+        
+        height:auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        }
+        
+        .login .left_section{
+        width: 100%;
+        height: auto;
+        }
+        .login  h6{
+        font-size: 3vw;
+    
+        }
+        
+        
+     
+.login .left_section .image{
+    position: relative;
+width: 100%;
+height: 50vw;
+margin-left: 2%;
+margin-top: 12%;
+
+}
+        
+        
+        /* right */
+        
+        .login .right_section{
+        width: 100%;
+       
+        }
+        
+    
+.login .right_section .image{
+    position: relative;
+margin-top: 4%;
+width:  20%;
+margin-left: 43%;
+height: 19vw;
+ box-sizing: content-box;
+}
+        
+        .login .right_section h1{
+        font-size: 4vw;
+        }
+        
+        
+        .login .right_section input{
+        width: 80%;
+    
+        margin-top: 2%;
+        height: auto;
+        font-size: 3vw;
+        padding: 2.5% 4%;
+  
+        }
+        
+        .login .right_section button{
+        margin-left: 3%;
+        width: 40%;
+        font-size: 3vw;
+        margin-top: 4%;
+        cursor: pointer;
+        color: rgb(56, 56, 56);
+        padding: 2.5% 4%;
+        height: auto;
+        }
 }

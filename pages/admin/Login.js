@@ -132,8 +132,7 @@ localStorage.setItem('adminlogin',"true")
           <Image
             src={loginImage}
             alt="login banner image"
-            width={800}
-            height={550}
+       layout="fill"
             priority="true"
           />
         </div>
@@ -143,8 +142,7 @@ localStorage.setItem('adminlogin',"true")
           <Image
             src={USerProfile}
             alt="login banner image"
-            width={800}
-            height={800}
+            layout="fill"
              priority
           />
         </div>
