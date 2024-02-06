@@ -987,27 +987,27 @@ footer{
   position: relative;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   height: auto;
   
   }
   /* legal */
   footer .footer .legal{
   padding-left: 5%;
-  width: 33%;
+  width: 100%;
   list-style: none;
   }
   footer .footer .legal h1{
-  margin-top: 15%;
+  margin-top: 4%;
   font-size: 4vw;
-  color: white;
   margin-left: 4%;
-  margin-bottom: 6%;
+  margin-bottom: 2%;
   }
   footer .footer .legal li{
   margin-top: 4%;
   text-align: left;
   font-size: 3.5vw;
-  color: white;
+
   margin-bottom: 2%;
   }
  
@@ -1019,14 +1019,15 @@ footer{
   /* menu */
   footer .footer .menu{
   padding-left: 5%;
-  width: 33%;
+  width: 100%;
+
 
   }
   
   footer .footer .menu h1{
-
+margin-top: 4%;
   font-size: 4vw;
- 
+ margin-bottom: 3%;
   }
   footer .footer .menu li{
 
@@ -1036,12 +1037,13 @@ footer{
 
   /* timing */
   footer .footer .timing{
-  width: 40%;
-
+    width: 100%;
+    padding-left: 5%;
   }
   footer .footer .timing h1{
-  margin-top: 12%;
+  margin-top: 4%;
   font-size: 4vw;
+  margin-bottom: 3%;
 
   }
   footer .footer .timing li{
