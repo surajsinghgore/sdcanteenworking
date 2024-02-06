@@ -10,7 +10,7 @@ import { MdOutlineKeyboardArrowUp } from 'react-icons/md';
 
 import { HiOutlineSearch } from 'react-icons/hi';
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 const SearchData=[
 {title:"cancel order",link:"ordercancel"},
 {title:"account recovered",link:"accountrecovered"},

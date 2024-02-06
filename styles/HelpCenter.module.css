@@ -178,3 +178,153 @@ font-size: 15px;
 color: blue;
 cursor: pointer;
 }
+
+
+
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+
+
+    .help{
+        width: 100%;
+        }
+        .help .searchSection{
+        width: 100%;
+  
+        position: relative;
+        }
+        .help .searchSection .suggestions{
+        position: absolute;
+        top: 101%;
+        list-style: none;
+        left: 7%;
+        z-index: 1;
+        
+        height: 30vw;
+        background-color: rgb(255, 255, 255);
+        width: 85%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        }
+        .help .searchSection .suggestions li{
+       
+        font-size: 3vw;
+    
+        }
+      
+        
+        .help .searchSection input{
+        font-size: 3vw;
+        width: 92%;
+     
+        margin-top: 3%;
+        margin-left: 4%;
+   
+        padding: 3% 2% 3% 4%
+        }
+        .help .searchSection .icons{
+        width: 8vw;
+        top: 30%;
+        right: 5%;
+        height: 8vw;
+
+        font-size: 3vw;
+        line-height: 8vw;
+     
+        }
+        .help p{
+       
+        font-size: 3vw;
+        }
+        
+        
+        
+        
+        .articles{
+        width: 100%;
+        display: flexbox;
+        justify-content: center;
+        }
+        .articles h1{
+            font-size: 3vw;
+        
+        }
+        .articles .article{
+        width: 92%;
+        margin-left: 4%;
+        }
+        .articles .article .title{
+        width: 100%;
+        position: relative;
+        font-size: 3vw;
+        padding:2% 2%;
+     
+        }
+        
+        
+        .articles  .article .title1{
+        width: 100%;
+        position: relative;
+        font-size: 20px;
+        padding: 1% 2%;
+        text-transform: uppercase;
+        border: 2px solid rgb(134, 134, 134);
+        border-radius: 10px;
+        font-weight: 600;
+        color: rgb(0, 157, 255);
+        user-select: none;
+        cursor: pointer;
+        box-shadow: 0px 0px 22px rgb(77, 77, 77);
+        }
+        
+        
+        
+        .articles .article .title .sign1, .articles .article .title1 .sign1{
+        
+            top: 15%;
+            right: 2%;
+            width: 5vw;
+  
+            line-height: 5vw;
+            height: 5vw;
+           
+        }
+        .articles .article .title .sign, .articles .article .title1 .sign{
+  
+        top: 15%;
+        right: 2%;
+        width: 5vw;
+    
+      
+        line-height: 5vw;
+        height: 5vw;
+        
+        } 
+     
+        .articles .article .solution h5{
+   
+        font-size: 4vw;
+    
+        }
+        .articles .article .solution h6{
+     
+        font-size: 3.5vw;
+   
+        }
+        .articles .article .solution h3{
+        font-size: 3vw;
+        }
+        .articles .article .solution h4{
+        color: rgb(65, 65, 65);
+        margin-top: 0;
+        width: 95%;
+        padding-left: 5%;
+        font-size: 2.9vw;
+        }
+        .articles .article .solution .link{
+        color: blue;
+        cursor: pointer;
+        }
+        
+
+}

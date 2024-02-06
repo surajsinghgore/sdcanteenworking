@@ -27,3 +27,35 @@ font-size: 20px;
 text-align: left;
 color: rgb(74, 74, 74);
 }
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+
+    .term{
+        width: 100%;
+        margin-left: 0%;
+        margin-top: 25vw;
+        padding-bottom: 3%;
+        }
+        .term h1{
+        font-size: 4vw;
+        }
+        
+        .term p{
+        margin-top: -1%;
+        font-size: 18px;
+        text-align: left;
+        color: rgb(74, 74, 74);
+        }
+        
+        .term h3{
+        font-size: 25px;
+        text-align: left;
+        color: rgb(74, 74, 74);
+        }
+        
+        .term h5{
+        font-size: 20px;
+        text-align: left;
+        color: rgb(74, 74, 74);
+        }
+}
