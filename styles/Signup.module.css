@@ -171,7 +171,7 @@
   .clientLogin .form li h6 {
     position: relative;
     top: 0%;
-    left: 10%;
+    left: 5%;
     color: rgb(104, 104, 104);
     font-size: 3vw;
     margin-top: 0%;
@@ -184,31 +184,33 @@
     position: absolute;
     top: 65%;
     color: rgb(5, 106, 214);
-    right: 15%;
+    right: 9%;
     font-size: 3.5vw;
   }
   .clientLogin .form li input {
-    width: 80%;
+    width: 92%;
     font-size: 3vw;
     padding-left: 1%;
     border: 1px solid rgb(187, 187, 187);
     height: auto;
-    padding: 4%;
-    margin-left: 10%;
+    padding: 3% 4%;
+    margin-left: 4%;
     outline: none;
   }
 
   .clientLogin .form li select {
-    width: 80%;
+    width: 92%;
     font-size: 3vw;
     padding-left: 1%;
+    border: 1px solid rgb(187, 187, 187);
     height: auto;
-    margin-left: 10%;
-    padding: 4%;
+    padding: 3% 4%;
+    margin-left: 4%;
+    outline: none;
   }
 
   .clientLogin .form li select option {
-    width: 80%;
+    width: 100%;
     font-size: 3vw;
     padding-left: 1%;
     padding: 4%;
