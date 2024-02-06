@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Styles from "../styles/admin.module.css";
 import order from "../styles/OrderNow.module.css";
-import Link from 'next/link'
+
 
 import Image from 'next/image'
 let food = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014247/food_jxjsba.png`
@@ -35,14 +35,14 @@ router.push("/JuiceItem")
 
   
     <div className={order.order}>
-    <h1>Try our tasty Items</h1>
+    <h1>TRY OUR TASTY ITEMS</h1>
  
   
   <div className={order.cardSection}>
   
   <div className={order.food} onClick={foodRedirect}>
   <div className={order.imgs}>
-  <Image src={food} alt="food" height="300" width="300" priority="true" />
+  <Image src={food} alt="food" layout="fill" priority="true" />
   </div>
   <h1>Food Items</h1>
   </div>
@@ -50,22 +50,22 @@ router.push("/JuiceItem")
 
   <div className={order.food} onClick={coffeeRedirect}>
   <div className={order.imgs}>
-  <Image src={coffee} alt="food" height="300" width="300"priority="true" />
+  <Image src={coffee} alt="food"  layout="fill" priority="true" />
   </div>
   <h1>Coffee Items</h1>
   </div>
 
 
    <div className={order.food} onClick={juiceRedirect}>
-  <div className={order.imgs} style={{paddingLeft:"5%",paddingTop:"4%",paddingBottom:"5%"}}>
-  <Image src={juice} alt="food" height="270" width="260" priority="true" />
+  <div className={order.imgs} >
+  <Image src={juice} alt="food" layout="fill" priority="true" />
   </div>
   <h1 style={{paddingTop:"1%"}}>Juice Items</h1>
   </div>
 
  <div className={order.food} onClick={drinkRedirect}>
   <div className={order.imgs}>
-  <Image src={drink} alt="food" height="300" width="300" priority="true" />
+  <Image src={drink} alt="food" layout="fill" priority="true" />
   </div>
   <h1>Drink Items</h1>
   </div>
