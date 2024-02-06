@@ -76,8 +76,8 @@ return <div key={item._id}>
 
 {(item.FoodName)? <div className={style.item} onClick={()=>goToSearch(item.FoodName)}>
 <div className={style.card}>
-<div className={style.imags}>
-<Image src={item.Image} alt={item.ImageName} height="200" width="320" />
+<div className={style.FoodImage}>
+<Image src={item.Image} alt={item.ImageName} layout="fill"/>
 </div>
 <div className={style.data}>
 <h1>{item.FoodName}</h1>
@@ -90,8 +90,8 @@ return <div key={item._id}>
 
 {(item.CoffeeName)? <div className={style.item} onClick={()=>goToSearch(item.CoffeeName)}>
 <div className={style.card}>
-<div className={style.imags}>
-<Image src={item.Image} alt={item.ImageName}  height="200" width="320" />
+<div className={style.CoffeeImage}>
+<Image src={item.Image} alt={item.ImageName} layout="fill" />
 </div>
 <div className={style.data}>
 <h1>{item.CoffeeName}</h1>
@@ -105,8 +105,8 @@ return <div key={item._id}>
 
 {(item.DrinkName)? <div className={style.item} onClick={()=>goToSearch(item.DrinkName)}>
 <div className={style.card}>
-<div className={style.imags}>
-<Image src={item.Image} alt={item.ImageName}  height="250" width="320" />
+<div className={style.DrinkImage}>
+<Image src={item.Image} alt={item.ImageName} layout="fill"  />
 </div>
 <div className={style.data}>
 <h1>{item.DrinkName}</h1>
@@ -122,7 +122,7 @@ return <div key={item._id}>
 {(item.JuiceName)? <div className={style.item} onClick={()=>goToSearch(item.JuiceName)}>
 <div className={style.card}>
 <div className={style.imags} style={{marginLeft:"15%"}}>
-<Image src={item.Image} alt={item.ImageName}  height="240" width="250" />
+<Image src={item.Image} alt={item.ImageName} layout="fill"  />
 </div>
 <div className={style.data}>
 <h1>{item.JuiceName}</h1>

@@ -66,7 +66,7 @@ float: left;
 margin-bottom: 5%;
 border-radius: 7px;
 background-color: white;
-margin-left: 4%;
+margin-left: 5%;
 }
 .category .Items .item:hover{
 background-color: rgb(255, 250, 245);
@@ -75,10 +75,22 @@ cursor: pointer;
 
 
 
-.category .Items .item .card .imags{
+.category .Items .item .card .FoodImage{
+    position: relative;
+width: 90%;
+height: 15vw;
 margin-top: 5%;
-margin-left: 6%;
+margin-left: 5%;
 }
+
+.category .Items .item .card .CoffeeImage{
+    position: relative;
+width: 90%;
+height: 18vw;
+margin-top: 5%;
+margin-left: 5%;
+}
+
 .category .Items .item .card .data{
 width: 100%;
 }
@@ -115,5 +127,114 @@ transition: all 0.4s;
 .category .Items .item .card .data button:hover{
 background-color: rgb(246, 127, 127);
 color: rgb(0, 0, 0);
+
+}
+
+
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+    .category{
+       
+        margin-top: 20vw;
+        height: auto;
+        }
+        
+        .category h3{
+        font-size: 1vw;
+        color: red;
+        padding-top: 2%;
+        padding-left: 5%;
+        }
+        
+        
+        .category .banner{
+            width: 100%;
+            position: relative;
+            height: auto;
+        }
+        .category .banner .BannerImage{
+        
+            position: relative;
+            width: 100%;
+            height: 40vw;
+        }
+        .category .banner h1{
+    
+        top:45%;
+        font-size: 6vw;
+    
+     
+        } 
+        .category .banner .divs{
+        
+        top: 42%;
+        font-size: 4vw;
+  
+        }
+        
+        
+        .category .Its{
+        background-color: white;
+        padding-bottom: 20px;
+        }
+        .category .Items{
+        margin-bottom: 6%;
+        width: 100%;
+        background-color: white;
+    
+        height: auto;
+        position: relative;
+        }
+        .category .Items .item{
+        border: 1px solid rgb(195, 195, 195);
+        width: 80%;
+        height: auto;
+        float: left;
+        margin-left: 10%    ;
+        margin-bottom: 5%;
+        border-radius: 7px;
+        background-color: white;
+        }
+      
+        
+       
+
+.category .Items .item .card .FoodImage{
+
+height: 35vw;
+
+}
+
+.category .Items .item .card .CoffeeImage{
+
+height: 48vw;
+
+}
+
+       
+        .category .Items .item .card .data h1{
+      
+        font-size: 5vw;
+        }
+        .category .Items .item .card .data h6{
+     
+        font-size: 3vw;
+
+        }
+        .category .Items .item .card .data h4{
+            font-size: 3vw;
+
+        }
+        .category .Items .item .card .data button{
+        margin-left: 10%;
+        margin-bottom: 9%;
+        width: 80%;
+        height: auto;
+  padding: 2% 0%;
+        font-size: 4vw;
+       
+        }
+    
+        
 
 }
