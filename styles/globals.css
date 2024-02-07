@@ -628,7 +628,7 @@ position: relative;
 
 
 
-.cookingMain .cookingsection h6{
+.cookingMain .cookingSection h6{
 position: absolute;
 bottom: -40%;
 left: 15%;
@@ -637,7 +637,7 @@ color: rgb(244, 111, 87);
 z-index: 99;  
 text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
-.cookingMain .cookingsection button{
+.cookingMain .cookingSection button{
 
 width: 30px;
 color: rgb(251, 31, 31);
@@ -645,28 +645,25 @@ padding-right: 9%;
 font-size: 25px;
 border-top-right-radius: 40px;
 border: none;
+z-index: 2;
 height: 30px;
 position: absolute;
 top: 0;
 cursor: pointer;
 right: 0;
 }
-.cookingMain .cookingsection .cookImage{
-width: 100px;
+.cookingMain .cookingSection .cookImage{
+  position: relative;
+width: 80%;
+height: 5vw;
+z-index: 1;
 border-radius: 20px;
-margin-left: 25%;
-height: 20px;
+margin-left: 12%;
+margin-top: 5%;
 }
 
-.cookingMain .cookingsection .cookImage >div{
-position: unset !important;
-}
-.image{
-object-fit: contain;
-width: 100% !important;
-position: relative !important;
-height: unset !important;
-}
+
+
 
 
 
@@ -1181,4 +1178,54 @@ margin-top: 8vw;
 display: none;
 }
 
+
+
+
+/* cooking image section */
+
+/* cooking image section */
+
+.cookingMain{
+  
+  width: 33vw;
+  height: 18vw;
+
+  overflow: hidden;
+  }
+
+  
+  
+  
+  .cookingMain .cookingSection h6{
+
+  bottom: -32%;
+  left: 20%;
+  font-size: 3vw;
+ 
+  }
+  .cookingMain .cookingSection button{
+  
+  width: 30px;
+  
+  padding-right: 9%;
+  font-size: 4vw;
+
+  z-index: 2;
+  height: auto;
+  position: absolute;
+  top: 0;
+
+  right: 0;
+  }
+  .cookingMain .cookingSection .cookImage{
+
+  width: 90%;
+  height: 20vw;
+
+  margin-left: 2%;
+  margin-top: 0%;
+ 
+  }
+  
+  
   }

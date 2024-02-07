@@ -148,11 +148,11 @@ setOrderView(true)
  
  {(orderView)?
    <div className='cookingMain' id="cooking">
-  <div className='cookingsection'>
+  <div className='cookingSection'>
    <Link href="/OrderComplete"><a><h6>Order Cooking</h6></a></Link>
     <button title='Hide' onClick={()=>hide()}>x</button>
      <Link href="/OrderComplete"><a> <div className="cookImage">
-    <Image src={cooking} width={150} height={139} alt="cooking image" priority="true"/>
+    <Image src={cooking} layout='fill' alt="cooking image" priority="true"/>
     </div></a></Link>
         </div>
     </div>
