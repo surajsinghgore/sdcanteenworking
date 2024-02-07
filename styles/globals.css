@@ -575,37 +575,22 @@ padding-left: 0.5%;
 }
 /* loader */
 
-.b{
+.loader_Container{
 width: 100%;
 height: 100%;
 position: fixed;
 z-index: 999;
 overflow: hidden;
-background-color: #fff;
-}
-.bg{
-margin-top: 10%;
-width: 50%;
-margin-left: 25%;
-height: 50%;
-position: fixed;
-z-index: 999;
+display: flex;
+justify-content: center;
 background-color: #fff;
 }
 
-.bg .loader{
-width: 100%;
+.loader_Container .loader{
+  position: relative;
+  width: 30vw;
+  height: 40vw;
 }
-.bg .loader >div{
-position: unset !important;
-}
-.image{
-object-fit: contain;
-width: 100% !important;
-position: relative !important;
-height: unset !important;
-}
-
 
 
 /* cooking image section */
@@ -1225,6 +1210,26 @@ display: none;
   margin-left: 2%;
   margin-top: 0%;
  
+  }
+  /* loader */
+/* loader */
+
+.loader_Container{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  }
+  
+  .loader_Container .loader{
+    position: relative;
+    width: 80vw;
+    margin-top: 17vh;
+    height: 100vw;
   }
   
   
