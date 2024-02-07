@@ -118,7 +118,7 @@ fetchData();
    <Header />
 
 
-<Banner BannerImage={banner} Height={500} Width={1350}
+<Banner BannerImage={banner} 
 CurrentPageUrl="/FoodItem" CurrentPage="Food Item" SubPage="Item" />
    </div>
    <div className={Style.main_food}>
