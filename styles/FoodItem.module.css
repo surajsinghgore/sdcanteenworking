@@ -18,7 +18,7 @@ height: 30vw;
     position: relative;
 }
 
-
+/* food item banner */
 .Status .path{
 position: absolute;
 top: 0;
@@ -426,6 +426,80 @@ font-size: 20px;}
 
 
 @media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+    .Status{
+    
+        margin-top: 20vw;
+        }
+        .Status .banner{
+      
+        height: 40vw;
+        }
+        
+        
+        
+     
+        
+        /* food item banner */
+      
+        
+        .Status .path h1{
+        padding-top: 10%;
+        font-size: 4vw;
 
+        padding-right: 24%;
+       
+        }
+        .Status .path p{
+        margin-top: 0%;
+        font-size: 4vw;
+    
+        padding-right: 8%;
+   
+        }
+     
+        
+        
+        /* contact page banner */
+        
+      
+            
+            .Status .pathContact h1{
+            padding-top:14%;
+            font-size: 4vw;
+       
+            padding-left: 22%;
+          
+            }
+            .Status .pathContact p{
+            margin-top: 2%;
+            font-size: 4vw;
+           
+            padding-left: 4%;
+     
+            }
+            
+        
+        
+        
+        /* coffee,juice,drink page banner */
+        
+     
+            
+            .Status .pathCoffee h1{
+            padding-top: 12%;
+            font-size: 4vw;
+         
+            padding-right: 16%;
+       
+            }
+            .Status .pathCoffee p{
+            margin-top: 2%;
+            font-size: 4vw;
+     
+            padding-right: 1%;
+            
+            }
+            
+        
 
 }
