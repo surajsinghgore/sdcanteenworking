@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import home from "../styles/Home.module.css";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 import ItemSkeleton from './ItemSkeleton';
+import Image from "next/image";
 
 
 const TopFoodItems = () => {
@@ -58,12 +59,11 @@ useEffect(() => {
                     <Link href={`/${items.FoodName}`}>
                       <a>
                         <div>
-                          <div className={home.img}>
-                            <img
+                          <div className={home.imgMain}>
+                            <Image
                               src={items.Image}
                               alt={items.ImageName}
-                              height={260}
-                              width={380}
+                          layout='fill'
                               priority
                             />
                           </div>
@@ -99,15 +99,15 @@ useEffect(() => {
                     <Link href={`/${items.FoodName}`}>
                       <a>
                         <div>
-                          <div className={home.img}>
-                            <img
+                        <div className={home.imgMain}>
+                            <Image
                               src={items.Image}
                               alt={items.ImageName}
-                              height={260}
-                              width={380}
+                          layout='fill'
                               priority
                             />
                           </div>
+                        
                           <div className={home.data}>
                             <h4>{items.FoodName}</h4>
                             <p>{items.Description.substring(0, 220)}</p>

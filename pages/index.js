@@ -77,12 +77,11 @@ const Home = () => {
       {/* payment accept design */}
       <div className={home.payment}>
         <div className={home.icons}>
-          <div className={home.img}>
+          <div className={home.imgPayment}>
             <Image
               src={p2}
               alt="accept"
-              height={260}
-              width={380}
+             layout='fill'
               blurDataURL={blurDataUrl14}
               placeholder="blur"
               priority
@@ -90,13 +89,13 @@ const Home = () => {
           </div>
         </div>
         <div className={home.titles}>We Accept Online Payment</div>
-        <div className={home.accecpt}>
+        <div className={home.accept}>
           <div className={home.img}>
             <Image
               src={p1}
               alt="accept"
-              height={260}
-              width={380}
+              layout='fill'
+        
               blurDataURL={blurDataUrl13}
               placeholder="blur"
               priority
@@ -105,7 +104,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* bottom crousel */}
+      {/* bottom swiper */}
       <div className={home.bottomSwiper}>
         <Swiper
           slidesPerView={3}
@@ -115,7 +114,7 @@ const Home = () => {
             disableOnInteraction: false,
           }}
           modules={[Autoplay]}
-          className="mySwiper"
+          className={home.mySwiper2}
         >
           <SwiperSlide>
             <div className={home.BottomInner}>
