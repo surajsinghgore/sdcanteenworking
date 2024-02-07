@@ -136,8 +136,8 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <GoLocation className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
-<p>ggdsd sector 32-C chandigarh
-</p>
+<h3>ggdsd sector 32-C chandigarh
+</h3>
 </div>
 </li>
 
@@ -150,7 +150,7 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <FiPhoneCall className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
-<p style={{marginTop:"15%"}}>+0172 491 2400
+<p>+0172 491 2400
 </p>
 </div>
 </li>
@@ -162,7 +162,7 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <HiOutlineMailOpen className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
-<p style={{marginTop:"15%"}}>info@ggdsd.ac.in
+<p >info@ggdsd.ac.in
 </p>
 </div>
 </li>
@@ -175,7 +175,7 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <FaFax className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
-<p style={{marginTop:"15%"}}>+91-172-2661077
+<p >+91-172-2661077
 </p>
 </div>
 </li>
@@ -199,7 +199,7 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 
 <input type="number" name="number" placeholder="Mobile Number" className={ContactStyle.Number} value={userMobile} onChange={(e)=>setUserMobile(e.target.value)} readOnly/>
 
-<textarea name="meesage" className={ContactStyle.Message} placeholder="Your Message" value={userMessage} onChange={(e)=>setUserMessage(e.target.value)}></textarea>
+<textarea name="message" className={ContactStyle.Message} placeholder="Your Message" value={userMessage} onChange={(e)=>setUserMessage(e.target.value)}></textarea>
 <button type="submit" disabled={state.submitting}>SUBMIT NOW</button>
 </form>
 </div>

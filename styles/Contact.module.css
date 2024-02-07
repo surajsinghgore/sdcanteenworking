@@ -43,7 +43,16 @@ width: 70%;
 }
 .contactIcons li .deatils p{
 width: 98%;
-padding-top: 3%;
+padding-top: 13%;
+margin-left: 1%;
+color: rgb(69, 68, 68);
+font-weight: 700;
+font-size: 20px;
+text-transform: capitalize;
+}
+.contactIcons li .deatils h3{
+width: 98%;
+padding-top: 8%;
 margin-left: 1%;
 color: rgb(69, 68, 68);
 font-weight: 700;
@@ -218,5 +227,170 @@ border: 1px solid rgb(251, 89, 1);
 
 
 @media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+  .contactIcons{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+    .contactIcons li{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    margin-top: 0%;
+    padding-left: 5%;
+    padding-bottom: 0%;
+    }
+    
+    .contactIcons li .Icon{
+    width: 30%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    margin-top: 10%;
+    }
+    .contactIcons li .Icon .Div{
+      position: relative;
+      width: 14vw;
+      height: 12vw;
+      margin-left: 35%;
+      margin-top: -5%;
+    }
+    
+    .contactIcons li .icons{
+     
  
+      left: 52%;
+    font-size: 4.5vw;
+
+    }
+    
+    
+    .contactIcons li .deatils{
+    width: 70%;
+    }
+    .contactIcons li .deatils p{
+     
+      padding-top: 12%;
+
+      font-size: 3.4vw;
+
+      }
+      .contactIcons li .deatils h3{
+     
+      padding-top: 12%;
+
+      font-size: 3.4vw;
+
+      }
+    
+    .curli_line{
+     
+    height: 8vw;
+    margin-top: 5%;
+ 
+    
+    }
+    
+    .form{
+    margin-top: 5%;
+    width: 90%;
+
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+    }
+    
+    .form .left{
+    width: 100%;
+    }
+    
+    .form .left iframe{
+
+    height: auto;
+
+    }
+    
+    
+    .form .right{
+    width: 100%;
+    }
+    .form .right h3{
+    padding-left: 0%;
+    font-size: 4vw;
+    text-align: center;
+    }
+    .form .right h2{
+   
+    padding-left: 4%;
+    margin-top: 1%;
+    font-size: 4vw;
+    }
+    .form .right p{
+  
+    margin-top: 1%;
+ 
+    padding-left: 4%;
+    font-size: 3.2vw;
+    }
+    
+    .form .right form{
+    width: 98%;
+    margin-left: 4%;
+    }
+    .form .right form .Names{
+ 
+    width: 93%;
+    height: auto;
+  
+ 
+    font-size: 4vw;
+ padding: 4% 3%;
+    }
+    .form .right form .Email{
+      width: 93%;
+      height: auto;
+    
+   
+      font-size: 4vw;
+   padding: 4% 3%;
+    }
+   
+    
+  
+    
+    .form .right form .Number{
+      width: 93%;
+      height: auto;
+    
+   
+      font-size: 4vw;
+   padding: 4% 3%;
+    
+    }
+    
+    .form .right form .Message{
+      width: 93%;
+      height: 30vw;
+    
+   
+      font-size: 4vw;
+   padding: 4% 3%;
+    }
+  
+    
+
+    .form .right form button {
+        width: auto;
+        font-size: 3vw;
+        
+        
+        height: auto;
+margin-left: 30%;
+
+      
+    }
+    
 }
