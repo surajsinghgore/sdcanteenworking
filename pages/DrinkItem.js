@@ -126,8 +126,8 @@ fetchData();
 
 
 
-<Banner BannerImage={banner} Height={500} Width={1350} 
-CurrentPageUrl="/DrinkItem" CurrentPage="Drink Item" SubPage="Item" H1Style={{paddingRight:"20%"}} PStyle={{paddingRight:"16%"}}/>
+<Banner BannerImage={banner} 
+CurrentPageUrl="/DrinkItem" CurrentPage="Drink Item" SubPage="Item"/>
    </div>
    <div className={Style.main_food}>
    {/* left */}

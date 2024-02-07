@@ -124,7 +124,7 @@ getData();
      <HeadTag title="Contact Us" />
    <Header />
 <Banner BannerImage={banner} 
-CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" H1Style={{paddingRight:"75%",marginTop:"0%"}} PStyle={{paddingRight:"71%"}}/>
+CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
  </div>
 <div className={ContactStyle.contactIcons}>
 <li>
