@@ -107,7 +107,7 @@ However, there no scientific evidence that extracted juices are healthier than t
 {/* crew section */}
 <div className={about.crew}>
 <div className={about.crewImg}>
-<Image src={crew} alt="creq" layout="fill"/>
+<Image src={crew} alt="crew" layout="fill"/>
 </div>
 
 </div>

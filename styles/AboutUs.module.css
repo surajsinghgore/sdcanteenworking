@@ -211,15 +211,15 @@ width: 80%;
 
 @media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
   .aboutUs{
-   
+  
     margin-top: 20vw;
     }
     
     
     
     .aboutUs .banner{
-
-    height: 45vw;
+   
+    height: 35vw;
 
     }
   
@@ -228,128 +228,141 @@ width: 80%;
     .aboutUs .heading{
     position: absolute;
     top: 30%;
- 
-    right: 27%;
+    right:35%;
     }
     .aboutUs .heading .title{
-width: 100%;
-margin-left: 15%;
+      padding-left: 10%;
+    
     font-size: 6vw;
-
-  }
+   
+    }
     .aboutUs .heading .path{
-    font-size: 5vw;
-  
+    font-size: 4vw;
+
     padding-left: 0%;
- 
+    
     }
   
     
     
     
-    
-   
+    .aboutUs .provide{
+ 
+    padding-bottom: 5%;
+  
+    }
     .aboutUs .provide h1{
-    padding-top: 3%;
-    width: 100%;
-    margin-top: 0;
-    text-align: center;
+    padding-top: 5%;
+
+    font-size: 4.5vw;
+  
     }
     .aboutUs .provide p{
-    margin-bottom: 5%;
-    text-align: center;
+    font-size: 3.5vw;
+
     }
     .aboutUs .provide .cards{
-    display: flex;
+
+    flex-wrap: wrap;
     }
     .aboutUs .provide .cards .card{
-    margin-left: 3%;
-    margin-bottom: 2%;
-    width: 400px;
-    overflow: hidden;
-    height: auto;
+    margin-left: 4%;
+    margin-bottom: 0%;
+    width: 92%;
+ 
     }
     .aboutUs .provide .cards .card .icons{
-    width: 100%;
-    font-size: 40px;
-    padding-top: 5%;
-    color: #10b7e6;
-    padding-left: 10%;
+
+    font-size: 5vw;
+ margin-bottom: 0%;
     }
     .aboutUs .provide .cards .card .title{
-    margin-top: 2%;
-    font-size: 13px;
-    color: #036783;
-    padding-left: 10%;
+    margin-top: 0%;
+    font-size: 3vw;
     }
     .aboutUs .provide .cards .card .details{
-    width: 90%;
-    margin-top: 2%;
-    font-size: 16px;
-    padding-bottom: 2%;
-    padding-left: 10%;
-    color: #3e3e3e;
+
+   
+    font-size: 3.2vw;
+  
     
     }
     
-    
-    .aboutUs .crew{
-    width: 100%;
-    height: auto;
-    margin-top: 4%;
-    }
+  
     .aboutUs .crew .crewImg{
-    margin-left: 20%;
-    width: 60%;
+     
+    margin-left:10%;
+    width: 80%;
+    height: 45vw;
     }
     .aboutUs .canteenSection{
-    background-color: rgb(251, 251, 251);
-    width: 100%;
-    height: auto;
-    margin-top: -2%;
-    padding-bottom: 7%;
+
+    margin-top: 0;  
+    padding-bottom: 0;
     }
     .aboutUs .canteenSection h1{
-    text-align: center;
-    font-size:35px;
-    padding-top: 3%;
+
+    font-size: 6vw;
+    
     
     }
     .aboutUs .canteenSection .FullCard{
     width: 100%;
-    display: flex;
-    height: auto;
-    margin-top:6%;
+   
+    flex-wrap: wrap;
+   
+    margin-top:1%;
     }
     .aboutUs .canteenSection .FullCard .left{
-    width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     }
     .aboutUs .canteenSection .FullCard .left .imgs{
-    width: 70%;
-    margin-left: 15%;
+    width: 40%;
+    margin-left: 0%;
+    }
+    .aboutUs .canteenSection .FullCard .left .FoodImage{
+      position: relative;
+    width: 40%;
+    height: 30vw;
+    margin-left: 0%;
+    }
+
+
+
+    .aboutUs .canteenSection .FullCard1 .left .Nescafe{
+      position: relative;
+    width: 40%;
+    height: 30vw;
     }
     
     
     .aboutUs .canteenSection .FullCard .right{
     width: 50%;
     }
+
+
+
     .aboutUs .canteenSection .FullCard .right h1{
-    font-size: 20px;
-    text-align: left;
-    text-transform: uppercase;
+    font-size: 4vw;
+    width: 100vw;
+    margin-left: 0%;
+    text-align: center;
+ 
     }
     
     
     
     .aboutUs .canteenSection .FullCard .right p{
-    
-    width: 80%;
-    }
+    padding-left: 4vw;
+    width: 96vw;
+font-size: 3.5vw;
+  }
     
     .aboutUs .canteenSection .FullCard .right p::first-letter {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: rgb(233, 0, 113);
+        font-size: 4.5vw;
+     
     }
     
     
@@ -359,41 +372,41 @@ margin-left: 15%;
     width: 100%;
     display: flex;
     height: auto;
+  
     margin-top:3%;  
-      flex-direction: row-reverse;
+      flex-direction:row;
+      flex-wrap: wrap;
     }
     .aboutUs .canteenSection .FullCard1 .left{
-    width: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
-    .aboutUs .canteenSection .FullCard1 .left .imgs{
-    width: 70%;
-    margin-right: 15%;
-    }
-    
+
+ 
     
     .aboutUs .canteenSection .FullCard1 .right{
     width: 50%;
-    padding-left: 8%;
+    padding-left: 0%;
     }
     .aboutUs .canteenSection .FullCard1 .right h1{
-    font-size: 20px;
-    text-align: left;
-    text-transform: uppercase;
+      font-size: 4vw;
+      width: 100vw;
+      margin-left: 0%;
+      text-align: center;
     }
     
     
     
     .aboutUs .canteenSection .FullCard1 .right p{
-    
-    width: 80%;
+      padding-left: 4vw;
+      width: 96vw;
+  font-size: 3.5vw;
     }
     
     .aboutUs .canteenSection .FullCard1 .right p::first-letter {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: rgb(233, 0, 113);
+      font-size: 4.5vw;
     }
     
     
-
 }
