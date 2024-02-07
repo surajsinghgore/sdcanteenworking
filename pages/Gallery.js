@@ -47,7 +47,7 @@ setStart(number-1)
  
  </div>
  <div className={gallery.imgs}>
- <Image src={item.ImagePath} alt="img1" height={200} width={400} priority="true"/>
+ <Image src={item.ImagePath} alt="img1" layout="fill" priority="true"/>
  </div>
  <div className={gallery.data}>
 {item.title}
@@ -62,7 +62,7 @@ setStart(number-1)
 
  </div>
  </div>
-
+{/* full screen */}
 {(fs)? 
 <div className={gallery.full}>
 <div className={gallery.blur}>

@@ -33,3 +33,47 @@
   width: 80%;
   margin-left: 4%;
 }
+
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+  .Main {
+    margin-top: 2%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: wrap;
+  }
+   .heading{
+      margin-top: 2%;
+      width: 92%;
+      height: 10vw;
+      margin-left: 4%;
+  }
+  
+  .Main .card {
+      margin-bottom: 4%;
+    width: 92%;
+    height: auto;
+    margin-left: 4%;
+  }
+  
+  .Main .card .ImagePad {
+    height: 48vw;
+    width: 100%;
+  }
+  .Main .card .Title {
+    height: 8vw;
+    width: 80%;
+    margin-left: 10%;
+  }
+  .Main .card .desc {
+    height: 4vw;
+    width: 92%;
+    margin-left: 4%;
+  }
+
+  .Main .card .data{
+overflow: hidden;
+height: 33vw;
+  }
+}
