@@ -8,7 +8,6 @@ import style from "../styles/SearchBar.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
-let ImagePath = process.env.NEXT_PUBLIC_IMAGESPACEPATH;
 
 import { IoMdShareAlt } from "react-icons/io";
 import {
@@ -1237,15 +1236,16 @@ export default function OrderItem() {
         <>
           <div className={style.topSection}>
             <div className={style.left}>
+            <div className={style.mainImage}>
+
+        
               <Image
                 src={data[0].Image}
                 alt={data[0].ImageName}
-                width={"480px"}
-                height={"400px"}
-                objectFit="cover"
+                layout="fill"
                 priority="true"
               />
-            </div>
+            </div>    </div>
             <div className={style.right}>
               <h1>
                 {data[0].FoodName ||
@@ -1271,7 +1271,7 @@ export default function OrderItem() {
                         title="See This Food Item ::"
                         separator=""
                       >
-                        <WhatsappIcon round={true} size="40"></WhatsappIcon>
+                        <WhatsappIcon round={true} size="40"  className={style.Icons}></WhatsappIcon>
                       </WhatsappShareButton>
                     </span>
                   </li>
@@ -1283,7 +1283,7 @@ export default function OrderItem() {
                         hashtag="See This Food Item ::"
                         quote="sd canteen"
                       >
-                        <FacebookIcon round={true} size="40"></FacebookIcon>
+                        <FacebookIcon round={true} size="40" className={style.Icons}></FacebookIcon>
                       </FacebookShareButton>
                     </span>
                   </li>
@@ -1296,7 +1296,7 @@ export default function OrderItem() {
                         title="See This Food Item ::"
                         via="sd canteen"
                       >
-                        <TwitterIcon round={true} size="40"></TwitterIcon>
+                        <TwitterIcon round={true} size="40" className={style.Icons}></TwitterIcon>
                       </TwitterShareButton>
                     </span>
                   </li>
@@ -1309,7 +1309,7 @@ export default function OrderItem() {
                         summary="eat food from sd canteen website"
                         source="sdcanteen"
                       >
-                        <LinkedinIcon round={true} size="40"></LinkedinIcon>
+                        <LinkedinIcon round={true} size="40" className={style.Icons}></LinkedinIcon>
                       </LinkedinShareButton>
                     </span>
                   </li>
@@ -1320,7 +1320,7 @@ export default function OrderItem() {
                         url={fullAddress}
                         title="See This Food Item ::"
                       >
-                        <TelegramIcon round={true} size="40"></TelegramIcon>
+                        <TelegramIcon round={true} size="40" className={style.Icons}></TelegramIcon>
                       </TelegramShareButton>
                     </span>
                   </li>
@@ -1332,10 +1332,12 @@ export default function OrderItem() {
                         media={fullAddress}
                         description="sd canten food "
                       >
-                        <PinterestIcon round={true} size="40"></PinterestIcon>
+                        <PinterestIcon round={true} size="40" className={style.Icons}></PinterestIcon>
                       </PinterestShareButton>
                     </span>
                   </li>
+
+                
                 </div>
               ) : (
                 ""
@@ -1348,6 +1350,7 @@ export default function OrderItem() {
                     readonly="true"
                     className={style.startIcon}
                     allowFraction
+                
                   />
 
                   <h5>({revLen} Customer Review)</h5>
@@ -1531,7 +1534,7 @@ export default function OrderItem() {
                 </div>
               </div>
 
-              {/* realreviews Corner */}
+              {/* real reviews Corner */}
               <div className={style.reviewsSectionField}>
                 <div className={style.childs}>
                   {ratingData[0] != undefined ? (
