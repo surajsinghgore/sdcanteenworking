@@ -62,7 +62,7 @@ const Home = () => {
         <HeadTag title="Home" />
         <Header />
 
-        {/* crousel */}
+        {/* Carousel */}
         <Carousel />
       </div>
 
@@ -296,20 +296,6 @@ const Home = () => {
 
 
 
-// export const getStaticProps = async () => {
-//   const res =  await fetch(`${HOST}/api/HomePageAnaylsis`)
-// let HomeData = await res.json();
-//   if (!HomeData) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: { HomeData }, // will be passed to the page component as props
-//   }
-  
-// }
 
 export default Home;
 
