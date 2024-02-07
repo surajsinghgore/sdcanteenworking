@@ -1147,5 +1147,38 @@ margin-top: 4%;
 
 
   
-  
+/* gallery swiper btn */
+/* swiper customized */
+
+#mySwiper1 .swiper-button-next {
+ 
+
+  height: 10vw;
+  width: 10vw;
+margin-top: 8vw;
+
+}
+
+
+
+
+#mySwiper1 .swiper-button-prev {
+
+margin-top: 8vw;
+  height: 10vw;
+  width: 10vw;
+
+
+
+}
+
+#mySwiper1 .swiper-button-prev:after,
+#mySwiper1 .swiper-button-next:after {
+  font-size:  6vw;
+}
+#mySwiper1 .swiper-pagination{
+
+display: none;
+}
+
   }

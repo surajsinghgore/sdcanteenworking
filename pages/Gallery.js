@@ -87,7 +87,7 @@ x
         navigation={true}
         modules={[Pagination, Navigation,Autoplay]}
          id="mySwiper1"
-  
+
       >
 {GalleryData.map((item,index)=>{
 return <SwiperSlide key={index}>
