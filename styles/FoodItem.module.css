@@ -238,13 +238,36 @@
 .main_food .right .cards .card:hover {
   box-shadow: 0px 0px 12px 3px rgb(222, 222, 222);
 }
-.main_food .right .cards .card .Img {
-  width: 97%;
-  padding-top: 3%;
-  height: auto;
-  cursor: pointer;
-  padding-left: 3%;
+.main_food .right .cards .card .FoodImg {
+  position: relative;
+  width: 96%;
+  margin-top: 2%;
+  margin-left: 2%;
+  height: 15vw;
 }
+.main_food .right .cards .card .CoffeeImg {
+  position: relative;
+  width: 96%;
+  margin-top: 2%;
+  margin-left: 2%;
+  height: 17vw;
+}
+.main_food .right .cards .card .JuiceImg{
+    position: relative;
+    width: 96%;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 19vw;
+}
+.main_food .right .cards .card .DrinkImg{
+    position: relative;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    height: 16vw;
+}
+
 .main_food .right .cards .card .deatils {
   width: 100%;
   height: auto;
@@ -535,12 +558,37 @@
     margin-left: 4%;
   }
 
-  .main_food .right .cards .card .Img {
+  .main_food .right .cards .card .FoodImg {
+    position: relative;
     width: 96%;
-    padding-top: 3%;
-
-    padding-left: 3%;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 45vw;
   }
+
+  .main_food .right .cards .card .CoffeeImg {
+    position: relative;
+    width: 96%;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 60vw;
+  }
+
+  .main_food .right .cards .card .JuiceImg{
+    position: relative;
+    width: 96%;
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 69vw;
+}
+.main_food .right .cards .card .DrinkImg{
+    position: relative;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    height: 66vw;
+}
   .main_food .right .cards .card .deatils h1 {
     font-size: 5vw;
   }
