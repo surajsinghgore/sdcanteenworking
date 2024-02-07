@@ -130,7 +130,9 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <li>
 <div className={ContactStyle.Icon}>
 <div className={ContactStyle.Div}>
-<Image src={shape} alt="shape" height={75} width={80}/></div>
+<div className={ContactStyle.StyleImg}>
+<Image src={shape} alt="shape" layout="fill"/></div>
+</div>
 <GoLocation className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
@@ -143,7 +145,8 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <li>
 <div className={ContactStyle.Icon}>
 <div className={ContactStyle.Div}>
-<Image src={shape} alt="shape" height={75} width={80}/></div>
+<div className={ContactStyle.StyleImg}>
+<Image src={shape} alt="shape" layout="fill"/></div></div>
 <FiPhoneCall className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
@@ -154,7 +157,8 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <li>
 <div className={ContactStyle.Icon}>
 <div className={ContactStyle.Div}>
-<Image src={shape} alt="shape" height={75} width={80}/></div>
+<div className={ContactStyle.StyleImg}>
+<Image src={shape} alt="shape" layout="fill"/></div></div>
 <HiOutlineMailOpen className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
@@ -166,7 +170,8 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 <li>
 <div className={ContactStyle.Icon}>
 <div className={ContactStyle.Div}>
-<Image src={shape} alt="shape" height={75} width={80}/></div>
+<div className={ContactStyle.StyleImg}>
+<Image src={shape} alt="shape" layout="fill"/></div></div>
 <FaFax className={ContactStyle.icons}/>
 </div>
 <div className={ContactStyle.deatils}>
@@ -177,7 +182,7 @@ CurrentPageUrl="/Contact" CurrentPage="Contact Us" SubPage="Page" />
 </div>
 
 <div className={ContactStyle.curli_line}>
-<Image src={line} alt="shape" height={75} width={1350}/>
+<Image src={line} alt="shape" layout="fill"/>
 </div>
 
 <div className={ContactStyle.form}>
