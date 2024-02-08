@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import CartStyle from "../styles/Cart.module.css";
 import Styles from "../styles/admin.module.css";
 import Link from "next/link";
-var randtoken = require('rand-token');
+var randtoken = require("rand-token");
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../Components/Loader";
@@ -20,55 +20,52 @@ import LoadingBar from "react-top-loading-bar";
 import Head from "next/head";
 import Script from "next/script";
 export default function PaymentMethod() {
-const [loader,setLoader]=useState(false);
+  const [loader, setLoader] = useState(false);
   const [totals, setTotal] = useState("0");
   const [checkCod, setCheckCod] = useState(true);
- const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [arrays, setArrays] = useState([]);
   const [carts, setCarts] = useState([]);
   const [OrderFoodTime, setOrderFoodTime] = useState();
   const { emptyCart, updateItem } = useCart();
 
-const tempringSave=async()=>{
-    setLoader(true)
+  const tempringSave = async () => {
+    setLoader(true);
     setCarts(JSON.parse(localStorage.getItem("react-use-cart")));
-      const items = localStorage.getItem("react-use-cart");
-      let cartData = JSON.parse(items);
-      let sum = 0;
-let datatemp = await fetch(`${HOST}/api/CheckItemTempering`, {
-                method: "POST",
-                headers: {
-                  "Content-type": "application/json",
-                },
-                body: JSON.stringify({
-                data:cartData
-                }),
-              });
-let Datas=await datatemp.json();
-if(datatemp.status==201){
- setArrays(Datas.data)
-sum=Datas.sum
-}
-for(let i=0;i<arrays.length;i++){
-for(let j=0;j<cartData.items.length;j++){
-if(cartData.items[j].id==arrays[i].id){
- updateItem(cartData.items[j].id, {
-                  QtyBook: arrays[i].Qty,
-                  price: arrays[i].ProductOriginalAmount,
-                  totalAmount: ( arrays[i].ProductOriginalAmount)*( arrays[i].Qty),
-                });
-}
-}
-}
-  setLoader(false)
-      setTotal(sum);
-}
-
+    const items = localStorage.getItem("react-use-cart");
+    let cartData = JSON.parse(items);
+    let sum = 0;
+    let datatemp = await fetch(`${HOST}/api/CheckItemTempering`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        data: cartData,
+      }),
+    });
+    let Datas = await datatemp.json();
+    if (datatemp.status == 201) {
+      setArrays(Datas.data);
+      sum = Datas.sum;
+    }
+    for (let i = 0; i < arrays.length; i++) {
+      for (let j = 0; j < cartData.items.length; j++) {
+        if (cartData.items[j].id == arrays[i].id) {
+          updateItem(cartData.items[j].id, {
+            QtyBook: arrays[i].Qty,
+            price: arrays[i].ProductOriginalAmount,
+            totalAmount: arrays[i].ProductOriginalAmount * arrays[i].Qty,
+          });
+        }
+      }
+    }
+    setLoader(false);
+    setTotal(sum);
+  };
 
   useEffect(() => {
-
-tempringSave();
-    
+    tempringSave();
   }, []);
 
   useEffect(() => {
@@ -78,63 +75,56 @@ tempringSave();
     setOrderFoodTime(localStorage.getItem("OrderFoodTime"));
   }, []);
 
+  // cod enable disable logic
+  useEffect(() => {
+    const check = async () => {
+      const res = await fetch(`${HOST}/api/CodEnableCheck`);
+      if (res.status == 400) {
+        setCheckCod(false);
+      }
+    };
+    if (localStorage.getItem("login") != undefined) {
+      check();
+    }
+  }, []);
 
-// cod enable disable logic
-  useEffect(()=>{
-
-  const check=async()=>{
-  const res=await fetch(`${HOST}/api/CodEnableCheck`)
-  if(res.status==400){
-  setCheckCod(false);
-  }
-  }
-  if(localStorage.getItem('login')!=undefined){
-  check();
-  
-  }
-  },[])
-
-  const InitaitePayment = () => {
-  tempringSave();
+  const InitiatePayment = () => {
+    tempringSave();
     let value = document.querySelector(
       "input[type='radio'][name=payment]:checked"
     ).value;
 
-
-// online payment
-if(value == "Online"){
-
-
-confirmAlert({
+    // online payment
+    if (value == "Online") {
+      confirmAlert({
         title: "Confirm To Placed Order Using Online Payment ?",
         message: "Orders can't be cancelled once placed",
         buttons: [
           {
             label: "Yes",
             onClick: async () => {
+              let d = new Date();
+              var token =
+                randtoken.generate(15) +
+                d.getDate() +
+                d.getMonth() +
+                d.getFullYear();
+              const TokenId = token;
+              let TxnToken;
+              if (TotalAmount == 0) {
+                toast.warn("Amount Not Zero", {
+                  position: "bottom-right",
+                  autoClose: 1000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                });
 
- 
-let d=new Date();
-var token = randtoken.generate(15)+d.getDate()+d.getMonth()+d.getFullYear();
-const TokenId=token;
- let TxnToken;
-  if(TotalAmount==0){
-   toast.warn(     "Amount Not Zero",
-                  {
-                    position: "bottom-right",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                  }
-                );
-              
-return;
-
-  }
- const PickUpTime = localStorage.getItem("OrderFoodTime");
+                return;
+              }
+              const PickUpTime = localStorage.getItem("OrderFoodTime");
               const PaymentMethod = value;
               if (totals <= 0) {
                 emptyCart();
@@ -180,65 +170,60 @@ return;
               const TotalAmount = totals;
               const PickUpTime1 = localStorage.getItem("PickUpTime1");
 
-const InitiatePayment=async()=>{
-setProgress(20)
-// get token for transaction
-         
+              const InitiatePayment = async () => {
+                setProgress(20);
+                // get token for transaction
 
-let ress = await fetch(`${HOST}/api/PreTransaction`, {
-                method: "POST",
-                headers: {
-                  "Content-type": "application/json",
-                },
-                body: JSON.stringify({
-                amount:TotalAmount,orderId:TokenId, PickUpTime,
-                  PickUpTime1,
-                  PaymentMethod,
-                  ItemsOrder: arrays,
-                  TotalAmount,
-                }),
-              });
+                let ress = await fetch(`${HOST}/api/PreTransaction`, {
+                  method: "POST",
+                  headers: {
+                    "Content-type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    amount: TotalAmount,
+                    orderId: TokenId,
+                    PickUpTime,
+                    PickUpTime1,
+                    PaymentMethod,
+                    ItemsOrder: arrays,
+                    TotalAmount,
+                  }),
+                });
 
-setProgress(40)
-              let TxnToken=await ress.json();
+                setProgress(40);
+                let TxnToken = await ress.json();
 
-        
-setProgress(60);
+                setProgress(60);
 
-        var config = {
-         "root": "",
-         "flow": "DEFAULT",
-         "data": {
-          "orderId": TokenId,
-          "token": TxnToken,
-          "tokenType": "TXN_TOKEN",
-          "amount":TotalAmount
-         },
-         "handler": {
-          "notifyMerchant": function(eventName,data){
-            console.log("notifyMerchant handler function called");
-            console.log("eventName => ",eventName);
-            console.log("data => ",data);
-            } 
-          }
-        };
-setProgress(80);
+                var config = {
+                  root: "",
+                  flow: "DEFAULT",
+                  data: {
+                    orderId: TokenId,
+                    token: TxnToken,
+                    tokenType: "TXN_TOKEN",
+                    amount: TotalAmount,
+                  },
+                  handler: {
+                    notifyMerchant: function (eventName, data) {
+                      console.log("notifyMerchant handler function called");
+                      console.log("eventName => ", eventName);
+                      console.log("data => ", data);
+                    },
+                  },
+                };
+                setProgress(80);
 
-window.Paytm.CheckoutJS.init(config).then(function onSuccess() {
+                window.Paytm.CheckoutJS.init(config)
+                  .then(function onSuccess() {
+                    window.Paytm.CheckoutJS.invoke();
+                  })
+                  .catch(function onError(error) {
+                    console.log("error => ", error);
+                  });
+              };
 
-  window.Paytm.CheckoutJS.invoke();
-  }).catch(function onError(error){
-  console.log("error => ",error);
-  });
-
-
-
-
-   
-}
-
-InitiatePayment();
-
+              InitiatePayment();
             },
           },
           {
@@ -247,14 +232,7 @@ InitiatePayment();
           },
         ],
       });
-
-
-
-
-
-
-
-}
+    }
 
     if (value == "COD") {
       confirmAlert({
@@ -267,7 +245,6 @@ InitiatePayment();
               const PickUpTime = localStorage.getItem("OrderFoodTime");
               const PaymentMethod = value;
               if (totals <= 0) {
-             
                 emptyCart();
                 toast.warn(
                   "Tempering Is Not Allowed In Cart,Plese Add Item Again",
@@ -290,7 +267,7 @@ InitiatePayment();
               }
               if (arrays.length == 0 || arrays == undefined || arrays == "") {
                 emptyCart();
-            
+
                 toast.warn(
                   "Tempering Is Not Allowed In Cart,Plese Add Item Again",
                   {
@@ -310,7 +287,7 @@ InitiatePayment();
                 return;
               }
               const TotalAmount = totals;
-setProgress(40)
+              setProgress(40);
 
               const PickUpTime1 = localStorage.getItem("PickUpTime1");
               let res = await fetch(`${HOST}/api/OrderItem`, {
@@ -338,7 +315,7 @@ setProgress(40)
                   draggable: true,
                   progress: undefined,
                 });
-setProgress(100)
+                setProgress(100);
 
                 return;
               }
@@ -352,7 +329,7 @@ setProgress(100)
                   draggable: true,
                   progress: undefined,
                 });
-setProgress(100)
+                setProgress(100);
 
                 return;
               }
@@ -370,8 +347,7 @@ setProgress(100)
                   draggable: true,
                   progress: undefined,
                 });
-setProgress(100)
-
+                setProgress(100);
 
                 const pushToCompleteOrder = () => {
                   router.push("/OrderComplete");
@@ -391,23 +367,33 @@ setProgress(100)
 
   return (
     <>
-<Loader loader={loader}/>
- <LoadingBar
+      <Loader loader={loader} />
+      <LoadingBar
         color="rgb(255 82 0)"
         height={3.5}
         waitingTime={1000}
         progress={progress}
         transitionTime={100}
-      />  
-    {/* 1.0 */}
-    <Head>
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"/>
-    </Head>
+      />
+      {/* 1.0 */}
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+        />
+      </Head>
 
-    {/* 1.1 */}
-   
-    <Script type="application/javascript" src={`${process.env.NEXT_PUBLIC_PAYTM_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_MID}.js`} crossorigin="anonymous"></Script>
+      {/* 1.1 */}
+
+      <Script
+        type="application/javascript"
+        src={`${process.env.NEXT_PUBLIC_PAYTM_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_MID}.js`}
+        crossorigin="anonymous"
+      ></Script>
 
       <VerifyClientMiddleware />
       <div className={Styles.admin}>
@@ -422,8 +408,10 @@ setProgress(100)
 
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
-              <div className={CartStyle.circle}>1</div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.circle}>
+                <span>1</span>
+              </div>
+              <div className={CartStyle.description}>
                 <p> SHOPPING CART </p>
               </div>
             </div>
@@ -431,8 +419,11 @@ setProgress(100)
 
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
-              <div className={CartStyle.circle}>2 </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.circle}>
+                {" "}
+                <span>2</span>{" "}
+              </div>
+              <div className={CartStyle.description}>
                 <p> ORDER DETAILS </p>
               </div>
             </div>
@@ -441,9 +432,10 @@ setProgress(100)
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
               <div className={`${CartStyle.circle} ${CartStyle.circle1}`}>
-                3{" "}
+                {" "}
+                <span>3</span>{" "}
               </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.description}>
                 <p> PAYMENT METHOD </p>
               </div>
             </div>
@@ -451,103 +443,78 @@ setProgress(100)
         </div>
 
         {/* cart List */}
-        <div className={CartStyle.cartItem}>
-          <div className={CartStyle.cartTable}>
-            <h4 style={{ textAlign: "center", fontSize: "30px", color: "red" }}>
-              Note-: Order Can&#39;t Cancelled Once Placed.
-            </h4>
-            <h3 style={{ paddingLeft: "4%", fontSize: "30px" }}>
-              Select Payment Mode
-            </h3>
-            <div className={Style1.payment}>
-              <form>
+        <div className={Style1.orderDetails}>
+          <div className={Style1.orderTable}>
+            <div>
+              <h4> Note-: Order Can&#39;t Cancelled Once Placed.</h4>
+              <h3>Select Payment Mode</h3>
+            </div>
+          </div>
+
+          <div className={Style1.payment}>
+            <form>
+              <div className={Style1.div}>
+                <input
+                  type="radio"
+                  name="payment"
+                  id="Online"
+                  value="Online"
+                  defaultChecked
+                />
+                <label htmlFor="Online" style={{ cursor: "pointer" }}>
+                  {" "}
+                  <h4>: Online Payment</h4>
+                </label>
+              </div>
+
+              {checkCod ? (
                 <div className={Style1.div}>
-                  <input
-                    type="radio"
-                    name="payment"
-                    id="Online"
-                    value="Online"
-                    defaultChecked
-                  />
-                  <label htmlFor="Online" style={{ cursor: "pointer" }}>
-                    {" "}
-                    <h4>: Online Payment</h4>
-                  </label>
-                </div>
-                
-                {(checkCod)? <div className={Style1.div}>
                   <input type="radio" name="payment" id="cod" value="COD" />
                   <label htmlFor="cod" style={{ cursor: "pointer" }}>
                     <h4>: Cash On Delivery</h4>
                   </label>
-                </div>: " "}
-               
-
-
-              </form>
-            </div>
-            <h4
-              style={{
-                textAlign: "center",
-                fontSize: "30px",
-                color: "black",
-                marginTop: "-0%",
-              }}
-            >
-              Total Payable Amount-:{" "}
-              <span style={{ color: "red" }}>{totals}</span>
-            </h4>
-            {carts.length != 0 ? (
-              <>
-                <h4
-                  style={{
-                    textAlign: "center",
-                    fontSize: "25px",
-                    color: "black",
-                  }}
-                >
-                  Total Items Booked-:{" "}
-                  <span style={{ color: "red" }}>{carts.items.length}</span>{" "}
-                  <span style={{ color: "blue", paddingLeft: "15%" }}>
-                    {" "}
-                    <Link href="/Cart">Click to view items List</Link>
-                  </span>
-                </h4>
-              </>
-            ) : (
-              ""
-            )}
+                </div>
+              ) : (
+                " "
+              )}
+            </form>
           </div>
 
-          <div className={CartStyle.bottom}>
-            <Link href="/OrderDetails">
-              <button className={CartStyle.more} style={{ width: "300px" }}>
-                Update Pickup Time
-              </button>
+          <div className={Style1.PaymentBottomMessage}>
+            <h4>
+              Total Payable Amount-:
+              <span>{totals}</span>
+            </h4>
+            <div className={Style1.bottomItem}>
+            {carts.length != 0 ? (
+            <>
+              <h4>
+                Total Items Booked-: <span>{carts.items.length}</span>{" "}
+              </h4>{" "}
+              <h3>
+                <Link href="/Cart">Click to view Items List</Link>
+              </h3>
+            </>
+          ) : (
+            ""
+          )}
+            </div>
+          </div>
+
+        
+
+          
+
+          {/* bottom  */}
+          <div className={Style1.bottom1}>
+          <Link href="/OrderDetails">
+              <button className={Style1.more}>Update Pickup Time</button>
             </Link>
-            <div className={CartStyle.subtotal}>
+            <div className={Style1.subtotal}>
               {OrderFoodTime != "" ? (
-                <button
-                  style={{
-                    marginTop: "4.4%",
-                    marginRight: "5%",
-                    height: "50px",
-                  }}
-                  onClick={InitaitePayment}
-                >
-                  Placed Order
-                </button>
+                <button onClick={InitiatePayment}>Placed Order</button>
               ) : (
-                <button
-                  style={{
-                    marginTop: "4.4%",
-                    marginRight: "5%",
-                    height: "50px",
-                  }}
-                  disabled
-                >
-                  Placed Order
-                </button>
+                <button disabled>Placed Order</button>
               )}
             </div>
           </div>
@@ -555,7 +522,6 @@ setProgress(100)
       </div>
       <Footer />
 
-     
       <ToastContainer
         position="bottom-right"
         autoClose={1000}
