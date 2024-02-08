@@ -9,6 +9,7 @@ import Loader from "../Components/Loader";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LoadingBar from "react-top-loading-bar";
+import ProfileStyles from "../styles/ClientProfileUpload.module.css";
 
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import router from "next/router";
@@ -36,8 +37,7 @@ export default function ClientManage() {
   const [npass, setNpass] = useState("");
   const [cnpass, setCnpass] = useState("");
 
-  const {profileImg,setProfileImage} = useContext(AllContext);
-
+  const { profileImg, setProfileImage } = useContext(AllContext);
 
   const [ud, setUd] = useState(false);
   const [email, setEmail] = useState("");
@@ -49,7 +49,7 @@ export default function ClientManage() {
   const [gen, setGen] = useState(true);
   const [uprofile, setUprofile] = useState(false);
   const [data, setData] = useState([]);
-const [loadingState,setLoadingState]=useState(false);
+  const [loadingState, setLoadingState] = useState(false);
   const getDataClient = async () => {
     setLoader(true);
     if (localStorage.getItem("login") != undefined) {
@@ -99,7 +99,11 @@ const [loadingState,setLoadingState]=useState(false);
           if (data.data !== undefined) {
             setData(data.data);
             setImgs(data.data.Profile);
-            setProfileImage({...profileImg,url:data.data.Profile,state:true})
+            setProfileImage({
+              ...profileImg,
+              url: data.data.Profile,
+              state: true,
+            });
             setFullName(data.data.FullName);
             setAge(data.data.Age);
             setEmail(data.data.Email);
@@ -348,7 +352,6 @@ const [loadingState,setLoadingState]=useState(false);
 
     // file size check
     if (size > 5) {
-   
       toast.warn("Please Upload File Less Than 5 Mb", {
         position: "bottom-right",
         autoClose: 5000,
@@ -359,8 +362,8 @@ const [loadingState,setLoadingState]=useState(false);
         progress: undefined,
       });
       setProgress(100);
-    setLoadingState(false);
-     
+      setLoadingState(false);
+
       return;
     }
     let res = await fetch(`${HOST}/api/UpdateClientProfile`, {
@@ -408,8 +411,6 @@ const [loadingState,setLoadingState]=useState(false);
       return;
     }
     if (res.status == 201) {
-
-
       toast.success("Profile Photo Successfully updated", {
         position: "bottom-right",
         autoClose: 5000,
@@ -901,28 +902,31 @@ const [loadingState,setLoadingState]=useState(false);
                         Select Profile
                       </label>
                     </div>
-                      {(loadingState)?<button disabled>
-                  uploading ...
-                    </button>:<button onClick={uploadProfileImage}>
-                    Click to upload
-                    </button>}
-                    
+                    {loadingState ? (
+                      <button disabled>uploading ...</button>
+                    ) : (
+                      <button onClick={uploadProfileImage}>
+                        Click to upload
+                      </button>
+                    )}
                   </div>
 
                   <div className={style.rights}>
-                    <div
-                      className={style.imageSections}
-                      style={{ paddingTop: "13%", marginLeft: "115px" }}
-                    >
+                    <div className={style.imageSections}>
                       <Image
                         src={imgs}
                         alt="client profile"
                         id="output"
-                        width={300}
-                        height={300}
-                        style={{ borderRadius: "50%" }}
+                        layout="fill"
                       />
                     </div>
+                    {loadingState ? (
+                      <button disabled>uploading ...</button>
+                    ) : (
+                      <button onClick={uploadProfileImage}>
+                        Click to upload
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

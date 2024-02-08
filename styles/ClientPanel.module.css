@@ -1,192 +1,187 @@
-.clientPanel{
-width: 100%;
-display: flex;
-margin-top: 6%;
-height: auto;
-background-color: rgb(246, 246, 246);
+.clientPanel {
+  width: 100%;
+  display: flex;
+  margin-top: 6%;
+  height: auto;
+  background-color: rgb(246, 246, 246);
 }
 
-.clientPanel .left{
-width: 20%;
-margin-top: 4%;
-margin-left: 8%;
-box-shadow: 0px 0px 12px rgb(159, 159, 159);
-height: 650px;
-background-color: rgb(255, 255, 255);
-margin-bottom: 5%;
-border-radius: 10px;
+.clientPanel .left {
+  width: 20%;
+  margin-top: 4%;
+  margin-left: 8%;
+  box-shadow: 0px 0px 12px rgb(159, 159, 159);
+  height: 650px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 5%;
+  border-radius: 10px;
 }
 
-.clientPanel .left .imageSection{
+.clientPanel .left .imageSection {
   position: relative;
-width:80%;
-margin-top: 10%;
-margin-left: 10%;
-height: 15vw;
-overflow: hidden;
+  width: 80%;
+  margin-top: 10%;
+  margin-left: 10%;
+  height: 15vw;
+  overflow: hidden;
 }
-.clientPanel .left .imageSection .imgs{
-border-radius: 10%;
-}
-
-.clientPanel .left .imageSection .update{
-
-position: absolute;
-cursor: pointer;
-bottom: 0;
-left: 25%;
-border-top-left-radius: 60px;
-border-top-right-radius: 60px;
-color: rgb(215, 5, 5);
-font-size: 20px;
-text-align: center;
-width: 100px;
-background-color: rgb(255, 255, 255);
+.clientPanel .left .imageSection .imgs {
+  border-radius: 10%;
 }
 
-.clientPanel .left .imageSection .update .edit{
-margin-top: 8%;
-color: rgb(209, 0, 14);
-}
-.clientPanel .left  .title{
-width: 80%;
-text-align: center;
-margin-left: 10%;
-font-size: 0.8vw;
-}
-.clientPanel .left .title h1{
-color: rgb(107, 107, 107);
-font-weight: 400;
-}
-.clientPanel .left  hr{
-width: 100%;
-background-color: rgb(210, 210, 210);
+.clientPanel .left .imageSection .update {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
+  left: 25%;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  color: rgb(215, 5, 5);
+  font-size: 20px;
+  text-align: center;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
 }
 
-.clientPanel .left .links{
-width: 90%;
-margin-top: 8%;
-margin-left: 10%;
-list-style: none;
-
-
+.clientPanel .left .imageSection .update .edit {
+  margin-top: 8%;
+  color: rgb(209, 0, 14);
 }
-.clientPanel .left .links .link{
-background-color: rgb(246, 246, 246);
+.clientPanel .left .title {
+  width: 80%;
+  text-align: center;
+  margin-left: 10%;
+  font-size: 0.8vw;
 }
-
-.clientPanel .left .links li:hover{
-background-color: rgb(246, 246, 246);
-cursor: pointer;
+.clientPanel .left .title h1 {
+  color: rgb(107, 107, 107);
+  font-weight: 400;
 }
-.clientPanel .left .links li{
-height: 60px;
-display: flex;
-margin-top: 4%;
+.clientPanel .left hr {
+  width: 100%;
+  background-color: rgb(210, 210, 210);
 }
 
-.clientPanel .left .links li .icon{
-font-size: 30px;
-padding-top: 4%;
-padding-left: 10%;
-color: rgb(255, 255, 255);
+.clientPanel .left .links {
+  width: 90%;
+  margin-top: 8%;
+  margin-left: 10%;
+  list-style: none;
 }
-.clientPanel .left .links li .icon .ic{
-background-color: rgb(73, 73, 73);
-border-radius: 60px;
-width: 45px;
-padding-top: 10%;
-text-align: center;
-margin-left: -2%;
-}
-.clientPanel .left .links li .text{
-padding-left: 10%;
-font-size: 20px;
-padding-top: 6%;
-color: rgb(1, 25, 46);
+.clientPanel .left .links .link {
+  background-color: rgb(246, 246, 246);
 }
 
-
-.clientPanel .right{
-width: 60%;
-position: relative;
-margin-top: 4%;
-margin-left: 3%;
-box-shadow: 0px 0px 12px rgb(159, 159, 159);
-height: 650px;
-background-color: rgb(255, 255, 255);
-margin-bottom: 5%;
-border-radius: 10px;
-overflow: hidden;
+.clientPanel .left .links li:hover {
+  background-color: rgb(246, 246, 246);
+  cursor: pointer;
 }
-.clientPanel .right button{
-position: absolute;
-bottom: 0;
-left: 35%;
-padding-top: 1%;
-background-color: rgb(70, 70, 70);
-height: 55px;
-width: 250px;
-cursor: pointer;
-color: white;
-font-size: 20px;
-border: none;
-border-top-left-radius: 30px;
-border-top-right-radius: 30px;
-transition: all 0.4s;
+.clientPanel .left .links li {
+  height: 60px;
+  display: flex;
+  margin-top: 4%;
 }
 
-.clientPanel .right button:hover{
-background-color: rgb(125, 125, 125);
-color: rgb(255, 255, 255);
-
+.clientPanel .left .links li .icon {
+  font-size: 30px;
+  padding-top: 4%;
+  padding-left: 10%;
+  color: rgb(255, 255, 255);
+}
+.clientPanel .left .links li .icon .ic {
+  background-color: rgb(73, 73, 73);
+  border-radius: 60px;
+  width: 45px;
+  padding-top: 10%;
+  text-align: center;
+  margin-left: -2%;
+}
+.clientPanel .left .links li .text {
+  padding-left: 10%;
+  font-size: 20px;
+  padding-top: 6%;
+  color: rgb(1, 25, 46);
 }
 
+.clientPanel .right {
+  width: 60%;
+  position: relative;
+  margin-top: 4%;
+  margin-left: 3%;
+  box-shadow: 0px 0px 12px rgb(159, 159, 159);
+  height: 650px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 5%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.clientPanel .right button {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  padding-top: 1%;
+  background-color: rgb(70, 70, 70);
+  height: 55px;
+  width: 250px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  transition: all 0.4s;
+}
 
-.clientPanel .right .general{
-width: 100%;
-height: 120px;
-
-}
-.clientPanel .right .general .top{display: flex;}
-.clientPanel .right .general .headingTop{
-font-size: 30px;
-width: 90%;
-margin-top: 2%;
-padding-left: 4%;
-}
-.clientPanel .right .general .topicons{
-width: 12%;
-background-color: rgb(228, 228, 228);
-text-align: right;
-font-size: 20px;
-padding-right: 1.7%;
-cursor: pointer;
-padding-top: 1.7%;
-border-bottom-left-radius: 40px;
+.clientPanel .right button:hover {
+  background-color: rgb(125, 125, 125);
+  color: rgb(255, 255, 255);
 }
 
-.clientPanel .right .general .topicons:hover{
-color: rgb(248, 1, 129);
+.clientPanel .right .general {
+  width: 100%;
+  height: 120px;
+}
+.clientPanel .right .general .top {
+  display: flex;
+}
+.clientPanel .right .general .headingTop {
+  font-size: 30px;
+  width: 90%;
+  margin-top: 2%;
+  padding-left: 4%;
+}
+.clientPanel .right .general .topicons {
+  width: 12%;
+  background-color: rgb(228, 228, 228);
+  text-align: right;
+  font-size: 20px;
+  padding-right: 1.7%;
+  cursor: pointer;
+  padding-top: 1.7%;
+  border-bottom-left-radius: 40px;
 }
 
-.clientPanel .right .general .forms{
-width: 100%;
-height: auto;
-list-style: none;
-margin-top: 2%;
+.clientPanel .right .general .topicons:hover {
+  color: rgb(248, 1, 129);
 }
-.clientPanel .right .general .forms li{
-width: 40%;
-margin-left: 7%;
-float: left;
-height: auto;
-margin-bottom: 4%;
+
+.clientPanel .right .general .forms {
+  width: 100%;
+  height: auto;
+  list-style: none;
+  margin-top: 2%;
 }
-.clientPanel .right .general .forms li .tt{
-color: rgb(95, 95, 95);
-font-size: 19px;
-padding-left: 2%;
+.clientPanel .right .general .forms li {
+  width: 40%;
+  margin-left: 7%;
+  float: left;
+  height: auto;
+  margin-bottom: 4%;
+}
+.clientPanel .right .general .forms li .tt {
+  color: rgb(95, 95, 95);
+  font-size: 19px;
+  padding-left: 2%;
 }
 .clientPanel .right .general .forms li .dd input::-webkit-outer-spin-button,
 .clientPanel .right .general .forms li .dd input::-webkit-inner-spin-button {
@@ -194,787 +189,65 @@ padding-left: 2%;
   margin: 0;
 }
 
-.clientPanel .right .general .forms li .dd select{
-width: 300px;
-margin-top: 2%;
-height: 38px;
-padding-left: 3%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 18px;
-outline: none;
-text-align: center;
-}
-.clientPanel .right .general .forms li .dd input{
-width: 300px;
-margin-top: 2%;
-height: 38px;
-padding-left: 3%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 18px;
-outline: none;
-}
-.clientPanel .right .general .forms .text{
-width: 70%;
-margin-left: 7%;
-float: left;
-height: auto;
-margin-top: -1%;
-}
-.clientPanel .right .general .forms .text .dd textarea{
-width: 680px;
-margin-top: 2%;
-height: 138px;
-padding-left: 3%;
-padding-top: 2%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 22px;
-outline: none;
-resize: none;
-}
-
-
-/* update general form */
- .updateGeneral{
- position: absolute;
- top: 0;
- left: 0;
- position: fixed;
-z-index: 99;
-width: 98.8vw;
-height: 100vh;
-
-}
- .updateGeneral .shadow{
- position: absolute;
- top: 0;
- left: 0;
-opacity: 0.7;
- width: 100%;
-height: 100%;
- background-color: rgb(214, 214, 214);
- }
-
-
-.updateGeneral .form{
-width: 80%;
-position: absolute;
-top: 4%;
-left: 12%;
-height: auto;
-list-style: none;
-padding-bottom: 5%;
-z-index: 999;
-box-shadow: 0px 0px 12px rgb(197, 197, 197);
-background-color: rgb(255, 255, 255);
-}
-
-.updateGeneral .form .top{
-width: 100%;
-display: flex;
-padding-bottom:2%;
-height: auto;
-border-bottom: 2px solid rgb(158, 158, 158);
-}
-.updateGeneral .form .top .headingTop{
-width: 80%;
-padding-top: 2%;
-padding-left: 3%;
-font-size: 30px;
-color: rgb(72, 72, 72);
-}
-
-.updateGeneral .form .top .topicons{
-width: 20%;
-padding-top: 1%;
-padding-left: 13%;
-color: rgb(72, 72, 72);
-}
-.updateGeneral .form .top .topicons span{
-font-size: 38px;
-cursor: pointer;
-}
-.updateGeneral .form .top .topicons span:hover{
-color: red;
-}
-
-
-.updateGeneral .forms{
-padding-top: 1%;
-padding-left: 2%;
-}
-.updateGeneral .form li{
-width: 40%;
-margin-left: 7%;
-float: left;
-height: auto;
-}
-.updateGeneral .form li .tt{
-color: rgb(95, 95, 95);
-font-size: 19px;
-padding-left: 2%;
-}
-.updateGeneral .form li .dd input::-webkit-outer-spin-button,
-.updateGeneral .form li .dd input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.updateGeneral .form li .dd select{
-width: 360px;
-
-margin-top: 2%;
-height: 38px;
-padding-left: 3%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 18px;
-outline: none;
-text-align: center;
-}
-.updateGeneral .form li .dd input{
-width: 360px;
-margin-top: 2%;
-height: 38px;
-padding-left: 3%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 18px;
-outline: none;
-}
-.updateGeneral .form .text{
-width: 70%;
-margin-left: 7%;
-float: left;
-height: auto;
-margin-top: 1%;
-}
-.updateGeneral .form .text .dd textarea{
-width: 870px;
-margin-top: 2%;
-height: 138px;
-padding-left: 3%;
-padding-top: 2%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 22px;
-outline: none;
-resize: none;
-}
-.updateGeneral .form button{
-position: absolute;
-bottom: 0;
-left: 35%;
-padding-top: 1%;
-background-color: rgb(70, 70, 70);
-height: 55px;
-width: 250px;
-cursor: pointer;
-color: white;
-font-size: 20px;
-border: none;
-border-top-left-radius: 30px;
-border-top-right-radius: 30px;
-transition: all 0.4s;
-}
-
-.updateGeneral .form button:hover{
-background-color: rgb(125, 125, 125);
-color: rgb(255, 255, 255);
-
-}
-
-
-/* password */
-
-
-.clientPanel .right .password{
-width: 100%;
-height: 120px;
-
-}
-.clientPanel .right .password .top{display: flex;}
-.clientPanel .right .password .headingTop{
-font-size: 30px;
-width: 90%;
-margin-top: 5%;
-padding-left: 7%;
-}
-
-
-.clientPanel .right .password .forms{
-width: 100%;
-height: auto;
-list-style: none;
-margin-top: 7%;
-}
-.clientPanel .right .password .forms li{
-width: auto;
-margin-left: 7%;
-height: auto;
-margin-top: 3%;
-}
-.clientPanel .right .password .forms li .tt{
-color: rgb(95, 95, 95);
-font-size: 19px;
-padding-left: 1%;
-}
-
-.clientPanel .right .password .forms li button{
-position: relative;
-border-radius:2px;
-margin-left: -10%;
-width: 300px;
-font-size: 18px;
-margin-top: 2%;
-height: auto;
-padding: 1.3% 2% 1.3% 2%;
-}
-
-.clientPanel .right .password .forms li .dd input{
-width: 90%;
-margin-top: 1%;
-height: 40px;
-padding-left: 3%;
-border: 2px solid rgb(112, 112, 112);
-font-size: 18px;
-outline: none;
-}
-
-
-/* profile change */
-
- .profile{
- position: absolute;
- top: 0;
- left: 0;
- position: fixed;
-z-index: 99;
-width: 98.8vw;
-height: 100vh;
-
-}
- .profile .shadow{
- position: absolute;
- top: 0;
- left: 0;
-opacity: 0.7;
- width: 100%;
-height: 100%;
- background-color: rgb(214, 214, 214);
- }
-
-
-.profile .form{
-width: 80%;
-position: absolute;
-top: 4%;
-left: 12%;
-height: auto;
-list-style: none;
-padding-bottom: 5%;
-z-index: 999;
-box-shadow: 0px 0px 12px rgb(197, 197, 197);
-background-color: rgb(255, 255, 255);
-}
-
-.profile .form .top{
-width: 100%;
-display: flex;
-padding-bottom:2%;
-height: auto;
-border-bottom: 2px solid rgb(158, 158, 158);
-}
-.profile .form .top .headingTop{
-width: 80%;
-padding-top: 2%;
-padding-left: 3%;
-font-size: 30px;
-color: rgb(72, 72, 72);
-}
-
-.profile .form .top .topicons{
-width: 20%;
-padding-top: 1%;
-padding-left: 13%;
-color: rgb(72, 72, 72);
-}
-.profile .form .top .topicons span{
-font-size: 38px;
-cursor: pointer;
-}
-.profile .form .top .topicons span:hover{
-color: red;
-}
-
-
-.profile .upsection{
-width: 100%;
-height: 400px;
-display: flex;
-}
-
-.profile .upsection .lefts{width: 50%;}
-
-.profile .upsection .lefts{
-width:50%;
-} 
-.profile .upsection .lefts h1{
-padding-top: 5%;
-font-size: 25px;
-color: rgb(113, 113, 113);
-padding-left: 10%;
-}
-
-.profile .upsection .lefts input[type="file"] {
-    display: none;
-}
-
-.profile .upsection .lefts .div {
-padding-left: 25%;
-padding-top:35%;
-}
-.profile .upsection .lefts .custom_file_upload {
-position: relative;
-    cursor: pointer;
-    width: 70%;
-font-size: 25px;
-color: rgb(78, 78, 78);
-border: 1px solid rgb(210, 210, 210);
-padding: 2% 12% 2% 14%;
-height: auto;
-border-radius: 30px;
-transition: all 0.4s;
-}
-.profile .upsection .lefts .custom_file_upload:hover{
-box-shadow: 0px 0px 30px 10px rgb(245, 245, 245);
-border: 1px solid rgb(179, 179, 179);
-}
-
-.profile .upsection .lefts .custom_file_upload .upload_icon{
-position: absolute;
-top: 21%;
-left: 8%;
-font-size: 30px;
-color: rgb(68, 0, 255);
-}
-.profile .upsection .lefts button{
-position: absolute;
-bottom: 0;
-left: 35%;
-width: 30%;
-height: auto;
-padding: 2% 1% 1% 1%;
-outline: none;
-cursor: pointer;
-font-size: 20px;
-border-top-left-radius: 50px;
-border-top-right-radius: 50px;
-color: white;
-border: none;
-background: rgb(252, 106, 9);
-box-shadow: 0px 0px 10px 4px rgb(239, 239, 239);
-
-}
-
-
-
-
-
-
-.Profile .rights{
-width:50%;
-padding-left: 5%;
-}
-
-
-
-
-@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
-
-  .clientPanel{
-  
-    margin-top:22vw;
-
-    }
-
-
-.clientPanel .left{
-width: 30%;
-margin-top: 4%;
-margin-left: 2%;
-height: auto;
-
-margin-bottom: 5%;
-
-}
-
-.clientPanel .left .imageSection{
-
-height: 20vw;
-
-}
-
-
-.clientPanel .left .imageSection .update{
-
-
-
-left: 10%;
-
-font-size: 3vw;
-
-width: 20vw;
-
-}
-
-.clientPanel .left .imageSection .update .edit{
-margin-top:3%;
-
-}
-.clientPanel .left  .title{
-width: 80%;
-text-align: center;
-margin-left: 10%;
-font-size: 1.3vw;
-}
-
-
-
-.clientPanel .left .links{
-width: 100%;
-margin-top: 8%;
-margin-left: 0%;
-
-
-
-}
-
-
-.clientPanel .left .links li{
-height: auto;
-margin-top: 4%;
-padding-bottom: 4%;
-}
-
-.clientPanel .left .links li .icon{
-font-size: 3.8vw;
-padding-top: 6%;
-padding-left: 8%;
-
-}
-.clientPanel .left .links li .icon .ic{
-
-width: 6vw;
-height: 6vw;
-padding-top: 10%;
-}
-.clientPanel .left .links li .text{
-padding-left: 7%;
-font-size: 3.2vw;
-padding-top: 8%;
-
-}
-
-
-.clientPanel .right{
-width: 65%;
-
-margin-left: 1%;
-
-height: auto;
-
-
-}
-.clientPanel .right button{
-position: absolute;
-bottom: 0;
-left: 5%;
-padding-top: 1%;
-background-color: rgb(70, 70, 70);
-height: auto;
-width: auto;
-cursor: pointer;
-color: white;
-font-size: 1vw;
-border: none;
-border-top-left-radius: 30px;
-border-top-right-radius: 30px;
-transition: all 0.4s;
-}
-
-.clientPanel .right button:hover{
-background-color: rgb(125, 125, 125);
-color: rgb(255, 255, 255);
-
-}
-
-
-.clientPanel .right .general{
-width: 100%;
-height: auto;
-
-}
-.clientPanel .right .general .top{display: flex;}
-.clientPanel .right .general .headingTop{
-font-size: 4vw;
-width: 90%;
-margin-top: 7%;
-padding-left: 5%;
-}
-.clientPanel .right .general .topicons{
-width: auto;
-
-font-size: 2.8vw;
-padding-right: 1.7%;
-
-padding-left: 3%;
-padding-bottom: 4%;
-padding-top: 1.7%;
-}
-
-
-.clientPanel .right .general .forms{
-width: auto;
-height: auto;
-list-style: none;
-margin-top: 5%;
-}
-.clientPanel .right .general .forms li{
-width: auto;
-margin-left: 6%;
-
-}
-.clientPanel .right .general .forms li .tt{
-font-size: 2.7vw;
-padding-left: 1%;
-}
-
-
-.clientPanel .right .general .forms li .dd select{
-  width: 57vw;
-
-margin-top: 2%;
-height: auto;
-padding-left: 3%;
-padding: 2% 0;
-font-size: 4vw;
-
-}
-.clientPanel .right .general .forms li .dd input{
-  width: 57vw;
-
+.clientPanel .right .general .forms li .dd select {
+  width: 300px;
   margin-top: 2%;
+  height: 38px;
+  padding-left: 3%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 18px;
+  outline: none;
+  text-align: center;
+}
+.clientPanel .right .general .forms li .dd input {
+  width: 300px;
+  margin-top: 2%;
+  height: 38px;
+  padding-left: 3%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 18px;
+  outline: none;
+}
+.clientPanel .right .general .forms .text {
+  width: 70%;
+  margin-left: 7%;
+  float: left;
   height: auto;
-  padding-left: 3%;
-  padding: 2% 4%;
-  font-size: 4vw;
+  margin-top: -1%;
 }
-.clientPanel .right .general .forms .text{
-width: 70%;
-margin-left: 7%;
-float: left;
-height: auto;
-margin-top: -1%;
-}
-.clientPanel .right .general .forms .text .dd textarea{
-  width: 57vw;
-
+.clientPanel .right .general .forms .text .dd textarea {
+  width: 680px;
   margin-top: 2%;
-  height: 20vw;
+  height: 138px;
   padding-left: 3%;
-  padding: 2% 4%;
-  font-size: 3.6vw;
+  padding-top: 2%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 22px;
+  outline: none;
+  resize: none;
 }
-
-
-
-
 
 /* update general form */
-.updateGeneral{
+.updateGeneral {
   position: absolute;
   top: 0;
   left: 0;
   position: fixed;
- z-index: 99;
- width: 98.8vw;
- height: 100vh;
- 
- }
-  .updateGeneral .shadow{
-  position: absolute;
-  top: 0;
-  left: 0;
- opacity: 0.7;
-  width: 100vw;
- height: 100vh;
-  background-color: rgb(214, 214, 214);
-  }
- 
- 
- .updateGeneral .form{
- width: 92%;
-
- top: 3%;
- left: 4%;
-
- }
- 
-
- .updateGeneral .form .top .headingTop{
-  font-size: 5vw;
-
-
- }
-
- .updateGeneral .form .top .topicons span{
- font-size: 6vw;
-
- }
-
- 
- 
- .updateGeneral .forms{
- padding-top: 1%;
- padding-left: 2%;
- }
- .updateGeneral .form li{
- width: auto;
- margin-left: 2%;
- float: left;
- height: auto;
- }
- .updateGeneral .form li .tt{
-
- font-size: 4vw;
- padding-left: 1%;
- }
-
- .updateGeneral .form li .dd select{
- width: 84vw;
- 
- margin-top: 2%;
- height: auto;
- padding-left: 3%;
-
- font-size: 5vw;
-padding: 2% 0%;
- }
- .updateGeneral .form li .dd input{
-  width: 84vw;
- 
-  margin-top: 2%;
-  height: auto;
-  padding-left: 3%;
- 
-  font-size: 5vw;
- padding: 2% 2%;
- }
- .updateGeneral .form .text{
- width: 70%;
- margin-left: 2%;
- float: left;
- height: auto;
- margin-top: 1%;
- }
- .updateGeneral .form .text .dd textarea{
-  width: 84vw;
- 
-  margin-top: 2%;
-  height: 20vw;
-  padding-left: 3%;
- 
-  font-size: 5vw;
-  margin-bottom: 10%;
- padding: 2% 2%;
- }
- .updateGeneral .form button{
- position: absolute;
- bottom: 0;
- left: 25%;
- padding-top: 1%;
-
- height: auto;
- width: auto;
-padding-top: 4%;
- font-size: 4vw;
- padding-bottom: 2%;
- padding-left: 10%;
- padding-right: 10%;
-}
- 
-
- 
-
-/* password */
-
-
-.clientPanel .right .password{
-  width: 100%;
-  height: auto;
-  
-  }
-  .clientPanel .right .password .top{display: flex;}
-  .clientPanel .right .password .headingTop{
-  font-size: 4vw;
-  
-
-  padding-left: 10%;
-  }
-  
-  
-  .clientPanel .right .password .forms{
-
-  margin-top: 1%;
-  }
- 
-  .clientPanel .right .password .forms li .tt{
-  font-size: 3.2vw;
-  }
-  
-  .clientPanel .right .password .forms li button{
-
-
-  margin-left: 10%;
-  width: auto;
-  font-size: 3.2vw;
-
-  
-  padding: 3% 6% 3% 6%;
-  }
-  
-  .clientPanel .right .password .forms li .dd input{
-  width: 56vw;
-  margin-top: 1%;
-  height: auto;
-  padding-left: 3%;
- padding: 2% 4%;
-  font-size: 4vw;
-
-  }
-  
-  
-  /* profile change */
-  
-   .profile{
-   position: absolute;
-   top: 0;
-   left: 0;
-   position: fixed;
   z-index: 99;
   width: 98.8vw;
   height: 100vh;
-  
-  }
-   .profile .shadow{
-   position: absolute;
-   top: 0;
-   left: 0;
+}
+.updateGeneral .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0.7;
-   width: 100%;
+  width: 100%;
   height: 100%;
-   background-color: rgb(214, 214, 214);
-   }
-  
-  
-  .profile .form{
+  background-color: rgb(214, 214, 214);
+}
+
+.updateGeneral .form {
   width: 80%;
   position: absolute;
   top: 4%;
@@ -985,68 +258,268 @@ padding-top: 4%;
   z-index: 999;
   box-shadow: 0px 0px 12px rgb(197, 197, 197);
   background-color: rgb(255, 255, 255);
-  }
-  
-  .profile .form .top{
+}
+
+.updateGeneral .form .top {
   width: 100%;
   display: flex;
-  padding-bottom:2%;
+  padding-bottom: 2%;
   height: auto;
   border-bottom: 2px solid rgb(158, 158, 158);
-  }
-  .profile .form .top .headingTop{
+}
+.updateGeneral .form .top .headingTop {
   width: 80%;
   padding-top: 2%;
   padding-left: 3%;
   font-size: 30px;
   color: rgb(72, 72, 72);
-  }
-  
-  .profile .form .top .topicons{
+}
+
+.updateGeneral .form .top .topicons {
   width: 20%;
   padding-top: 1%;
   padding-left: 13%;
   color: rgb(72, 72, 72);
-  }
-  .profile .form .top .topicons span{
+}
+.updateGeneral .form .top .topicons span {
   font-size: 38px;
   cursor: pointer;
-  }
-  .profile .form .top .topicons span:hover{
+}
+.updateGeneral .form .top .topicons span:hover {
   color: red;
-  }
-  
-  
-  .profile .upsection{
+}
+
+.updateGeneral .forms {
+  padding-top: 1%;
+  padding-left: 2%;
+}
+.updateGeneral .form li {
+  width: 40%;
+  margin-left: 7%;
+  float: left;
+  height: auto;
+}
+.updateGeneral .form li .tt {
+  color: rgb(95, 95, 95);
+  font-size: 19px;
+  padding-left: 2%;
+}
+.updateGeneral .form li .dd input::-webkit-outer-spin-button,
+.updateGeneral .form li .dd input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.updateGeneral .form li .dd select {
+  width: 360px;
+
+  margin-top: 2%;
+  height: 38px;
+  padding-left: 3%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 18px;
+  outline: none;
+  text-align: center;
+}
+.updateGeneral .form li .dd input {
+  width: 360px;
+  margin-top: 2%;
+  height: 38px;
+  padding-left: 3%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 18px;
+  outline: none;
+}
+.updateGeneral .form .text {
+  width: 70%;
+  margin-left: 7%;
+  float: left;
+  height: auto;
+  margin-top: 1%;
+}
+.updateGeneral .form .text .dd textarea {
+  width: 870px;
+  margin-top: 2%;
+  height: 138px;
+  padding-left: 3%;
+  padding-top: 2%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 22px;
+  outline: none;
+  resize: none;
+}
+.updateGeneral .form button {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  padding-top: 1%;
+  background-color: rgb(70, 70, 70);
+  height: 55px;
+  width: 250px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  transition: all 0.4s;
+}
+
+.updateGeneral .form button:hover {
+  background-color: rgb(125, 125, 125);
+  color: rgb(255, 255, 255);
+}
+
+/* password */
+
+.clientPanel .right .password {
+  width: 100%;
+  height: 120px;
+}
+.clientPanel .right .password .top {
+  display: flex;
+}
+.clientPanel .right .password .headingTop {
+  font-size: 30px;
+  width: 90%;
+  margin-top: 5%;
+  padding-left: 7%;
+}
+
+.clientPanel .right .password .forms {
+  width: 100%;
+  height: auto;
+  list-style: none;
+  margin-top: 7%;
+}
+.clientPanel .right .password .forms li {
+  width: auto;
+  margin-left: 7%;
+  height: auto;
+  margin-top: 3%;
+}
+.clientPanel .right .password .forms li .tt {
+  color: rgb(95, 95, 95);
+  font-size: 19px;
+  padding-left: 1%;
+}
+
+.clientPanel .right .password .forms li button {
+  position: relative;
+  border-radius: 2px;
+  margin-left: -10%;
+  width: 300px;
+  font-size: 18px;
+  margin-top: 2%;
+  height: auto;
+  padding: 1.3% 2% 1.3% 2%;
+}
+
+.clientPanel .right .password .forms li .dd input {
+  width: 90%;
+  margin-top: 1%;
+  height: 40px;
+  padding-left: 3%;
+  border: 2px solid rgb(112, 112, 112);
+  font-size: 18px;
+  outline: none;
+}
+
+/* profile change */
+
+.profile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 99;
+  width: 98.8vw;
+  height: 100vh;
+}
+.profile .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(214, 214, 214);
+}
+
+.profile .form {
+  width: 80%;
+  position: absolute;
+  top: 4%;
+  left: 12%;
+  height: auto;
+  list-style: none;
+  padding-bottom: 5%;
+  z-index: 999;
+  box-shadow: 0px 0px 12px rgb(197, 197, 197);
+  background-color: rgb(255, 255, 255);
+}
+
+.profile .form .top {
+  width: 100%;
+  display: flex;
+  padding-bottom: 2%;
+  height: auto;
+  border-bottom: 2px solid rgb(158, 158, 158);
+}
+.profile .form .top .headingTop {
+  width: 80%;
+  padding-top: 2%;
+  padding-left: 3%;
+  font-size: 30px;
+  color: rgb(72, 72, 72);
+}
+
+.profile .form .top .topicons {
+  width: 20%;
+  padding-top: 1%;
+  padding-left: 13%;
+  color: rgb(72, 72, 72);
+}
+.profile .form .top .topicons span {
+  font-size: 38px;
+  cursor: pointer;
+}
+.profile .form .top .topicons span:hover {
+  color: red;
+}
+
+.profile .upsection {
   width: 100%;
   height: 400px;
   display: flex;
-  }
-  
-  .profile .upsection .lefts{width: 50%;}
-  
-  .profile .upsection .lefts{
-  width:50%;
-  } 
-  .profile .upsection .lefts h1{
+}
+
+.profile .upsection .lefts {
+  width: 50%;
+}
+
+.profile .upsection .lefts {
+  width: 50%;
+}
+.profile .upsection .lefts h1 {
   padding-top: 5%;
   font-size: 25px;
   color: rgb(113, 113, 113);
   padding-left: 10%;
-  }
-  
-  .profile .upsection .lefts input[type="file"] {
-      display: none;
-  }
-  
-  .profile .upsection .lefts .div {
+}
+
+.profile .upsection .lefts input[type="file"] {
+  display: none;
+}
+
+.profile .upsection .lefts .div {
   padding-left: 25%;
-  padding-top:35%;
-  }
-  .profile .upsection .lefts .custom_file_upload {
+  padding-top: 35%;
+}
+.profile .upsection .lefts .custom_file_upload {
   position: relative;
-      cursor: pointer;
-      width: 70%;
+  cursor: pointer;
+  width: 70%;
   font-size: 25px;
   color: rgb(78, 78, 78);
   border: 1px solid rgb(210, 210, 210);
@@ -1054,20 +527,20 @@ padding-top: 4%;
   height: auto;
   border-radius: 30px;
   transition: all 0.4s;
-  }
-  .profile .upsection .lefts .custom_file_upload:hover{
+}
+.profile .upsection .lefts .custom_file_upload:hover {
   box-shadow: 0px 0px 30px 10px rgb(245, 245, 245);
   border: 1px solid rgb(179, 179, 179);
-  }
-  
-  .profile .upsection .lefts .custom_file_upload .upload_icon{
+}
+
+.profile .upsection .lefts .custom_file_upload .upload_icon {
   position: absolute;
   top: 21%;
   left: 8%;
   font-size: 30px;
   color: rgb(68, 0, 255);
-  }
-  .profile .upsection .lefts button{
+}
+.profile .upsection .lefts button {
   position: absolute;
   bottom: 0;
   left: 35%;
@@ -1083,19 +556,454 @@ padding-top: 4%;
   border: none;
   background: rgb(252, 106, 9);
   box-shadow: 0px 0px 10px 4px rgb(239, 239, 239);
-  
-  }
-  
-  
-  
-  
-  
-  
-  .Profile .rights{
-  width:50%;
+}
+
+.profile .rights {
+  width: 50%;
   padding-left: 5%;
+}
+
+.profile .imageSections {
+  position: relative;
+  border-radius: 700px;
+  width: 60%;
+  margin-left: 18%;
+  margin-top: 8%;
+  height: 22vw;
+  box-shadow: 0px 0px 80px 10px rgb(239, 239, 239);
+  overflow: hidden;
+  border: 1px solid rgb(239, 239, 239);
+  background-color: rgb(239, 239, 239);
+}
+
+.profile .rights button {
+  display: none;
+}
+
+@media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
+  .clientPanel {
+    margin-top: 22vw;
   }
-  
-  
- 
+
+  .clientPanel .left {
+    width: 30%;
+    margin-top: 4%;
+    margin-left: 2%;
+    height: auto;
+
+    margin-bottom: 5%;
+  }
+
+  .clientPanel .left .imageSection {
+    height: 20vw;
+  }
+
+  .clientPanel .left .imageSection .update {
+    left: 10%;
+
+    font-size: 3vw;
+
+    width: 20vw;
+  }
+
+  .clientPanel .left .imageSection .update .edit {
+    margin-top: 3%;
+  }
+  .clientPanel .left .title {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.3vw;
+  }
+
+  .clientPanel .left .links {
+    width: 100%;
+    margin-top: 8%;
+    margin-left: 0%;
+  }
+
+  .clientPanel .left .links li {
+    height: auto;
+    margin-top: 4%;
+    padding-bottom: 4%;
+  }
+
+  .clientPanel .left .links li .icon {
+    font-size: 3.8vw;
+    padding-top: 6%;
+    padding-left: 8%;
+  }
+  .clientPanel .left .links li .icon .ic {
+    width: 6vw;
+    height: 6vw;
+    padding-top: 10%;
+  }
+  .clientPanel .left .links li .text {
+    padding-left: 7%;
+    font-size: 3.2vw;
+    padding-top: 8%;
+  }
+
+  .clientPanel .right {
+    width: 65%;
+
+    margin-left: 1%;
+
+    height: auto;
+  }
+  .clientPanel .right button {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    padding-top: 1%;
+    background-color: rgb(70, 70, 70);
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    color: white;
+    font-size: 1vw;
+    border: none;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    transition: all 0.4s;
+  }
+
+  .clientPanel .right button:hover {
+    background-color: rgb(125, 125, 125);
+    color: rgb(255, 255, 255);
+  }
+
+  .clientPanel .right .general {
+    width: 100%;
+    height: auto;
+  }
+  .clientPanel .right .general .top {
+    display: flex;
+  }
+  .clientPanel .right .general .headingTop {
+    font-size: 4vw;
+    width: 90%;
+    margin-top: 7%;
+    padding-left: 5%;
+  }
+  .clientPanel .right .general .topicons {
+    width: auto;
+
+    font-size: 2.8vw;
+    padding-right: 1.7%;
+
+    padding-left: 3%;
+    padding-bottom: 4%;
+    padding-top: 1.7%;
+  }
+
+  .clientPanel .right .general .forms {
+    width: auto;
+    height: auto;
+    list-style: none;
+    margin-top: 5%;
+  }
+  .clientPanel .right .general .forms li {
+    width: auto;
+    margin-left: 6%;
+  }
+  .clientPanel .right .general .forms li .tt {
+    font-size: 2.7vw;
+    padding-left: 1%;
+  }
+
+  .clientPanel .right .general .forms li .dd select {
+    width: 57vw;
+
+    margin-top: 2%;
+    height: auto;
+    padding-left: 3%;
+    padding: 2% 0;
+    font-size: 4vw;
+  }
+  .clientPanel .right .general .forms li .dd input {
+    width: 57vw;
+
+    margin-top: 2%;
+    height: auto;
+    padding-left: 3%;
+    padding: 2% 4%;
+    font-size: 4vw;
+  }
+  .clientPanel .right .general .forms .text {
+    width: 70%;
+    margin-left: 7%;
+    float: left;
+    height: auto;
+    margin-top: -1%;
+  }
+  .clientPanel .right .general .forms .text .dd textarea {
+    width: 57vw;
+
+    margin-top: 2%;
+    height: 20vw;
+    padding-left: 3%;
+    padding: 2% 4%;
+    font-size: 3.6vw;
+  }
+
+  /* update general form */
+  .updateGeneral {
+    position: absolute;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 99;
+    width: 98.8vw;
+    height: 100vh;
+  }
+  .updateGeneral .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(214, 214, 214);
+  }
+
+  .updateGeneral .form {
+    width: 92%;
+
+    top: 3%;
+    left: 4%;
+  }
+
+  .updateGeneral .form .top .headingTop {
+    font-size: 5vw;
+  }
+
+  .updateGeneral .form .top .topicons span {
+    font-size: 6vw;
+  }
+
+  .updateGeneral .forms {
+    padding-top: 1%;
+    padding-left: 2%;
+  }
+  .updateGeneral .form li {
+    width: auto;
+    margin-left: 2%;
+    float: left;
+    height: auto;
+  }
+  .updateGeneral .form li .tt {
+    font-size: 4vw;
+    padding-left: 1%;
+  }
+
+  .updateGeneral .form li .dd select {
+    width: 84vw;
+
+    margin-top: 2%;
+    height: auto;
+    padding-left: 3%;
+
+    font-size: 5vw;
+    padding: 2% 0%;
+  }
+  .updateGeneral .form li .dd input {
+    width: 84vw;
+
+    margin-top: 2%;
+    height: auto;
+    padding-left: 3%;
+
+    font-size: 5vw;
+    padding: 2% 2%;
+  }
+  .updateGeneral .form .text {
+    width: 70%;
+    margin-left: 2%;
+    float: left;
+    height: auto;
+    margin-top: 1%;
+  }
+  .updateGeneral .form .text .dd textarea {
+    width: 84vw;
+
+    margin-top: 2%;
+    height: 20vw;
+    padding-left: 3%;
+
+    font-size: 5vw;
+    margin-bottom: 10%;
+    padding: 2% 2%;
+  }
+  .updateGeneral .form button {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    padding-top: 1%;
+
+    height: auto;
+    width: auto;
+    padding-top: 4%;
+    font-size: 4vw;
+    padding-bottom: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  /* password */
+
+  .clientPanel .right .password {
+    width: 100%;
+    height: auto;
+  }
+  .clientPanel .right .password .top {
+    display: flex;
+  }
+  .clientPanel .right .password .headingTop {
+    font-size: 4vw;
+
+    padding-left: 10%;
+  }
+
+  .clientPanel .right .password .forms {
+    margin-top: 1%;
+  }
+
+  .clientPanel .right .password .forms li .tt {
+    font-size: 3.2vw;
+  }
+
+  .clientPanel .right .password .forms li button {
+    margin-left: 10%;
+    width: auto;
+    font-size: 3.2vw;
+
+    padding: 3% 6% 3% 6%;
+  }
+
+  .clientPanel .right .password .forms li .dd input {
+    width: 56vw;
+    margin-top: 1%;
+    height: auto;
+    padding-left: 3%;
+    padding: 2% 4%;
+    font-size: 4vw;
+  }
+
+  /* profile change */
+
+  .profile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+  }
+  .profile .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(214, 214, 214);
+  }
+
+  .profile .form {
+    width: 96%;
+
+    top: 4%;
+    left: 2%;
+  }
+
+  .profile .form .top .headingTop {
+    padding-top: 3%;
+    padding-left: 3%;
+    font-size: 5.5vw;
+  }
+
+  .profile .form .top .topicons {
+    width: 20%;
+    padding-top: 2%;
+    padding-left: 13%;
+  }
+  .profile .form .top .topicons span {
+    font-size: 6vw;
+  }
+
+  .profile .upsection {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .profile .upsection .lefts {
+    width: 100%;
+  }
+
+  .profile .upsection .lefts {
+    width: 100%;
+  }
+  .profile .upsection .lefts h1 {
+    padding-top: 5%;
+    font-size: 2vw;
+    color: rgb(172, 29, 29);
+    padding-left: 1%;
+  }
+
+  .profile .upsection .lefts .div {
+    padding-left: 30%;
+    padding-top: 15%;
+  }
+  .profile .upsection .lefts .custom_file_upload {
+    width: 80%;
+    font-size: 4vw;
+
+    padding: 2% 12% 2% 14%;
+  }
+
+  .profile .upsection .lefts .custom_file_upload .upload_icon {
+    top: 13%;
+
+    font-size: 6vw;
+  }
+  .profile .upsection .lefts button {
+    display: none;
+  }
+
+  .Profile .rights {
+    width: 100%;
+    padding-left: 1%;
+  }
+
+  .profile .imageSections {
+    width: 100%;
+    margin-left: 48%;
+    margin-top: 18%;
+    margin-bottom: 18%;
+    height: 42vw;
+
+    margin-bottom: 25%;
+  }
+
+  .profile .rights button {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 28%;
+    width: auto;
+    height: auto;
+    padding: 2.5% 8%;
+    outline: none;
+    cursor: pointer;
+    font-size: 4vw;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    color: white;
+    border: none;
+    background: rgb(252, 106, 9);
+    box-shadow: 0px 0px 10px 4px rgb(239, 239, 239);
+  }
 }
