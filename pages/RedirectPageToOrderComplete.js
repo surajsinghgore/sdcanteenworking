@@ -28,7 +28,10 @@ router.push("/OrderComplete")
        <div className={Styles.admin}>
      <HeadTag title="Redirect Page" />
     <VerifyClientMiddleware />
-  <h1>Please Do not refresh the page . Please wait for 10 seconds.......</h1>
+    <div className={Styles.redirect}>
+
+  <h1>Please do not refresh the page. Please wait for 10 seconds.......</h1>
+    </div>
    </div>      
     </>
   );

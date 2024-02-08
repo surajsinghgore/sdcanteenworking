@@ -73,11 +73,14 @@ temp();
     <>
     <VerifyClientMiddleware />
       <div className={Styles.admin}>
-        <HeadTag title="Failed In Payment" />
+        <HeadTag title="Failed  Payment" />
         <Header />
       </div>
     
     <div className={Style1.order}>
+
+
+
     {(pen==true)?  <div className={Style1.failed}>
 <h2>Sorry Payment Pending</h2>
 <div className={Style1.Div1} >
@@ -93,8 +96,8 @@ temp();
     {(rej==true)?
      <div className={Style1.failed}>
 <h2>Sorry Payment Failed</h2>
-<div className={Style1.Div1} >
-<Image src={failed} alt="payment reject" width={390} height={250}/>
+<div className={Style1.PaymentFailed} >
+<Image src={failed} alt="payment reject" layout="fill"/>
 </div>
 {/* <h3>Bank Transaction Id : <span>{token}</span></h3> */}
 <h3>Bank Transaction Id : <span>{token}</span></h3>

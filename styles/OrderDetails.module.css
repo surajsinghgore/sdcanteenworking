@@ -118,10 +118,17 @@ background-color: rgb(241, 72, 49);
 }
 
 .order .failed .Div1{
-margin-top: 4%;
-width: 100%;
-padding-left:1%;
-overflow:hidden;
+    position: relative;
+margin-top: 2%;
+width: 30%;
+height: 23vw;
+}
+.order .failed .PaymentFailed{
+    position: relative;
+margin-top: 6%;
+width: 50%;
+margin-left: 25%;
+height: 26vw;
 }
 .order .failed h2{
 color: red;
@@ -538,4 +545,71 @@ margin-top: -3%;
 font-size: 28px;
 font-weight: 500;
 color: rgb(55, 55, 55);
+}
+
+
+
+
+@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+
+/* order complete page */
+
+
+.order{
+   
+    margin-top: 20vw;
+ 
+    }
+
+    .order .failed button{
+
+    padding: 2% 10%;
+    font-size:5vw;
+    margin-left: 32%;
+   margin-bottom: 13%;
+   
+    }
+  
+    
+    .order .failed .Div1{
+        position: relative;
+    margin-top: 2%;
+    width: 60%;
+    height: 45vw;
+    margin-left: 22%;
+    }
+    .order .failed .PaymentFailed{
+        position: relative;
+    margin-top: 6%;
+    width: 85%;
+    margin-left: 10%;
+    height: 50vw;
+    }
+    .order .failed h2{
+  font-size: 5vw;
+    }
+    .order .failed .icon{
+    text-align: center;
+    font-size: 70px;
+    color: rgb(255, 38, 0);
+    }
+    .order .failed h3{
+  
+    font-size: 4vw;
+
+    }
+    .order .failed h3 span{
+        font-size: 5vw;
+
+    }
+    .order .failed h4{
+   
+    font-size: 5vw;
+ 
+    
+    }
+    .order .failed h4 span{
+        font-size: 6vw;
+
+    }
 }
