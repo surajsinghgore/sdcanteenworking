@@ -23,7 +23,7 @@ const [juiceItem,setJuiceItem]=useState([""])
 const [length,setLength]=useState(0);
 const [payableAmount,setPayableAmount]=useState(0);
 
-const reirectToOrderPage=()=>{
+const redirectToOrderPage=()=>{
 router.push('/OrderDetails')
 }
 const {
@@ -181,9 +181,9 @@ setState(!state)
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
               <div className={`${CartStyle.circle} ${CartStyle.circle1}`}>
-                1
+               <span>1</span> 
               </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.description}>
                 <p> SHOPPING CART </p>
               </div>
             </div>
@@ -191,8 +191,8 @@ setState(!state)
 
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
-              <div className={CartStyle.circle}>2 </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.circle}>  <span>2</span> </div>
+              <div className={CartStyle.description}>
                 <p> ORDER DETAILS </p>
               </div>
             </div>
@@ -200,8 +200,8 @@ setState(!state)
 
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
-              <div className={CartStyle.circle}>3 </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.circle}>  <span>3</span> </div>
+              <div className={CartStyle.description}>
                 <p> PAYMENT METHOD </p>
               </div>
             </div>
@@ -234,8 +234,8 @@ setState(!state)
 {foodItem.map((item)=>{
 return(
 <div className={CartStyle.data} key={item.id}>
-<div className={CartStyle.pics}>
-<Image src={item.Image} alt={item.ImageName} height={180} width={340} priority="true"/>
+<div className={CartStyle.FoodPics}>
+<Image src={item.Image} alt={item.ImageName} layout="fill" priority="true"/>
 </div>
 <div className={CartStyle.names}><p> {item.FoodName}</p></div>
 <div className={CartStyle.price}> <p>{item.price}</p> </div>
@@ -258,8 +258,8 @@ return(
 {coffeeItem.map((item)=>{
 return(
 <div className={CartStyle.data} key={item.id}>
-<div className={CartStyle.pics} style={{paddingLeft:"3%"}}>
-<Image src={item.Image} alt={item.ImageName} height={180} width={170} priority="true"/>
+<div className={CartStyle.CoffeePics}>
+<Image src={item.Image} alt={item.ImageName} layout="fill" priority="true"/>
 </div>
 <div className={CartStyle.names}><p> {item.CoffeeName}</p></div>
 <div className={CartStyle.price}> <p>{item.price}</p> </div>
@@ -282,8 +282,8 @@ return(
 {drinkItem.map((item)=>{
 return(
 <div className={CartStyle.data} key={item.id}>
-<div className={CartStyle.pics} style={{paddingLeft:"3%"}}>
-<Image src={item.Image} alt={item.ImageName} height={180} width={170} />
+<div className={CartStyle.DrinkPics} >
+<Image src={item.Image} alt={item.ImageName} layout="fill" />
 </div>
 <div className={CartStyle.names}><p> {item.DrinkName}</p></div>
 <div className={CartStyle.price}> <p>{item.price}</p> </div>
@@ -306,8 +306,8 @@ return(
 {juiceItem.map((item)=>{
 return(
 <div className={CartStyle.data} key={item.id}>
-<div className={CartStyle.pics} style={{paddingLeft:"3%"}}>
-<Image src={item.Image} alt={item.ImageName} height={180} width={170} />
+<div className={CartStyle.JuicePics}>
+<Image src={item.Image} alt={item.ImageName} layout="fill" />
 </div>
 <div className={CartStyle.names}><p> {item.JuiceName}</p></div>
 <div className={CartStyle.price}> <p>{item.price}</p> </div>
@@ -331,13 +331,19 @@ return(
 <div className={CartStyle.bottom}>
 <button className={CartStyle.more} onClick={backBtn}>Continue Shopping</button>
 <div className={CartStyle.subtotal}>
-<h1>Total Payabal Amount: <span> ₹ {payableAmount}</span></h1>
-{(length==0)? <button className={CartStyle.disables}>Add Item</button>:<button onClick={reirectToOrderPage}>Order Now</button>}
+<h1>Total Payable Amount: <span> ₹ {payableAmount}</span></h1>
+{(length==0)? <button className={CartStyle.disables}>Add Item</button>:<button onClick={redirectToOrderPage}>Order Now</button>}
 </div>
 </div>
 
 
 
+</div>
+
+<div className={CartStyle.top} id={CartStyle.BtnInMobile}>
+<h6>TOTAL PAYABLE AMOUNT:<span> ₹ {payableAmount} </span></h6>
+
+{(length==0)? <button className={CartStyle.disables}>Add Item</button>:<button onClick={redirectToOrderPage}>Order Now</button>}
 </div>
 </div>
 

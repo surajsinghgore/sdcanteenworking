@@ -519,7 +519,7 @@ export default function OrderItem() {
         `${HOST}/api/ShowRatingOfItems?productId=${productId}`
       );
       const dataRess = await fetchRate.json();
-     console.log(dataRess)
+
       if (fetchRate.status == 201) {
         if (dataRess.data.length != 0) {
           await setCopyData(dataRess.data);
