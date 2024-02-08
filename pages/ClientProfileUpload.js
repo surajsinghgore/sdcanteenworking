@@ -221,8 +221,10 @@ progress: undefined,
 
  <div className={ProfileStyles.right}>
  <div className={ProfileStyles.image}>
-  <Image src={imgs} alt="" id="output" width={780} height={800} />
+  <Image src={imgs} alt="" id="output" layout="fill"/>
  </div>
+ {(disbaleBtn)?<button disabled style={{cursor:'not-allowed'}}>Waiting...</button>:<button onClick={uploadProfileImage}>Upload Profile</button>}
+ 
 </div>
 </div>
 
