@@ -1409,7 +1409,10 @@ export default function OrderItem() {
                   })}
                 </div>
               </div>
+                <div className={style.btnSection}>
               {!add ? (
+
+                
                 <button
                   className={style.btn3}
                   onClick={() => RemoveFromCart(data)}
@@ -1424,6 +1427,7 @@ export default function OrderItem() {
               <button className={style.btn2} onClick={() => BuyNow(data)}>
                 Buy Now
               </button>
+              </div>
             </div>
           </div>
           <div className={style.description}>{data[0].Description}</div>
