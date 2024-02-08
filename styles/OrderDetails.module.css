@@ -140,12 +140,6 @@
   box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
 }
 
-
-
-
-
-
-
 /* Payment Page */
 
 .payment {
@@ -175,108 +169,101 @@
 }
 /* PaymentBottomMessage */
 
-.PaymentBottomMessage{
-width: 100%;
-
-
+.PaymentBottomMessage {
+  width: 100%;
 }
 
-.PaymentBottomMessage h4{
-    width: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
-    font-size: 30px;
-    
+.PaymentBottomMessage h4 {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 30px;
 }
-.PaymentBottomMessage h4 span{
-    padding-left: 1%;
-    color: red;
+.PaymentBottomMessage h4 span {
+  padding-left: 1%;
+  color: red;
 }
 .PaymentBottomMessage .bottomItem {
-    display: flex;
-    margin-top: 5%;
-    margin-bottom: 5%;
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
-.PaymentBottomMessage .bottomItem h4{
-    width: 50%;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
-    font-size: 30px;
-    
+.PaymentBottomMessage .bottomItem h4 {
+  width: 50%;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 30px;
 }
-.PaymentBottomMessage .bottomItem h4 span{
-    padding-left: 1%;
-    color: rgb(248, 0, 0);
+.PaymentBottomMessage .bottomItem h4 span {
+  padding-left: 1%;
+  color: rgb(248, 0, 0);
 }
-.PaymentBottomMessage .bottomItem h3{
-    width: 50%;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
-    font-size: 30px;
-    color: rgb(0, 50, 248);
+.PaymentBottomMessage .bottomItem h3 {
+  width: 50%;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(0, 50, 248);
 }
-
-
-
 
 /*payment bottom */
 
 .orderDetails .bottom1 {
-    width: 100%;
-    height: 120px;
-    background-color: rgb(236, 236, 236);
-    border: 1px solid rgb(193, 193, 193);
-    display: flex;
-  }
-  
-  .orderDetails .bottom1 .more {
-    width: auto;
-    position: relative;
-    border-radius: 8px;
-    outline: none;
-    border: none;
-    margin-top: 3%;
-    background-color: rgb(255, 72, 0);
-    height: 40px;
-    font-size: 20px;
-    color: white;
-    padding: 1% 3% 3% 3%;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-left: 4%;
-  }
-  .orderDetails .bottom1 .more:hover {
-    box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
-  }
-  .orderDetails .bottom1 .subtotal {
-    width: 70%;
-    height: auto;
-    margin-left: 5%;
-    position: relative;
-  }
-  
-  .orderDetails .bottom1 .subtotal button {
-    float: right;
-    border-radius: 8px;
-  
-    width: auto;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 4%;
-    margin-right: 4%;
-    border: none;
-    font-size: 20px;
-    padding: 1.5% 5% 1.5% 5%;
-    color: rgb(0, 0, 0);
-    background-color: rgb(4, 204, 231);
-  }
-  .orderDetails .bottom1 .subtotal button:hover {
-    color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
-  }
+  width: 100%;
+  height: 120px;
+  background-color: rgb(236, 236, 236);
+  border: 1px solid rgb(193, 193, 193);
+  display: flex;
+}
+
+.orderDetails .bottom1 .more {
+  width: auto;
+  position: relative;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-top: 3%;
+  background-color: rgb(255, 72, 0);
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  padding: 1% 3% 3% 3%;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 4%;
+}
+.orderDetails .bottom1 .more:hover {
+  box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
+}
+.orderDetails .bottom1 .subtotal {
+  width: 70%;
+  height: auto;
+  margin-left: 5%;
+  position: relative;
+}
+
+.orderDetails .bottom1 .subtotal button {
+  float: right;
+  border-radius: 8px;
+
+  width: auto;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 4%;
+  margin-right: 4%;
+  border: none;
+  font-size: 20px;
+  padding: 1.5% 5% 1.5% 5%;
+  color: rgb(0, 0, 0);
+  background-color: rgb(4, 204, 231);
+}
+.orderDetails .bottom1 .subtotal button:hover {
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
+}
 
 /* order complete page */
 
@@ -349,15 +336,6 @@ width: 100%;
 }
 .order .failed h4 span {
   color: rgb(254, 33, 3);
-}
-.order .temp {
-  width: 100%;
-  height: 94vh;
-  background-color: #eff1f3;
-}
-.order .temp h2 {
-  padding-top: 20%;
-  padding-bottom: 20%;
 }
 
 .order .orders {
@@ -474,7 +452,7 @@ width: 100%;
   margin-top: 3%;
   margin-left: 7%;
 }
-.order .orders .detials {
+.order .orders .details {
   width: 100%;
   height: auto;
   display: flex;
@@ -486,17 +464,17 @@ width: 100%;
   padding-left: 3.5%;
   font-size: 20px;
 }
-.order .orders .detials .personal,
-.order .orders .detials .orderRealted {
+.order .orders .details .personal,
+.order .orders .details .orderRelated {
   width: 50%;
 }
-.order .orders .detials .personal h3,
-.order .orders .detials .orderRealted h3 {
+.order .orders .details .personal h3,
+.order .orders .details .orderRelated h3 {
   padding-left: 7%;
   font-size: 18px;
 }
 
-.order .orders .detials .detialsInner {
+.order .orders .details .detailsInner {
   margin-left: 1%;
   display: flex;
   width: 80%;
@@ -504,12 +482,12 @@ width: 100%;
   padding-top: 1%;
 }
 
-.order .orders .detials .detialsInner .card {
+.order .orders .details .detailsInner .card {
   font-size: 40px;
   color: #0189ae;
   margin-left: 1%;
 }
-.order .orders .detials .detialsInner .title1 {
+.order .orders .details .detailsInner .title1 {
   color: rgb(5, 136, 207);
   font-size: 19px;
   padding-right: 4%;
@@ -518,14 +496,14 @@ width: 100%;
   font-weight: 500;
   width: 45%;
 }
-.order .orders .detials .detialsInner .title {
+.order .orders .details .detailsInner .title {
   color: rgb(49, 49, 49);
   font-size: 19px;
   padding-right: 4%;
   font-weight: 500;
   width: 45%;
 }
-.order .orders .detials .detialsInner .data {
+.order .orders .details .detailsInner .data {
   color: rgb(240, 54, 8);
   font-size: 19px;
   width: 50%;
@@ -533,7 +511,7 @@ width: 100%;
   text-align: left;
   padding-right: 4%;
 }
-.order .orders .detials .detialsInner .data1 {
+.order .orders .details .detailsInner .data1 {
   color: rgb(5, 5, 255);
   font-size: 19px;
   width: 50%;
@@ -872,21 +850,16 @@ width: 100%;
     font-size: 6vw;
   }
 
+  /* Payment Page */
 
-
-
-  
-
-/* Payment Page */
-
-.payment {
+  .payment {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: auto;
     padding-bottom: 5%;
   }
-  
+
   .div {
     position: relative;
     margin-top: 5%;
@@ -908,34 +881,25 @@ width: 100%;
     height: 5vw;
   }
   /* PaymentBottomMessage */
-  
-  .PaymentBottomMessage{
-  width: 100%;
-  
-  margin-top: -5%;
-  }
-  
-  .PaymentBottomMessage h4{
-  
-      font-size: 4vw;
-      
-  }
-  
 
-  .PaymentBottomMessage .bottomItem h4{
+  .PaymentBottomMessage {
+    width: 100%;
 
-      font-size: 3vw;
-      
+    margin-top: -5%;
   }
 
-  .PaymentBottomMessage .bottomItem h3{
-     
-      font-size: 3vw;
-
-      
+  .PaymentBottomMessage h4 {
+    font-size: 4vw;
   }
-  
-  
+
+  .PaymentBottomMessage .bottomItem h4 {
+    font-size: 3vw;
+  }
+
+  .PaymentBottomMessage .bottomItem h3 {
+    font-size: 3vw;
+  }
+
   /* bottom */
 
   .orderDetails .bottom1 {
@@ -972,5 +936,233 @@ width: 100%;
 
     width: 40vw;
   }
+  /* Order complete page */
 
+  .order .titleSection h1 {
+    font-size: 3.2vw;
+
+    width: 50%;
+  }
+
+  .order .titleSection h2 {
+    font-size: 3.2vw;
+    width: 50%;
+    padding-left: 12%;
+  }
+
+  .order .orderToday {
+    margin-top: 2%;
+  }
+  .order .orderToday h5 {
+    font-size: 3vw;
+    padding-left: 5%;
+    width: 60%;
+  }
+  .order .orderToday h6 {
+    font-size: 3vw;
+    padding-left: 18%;
+    width: 40%;
+  }
+  .order .orders .top {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 1%;
+  }
+  .order .orders .top .left {
+    width: 40%;
+  }
+  .order .orders .top .left h3 {
+    font-size: 2.3vw;
+  }
+  .order .orders .top .left p {
+    font-size: 3vw;
+  }
+  .order .orders .top .left h3 span {
+    font-size: 3.2vw;
+  }
+
+  .order .orders .top .right {
+    width: 60%;
+    display: flex;
+  }
+  .order .orders .top .right div:first-child {
+    margin-left: 32%;
+  }
+  .order .orders .top .right .hours,
+  .order .orders .top .right .mins,
+  .order .orders .top .right .sec {
+    width: 10vw;
+
+    line-height: 10vw;
+    font-size: 4vw;
+
+    height: 10vw;
+    margin-top: 6%;
+  }
+
+  .order .orders .hr2 {
+    width: 94%;
+
+    margin-left: 4%;
+  }
+  .order .orders .details {
+    flex-wrap: wrap;
+    padding-bottom: 3%;
+  }
+  .order .orders h3 {
+    font-size: 4vw;
+  }
+  .order .orders .details .personal,
+  .order .orders .details .orderRelated {
+    width: 100%;
+  }
+  .order .orders .details .personal h3,
+  .order .orders .details .orderRelated h3 {
+    padding-left: 5%;
+    font-size: 3.3vw;
+    margin-top: 2%;
+    margin-bottom: -1%;
+  }
+
+  .order .orders .details .detailsInner {
+    margin-left: 1%;
+    display: flex;
+    width: 80%;
+    margin-left: 5%;
+    padding-top: 1%;
+  }
+
+  .order .orders .details .detailsInner .card {
+    font-size: 15vw;
+  }
+  .order .orders .details .detailsInner .title1 {
+    font-size: 4vw;
+
+    padding-top: 7%;
+  }
+  .order .orders .details .detailsInner .title {
+    font-size: 3vw;
+    width: auto;
+  }
+  .order .orders .details .detailsInner .data {
+    font-size: 3vw;
+  }
+  .order .orders .details .detailsInner .data1 {
+    font-size: 3vw;
+  }
+
+  .order .orders .items {
+    height: auto;
+
+    width: 100%;
+  }
+  .order .orders .items h3 {
+    font-size: 3vw;
+  }
+  .order .orders .items .ItemcardHeading {
+    width: 98%;
+    margin-left: 2%;
+  }
+
+  .order .orders .items .ItemcardHeading .size {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: 10px;
+    margin-left: -0%;
+  }
+  .order .orders .items .ItemcardHeading .foodName {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+    line-height: 10px;
+  }
+  .order .orders .items .ItemcardHeading .price {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: 10px;
+  }
+  .order .orders .items .ItemcardHeading .qty {
+    width: 10%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: 10px;
+  }
+
+  .order .orders .items .ItemcardHeading .rupee {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: 10px;
+  }
+
+  /* data */
+  .order .orders .items .Itemcard {
+    width: 98%;
+    margin-left: 2%;
+  }
+
+  .order .orders .items .Itemcard .foodName {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+    line-height: 10vw;
+  }
+  .order .orders .items .Itemcard .size {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: auto;
+  }
+  .order .orders .items .Itemcard .price {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: auto;
+  }
+  .order .orders .items .Itemcard .qty {
+    width: 8%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: auto;
+  }
+
+  .order .orders .items .Itemcard .rupee {
+    width: 23%;
+    text-align: center;
+    font-size: 3vw;
+
+    line-height: auto;
+  }
+
+  .order .notFood {
+    height: auto;
+    padding-bottom: 3%;
+    border-radius: 3px;
+    border: 1px solid rgb(189, 189, 189);
+    width: 92%;
+    margin-left: 4%;
+    box-shadow: 0px 0px 10px rgb(242, 242, 242);
+    margin-bottom: 5%;
+  }
+  .order .notFood h3 {
+    font-size: 4vw;
+  }
+  .order .notFood button {
+    width: auto;
+    padding: 2% 8%;
+    height: auto;
+    font-size: 4vw;
+    margin-bottom: 2%;
+    margin-left: 27%;
+  }
 }
