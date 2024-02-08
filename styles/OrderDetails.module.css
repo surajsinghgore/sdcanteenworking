@@ -1,615 +1,764 @@
-.TimeBox{
-width: 98%;
-height: auto;
-margin-left: 1%;
+.orderDetails {
+  clear: both;
+  width: 90%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  margin-left: 5%;
+  border: 1px solid rgb(169, 169, 169);
 }
-.TimeBox .box{
-float: left;
-margin-top: 3%;
-display: flex;
-width: 250px;
-margin-left: 2%;
-position: relative;
+.orderDetails .orderTable {
+  width: 100%;
 }
-.TimeBox .box .btn{
-position: relative;
-width: 50%;
-
-font-size: 30px;
+.orderDetails .orderTable h4 {
+  color: red;
+  text-align: center;
+  font-size: 30px;
 }
-.TimeBox .box .btn input[type="radio"]{
-border: 0px;
-width: 50%;
-height: 4em;
+.orderDetails .orderTable h3 {
+  color: rgb(59, 59, 59);
+  text-align: left;
+  font-size: 22px;
+  padding-left: 5%;
 }
 
-.TimeBox .box .time{
-position: absolute;
-top: -50%;
-left: 30%;
-text-align: right;
-font-size: 28px;
-z-index: 1;
-color: rgb(97, 97, 97);
+.TimeBox {
+  width: 98%;
+  height: auto;
+  margin-left: 1%;
 }
-.TimeBox .box .time label{
-cursor: pointer;
+.TimeBox .box {
+  float: left;
+  margin-top: 3%;
+  display: flex;
+  width: 210px;
+  margin-left: 2.8%;
+  position: relative;
 }
+.TimeBox .box .btn {
+  position: relative;
+  width: 50%;
 
-
-.message{
-text-align: center;
-font-size: 35px;
-padding-top: 3%;
-color: rgb(250, 2, 2);
-width: 96%;
-margin-left: 2%;
+  font-size: 30px;
 }
-.message span{
-color: blue;
-font-weight: 500;
-
+.TimeBox .box .btn input[type="radio"] {
+  border: 0px;
+  width: 50%;
+  height: 4em;
 }
 
+.TimeBox .box .time {
+  position: absolute;
+  top: -50%;
+  left: 30%;
+  text-align: right;
+  font-size: 28px;
+  z-index: 1;
+  color: rgb(97, 97, 97);
+}
+.TimeBox .box .time label {
+  cursor: pointer;
+}
+
+.BottomMessage {
+  clear: both;
+  width: 100%;
+  text-align: center;
+}
+.BottomMessage h6 {
+  color: red;
+  padding-top: 3%;
+  font-size: 30px;
+}
+
+/* holiday message text */
+.message {
+  text-align: center;
+  font-size: 35px;
+  padding-top: 3%;
+  color: rgb(250, 2, 2);
+  width: 96%;
+  margin-left: 2%;
+}
+.message span {
+  color: blue;
+  font-weight: 500;
+}
+
+/* bottom */
+
+.orderDetails .bottom {
+  width: 100%;
+  height: 120px;
+  background-color: rgb(236, 236, 236);
+  border: 1px solid rgb(193, 193, 193);
+  display: flex;
+}
+
+.orderDetails .bottom .more {
+  width: auto;
+  position: relative;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-top: 3%;
+  background-color: rgb(255, 72, 0);
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  padding: 1% 3% 3% 3%;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-left: 4%;
+}
+.orderDetails .bottom .more:hover {
+  box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
+}
+.orderDetails .bottom .subtotal {
+  width: 70%;
+  height: auto;
+  margin-left: 5%;
+  position: relative;
+}
+
+.orderDetails .bottom .subtotal button {
+  float: right;
+  border-radius: 8px;
+
+  width: auto;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 3%;
+  margin-right: 0%;
+  border: none;
+  font-size: 20px;
+  padding: 2% 5% 2% 5%;
+  color: rgb(0, 0, 0);
+  background-color: rgb(4, 204, 231);
+}
+.orderDetails .bottom .subtotal button:hover {
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 10px 4px rgb(105, 105, 105);
+}
 
 /* Payment Page */
 
-.payment{
-position: relative;
-overflow: hidden;
-width: 100%;
-height: auto;
-padding-bottom: 5%;
+.payment {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  padding-bottom: 5%;
 }
 
-.div{
-position: relative;
-margin-top: 5%;
-width: 100%;
-margin-left: 10%;
-font-size: 30px;
+.div {
+  position: relative;
+  margin-top: 5%;
+  width: 100%;
+  margin-left: 10%;
+  font-size: 30px;
 }
-.div h4{
-position: absolute;
-top: -75%;
-left: 9%;
+.div h4 {
+  position: absolute;
+  top: -75%;
+  left: 9%;
 }
-.div input[type="radio"]{
-border: 0px;
-width: 10%;
-height: 3em;
+.div input[type="radio"] {
+  border: 0px;
+  width: 10%;
+  height: 3em;
 }
-
-
 
 /* order complete page */
 
-
-.order{
-position: relative;
-margin-top: 3%;
-width: 100%;
-height: auto;
+.order {
+  position: relative;
+  margin-top: 3%;
+  width: 100%;
+  height: auto;
 }
 /* order failed */
-.order .failed{
-width: 100%;
-overflow: hidden;
-height: auto;
-background-color: #eff1f3;
+.order .failed {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  background-color: #eff1f3;
 }
-.order .failed button{
-margin-bottom: 5%;
-padding: 1% 6% 1% 6%;
-font-size: 20px;
-margin-left: 40%;
-color: white;
-cursor: pointer;
-border-radius: 0px;
-border: none;
-background-color: rgb(238, 32, 5);
-transition: all 0.3s;
+.order .failed button {
+  margin-bottom: 5%;
+  padding: 1% 6% 1% 6%;
+  font-size: 20px;
+  margin-left: 40%;
+  color: white;
+  cursor: pointer;
+  border-radius: 0px;
+  border: none;
+  background-color: rgb(238, 32, 5);
+  transition: all 0.3s;
 }
-.order .failed button:hover{
-border-radius: 10px;
-background-color: rgb(241, 72, 49);
-
-
+.order .failed button:hover {
+  border-radius: 10px;
+  background-color: rgb(241, 72, 49);
 }
 
-.order .failed .Div1{
-    position: relative;
-margin-top: 2%;
-width: 30%;
-height: 23vw;
+.order .failed .Div1 {
+  position: relative;
+  margin-top: 2%;
+  width: 30%;
+  height: 23vw;
 }
-.order .failed .PaymentFailed{
-    position: relative;
-margin-top: 6%;
-width: 50%;
-margin-left: 25%;
-height: 26vw;
+.order .failed .PaymentFailed {
+  position: relative;
+  margin-top: 6%;
+  width: 50%;
+  margin-left: 25%;
+  height: 26vw;
 }
-.order .failed h2{
-color: red;
-text-align: center;
-padding-top: 3%;
+.order .failed h2 {
+  color: red;
+  text-align: center;
+  padding-top: 3%;
 }
-.order .failed .icon{
-text-align: center;
-font-size: 70px;
-color: rgb(255, 38, 0);
+.order .failed .icon {
+  text-align: center;
+  font-size: 70px;
+  color: rgb(255, 38, 0);
 }
-.order .failed h3{
-text-align: center;
-padding-top: 5%;
-font-size: 40px;
-color: rgb(3, 69, 110);
+.order .failed h3 {
+  text-align: center;
+  padding-top: 5%;
+  font-size: 40px;
+  color: rgb(3, 69, 110);
 }
-.order .failed h3 span{
-color: rgb(24, 162, 213);
+.order .failed h3 span {
+  color: rgb(24, 162, 213);
 }
-.order .failed h4{
-text-align: center;
-font-size: 35px;
-color: rgb(3, 69, 110);
-
+.order .failed h4 {
+  text-align: center;
+  font-size: 35px;
+  color: rgb(3, 69, 110);
 }
-.order .failed h4 span{
-color: rgb(254, 33, 3);
+.order .failed h4 span {
+  color: rgb(254, 33, 3);
 }
-.order .temp{
-width: 100%;
-height: 94vh;
-background-color: #eff1f3;
-
+.order .temp {
+  width: 100%;
+  height: 94vh;
+  background-color: #eff1f3;
 }
-.order .temp h2{
-padding-top: 20%;
-padding-bottom: 20%;
-
+.order .temp h2 {
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
-
-
-.order .orders{
-height: auto;
-padding-bottom: 3%;
-border-radius: 3px;
-border: 1px solid rgb(189, 189, 189);
-width: 92%;
-margin-left: 4%;
-box-shadow: 0px 0px 10px rgb(242, 242, 242);
-margin-bottom: 5%;
+.order .orders {
+  height: auto;
+  padding-bottom: 3%;
+  border-radius: 3px;
+  border: 1px solid rgb(189, 189, 189);
+  width: 92%;
+  margin-left: 4%;
+  box-shadow: 0px 0px 10px rgb(242, 242, 242);
+  margin-bottom: 5%;
 }
 
-.order .titleSection{
-width: 100%;
-display: flex;
+.order .titleSection {
+  width: 100%;
+  display: flex;
 }
-.order .titleSection h1{
-padding-top: 5%;
-font-size: 30px;
-padding-left: 5%;
-width: 77%;
-color: rgb(243, 101, 13);
-}
-
-.order .titleSection h2{
-padding-top: 5%;
-font-size: 26px;
-padding-right: 1%;
-margin-bottom: 3%;
-color: rgb(86, 85, 85);
-}
-.order .titleSection h2 span{color: rgb(240, 51, 51);}
-
-.order  .orderToday {
-width: 100%;
-display: flex;
-}
-.order  .orderToday h5{
-padding-top: 1%;
-font-size: 20px;
-padding-left: 5%;
-width: 80%;
-margin-bottom: 3%;
-color: black;
-}
-.order  .orderToday h6{
-padding-top: 1%;
-font-size: 20px;
-padding-left: 5%;
-width: 20%;
-margin-bottom: 3%;
-color: rgb(84, 84, 83) !important;
-}
-.order .orders .top{
-width: 100%;
-display: flex;
-padding-bottom: 1%;
-}
-.order .orders .top .left{width: 40%;}
-.order .orders .top .left h3{
-color: rgb(85, 85, 85);
-padding-top: 8%;
-padding-left: 8%;
-font-size: 23px;
-}
-.order .orders .top .left p{
-padding-left: 8%;
-font-size: 16px;
-font-weight: 500;
-}
-.order .orders .top .left h3 span{
-color: rgb(241, 3, 31);
-font-weight: 700;
-text-transform: uppercase;
+.order .titleSection h1 {
+  padding-top: 5%;
+  font-size: 30px;
+  padding-left: 5%;
+  width: 77%;
+  color: rgb(243, 101, 13);
 }
 
-
-.order .orders .top .right{
-width: 60%;
-display: flex;  
+.order .titleSection h2 {
+  padding-top: 5%;
+  font-size: 26px;
+  padding-right: 1%;
+  margin-bottom: 3%;
+  color: rgb(86, 85, 85);
 }
-.order .orders .top .right div:first-child{
-margin-left: 56%;
-}
-.order .orders .top .right .hours,.order .orders .top .right .mins,.order .orders .top .right .sec{
-background-color: rgb(252, 28, 28);
-width: 11%;
-text-align: center;
-line-height: 70px;
-font-size: 30px;
-color: white;
-margin-left: 3%;
-border-radius: 10px;
-height: 70px;
-margin-top: 4.5%;
+.order .titleSection h2 span {
+  color: rgb(240, 51, 51);
 }
 
-.order .orders .hr{
-
-width: 94%;
+.order .orderToday {
+  width: 100%;
+  display: flex;
 }
-.order .orders .hr1{
-background-color: rgb(0, 0, 0);
-width: 94%;
+.order .orderToday h5 {
+  padding-top: 1%;
+  font-size: 20px;
+  padding-left: 5%;
+  width: 80%;
+  margin-bottom: 3%;
+  color: black;
 }
-.order .orders .hr2{
-background-color: rgb(0, 0, 0);
-width: 70%;
-margin-top: 3%;
-margin-left: 7%;
+.order .orderToday h6 {
+  padding-top: 1%;
+  font-size: 20px;
+  padding-left: 5%;
+  width: 20%;
+  margin-bottom: 3%;
+  color: rgb(84, 84, 83) !important;
 }
-.order .orders .detials{
-width: 100%;
-height: auto;
-display: flex;
-padding-bottom: 3%;
+.order .orders .top {
+  width: 100%;
+  display: flex;
+  padding-bottom: 1%;
 }
-.order .orders  h3{
-color: rgb(85, 85, 85);
-padding-top: 2%;
-padding-left: 3.5%;
-font-size: 20px;
+.order .orders .top .left {
+  width: 40%;
 }
-.order .orders .detials .personal,.order .orders .detials .orderRealted{width: 50%;}
-.order .orders .detials .personal h3,.order .orders .detials .orderRealted h3{padding-left: 7%;
-font-size: 18px;
+.order .orders .top .left h3 {
+  color: rgb(85, 85, 85);
+  padding-top: 8%;
+  padding-left: 8%;
+  font-size: 23px;
 }
-
-
-.order .orders .detials .detialsInner{
-margin-left: 1%;
-display: flex;
-width: 80%;
-margin-left: 7%;
-padding-top: 1%;
+.order .orders .top .left p {
+  padding-left: 8%;
+  font-size: 16px;
+  font-weight: 500;
 }
-
-
-
-.order .orders .detials .detialsInner .card{
-font-size: 40px;
-color: #0189ae;
-margin-left: 1%;
-}
-.order .orders .detials .detialsInner .title1{
-color: rgb(5, 136, 207);
-font-size: 19px;
-padding-right: 4%;
-margin-left: 5%;
-padding-top: 1%;
-font-weight: 500;
-width: 45%;
-}
-.order .orders .detials .detialsInner .title{
-color: rgb(49, 49, 49);
-font-size: 19px;
-padding-right: 4%;
-font-weight: 500;
-width: 45%;
-}
-.order .orders .detials .detialsInner .data{
-color: rgb(240, 54, 8);
-font-size: 19px;
-width: 50%;
-font-weight: 700;
-text-align: left;
-padding-right: 4%;
-}
-.order .orders .detials .detialsInner .data1{
-color: rgb(5, 5, 255);
-font-size: 19px;
-width: 50%;
-font-weight: 700;
-text-align: left;
-padding-right: 4%;
+.order .orders .top .left h3 span {
+  color: rgb(241, 3, 31);
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-
-
-
-
-
-
-
-
-
-
-.order .orders .items{
-height: auto;
-width: 100%;
-
+.order .orders .top .right {
+  width: 60%;
+  display: flex;
+}
+.order .orders .top .right div:first-child {
+  margin-left: 56%;
+}
+.order .orders .top .right .hours,
+.order .orders .top .right .mins,
+.order .orders .top .right .sec {
+  background-color: rgb(252, 28, 28);
+  width: 11%;
+  text-align: center;
+  line-height: 70px;
+  font-size: 30px;
+  color: white;
+  margin-left: 3%;
+  border-radius: 10px;
+  height: 70px;
+  margin-top: 4.5%;
 }
 
-
-.order .orders .items .ItemcardHeading{
-width: 94%;
-margin-left: 6%;
-
-display: flex;
-list-style: none;
-padding-top: 1%;
-padding-bottom: 1%;
-height: auto;
-margin-bottom: 2%;
+.order .orders .hr {
+  width: 94%;
+}
+.order .orders .hr1 {
+  background-color: rgb(0, 0, 0);
+  width: 94%;
+}
+.order .orders .hr2 {
+  background-color: rgb(0, 0, 0);
+  width: 70%;
+  margin-top: 3%;
+  margin-left: 7%;
+}
+.order .orders .detials {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding-bottom: 3%;
+}
+.order .orders h3 {
+  color: rgb(85, 85, 85);
+  padding-top: 2%;
+  padding-left: 3.5%;
+  font-size: 20px;
+}
+.order .orders .detials .personal,
+.order .orders .detials .orderRealted {
+  width: 50%;
+}
+.order .orders .detials .personal h3,
+.order .orders .detials .orderRealted h3 {
+  padding-left: 7%;
+  font-size: 18px;
 }
 
-.order .orders .items .ItemcardHeading .size{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 10px;
-margin-left: -0%;
-}
-.order .orders .items .ItemcardHeading .foodName{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 10px;
-}
-.order .orders .items .ItemcardHeading .price{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 10px;
-}
-.order .orders .items .ItemcardHeading .qty{
-width: 8%;
-text-align: center;
-font-size: 20px;
-line-height: 10px;
+.order .orders .detials .detialsInner {
+  margin-left: 1%;
+  display: flex;
+  width: 80%;
+  margin-left: 7%;
+  padding-top: 1%;
 }
 
-.order .orders .items .ItemcardHeading .rupee{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 10px;
+.order .orders .detials .detialsInner .card {
+  font-size: 40px;
+  color: #0189ae;
+  margin-left: 1%;
+}
+.order .orders .detials .detialsInner .title1 {
+  color: rgb(5, 136, 207);
+  font-size: 19px;
+  padding-right: 4%;
+  margin-left: 5%;
+  padding-top: 1%;
+  font-weight: 500;
+  width: 45%;
+}
+.order .orders .detials .detialsInner .title {
+  color: rgb(49, 49, 49);
+  font-size: 19px;
+  padding-right: 4%;
+  font-weight: 500;
+  width: 45%;
+}
+.order .orders .detials .detialsInner .data {
+  color: rgb(240, 54, 8);
+  font-size: 19px;
+  width: 50%;
+  font-weight: 700;
+  text-align: left;
+  padding-right: 4%;
+}
+.order .orders .detials .detialsInner .data1 {
+  color: rgb(5, 5, 255);
+  font-size: 19px;
+  width: 50%;
+  font-weight: 700;
+  text-align: left;
+  padding-right: 4%;
 }
 
+.order .orders .items {
+  height: auto;
+  width: 100%;
+}
 
+.order .orders .items .ItemcardHeading {
+  width: 94%;
+  margin-left: 6%;
 
+  display: flex;
+  list-style: none;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  height: auto;
+  margin-bottom: 2%;
+}
 
+.order .orders .items .ItemcardHeading .size {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+  margin-left: -0%;
+}
+.order .orders .items .ItemcardHeading .foodName {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+}
+.order .orders .items .ItemcardHeading .price {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+}
+.order .orders .items .ItemcardHeading .qty {
+  width: 8%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+}
 
+.order .orders .items .ItemcardHeading .rupee {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+}
 
 /* data */
-.order .orders .items .Itemcard{
-width: 94%;
-margin-left: 6%;
-display: flex;
-list-style: none;
-padding-top: 1%;
-padding-bottom: 1%;
-height: auto;
+.order .orders .items .Itemcard {
+  width: 94%;
+  margin-left: 6%;
+  display: flex;
+  list-style: none;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  height: auto;
 }
 
-
-.order .orders .items .Itemcard .foodName{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 40px;
+.order .orders .items .Itemcard .foodName {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
 }
-.order .orders .items .Itemcard .size{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 40px;
+.order .orders .items .Itemcard .size {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
 }
-.order .orders .items .Itemcard .price{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 40px;
+.order .orders .items .Itemcard .price {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
 }
-.order .orders .items .Itemcard .qty{
-width: 8%;
-text-align: center;
-font-size: 20px;
-line-height: 40px;
-}
-
-.order .orders .items .Itemcard .rupee{
-width: 23%;
-text-align: center;
-font-size: 20px;
-line-height: 40px;
+.order .orders .items .Itemcard .qty {
+  width: 8%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
 }
 
-
-
-
-.order .notFood{
-height: auto;
-padding-bottom: 3%;
-border-radius: 3px;
-border: 1px solid rgb(189, 189, 189);
-width: 92%;
-margin-left: 4%;
-box-shadow: 0px 0px 10px rgb(242, 242, 242);
-margin-bottom: 5%;
-}
-.order .notFood h3{
-text-align: center;
-margin-top: 4%;
-}
-.order .notFood button{
-width: 250px;
-padding: 1% 2% 1% 2%;
-height: auto;
-font-size: 20px;
-margin-bottom: 2%;
-margin-left: 40%;
-border: none;
-cursor: pointer;
-color: white;
-border-radius: 0;
-background-color: rgb(255, 77, 0);
-transition: all 0.4s;
-}
-.order .notFood button:hover{
-border-radius: 10px;
-box-shadow: 0px 0px 20px rgb(219, 219, 219);
+.order .orders .items .Itemcard .rupee {
+  width: 23%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
 }
 
-
+.order .notFood {
+  height: auto;
+  padding-bottom: 3%;
+  border-radius: 3px;
+  border: 1px solid rgb(189, 189, 189);
+  width: 92%;
+  margin-left: 4%;
+  box-shadow: 0px 0px 10px rgb(242, 242, 242);
+  margin-bottom: 5%;
+}
+.order .notFood h3 {
+  text-align: center;
+  margin-top: 4%;
+}
+.order .notFood button {
+  width: 250px;
+  padding: 1% 2% 1% 2%;
+  height: auto;
+  font-size: 20px;
+  margin-bottom: 2%;
+  margin-left: 40%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 0;
+  background-color: rgb(255, 77, 0);
+  transition: all 0.4s;
+}
+.order .notFood button:hover {
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgb(219, 219, 219);
+}
 
 /* failed page */
 
-.order .Div1{
-margin-top: -3%;
-margin-left: 35%;
-width: 30%;
+.order .Div1 {
+  margin-top: -3%;
+  margin-left: 35%;
+  width: 30%;
 }
 
-.order h2{
-font-size: 40px;
-color: rgb(59, 59, 59);
+.order h2 {
+  font-size: 40px;
+  color: rgb(59, 59, 59);
 }
-.order h3{
-margin-top: -2%;
-font-size: 35px;
-font-weight: 500;
-color: rgb(59, 59, 59);
-}
-
-.order h4{
-margin-top: -2%;
-font-size: 35px;
-font-weight: 500;
-color: rgb(59, 59, 59);
+.order h3 {
+  margin-top: -2%;
+  font-size: 35px;
+  font-weight: 500;
+  color: rgb(59, 59, 59);
 }
 
-.order h4 .Token{
-margin-left: 2%;
-padding-left: 2%;
-padding-right: 2%;
-border: 3px dotted red;
-color: blue;
-user-select:all;
-font-size: 40px;
-}
-.order h5{
-margin-top: -2%;
-font-size: 30px;
-font-weight: 500;
-color: rgb(244, 49, 0);
+.order h4 {
+  margin-top: -2%;
+  font-size: 35px;
+  font-weight: 500;
+  color: rgb(59, 59, 59);
 }
 
-
-.order h6{
-margin-top: -3%;
-font-size: 28px;
-font-weight: 500;
-color: rgb(55, 55, 55);
+.order h4 .Token {
+  margin-left: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 3px dotted red;
+  color: blue;
+  user-select: all;
+  font-size: 40px;
+}
+.order h5 {
+  margin-top: -2%;
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(244, 49, 0);
 }
 
+.order h6 {
+  margin-top: -3%;
+  font-size: 28px;
+  font-weight: 500;
+  color: rgb(55, 55, 55);
+}
 
+@media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
+  /* order details page css */
+  .orderDetails {
+    margin-top: 15%;
+  }
 
+  .orderDetails .orderTable h4 {
+    font-size: 4.5vw;
+  }
+  .orderDetails .orderTable h3 {
+    font-size: 3.5vw;
+    padding-left: 5%;
+  }
 
-@media only screen and (min-device-width : 0px) and (max-device-width : 1000px) {
+  .TimeBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    margin-left: 0%;
+  }
+  .TimeBox .box {
+    float: none;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    width: 33%;
+    margin-left: 0%;
+  }
+  .TimeBox .box .btn {
+    position: relative;
+    width: auto;
 
-/* order complete page */
+    font-size: 3vw;
+  }
+  .TimeBox .box .btn input[type="radio"] {
+    position: absolute;
+    top: 30%;
+    left: -2vw;
 
+    z-index: 2;
+    border: 0px;
+    width: 10vw;
 
-.order{
-   
+    height: 5vw;
+    padding-top: 0%;
+  }
+
+  .TimeBox .box .time {
+    position: relative;
+    top: 0%;
+    left: 5%;
+    text-align: right;
+    font-size: 4vw;
+    z-index: 1;
+    width: 25vw;
+    color: rgb(97, 97, 97);
+  }
+
+  .BottomMessage h6 {
+    padding-top: 0%;
+    font-size: 4vw;
+  }
+
+  /* holiday message text */
+  .message {
+    font-size: 5vw;
+    margin-bottom: 4%;
+  }
+
+  /* bottom */
+
+  .orderDetails .bottom {
+    height: auto;
+
+    padding-bottom: 4%;
+  }
+
+  .orderDetails .bottom .more {
+    width: 45vw;
+    margin-top: 3%;
+
+    height: auto;
+    font-size: 4vw;
+    color: white;
+    padding: 2% 6% 2% 6%;
+
+    margin-left: 4%;
+  }
+
+  .orderDetails .bottom .subtotal {
+    width: 70%;
+    height: auto;
+    margin-left: 5%;
+    position: relative;
+  }
+
+  .orderDetails .bottom .subtotal button {
+    margin-top: 6%;
+    margin-right: 4%;
+
+    font-size: 4vw;
+    padding: 5% 6% 5% 6%;
+
+    width: 40vw;
+  }
+
+  /* order complete page */
+
+  .order {
     margin-top: 20vw;
- 
-    }
+  }
 
-    .order .failed button{
-
+  .order .failed button {
     padding: 2% 10%;
-    font-size:5vw;
+    font-size: 5vw;
     margin-left: 32%;
-   margin-bottom: 13%;
-   
-    }
-  
-    
-    .order .failed .Div1{
-        position: relative;
+    margin-bottom: 13%;
+  }
+
+  .order .failed .Div1 {
+    position: relative;
     margin-top: 2%;
     width: 60%;
     height: 45vw;
     margin-left: 22%;
-    }
-    .order .failed .PaymentFailed{
-        position: relative;
+  }
+  .order .failed .PaymentFailed {
+    position: relative;
     margin-top: 6%;
     width: 85%;
     margin-left: 10%;
     height: 50vw;
-    }
-    .order .failed h2{
-  font-size: 5vw;
-    }
-    .order .failed .icon{
+  }
+  .order .failed h2 {
+    font-size: 5vw;
+  }
+  .order .failed .icon {
     text-align: center;
     font-size: 70px;
     color: rgb(255, 38, 0);
-    }
-    .order .failed h3{
-  
+  }
+  .order .failed h3 {
     font-size: 4vw;
-
-    }
-    .order .failed h3 span{
-        font-size: 5vw;
-
-    }
-    .order .failed h4{
-   
+  }
+  .order .failed h3 span {
     font-size: 5vw;
- 
-    
-    }
-    .order .failed h4 span{
-        font-size: 6vw;
-
-    }
+  }
+  .order .failed h4 {
+    font-size: 5vw;
+  }
+  .order .failed h4 span {
+    font-size: 6vw;
+  }
 }

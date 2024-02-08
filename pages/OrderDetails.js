@@ -93,21 +93,21 @@ status=data.data[0].Status;
 }
 // !
 if(status!="true"){
-  // let d=await Timing.filter((time)=>{
-  // return time.time>=times;
-  // })
-  // setTime(d);
+  let d=await Timing.filter((time)=>{
+  return time.time>=times;
+  })
+  setTime(d);
 }
-setTime(Timing);
+// setTime(Timing);
 
 }
 // zero is for sunday
-// if(parseInt(date.getDay())!=0){
+if(parseInt(date.getDay())!=0){
 // ! from 7 am to 6 pm allowed
-// if((h>=7)&&(h<=17)){
+ if((h>=7)&&(h<=17)){
 fetchData();
-// }
-// }
+ }
+}
 
 },[realTime])
 
@@ -121,9 +121,7 @@ setRealTime(!realTime);
 setInterval(changes,1000*seconds);
 })
 
- const style2 = {
-        marginBottom:"5%",clear:"both"
-    }
+
 
 const getTime=(item)=>{
 
@@ -176,9 +174,9 @@ setDefaultTime(localStorage.getItem("OrderFoodTime"))
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
               <div className={CartStyle.circle}>
-                1
+               <span>1</span> 
               </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.description}>
                 <p> SHOPPING CART </p>
               </div>
             </div>
@@ -186,8 +184,8 @@ setDefaultTime(localStorage.getItem("OrderFoodTime"))
 
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
-              <div className={`${CartStyle.circle} ${CartStyle.circle1}`}>2 </div>
-              <div className={CartStyle.discription}>
+              <div className={`${CartStyle.circle} ${CartStyle.circle1}`}>  <span>2</span> </div>
+              <div className={CartStyle.description}>
                 <p> ORDER DETAILS </p>
               </div>
             </div>
@@ -195,8 +193,8 @@ setDefaultTime(localStorage.getItem("OrderFoodTime"))
 
           <div className={CartStyle.number}>
             <div className={CartStyle.num1}>
-              <div className={CartStyle.circle}>3 </div>
-              <div className={CartStyle.discription}>
+              <div className={CartStyle.circle}>  <span>3</span> </div>
+              <div className={CartStyle.description}>
                 <p> PAYMENT METHOD </p>
               </div>
             </div>
@@ -208,13 +206,13 @@ setDefaultTime(localStorage.getItem("OrderFoodTime"))
 
 
 {/* cart List */}
-<div className={CartStyle.cartItem}>
-<div className={CartStyle.cartTable}>
-{(time.length!=0)?<div><h4 style={{textAlign:"center",fontSize:"20px",color:"red"}}>Please Book Food 10 Minutes before Pickup</h4>
-<h3 style={{paddingLeft:"4%",fontSize:"25px"}}>Select Pickup Time</h3></div>
+<div className={Style1.orderDetails}>
+<div className={Style1.orderTable}>
+{(time.length!=0)?<div><h4>Please order food 10 minutes before pickup</h4>
+<h3 >Select Pickup Time</h3></div>
 
 :""}
-
+</div>
 <div className={Style1.TimeBox}>
 
 {time.map((time) =>( 
@@ -240,20 +238,24 @@ value={`${time.time1.toFixed(2)}-${(time.time>=12)?'PM':'AM'}`} />
 
 </div>
 
-<div style={style2}>
+<div className={Style1.BottomMessage}>
+
+
 {(time.length==0)?
 <div className={Style1.message}>Order is Not allowed to Placed after <span>5.51 PM</span> from <span>Monday</span> To <span>Saturday.</span>  Closed On <span>Sunday</span> and on  <span>Holidays</span></div>
-:""}</div>
+:""}
 {(time.length!=0)?
-<h4 style={{textAlign:"center",fontSize:"28px",color:"red"}}>Note-: Order Can&#39;t Cancelled Once Placed.</h4>
+<h6>Note-: Order Can&#39;t Cancelled Once Placed.</h6>
 :""}
 </div>
-<div className={CartStyle.bottom} >
-<Link href="/Cart"><button className={CartStyle.more}>Cart Page</button></Link>
-<div className={CartStyle.subtotal} >
+
+{/* bottom  */}
+<div className={Style1.bottom} >
+<Link href="/Cart"><button className={Style1.more}>Cart Page</button></Link>
+<div className={Style1.subtotal} >
 {(time.length!=0)?
-<button style={{marginTop:"5%",marginRight:"-4%"}} onClick={()=>getTime(time)}>Continue Order</button>
-:<button style={{marginTop:"5%",marginRight:"-4%",cursor:"not-allowed"}} onClick={()=>getTime()} disabled>Continue Order</button>
+<button  onClick={()=>getTime(time)}>Continue Order</button>
+:<button style={{cursor:"not-allowed"}} onClick={()=>getTime()} disabled>Continue Order</button>
 }
 </div>
 </div>
