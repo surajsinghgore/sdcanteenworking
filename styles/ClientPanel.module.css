@@ -812,7 +812,7 @@ margin-top: -1%;
  .updateGeneral .form{
  width: 92%;
 
- top: 1%;
+ top: 3%;
  left: 4%;
 
  }
@@ -902,5 +902,200 @@ padding-top: 4%;
  
 
  
+
+/* password */
+
+
+.clientPanel .right .password{
+  width: 100%;
+  height: auto;
+  
+  }
+  .clientPanel .right .password .top{display: flex;}
+  .clientPanel .right .password .headingTop{
+  font-size: 4vw;
+  
+
+  padding-left: 10%;
+  }
+  
+  
+  .clientPanel .right .password .forms{
+
+  margin-top: 1%;
+  }
+ 
+  .clientPanel .right .password .forms li .tt{
+  font-size: 3.2vw;
+  }
+  
+  .clientPanel .right .password .forms li button{
+
+
+  margin-left: 10%;
+  width: auto;
+  font-size: 3.2vw;
+
+  
+  padding: 3% 6% 3% 6%;
+  }
+  
+  .clientPanel .right .password .forms li .dd input{
+  width: 56vw;
+  margin-top: 1%;
+  height: auto;
+  padding-left: 3%;
+ padding: 2% 4%;
+  font-size: 4vw;
+
+  }
+  
+  
+  /* profile change */
+  
+   .profile{
+   position: absolute;
+   top: 0;
+   left: 0;
+   position: fixed;
+  z-index: 99;
+  width: 98.8vw;
+  height: 100vh;
+  
+  }
+   .profile .shadow{
+   position: absolute;
+   top: 0;
+   left: 0;
+  opacity: 0.7;
+   width: 100%;
+  height: 100%;
+   background-color: rgb(214, 214, 214);
+   }
+  
+  
+  .profile .form{
+  width: 80%;
+  position: absolute;
+  top: 4%;
+  left: 12%;
+  height: auto;
+  list-style: none;
+  padding-bottom: 5%;
+  z-index: 999;
+  box-shadow: 0px 0px 12px rgb(197, 197, 197);
+  background-color: rgb(255, 255, 255);
+  }
+  
+  .profile .form .top{
+  width: 100%;
+  display: flex;
+  padding-bottom:2%;
+  height: auto;
+  border-bottom: 2px solid rgb(158, 158, 158);
+  }
+  .profile .form .top .headingTop{
+  width: 80%;
+  padding-top: 2%;
+  padding-left: 3%;
+  font-size: 30px;
+  color: rgb(72, 72, 72);
+  }
+  
+  .profile .form .top .topicons{
+  width: 20%;
+  padding-top: 1%;
+  padding-left: 13%;
+  color: rgb(72, 72, 72);
+  }
+  .profile .form .top .topicons span{
+  font-size: 38px;
+  cursor: pointer;
+  }
+  .profile .form .top .topicons span:hover{
+  color: red;
+  }
+  
+  
+  .profile .upsection{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  }
+  
+  .profile .upsection .lefts{width: 50%;}
+  
+  .profile .upsection .lefts{
+  width:50%;
+  } 
+  .profile .upsection .lefts h1{
+  padding-top: 5%;
+  font-size: 25px;
+  color: rgb(113, 113, 113);
+  padding-left: 10%;
+  }
+  
+  .profile .upsection .lefts input[type="file"] {
+      display: none;
+  }
+  
+  .profile .upsection .lefts .div {
+  padding-left: 25%;
+  padding-top:35%;
+  }
+  .profile .upsection .lefts .custom_file_upload {
+  position: relative;
+      cursor: pointer;
+      width: 70%;
+  font-size: 25px;
+  color: rgb(78, 78, 78);
+  border: 1px solid rgb(210, 210, 210);
+  padding: 2% 12% 2% 14%;
+  height: auto;
+  border-radius: 30px;
+  transition: all 0.4s;
+  }
+  .profile .upsection .lefts .custom_file_upload:hover{
+  box-shadow: 0px 0px 30px 10px rgb(245, 245, 245);
+  border: 1px solid rgb(179, 179, 179);
+  }
+  
+  .profile .upsection .lefts .custom_file_upload .upload_icon{
+  position: absolute;
+  top: 21%;
+  left: 8%;
+  font-size: 30px;
+  color: rgb(68, 0, 255);
+  }
+  .profile .upsection .lefts button{
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  width: 30%;
+  height: auto;
+  padding: 2% 1% 1% 1%;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  color: white;
+  border: none;
+  background: rgb(252, 106, 9);
+  box-shadow: 0px 0px 10px 4px rgb(239, 239, 239);
+  
+  }
+  
+  
+  
+  
+  
+  
+  .Profile .rights{
+  width:50%;
+  padding-left: 5%;
+  }
+  
+  
  
 }
