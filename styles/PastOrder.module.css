@@ -128,7 +128,7 @@
   border: 1px solid rgb(209, 209, 209);
   margin-bottom: 2%;
 }
-.AllOrder .data .hdatas {
+.AllOrder .data .headingData {
   width: 100%;
   list-style: none;
   font-size: 16px;
@@ -137,18 +137,18 @@
   border: 1px solid rgb(209, 209, 209);
   display: flex;
 }
-.AllOrder .data .hdatas li {
+.AllOrder .data .headingData li {
   width: 16.67%;
   font-weight: 500;
   margin-top: 1%;
   padding-left: 3%;
   color: rgb(87, 87, 87);
 }
-.AllOrder .data .hdatas .token {
+.AllOrder .data .headingData .token {
   text-transform: uppercase;
   color: rgb(0, 68, 255);
 }
-.AllOrder .data .hdatas .status .complete {
+.AllOrder .data .headingData .status .complete {
   width: 70%;
   margin-top: -3%;
   padding: 3% 1% 4% 1%;
@@ -160,7 +160,7 @@
   font-size: 15px;
   background-color: rgb(3, 179, 58);
 }
-.AllOrder .data .hdatas .status .reject {
+.AllOrder .data .headingData .status .reject {
   width: 70%;
   margin-top: -3%;
   padding: 3% 1% 4% 1%;
@@ -172,7 +172,7 @@
   font-size: 15px;
   background-color: rgb(227, 73, 73);
 }
-.AllOrder .data .hdatas .status .pending {
+.AllOrder .data .headingData .status .pending {
   width: 70%;
   margin-top: -3%;
   padding: 3% 1% 4% 1%;
@@ -194,11 +194,9 @@
   background-color: rgb(216, 216, 216);
   font-size: 16px;
 }
-.AllOrder .data .items {
-  /* margin-top: -3%; */
-}
 
-.AllOrder .data .iheading {
+
+.AllOrder .data .innerHeading {
   margin-top: -3%;
 }
 .AllOrder .data .itemsHeading {
@@ -273,42 +271,6 @@
     height: 1vw;
   }
 
-  .AllOrder .search {
-    width: 96%;
-    margin-left: 2%;
-    background-color: rgb(246, 246, 246);
-    height: 60px;
-    padding-bottom: 5%;
-    margin-top: 1%;
-  }
-  .AllOrder .search .searchBox {
-    position: relative;
-    width: 100%;
-    padding-top: 1%;
-  }
-  .AllOrder .search .searchBox input {
-    width: 90%;
-    margin-left: 2%;
-    padding: 0.5% 0.5% 0.5% 0.5%;
-    font-size: 18px;
-    padding-left: 6%;
-    border-radius: 2px;
-
-    outline: none;
-    border: 2px solid rgb(184, 184, 184);
-  }
-  .AllOrder .search .searchBox input:focus {
-    box-shadow: 0px 0px 12px rgb(95, 95, 95);
-  }
-
-  .AllOrder .search .searchBox .sicon {
-    position: absolute;
-    top: 40%;
-    color: rgb(68, 68, 68);
-    left: 3.5%;
-    font-size: 22px;
-  }
-
   .AllOrder .data {
     height: auto;
     width: 96%;
@@ -326,37 +288,37 @@
   .AllOrder .data .headings :nth-child(6) {
     width: 29%;
   }
-  .AllOrder .data .hdatas {
+  .AllOrder .data .headingData {
     width: 100%;
     list-style: none;
     font-size: 2.4vw;
     padding-bottom: 0.7%;
     height: auto;
   }
-  .AllOrder .data .hdatas li {
+  .AllOrder .data .headingData li {
     width: 19%;
 
     padding-left: 3%;
   }
-  .AllOrder .data .hdatas li:nth-child(6) {
+  .AllOrder .data .headingData li:nth-child(6) {
     width: 29%;
   }
 
-  .AllOrder .data .hdatas .status .complete {
+  .AllOrder .data .headingData .status .complete {
     width: 15vw;
     margin-top: -3%;
     padding: 1% 10% 4% 10%;
     font-size: 2vw;
     margin-right: 1%;
   }
-  .AllOrder .data .hdatas .status .reject {
+  .AllOrder .data .headingData .status .reject {
     width: 15vw;
     margin-top: -3%;
     padding: 1% 10% 4% 10%;
     font-size: 2vw;
     margin-right: 1%;
   }
-  .AllOrder .data .hdatas .status .pending {
+  .AllOrder .data .headingData .status .pending {
     width: 15vw;
     margin-top: -3%;
     padding: 1% 10% 4% 10%;
@@ -368,7 +330,7 @@
     font-size: 4vw;
   }
 
-  .AllOrder .data .iheading {
+  .AllOrder .data .innerHeading {
     margin-top: -10%;
   }
 

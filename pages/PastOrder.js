@@ -152,7 +152,7 @@ function copy(text){
 <>
 {data.map((item)=>{
 return <div className={style.allItems} key={item._id}>
-<div className={style.hdatas}>
+<div className={style.headingData}>
 <li className={style.token} onClick={() => copy(item.TokenUser)} style={{cursor:'pointer'}}>{item.TokenUser}</li>
 <li>{item.OrderDate}</li>
 <li>{item.PickUpTime}</li>
@@ -164,7 +164,7 @@ return <div className={style.allItems} key={item._id}>
 </div>
 <h6>Items Order Details </h6>
 
-<div className={style.iheading}>
+<div className={style.innerHeading}>
 
 <div className={style.itemsHeading}>
 <li>Item Name</li>
