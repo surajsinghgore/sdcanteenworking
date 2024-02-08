@@ -1236,7 +1236,11 @@ export default function OrderItem() {
         <>
           <div className={style.topSection}>
             <div className={style.left}>
-            <div className={style.mainImage}>
+            <div className={(data[0].FoodName)?style.mainImage: 
+                (  data[0].CoffeeName)?style.mainCoffeeImage: 
+                  (data[0].DrinkName)?style.mainDrinkImage:
+                  style.mainJuiceImage}>
+            {/* <div className={style.mainImage}> */}
 
         
               <Image

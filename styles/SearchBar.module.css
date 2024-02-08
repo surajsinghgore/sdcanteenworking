@@ -20,13 +20,31 @@
   width: 45%;
   text-align: center;
   user-select: none;
-  border-radius: 15px;
-}
+  border-radius: 15px;}
+/* image size style */
 .searchSection .topSection .left .mainImage {
   margin-left: 8%;
   position: relative;
   width: 34vw;
   height: 29vw;
+}
+.searchSection .topSection .left .mainCoffeeImage {
+  margin-left: 18%;
+  position: relative;
+  width: 34vw;
+  height: 30vw;
+}
+.searchSection .topSection .left .mainDrinkImage {
+  margin-left: 19%;
+  position: relative;
+  width: 34vw;
+  height: 31vw;
+}
+.searchSection .topSection .left .mainJuiceImage {
+  margin-left: 20%;
+  position: relative;
+  width: 34vw;
+  height: 32vw;
 }
 
 /* right section */
@@ -599,7 +617,24 @@
     width: 94%;
     height: 59vw;
   }
-
+  .searchSection .topSection .left .mainCoffeeImage {
+    margin-left: 1%;
+    position: relative;
+    width: 94%;
+    height: 79vw;
+  }
+  .searchSection .topSection .left .mainDrinkImage {
+    margin-left: 1%;
+    position: relative;
+    width: 94%;
+    height: 80vw;
+  }
+  .searchSection .topSection .left .mainJuiceImage {
+    margin-left: 4%;
+    position: relative;
+    width: 94%;
+    height: 89vw;
+  }
   /* right section */
   .searchSection .topSection .right {
     position: relative;
