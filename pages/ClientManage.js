@@ -128,11 +128,11 @@ const [loadingState,setLoadingState]=useState(false);
     setPassword(true);
   };
 
-  const uploardImageBtn = () => {
+  const uploadImageBtn = () => {
     setUprofile(true);
   };
 
-  const lagout = () => {
+  const logout = () => {
     const getData = async () => {
       setProgress(40);
       const res = await fetch(`${HOST}/api/LogoutClient`);
@@ -540,7 +540,7 @@ const [loadingState,setLoadingState]=useState(false);
         progress: undefined,
       });
       setTimeout(() => {
-        lagout();
+        logout();
         setPassword(false);
       }, 1500);
       return;
@@ -566,8 +566,7 @@ const [loadingState,setLoadingState]=useState(false);
             <Image
               src={imgs}
               alt="profile"
-              width={350}
-              height={300}
+              layout="fill"
               className={style.imgs}
               priority="true"
             />
@@ -575,7 +574,7 @@ const [loadingState,setLoadingState]=useState(false);
             <div
               className={style.update}
               title="Update Profile"
-              onClick={uploardImageBtn}
+              onClick={uploadImageBtn}
             >
               <MdEdit className={style.edit} />
               Edit
@@ -616,7 +615,7 @@ const [loadingState,setLoadingState]=useState(false);
               </a>
             </Link>
 
-            <li onClick={lagout}>
+            <li onClick={logout}>
               <div className={style.icon}>
                 <div className={style.ic}>
                   <TbLogout />
