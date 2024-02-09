@@ -224,6 +224,28 @@ setTimeout(resendOtps, 300000);
       return ;
     }
   }
+
+
+  const handleChange = (e) => {
+    let len=(e.target.value).toString();
+    
+    if(len.length<=6){
+    
+      setOtp(e.target.value);
+    }
+    else{
+    
+      toast.warn('OTP FIELD ONLY CONTAIN 6 DIGITS', {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }); 
+    }
+    };
   return (
     <div>
      <LoadingBar
@@ -250,12 +272,12 @@ setTimeout(resendOtps, 300000);
               </h6>
               <input
                 type="number"
-                name=""
+                name="otp"
                 placeholder="Enter OTP"
                 maxLength={6}
                 value={otp}
                 autoFocus
-                onChange={(e) => setOtp(e.target.value)}
+                onChange={handleChange}
               />
               <TbDeviceMobileMessage className={ClientStyle.icon} />
             </li>

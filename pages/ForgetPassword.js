@@ -232,7 +232,26 @@ Router.push("/ClientLogin");
 return ;
     }
 }
+const handleChange = (e) => {
+let len=(e.target.value).toString();
 
+if(len.length<=6){
+
+  setOtp(e.target.value);
+}
+else{
+
+  toast.warn('OTP FIELD ONLY CONTAIN 6 DIGITS', {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  }); 
+}
+};
   return (
     <div>
     <LoadingBar
@@ -274,7 +293,9 @@ return ;
 <div className={forget.otp}>
 <div className={forget.email}>
 <BiMessageCheck className={forget.icons}/>
-<input type="Number" value={otp} onChange={(e)=>setOtp(e.target.value)} placeholder="Enter 6 Digit Otp send to email id" maxLength={6} autoFocus required/>
+<input type="Number" value={otp} onChange={handleChange} placeholder="Enter 6 Digit Otp send to email id" maxLength={6} 
+
+ autoFocus required/>
 </div>
 </div>
 
