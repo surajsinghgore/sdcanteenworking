@@ -547,6 +547,24 @@ export default function ClientManage() {
       return;
     }
   };
+
+  const handleChangeMobile = (e) => {
+    let len = e.target.value.toString();
+
+    if (len.length <= 10) {
+      setMobile(e.target.value);
+    } else {
+      toast.warn("MOBILE NUMBER ONLY CONTAINS 10 DIGITS", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   return (
     <>
       <LoadingBar
@@ -832,7 +850,7 @@ export default function ClientManage() {
                         type="number"
                         placeholder="Your Mobile Number"
                         value={mobile}
-                        onChange={(e) => setMobile(e.target.value)}
+                        onChange={handleChangeMobile}
                         maxLength="10"
                       />
                     </div>
@@ -853,7 +871,7 @@ export default function ClientManage() {
                   </li>
 
                   <li className={style.text}>
-                    <div className={style.tt}>Full Address</div>
+                    <div className={style.tt}>Address</div>
                     <div className={style.dd}>
                       <textarea
                         placeholder="Address"

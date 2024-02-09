@@ -31,7 +31,23 @@ export default function Signup() {
 
 const [disbaleBtn,setDisableBtn]=useState(false);
 
+const handleChange = (e) => {
+  let len = e.target.value.toString();
 
+  if (len.length <= 10) {
+    setMobile(e.target.value);
+  } else {
+    toast.warn("MOBILE NUMBER ONLY CONTAINS 10 DIGITS", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+};
 
  const sendData=async (e)=>{
  e.preventDefault();
@@ -291,7 +307,7 @@ localStorage.setItem('clientRegistrationEmail',data.data.Email)
 
 <li>
 <h6>Enter Mobile Number <span>*</span></h6>
-<input type="number" name="mobile" placeholder="Enter Mobile Number" value={mobile} onChange={(e)=>setMobile(e.target.value)} 
+<input type="number" name="mobile" placeholder="Enter Mobile Number" value={mobile} onChange={handleChange} 
 onWheel={(e) => e.target.blur()}
 required/>
 <GoDeviceMobile className={ClientStyle.icon} />
