@@ -230,7 +230,7 @@ value={`${time.time1.toFixed(2)}-${(time.time>=12)?'PM':'AM'}`} />
 
 <div className={Style1.time}><h4><label htmlFor={time.time}>
 
- : {time.time1.toFixed(2)}
+ {time.time1.toFixed(2)}
  {(time.time>=12)?' PM':' AM'}
  </label></h4></div>
 </div>
@@ -245,7 +245,7 @@ value={`${time.time1.toFixed(2)}-${(time.time>=12)?'PM':'AM'}`} />
 <div className={Style1.message}>Order is Not allowed to Placed after <span>5.51 PM</span> from <span>Monday</span> To <span>Saturday.</span>  Closed On <span>Sunday</span> and on  <span>Holidays</span></div>
 :""}
 {(time.length!=0)?
-<h6>Note-: Order Can&#39;t Cancelled Once Placed.</h6>
+<h6>Note: Order Can&#39;t Cancelled Once Placed.</h6>
 :""}
 </div>
 

@@ -446,7 +446,7 @@ export default function PaymentMethod() {
         <div className={Style1.orderDetails}>
           <div className={Style1.orderTable}>
             <div>
-              <h4> Note-: Order Can&#39;t Cancelled Once Placed.</h4>
+              <h4> Note: Order Can&#39;t Cancelled Once Placed.</h4>
               <h3>Select Payment Mode</h3>
             </div>
           </div>
@@ -463,7 +463,7 @@ export default function PaymentMethod() {
                 />
                 <label htmlFor="Online" style={{ cursor: "pointer" }}>
                   {" "}
-                  <h4>: Online Payment</h4>
+                  <h4> Online Payment</h4>
                 </label>
               </div>
 
@@ -471,7 +471,7 @@ export default function PaymentMethod() {
                 <div className={Style1.div}>
                   <input type="radio" name="payment" id="cod" value="COD" />
                   <label htmlFor="cod" style={{ cursor: "pointer" }}>
-                    <h4>: Cash On Delivery</h4>
+                    <h4> Cash On Delivery</h4>
                   </label>
                 </div>
               ) : (
@@ -482,14 +482,14 @@ export default function PaymentMethod() {
 
           <div className={Style1.PaymentBottomMessage}>
             <h4>
-              Total Payable Amount-:
+              Total Payable Amount:
               <span>{totals}</span>
             </h4>
             <div className={Style1.bottomItem}>
             {carts.length != 0 ? (
             <>
               <h4>
-                Total Items Booked-: <span>{carts.items.length}</span>{" "}
+                Total Items Booked: <span>{carts.items.length}</span>{" "}
               </h4>{" "}
               <h3>
                 <Link href="/Cart">Click to view Items List</Link>

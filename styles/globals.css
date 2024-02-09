@@ -806,13 +806,14 @@ header .links{
   height: auto;
   position: relative;
   width: 37%;
-  font-size: 2vw;
+  font-size: 0vw;
   }
   
   
 header .links #login i{
   margin-left: 20%;
-  font-size: 5vw;
+  margin-top: 1%;
+  font-size: 4vw;
 }
   
 /* user profile */

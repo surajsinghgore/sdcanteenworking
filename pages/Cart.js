@@ -96,7 +96,12 @@ setPayableAmount(0)
 // delete item
 const deleteItem=(item)=>{
 removeItem(item.id);
- toast.error(`Item successfully removed from cart`, {
+if(items.length==1){
+setPayableAmount(0)
+
+}
+
+toast.error(`Item successfully removed from cart`, {
       position: "bottom-right",
       autoClose: 1200,
       hideProgressBar: false,

@@ -352,7 +352,7 @@ suggestion.style.display="none"
     <h1>Pages</h1>
     <li><Link href="/">Home</Link></li>
     <li><Link href="/Contact">Contact</Link> </li>
-    <li><Link href="/AboutUs">About US</Link></li>
+    <li><Link href="/AboutUs">About Us</Link></li>
     <li><Link href="/Gallery">Gallery</Link></li>
     </div>
         <div className="page">
@@ -377,7 +377,7 @@ suggestion.style.display="none"
 <div>
 <Link href={"/OrderComplete"}><a>
 <i><MdToday /></i>
-<h1>Today	&#39;s Order</h1>
+<h1>Today&#39;s Order</h1>
 </a></Link>
 </div>
 

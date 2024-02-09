@@ -35,7 +35,8 @@
 }
 .homeCards .card .data {
   height: 180px;
-  text-align: center;
+  text-align: center; word-break: break-all;
+
   padding-bottom: 1%;
 }
 .homeCards .card .data h4 {

@@ -35,13 +35,13 @@ setYear(date.getFullYear())
 {/* timing */}
 <div className="timing">
 <h1>Opening Hours</h1>
-<li><span>Monday</span> : 8.00 AM - 6.00 PM</li>
-<li><span>Tuesday</span> : 8.00 AM - 6.00 PM</li>
-<li><span>Wednesday</span> : 8.00 AM - 6.00 PM</li>
-<li><span>Thursday</span> : 8.00 AM - 6.00 PM</li>
-<li><span>Friday</span> : 8.00 AM - 6.00 PM</li>
-<li><span>Saturday</span> : 8.00 AM - 6.00 PM</li>
-<li><span>Sunday</span> : <span id="bold">Closed</span></li>
+<li><span>Monday:</span>8.00 AM - 6.00 PM</li>
+<li><span>Tuesday:</span>8.00 AM - 6.00 PM</li>
+<li><span>Wednesday:</span>8.00 AM - 6.00 PM</li>
+<li><span>Thursday:</span>8.00 AM - 6.00 PM</li>
+<li><span>Friday:</span>8.00 AM - 6.00 PM</li>
+<li><span>Saturday:</span>8.00 AM- 6.00 PM</li>
+<li><span>Sunday:</span><span id="bold">Closed</span></li>
 <li><span id="note">**Note**</span> : <span id="bold">Closed on Holidays</span></li>
 </div>
 </div>

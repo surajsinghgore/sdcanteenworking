@@ -874,11 +874,11 @@
   }
   .div input[type="radio"] {
     position: absolute;
-    top: 0;
+    top: -5%;
     left: 0;
     border: 0px;
     width: 10%;
-    height: 5vw;
+    height: 4vw;
   }
   /* PaymentBottomMessage */
 
