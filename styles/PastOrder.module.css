@@ -225,6 +225,7 @@
 .AllOrder .data .items .itemsMenu li {
   padding-left: 4%;
   padding-top: 1%;
+text-transform: capitalize;
   padding-bottom: 1%;
   width: 20%;
 }

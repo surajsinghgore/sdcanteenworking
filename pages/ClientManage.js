@@ -411,7 +411,7 @@ export default function ClientManage() {
       return;
     }
     if (res.status == 201) {
-      toast.success("Profile Photo Successfully updated", {
+      toast.success("Profile photo successfully updated", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -644,7 +644,7 @@ export default function ClientManage() {
               {/* details */}
               <div className={style.forms}>
                 <li>
-                  <div className={style.tt}>FullName</div>
+                  <div className={style.tt}>Name</div>
                   <div className={style.dd}>
                     <input
                       type="text"
@@ -707,7 +707,7 @@ export default function ClientManage() {
                   <div className={style.dd}>
                     {" "}
                     <textarea
-                      placeholder="Your Full Address"
+                      placeholder="Address"
                       value={address}
                       readOnly
                     ></textarea>
@@ -790,7 +790,7 @@ export default function ClientManage() {
                 {/* details */}
                 <div className={style.forms}>
                   <li>
-                    <div className={style.tt}>FullName</div>
+                    <div className={style.tt}>Name</div>
                     <div className={style.dd}>
                       <input
                         type="text"
@@ -856,7 +856,7 @@ export default function ClientManage() {
                     <div className={style.tt}>Full Address</div>
                     <div className={style.dd}>
                       <textarea
-                        placeholder="Your Full Address"
+                        placeholder="Address"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                       ></textarea>
