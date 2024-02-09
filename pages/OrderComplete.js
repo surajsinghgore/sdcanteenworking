@@ -109,7 +109,7 @@ export default function OrderComplete() {
                       <div className={Style1.top}>
                         <div className={Style1.left}>
                           <h3>
-                            ORDER TOKEN :-{" "}
+                            ORDER TOKEN:{" "}
                             <span
                               onClick={() => copy(item.TokenUser)}
                               style={{ cursor: "pointer" }}
