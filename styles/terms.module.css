@@ -12,6 +12,7 @@ text-align: center;}
 .term p{
 margin-top: -1%;
 font-size: 18px;
+word-break: keep-all;
 text-align: left;
 color: rgb(74, 74, 74);
 }

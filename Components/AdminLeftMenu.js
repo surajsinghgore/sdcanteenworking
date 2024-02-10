@@ -9,7 +9,7 @@ export default function AdminLeftMenu() {
   return (
     <div className={Styles.leftPanel}>
       <div className={Styles.logo_img}>
-        <Image src={logo} width="250" height="100" alt="logo " />
+        <Image src={logo} layout="fill" alt="logo " />
       </div>
       <div className={Styles.menu_Links}>
         {DataList.map((item) => (
