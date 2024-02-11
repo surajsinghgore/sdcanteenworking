@@ -7,9 +7,15 @@ let HOST = process.env.NEXT_PUBLIC_API_URL;
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
+import { MdMenuOpen } from "react-icons/md";
+
+import { useContext } from "react";
+import { AllContext } from "../context/AllContext";
 export default function AdminRightInnerHeader(props) {
+  const {menuEnableState,setMenuEnableState} = useContext(AllContext);
   const [progress, setProgress] = useState(0);
   const [checked, setChecked] = useState(false);
+
   // refresh page problem fix
   useEffect(() => {
     if (localStorage.getItem("orderStatus")) {
@@ -188,8 +194,8 @@ export default function AdminRightInnerHeader(props) {
       />
       {/* heading section */}
       <div className={StyleFood.heading_section}>
+      {(menuEnableState)?<i className={StyleFood.Icons} onClick={()=>setMenuEnableState(false)}><MdMenuOpen /></i>:<i className={StyleFood.Icons} onClick={()=>setMenuEnableState(true)}><IoMenuSharp /></i>}
       
-     <i className={StyleFood.Icons}><IoMenuSharp /></i> 
 
         <i className={StyleFood.IconsHide}>
           <BiCurrentLocation />
@@ -200,7 +206,7 @@ export default function AdminRightInnerHeader(props) {
       <div className="alert"></div>
       {/* profile */}
       <div className={StyleFood.profile_section}>
-        <h1>order controller:<IoMenuSharp /></h1>
+        <h1>order controller:</h1>
         <label>
           <Switch
             onChange={handleChange}

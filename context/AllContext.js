@@ -6,6 +6,7 @@ const AllContext=createContext();
 const Provider=({children})=>{
 
 // useState
+const [menuEnableState,setMenuEnableState]=useState(true)
 const [refresh,setRefresh]=useState(false);
 const [filterAllFoodCategoriesData,setFilterAllFoodCategoriesData]=useState([]);
 const [filterFoodItemsData,setFilterFoodItemsData]=useState([]);
@@ -193,7 +194,7 @@ filterCoffeeItemsData,
 statesForRealtime,userData,
 filterDrinkItemsData,
 filterJuiceItemsData,
-updateFoodCategories,
+updateFoodCategories,menuEnableState,setMenuEnableState,
 updateCoffeeCategories,
 updateDrinkCategories,
 updateJuiceCategories,
