@@ -456,7 +456,7 @@ export default function AddItems({ pageStatus }) {
 
         {/* form add food */}
 
-        <div className={StyleFood.Form} style={{ marginTop: "0.5%" }}>
+        <div className={StyleFood.Form} >
           <div className={StyleFood.heading}>
             <h1>
               Enter New{" "}
@@ -764,13 +764,15 @@ export default function AddItems({ pageStatus }) {
                 {showImage ? (
                   <h1>please upload Image</h1>
                 ) : (
+                  <div className={StyleFood.uploadImage}>
+
                   <Image
                     src={imgs}
                     alt="item images"
                     id="output"
-                    width={600}
-                    height={600}
+                   layout="fill"
                   />
+                  </div>
                 )}
               </div>
             </li>
