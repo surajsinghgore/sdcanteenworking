@@ -192,14 +192,13 @@
   }
 }
 
-
 @media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
   .allAnaylsis {
     width: 100%;
     margin-top: 9%;
     height: auto;
   }
-  
+
   /* filter box */
   .allAnaylsis .filter {
     height: auto;
@@ -216,7 +215,7 @@
     padding-bottom: 1%;
     text-align: center;
   }
-  
+
   /* chatjs style */
   .allAnaylsis .charjs {
     width: 96%;
@@ -249,21 +248,17 @@
     margin-bottom: 3%;
     margin-left: 30%;
   }
-  
-  /* payment Anaylsis css styling page*/
-  
-  .payment {
 
-    margin-top:20vw;
+  /* payment Anaylsis css styling page*/
+
+  .payment {
+    margin-top: 20vw;
   }
   .payment .filters {
     width: 98%;
-
   }
   .payment h4 {
- 
     font-size: 4vw;
- 
   }
   .payment .filters li {
     width: 35%;
@@ -271,23 +266,19 @@
   }
   .payment .filters li select {
     width: 98%;
- 
+
     font-size: 2.3vw;
   }
-  
-
 
   .payment .chartSection .chartSigle h5 {
-  
     font-size: 4vw;
-
   }
   .payment .chartSection .chartSigle .chartARea {
     margin-left: 3%;
     height: auto;
     height: auto;
   }
-  
+
   .payment .chartSection .chartSigle .chartARea1 {
     margin-left: 0%;
     height: auto;
@@ -300,23 +291,21 @@
   }
 
   .payment .chartSection .chartSigle .allDatas li .title {
-
     font-size: 3vw;
-    padding-left:10%;
+    padding-left: 10%;
   }
   .payment .chartSection .chartSigle .allDatas li .datas {
-
     font-size: 3vw;
 
     margin-bottom: 4%;
   }
-  
+
   @media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
     /* admin home page styling */
     .allAnaylsis {
       margin-top: 18vw;
     }
-  
+
     /* filter box */
     .allAnaylsis .filter {
       height: auto;
@@ -327,10 +316,10 @@
     .allAnaylsis .filter select {
       width: 40%;
       margin-left: 0%;
-  
+
       font-size: 3vw;
     }
-  
+
     /* chatjs style */
     .allAnaylsis .charjs {
       width: 96%;
@@ -340,10 +329,10 @@
     .allAnaylsis .charjs h4 {
       font-size: 3vw;
       margin-top: 2%;
-  
+
       padding-left: 3%;
     }
-  
+
     .allAnaylsis .charjs .chart {
       width: 94%;
       display: flex;
@@ -359,5 +348,4 @@
       margin-left: 0%;
     }
   }
-  
 }
