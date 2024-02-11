@@ -9,7 +9,6 @@ import Loader from "../Components/Loader";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import LoadingBar from "react-top-loading-bar";
-import ProfileStyles from "../styles/ClientProfileUpload.module.css";
 
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import router from "next/router";
@@ -37,7 +36,7 @@ export default function ClientManage() {
   const [npass, setNpass] = useState("");
   const [cnpass, setCnpass] = useState("");
 
-  const { profileImg, setProfileImage } = useContext(AllContext);
+  const { profileImg, setProfileImage ,userNameUpdateState,setUserNameUpdateState} = useContext(AllContext);
 
   const [ud, setUd] = useState(false);
   const [email, setEmail] = useState("");
@@ -304,6 +303,7 @@ export default function ClientManage() {
       return;
     }
     if (res.status == 201) {
+      setUserNameUpdateState(!userNameUpdateState)
       toast.success("Data Successfully update", {
         position: "bottom-right",
         autoClose: 1300,

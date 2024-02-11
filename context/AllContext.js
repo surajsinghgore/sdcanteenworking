@@ -8,6 +8,7 @@ const Provider=({children})=>{
 // useState
 const [menuEnableState,setMenuEnableState]=useState(true)
 const [refresh,setRefresh]=useState(false);
+const [userNameUpdateState,setUserNameUpdateState]=useState(false);
 const [filterAllFoodCategoriesData,setFilterAllFoodCategoriesData]=useState([]);
 const [filterFoodItemsData,setFilterFoodItemsData]=useState([]);
 const [filterCoffeeItemsData,setFilterCoffeeItemsData]=useState([]);
@@ -197,11 +198,11 @@ filterJuiceItemsData,
 updateFoodCategories,menuEnableState,setMenuEnableState,
 updateCoffeeCategories,
 updateDrinkCategories,
-updateJuiceCategories,
+updateJuiceCategories,menuEnableState,setMenuEnableState,
 updateFoodItem,setUserData,
 updateCoffeeItem,
 updateDrinkItem,
-
+userNameUpdateState,setUserNameUpdateState,
 updateJuiceItem,refresh,setRefresh,barData,setBarData
 }}>{children}</AllContext.Provider>)
 }

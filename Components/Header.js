@@ -27,7 +27,7 @@ import { useContext } from "react";
 
 export default function Header() {
 const [blurDataUrl1] = useNextBlurhash("LFH-#}OA1*XPLg#Rr=WB?vR*IUsA");
-  const {profileImg, setUserData } = useContext(AllContext);
+  const {profileImg, setUserData,userNameUpdateState } = useContext(AllContext);
 const [search,setSearch]=useState('');
 const [searchData,setSerachData]=useState([]);
 const [imgs,setImgs]=useState(boyProfile);
@@ -114,7 +114,7 @@ setFullName(resName)
 getData();
 }
 
-},[])
+},[userNameUpdateState])
 
 
 // internet connection status check
