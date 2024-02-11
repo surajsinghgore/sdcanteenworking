@@ -180,3 +180,125 @@ color: rgb(20, 157, 216);
 .ListView .ListData .DataLists .DropDown .delete{
 color: rgb(243, 42, 42);
 }
+
+
+
+@media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
+  .ListView{
+    margin-top: 5%;
+    }
+    
+    .ListView .addCategory{
+    height: 
+    auto;
+    }
+    .ListView .addCategory button{
+    width: 92%;
+
+    padding:3%  4%;
+    font-size: 5vw;
+padding-top: 5%;
+    }
+    
+    .ListView .addCategory button i{
+  margin-top: -2%;
+    font-size: 9vw;
+    width: auto;
+    padding-right: 5%;
+    }
+ 
+    
+    .ListView .Subtop{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding-top: 5%;
+    }
+ 
+    .ListView .Subtop .showData{
+    width: 100%;
+    margin-left: 4%;
+    font-size: 5vw;
+    }
+    .ListView .Subtop .showData input{
+    width: 35vw;
+    margin-left: 1%;
+   
+   
+    font-size: 5vw;
+    height: 10vw;
+
+    }
+ 
+    .ListView .Subtop .searchBar{
+    width: 90%;
+margin-left: 5%;
+    margin-top: 5%;
+    }
+    
+    .ListView .Subtop .searchBar input{
+    width: 100%;
+    margin-top: 0%;
+    margin-left: 0%;
+    height: auto;
+    outline: none;
+    font-size: 6vw;
+    padding: 3% 2%;
+ 
+    }
+  
+    
+
+    
+    
+    .ListView .ListData{
+    width: 100%;
+    height: auto;
+    }
+    .ListView .ListData .Heading{
+    margin-top: 6%;
+    display: flex;
+    list-style: none;
+    width: 90%;
+    margin-left: 5%;
+
+    }
+    .ListView .ListData .Heading li{
+    
+    width: 50%;
+    font-size: 5vw;
+    height: auto;
+    margin-bottom: 4%;
+    }
+    
+
+  
+    .ListView .ListData .DataList li{
+
+    font-size: 6vw;
+    height: auto;
+    
+    }
+    .ListView .ListData .DataList .cursor_icon{
+    font-size: 6vw;
+    margin-top: 5%;
+
+    margin-bottom: 6%;
+    }
+    .ListView .ListData .DataLists .DropDown{
+
+    
+    width: 50vw;
+ 
+    
+    }
+    .ListView .ListData .DataLists .DropDown li{
+
+    font-size: 6vw;
+
+
+    }
+  
+
+}

@@ -1,7 +1,7 @@
 import AdminLeftPenelComponents from "./AdminLeftPenelComponents";
 import Styles from "../styles/admin.module.css";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AllContext } from "../context/AllContext";
 // image logo
 let logo = `https://res.cloudinary.com/dnxv21hr0/image/upload/v1681014809/ClientImages/logo_l0f3ug.png`;

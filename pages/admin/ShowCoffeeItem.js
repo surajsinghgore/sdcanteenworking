@@ -137,8 +137,7 @@ export default function ShowCoffeeItem({ datas }) {
                         <Image
                           src={item.Image}
                           alt={item.Image}
-                          height="550"
-                          width="800"
+                          layout="fill"
                           priority="true"
                         />
                       </li>

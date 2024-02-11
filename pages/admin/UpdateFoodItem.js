@@ -212,7 +212,10 @@ export default function UpdateFoodItem() {
                         )}
                       </li>
                       <li className={ShowStyles.Item_Category}>
-                        <p title="Click To Update" className={ShowStyles.updateBtn}>
+                        <p
+                          title="Click To Update"
+                          className={ShowStyles.updateBtn}
+                        >
                           <FiEdit onClick={() => UpdateFoodItems(item)} />
                         </p>
                       </li>

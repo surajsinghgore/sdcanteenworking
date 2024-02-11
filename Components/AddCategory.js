@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Styles from "../styles/admin.module.css";
 import StyleFood from "../styles/AddFood.module.css";
 import HeadTag from "../Components/Head";
 import AdminLeftMenu from "../Components/AdminLeftMenu";
@@ -270,7 +269,7 @@ function AddCategory({ category }) {
               </h1>
             </div>
             <div className={StyleFood.form_element}>
-              <li style={{ width: "90%" }}>
+              <li >
                 <p>
                   Enter{" "}
                   {category == "FoodItem"
@@ -285,14 +284,14 @@ function AddCategory({ category }) {
                 <input
                   type="text"
                   name="foodName"
-                  style={{ width: "95%" }}
+                 
                   onChange={(e) => setItemCategory(e.target.value)}
                   value={itemCategory}
                 />
               </li>
 
               <button
-                style={{ marginTop: "4%", marginLeft: "6%" }}
+              
                 onClick={addCategory}
               >
                 {" "}

@@ -304,11 +304,7 @@ const [progress, setProgress] = useState(0);
                       </li>
                       <li className={ShowStyles.Item_Qty}>
                         <p
-                          style={{
-                            color: "red",
-                            cursor: "pointer",
-                            fontSize: "24px",
-                          }}
+                           className={ShowStyles.updateBtn}
                           title="Click To Delete"
                         >
                           <AiFillDelete onClick={() => DeleteFoodItems(item)} />

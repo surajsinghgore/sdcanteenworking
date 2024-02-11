@@ -1,4 +1,4 @@
-import React, { useContext , useState, useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Styles from "../../styles/admin.module.css";
 import ShowStyles from "../../styles/ShowFoodItem.module.css";
 import StyleFood from "../../styles/AddFood.module.css";
@@ -12,12 +12,13 @@ import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { AllContext } from "../../context/AllContext";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
-import VerifyAdminLogin from './VerifyAdminLogin';
+import VerifyAdminLogin from "./VerifyAdminLogin";
 import LoadingBar from "react-top-loading-bar";
 
-export default function UpdateCoffeeItem() {const [progress, setProgress] = useState(0);
+export default function UpdateCoffeeItem() {
+  const [progress, setProgress] = useState(0);
   const { updateCoffeeItem } = useContext(AllContext);
-  
+
   const [coffeeNameSearch, setCoffeeNameSearch] = useState("");
   const [categorySearch, setCategorySearch] = useState("");
   const [data, setData] = useState([]);
@@ -60,23 +61,24 @@ export default function UpdateCoffeeItem() {const [progress, setProgress] = useS
     router.push("/admin/UpdateCoffeeItemForm");
   };
 
-  
-  
-  
   useEffect(() => {
-    async function dataFetch() { setProgress(40)
+    async function dataFetch() {
+      setProgress(40);
 
       let ress = await fetch(`${HOST}/api/ShowCoffeeCategory`);
-      let datas = await ress.json(); setProgress(100)
+      let datas = await ress.json();
+      setProgress(100);
 
       await setData(datas.data);
     }
     dataFetch();
 
-    async function dataCategoryFetch() { setProgress(40)
+    async function dataCategoryFetch() {
+      setProgress(40);
 
       let ress = await fetch(`${HOST}/api/ShowCoffeeItem`);
-      let datas = await ress.json(); setProgress(100)
+      let datas = await ress.json();
+      setProgress(100);
 
       await setFetchData(datas.data);
       await setDummyData(datas.data);
@@ -84,20 +86,19 @@ export default function UpdateCoffeeItem() {const [progress, setProgress] = useS
     dataCategoryFetch();
   }, []);
   return (
-    <div className={Styles.admin}> <LoadingBar
+    <div className={Styles.admin}>
+      {" "}
+      <LoadingBar
         color="rgb(255 82 0)"
         height={3.5}
         waitingTime={400}
         progress={progress}
         transitionTime={100}
-      />  
+      />
       <HeadTag title="Update Coffee item" />
-
-<VerifyAdminLogin />
-
+      <VerifyAdminLogin />
       {/* left panel bar */}
       <AdminLeftMenu />
-
       {/* right bar */}
       <div className={StyleFood.rightSideBar}>
         <AdminRightInnerHeader title="Update Coffee Item Page" />
@@ -150,7 +151,7 @@ export default function UpdateCoffeeItem() {const [progress, setProgress] = useS
               <li className={ShowStyles.Item_Name}>Coffee Name</li>
               <li className={ShowStyles.Item_Price}>Price</li>
               <li className={ShowStyles.Item_Category}>Category</li>
-                   <li className={ShowStyles.Item_Visibilty}>Visibility</li>
+              <li className={ShowStyles.Item_Visibilty}>Visibility</li>
               <li className={ShowStyles.Item_Category}>Action</li>
             </div>
 
@@ -163,55 +164,63 @@ export default function UpdateCoffeeItem() {const [progress, setProgress] = useS
                         <Image
                           src={item.Image}
                           alt={item.Image}
-                          height="550"
-                          width="800"
-                         priority="true"
+                          layout="fill"
+                          priority="true"
                         />
                       </li>
                       <li className={ShowStyles.Item_Name}>
                         <p>{item.CoffeeName}</p>
                       </li>
-                       <li className={ShowStyles.Item_Price}>
-                            {(item.ItemCost!=undefined) ?
-                            <>
-                            {(item.ItemCost.length==1)?
-                             <>
-                          {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.One}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                             </>:
-                            <>
-     {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.Many}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                            </>
-                            }
-                       
-                      </>
-                      :""}
-                     
+                      <li className={ShowStyles.Item_Price}>
+                        {item.ItemCost != undefined ? (
+                          <>
+                            {item.ItemCost.length == 1 ? (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.One}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            ) : (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.Many}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          ""
+                        )}
                       </li>
                       <li className={ShowStyles.Item_Category}>
                         <p>{item.Category}</p>
                       </li>
-                             <li className={ShowStyles.Item_Visibilty}>
-                      {(item.Active=="ON")? <div className={ShowStyles.ON}>{item.Active}</div>: <div className={ShowStyles.OFF}>{item.Active}</div>}
-                     </li>
+                      <li className={ShowStyles.Item_Visibilty}>
+                        {item.Active == "ON" ? (
+                          <div className={ShowStyles.ON}>{item.Active}</div>
+                        ) : (
+                          <div className={ShowStyles.OFF}>{item.Active}</div>
+                        )}
+                      </li>
                       <li className={ShowStyles.Item_Category}>
                         <p
-                          style={{
-                            color: "blue",
-                            cursor: "pointer",
-                            fontSize: "24px",
-                          }}
+                          className={ShowStyles.updateBtn}
                           title="Click To Update"
                         >
                           <FiEdit onClick={() => UpdateCoffeeItems(item._id)} />
@@ -239,4 +248,3 @@ export default function UpdateCoffeeItem() {const [progress, setProgress] = useS
     </div>
   );
 }
-

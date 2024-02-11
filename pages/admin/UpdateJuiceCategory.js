@@ -160,24 +160,24 @@ setTimeout(check(),1200)
 
         <div className={StyleFood.Form}>
           <div className={StyleFood.heading}>
-            <h1>Update Previous Categories Name For Food Website</h1>
+            <h1>Update  Categories Name For Juice</h1>
           </div>
           <div className={StyleFood.form_element}>
-            <li style={{ width: "90%" }}>
+            <li >
               <p>
                 Enter Juice Category Name <span>*</span>
               </p>
               <input
                 type="text"
                 name="foodName"
-                style={{ width: "95%" }}
+               
                 onChange={(e) => setJuiceCategoryName(e.target.value)}
                 value={JuiceCategoryName}
               />
             </li>
 
             <button
-              style={{ marginTop: "4%", marginLeft: "6%" }}
+              
               onClick={updateFoodCategory}
             >
               {" "}
