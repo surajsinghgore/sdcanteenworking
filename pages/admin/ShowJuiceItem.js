@@ -86,7 +86,7 @@ export default function ShowJuiceItem({ datas }) {
 
         {/* form add food */}
 
-        <div className={ShowStyles.display_List} style={{ marginTop: "0.5%" }}>
+        <div className={ShowStyles.display_List}>
           <div className={ShowStyles.top}>
             <div className={ShowStyles.deatils}>
               <h1>All Juice Items</h1>
@@ -138,8 +138,7 @@ export default function ShowJuiceItem({ datas }) {
                         <Image
                           src={item.Image}
                           alt={item.Image}
-                          height="550"
-                          width="800"
+                          layout="fill"
                           priority="true"
                         />
                       </li>

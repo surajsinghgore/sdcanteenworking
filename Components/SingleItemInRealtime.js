@@ -507,7 +507,7 @@ sendData();
 </div>
 <div className={StyleRealtime.div8}>
 {/* open close icon */}
-<TiTickOutline className={StyleRealtime.tick} title="Upate" onClick={()=>UpdateOrder(item._id,item.Amount,item.CategoryPrimary)} />
+<TiTickOutline className={StyleRealtime.tick} title="Update" onClick={()=>UpdateOrder(item._id,item.Amount,item.CategoryPrimary)} />
 <MdOutlineClose className={StyleRealtime.back} title="Back" onClick={()=>setUpdateStates(false)} />
 </div>
 </div>

@@ -262,8 +262,7 @@ export default function DeleteDrinkItem({ datas }) {
                         <Image
                           src={item.Image}
                           alt={item.Image}
-                          height="550"
-                          width="800"
+                          layout="fill"
                           loading="lazy"
                         />
                       </li>
@@ -312,11 +311,7 @@ export default function DeleteDrinkItem({ datas }) {
                       </li>
                       <li className={ShowStyles.Item_Qty}>
                         <p
-                          style={{
-                            color: "red",
-                            cursor: "pointer",
-                            fontSize: "24px",
-                          }}
+                          className={ShowStyles.updateBtn}
                           title="Click To Delete"
                         >
                           <AiFillDelete

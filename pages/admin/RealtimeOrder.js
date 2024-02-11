@@ -11,11 +11,11 @@ import ShowHideInRealtime from "../../Components/ShowHideInRealtime";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 import { AllContext } from "../../context/AllContext";
 import router from "next/router";
-import { MdRefresh } from 'react-icons/md';
+import { MdRefresh } from "react-icons/md";
 import Loader from "../../Components/Loader";
 
 export default function RealtimeOrder() {
- const [loader,setLoader]=useState(true);
+  const [loader, setLoader] = useState(true);
   const { statesForRealtime } = useContext(AllContext);
   const [datas, setData] = useState([]);
   const [token, setToken] = useState("");
@@ -33,13 +33,13 @@ export default function RealtimeOrder() {
   const [pendingData, setPendingData] = useState([]);
   const [completeData, setCompleteData] = useState([]);
   const [pickUpNotData, setPickUpNotData] = useState([]);
-  const [rt,setRt]=useState(true)
+  const [rt, setRt] = useState(true);
   // fetch realtime data
   const fetchData = async () => {
-  setLoader(true)
+    setLoader(true);
     let ress = await fetch(`${HOST}/api/ShowOrdersRealtime`);
     let datass = await ress.json();
-    setLoader(false)
+    setLoader(false);
 
     if (datass.data != undefined) {
       //! pending Data Fetch
@@ -55,14 +55,14 @@ export default function RealtimeOrder() {
       let completeRes = datass.data.filter((item) => {
         return item.OrderStatus.toLowerCase() == "complete";
       });
-let sum=0;
-datass.data.map((item) => {
-           item.ItemsOrder.map((itm)=>{
-         let pricess=parseInt(itm.AmountReceived)
-          sum=sum+pricess;
-          });
+      let sum = 0;
+      datass.data.map((item) => {
+        item.ItemsOrder.map((itm) => {
+          let pricess = parseInt(itm.AmountReceived);
+          sum = sum + pricess;
+        });
       });
-setTotalPrice(sum)
+      setTotalPrice(sum);
       setCompleteOrder(completeRes.length);
       setCompleteData(completeRes);
       if (localStorage.getItem("active") == "complete") {
@@ -111,22 +111,21 @@ setTotalPrice(sum)
     fetchData();
   }, [statesForRealtime]);
 
- let date=new Date();
- useEffect(() => {
- let seconds=60-date.getSeconds();
- const changes=()=>{
-    fetchData();
-    setRt(!rt);
-}
-if(localStorage.getItem('active')=="pending"){
-setInterval(changes,1000*seconds);
-}
+  let date = new Date();
+  useEffect(() => {
+    let seconds = 60 - date.getSeconds();
+    const changes = () => {
+      fetchData();
+      setRt(!rt);
+    };
+    if (localStorage.getItem("active") == "pending") {
+      setInterval(changes, 1000 * seconds);
+    }
   }, [rt]);
 
-  
   // filter using token
   const changingToken = (e) => {
-  setLoader(true)
+    setLoader(true);
     setToken(e.target.value);
     let namesId = document.getElementById("token").value.length;
     let value = document.getElementById("token").value;
@@ -142,8 +141,7 @@ setInterval(changes,1000*seconds);
       } else {
         setData(allData);
       }
-    }
-     else {
+    } else {
       let arr = [];
       if (localStorage.getItem("active") == "pending") {
         arr = pendingData;
@@ -161,12 +159,12 @@ setInterval(changes,1000*seconds);
       });
       setData(aa);
     }
-    setLoader(false)
+    setLoader(false);
   };
 
   // filter using curstomer name
   const changingName = (e) => {
-  setLoader(true)
+    setLoader(true);
     setCustomerName(e.target.value);
     let namesId = document.getElementById("names").value.length;
     let value = document.getElementById("names").value;
@@ -198,14 +196,14 @@ setInterval(changes,1000*seconds);
       let aa = arr.filter((item) => {
         return item.FullName.toLowerCase().includes(value.toLowerCase());
       });
-      setLoader(false)
+      setLoader(false);
       setData(aa);
     }
   };
 
   // filter using time
   const changingTime = (e) => {
-  setLoader(true)
+    setLoader(true);
     setTime(e.target.value);
     let value = document.getElementById("time").value;
     if (value == "null") {
@@ -238,35 +236,32 @@ setInterval(changes,1000*seconds);
       });
       setData(aa);
     }
-    setLoader(false)
+    setLoader(false);
   };
 
   // filter using category
   const changingCategory = (e) => {
     setCategory(e.target.value);
-    if(e.target.value=='null'){
-    fetchData()
-  
-    }
-    else{
- 
-    const fetchData=async()=>{
-    setLoader(true)
+    if (e.target.value == "null") {
+      fetchData();
+    } else {
+      const fetchData = async () => {
+        setLoader(true);
 
-    let res=await fetch(`${HOST}/api/FilterOrderInRealTimePanelCategory?CategoryPrimary=${e.target.value}`)
-    let dataRes=await res.json();setLoader(false)
+        let res = await fetch(
+          `${HOST}/api/FilterOrderInRealTimePanelCategory?CategoryPrimary=${e.target.value}`
+        );
+        let dataRes = await res.json();
+        setLoader(false);
 
-    if(res.status==201){
-  setData(dataRes.data)
-    }
+        if (res.status == 201) {
+          setData(dataRes.data);
+        }
+      };
 
-    }
-
-    fetchData();
-       
+      fetchData();
     }
   };
-
 
   // filter using anayalsis
 
@@ -281,70 +276,71 @@ setInterval(changes,1000*seconds);
   };
 
   const completeFunction = () => {
-  setLoader(true)
+    setLoader(true);
     localStorage.setItem("active", "complete");
     setData(completeData);
     setToken("");
     setCustomerName("");
     setCategory("");
     setTime("");
-    setLoader(false)
+    setLoader(false);
     router.push("/admin/RealtimeOrder");
   };
   const pendingFunction = () => {
-  setLoader(true)
+    setLoader(true);
     localStorage.setItem("active", "pending");
     setData(pendingData);
     setToken("");
     setCustomerName("");
     setCategory("");
     setTime("");
-    setLoader(false)
+    setLoader(false);
     router.push("/admin/RealtimeOrder");
   };
   const rejectFunction = () => {
-  setLoader(true)
+    setLoader(true);
     localStorage.setItem("active", "reject");
     setData(rejectData);
     setToken("");
     setCustomerName("");
     setCategory("");
     setTime("");
-    setLoader(false)
+    setLoader(false);
     router.push("/admin/RealtimeOrder");
   };
   const notpickFunction = () => {
-  setLoader(true)
+    setLoader(true);
     localStorage.setItem("active", "notpick");
     setData(pickUpNotData);
     setToken("");
     setCustomerName("");
     setCategory("");
-    setTime("");setLoader(false)
+    setTime("");
+    setLoader(false);
     router.push("/admin/RealtimeOrder");
   };
 
   // fetch new data buy button
-const newData=()=>{
-fetchData();
-
-}
+  const newData = () => {
+    fetchData();
+  };
   return (
-    <div className={Styles.admin}>  <Loader loader={loader}/>
+    <div className={Styles.admin}>
+      {" "}
+      <Loader loader={loader} />
       <HeadTag title="Realtime Order" />
       <VerifyAdminLogin />
-
       {/* left panel bar */}
       <AdminLeftMenu />
-
       {/* right bar */}
-
       <div className={StyleFood.rightSideBar}>
         <AdminRightInnerHeader title="Realtime Order Panel" />
 
         <div className={StyleRealtime.orders}>
           <h1>Filter Records</h1>
-          <h5>Todays Collection : <span>₹ {totalPrice}</span></h5>
+          <h5>
+            Todays Collection : <span>₹ {totalPrice}</span>
+          </h5>
 
           {/*! search bar section */}
           <div className={StyleRealtime.searchBar}>
@@ -496,9 +492,11 @@ fetchData();
                           <div className={StyleRealtime.div7}>Order Status</div>
                           <div className={StyleRealtime.div8}>Action</div>
                         </div>
-                     
-                          <ShowHideInRealtime item={item.ItemsOrder} key={item._id} />
-                      
+
+                        <ShowHideInRealtime
+                          item={item.ItemsOrder}
+                          key={item._id}
+                        />
                       </div>
                     </div>
                   );
@@ -510,10 +508,8 @@ fetchData();
           </div>
         </div>
       </div>
-
-
       <div className={Styles.refresh} onClick={newData}>
-      <MdRefresh className={Styles.icon}  />
+        <MdRefresh className={Styles.icon} />
       </div>
     </div>
   );

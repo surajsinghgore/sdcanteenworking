@@ -1,4 +1,4 @@
-import React, { useContext,useState, useEffect  } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Styles from "../../styles/admin.module.css";
 import ShowStyles from "../../styles/ShowFoodItem.module.css";
 import StyleFood from "../../styles/AddFood.module.css";
@@ -8,16 +8,15 @@ import PathNavigate from "../../Components/PathNavigate";
 import AdminRightInnerHeader from "../../Components/AdminRightInnerHeader";
 import { FiEdit } from "react-icons/fi";
 import Image from "next/image";
-import VerifyAdminLogin from './VerifyAdminLogin';
+import VerifyAdminLogin from "./VerifyAdminLogin";
 import LoadingBar from "react-top-loading-bar";
 import "react-toastify/dist/ReactToastify.css";
 import router from "next/router";
 import { AllContext } from "../../context/AllContext";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 
- function UpdateJuiceItem() {
-const [progress, setProgress] = useState(0);
-
+function UpdateJuiceItem() {
+  const [progress, setProgress] = useState(0);
 
   const { updateJuiceItem } = useContext(AllContext);
   const [juiceNameSearch, setJuiceNameSearch] = useState("");
@@ -63,39 +62,39 @@ const [progress, setProgress] = useState(0);
   };
 
   useEffect(() => {
-    async function dataFetch() { setProgress(40)
+    async function dataFetch() {
+      setProgress(40);
       let ress = await fetch(`${HOST}/api/ShowJuiceCategory`);
-      let datas = await ress.json(); setProgress(100)
+      let datas = await ress.json();
+      setProgress(100);
       await setData(datas.data);
     }
     dataFetch();
 
-    async function dataCategoryFetch() { setProgress(40)
+    async function dataCategoryFetch() {
+      setProgress(40);
       let ress = await fetch(`${HOST}/api/ShowJuiceItem`);
-      let datas = await ress.json(); setProgress(100)
+      let datas = await ress.json();
+      setProgress(100);
       await setFetchData(datas.data);
       await setDummyData(datas.data);
     }
     dataCategoryFetch();
   }, []);
   return (
-    <div className={Styles.admin}> <LoadingBar
+    <div className={Styles.admin}>
+      {" "}
+      <LoadingBar
         color="rgb(255 82 0)"
         height={3.5}
         waitingTime={400}
         progress={progress}
         transitionTime={100}
-      />  
-
+      />
       <HeadTag title="Update Juice Item" />
-
-
-<VerifyAdminLogin />
-
-
+      <VerifyAdminLogin />
       {/* left panel bar */}
       <AdminLeftMenu />
-
       {/* right bar */}
       <div className={StyleFood.rightSideBar}>
         <AdminRightInnerHeader title="Update Juice Item Page" />
@@ -109,7 +108,7 @@ const [progress, setProgress] = useState(0);
 
         {/* form add food */}
 
-        <div className={ShowStyles.display_List} style={{ marginTop: "0.5%" }}>
+        <div className={ShowStyles.display_List}>
           <div className={ShowStyles.top}>
             <div className={ShowStyles.deatils}>
               <h1>All Juice Items</h1>
@@ -159,57 +158,65 @@ const [progress, setProgress] = useState(0);
                     <div className={ShowStyles.card} key={index}>
                       <li className={ShowStyles.Image_Section}>
                         <Image
-                  src={item.Image}
+                          src={item.Image}
                           alt={item.Image}
-                          height="550"
-                          width="800"
+                          layout="fill"
                           priority="true"
                         />
                       </li>
                       <li className={ShowStyles.Item_Name}>
                         <p>{item.JuiceName}</p>
                       </li>
-                       <li className={ShowStyles.Item_Price}>
-                            {(item.ItemCost!=undefined) ?
-                            <>
-                            {(item.ItemCost.length==1)?
-                             <>
-                          {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.One}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                             </>:
-                            <>
-     {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.Many}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                            </>
-                            }
-                       
-                      </>
-                      :""}
-                     
+                      <li className={ShowStyles.Item_Price}>
+                        {item.ItemCost != undefined ? (
+                          <>
+                            {item.ItemCost.length == 1 ? (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.One}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            ) : (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.Many}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          ""
+                        )}
                       </li>
                       <li className={ShowStyles.Item_Category}>
                         <p>{item.Category}</p>
                       </li>
-                         <li className={ShowStyles.Item_Visibilty}>
-                      {(item.Active=="ON")? <div className={ShowStyles.ON}>{item.Active}</div>: <div className={ShowStyles.OFF}>{item.Active}</div>}
-                     </li>
+                      <li className={ShowStyles.Item_Visibilty}>
+                        {item.Active == "ON" ? (
+                          <div className={ShowStyles.ON}>{item.Active}</div>
+                        ) : (
+                          <div className={ShowStyles.OFF}>{item.Active}</div>
+                        )}
+                      </li>
                       <li className={ShowStyles.Item_Category}>
                         <p
-                          style={{
-                            color: "blue",
-                            cursor: "pointer",
-                            fontSize: "24px",
-                          }}
+                          className={ShowStyles.updateBtn}
                           title="Click To Update"
                         >
                           <FiEdit onClick={() => UpdateJuiceItems(item._id)} />
@@ -248,4 +255,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default  UpdateJuiceItem;
+export default UpdateJuiceItem;

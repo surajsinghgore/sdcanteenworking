@@ -318,4 +318,24 @@
     margin-left: 0%;
     margin-top: -2%;
   }
+
+
+
+
+  
+.admin .refresh {
+  position: absolute;
+  bottom:1%;
+  right: 1%;
+  position: fixed;
+  width: 10vw;
+  height: 10vw;
+
+}
+.admin .refresh .icon {
+  font-size: 7vw;
+  margin-top: 14%;
+  margin-left: 14%;
+
+}
 }
