@@ -7,13 +7,13 @@
 
   padding-bottom: 5%;
 }
- .Icons {
+.Icons {
   display: none;
   color: rgb(0, 0, 0) !important;
 }
 
-.IconsHide{
- display: block;
+.IconsHide {
+  display: block;
 }
 /* scrollbar hide */
 
@@ -315,10 +315,9 @@
   .topHeader .heading_section .Icons {
     display: block;
     background-color: #e9e9e9;
-
   }
 
-  .IconsHide{
+  .IconsHide {
     display: none;
   }
   .topHeader .heading_section h1 {
@@ -337,6 +336,7 @@
     display: flex;
     margin-left: 20%;
     margin-top: 1%;
+    padding-bottom: 6%;
   }
   .profile_section h1 {
     display: none;
@@ -347,5 +347,17 @@
     left: -31%;
     vertical-align: middle;
     margin-left: 0px;
+  }
+
+
+
+
+
+  .rightSideBar {
+
+    height: auto;
+
+  
+
   }
 }
