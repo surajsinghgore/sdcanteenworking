@@ -868,7 +868,7 @@ setTimeout(redirectToPage,1200)
           <div className={StyleFood.form_element}>
             <div
               className="imageChange"
-              style={{ textAlign: "center", color: "blue" }}
+          
             >
               <h3>
                 {category == "FoodItem" ? (

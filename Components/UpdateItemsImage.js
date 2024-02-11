@@ -11,45 +11,56 @@ import VerifyAdminLogin from "../pages/admin/VerifyAdminLogin";
 
 import router from "next/router";
 import { AllContext } from "../context/AllContext";
-import Link from "next/link";
+
 import Image from "next/image";
 import LoadingBar from "react-top-loading-bar";
-export default function UpdateItemsImage({category}) {
+export default function UpdateItemsImage({ category }) {
   const [progress, setProgress] = useState(0);
-  const { filterFoodItemsData , filterCoffeeItemsData,
-   
-  
+  const {
+    filterFoodItemsData,
+    filterCoffeeItemsData,
 
     filterDrinkItemsData,
-  
+
     filterJuiceItemsData,
   } = useContext(AllContext);
   const [imgs, setImgs] = useState();
   const [files, setFiles] = useState("");
 
-
   useEffect(() => {
-   
     // load data of food
-    if (filterFoodItemsData.datas != undefined && category=="FoodItem") {
+    if (filterFoodItemsData.datas != undefined && category == "FoodItem") {
       setImgs(filterFoodItemsData.datas.Image);
-    } 
+    }
     // load data of coffee
-    else if (filterCoffeeItemsData.datas != undefined && category=="CoffeeItem") {
-        setImgs(filterCoffeeItemsData.datas.Image);
-      } 
+    else if (
+      filterCoffeeItemsData.datas != undefined &&
+      category == "CoffeeItem"
+    ) {
+      setImgs(filterCoffeeItemsData.datas.Image);
+    }
     // load data of juice
-    else if (filterJuiceItemsData.datas != undefined && category=="JuiceItem") {
-        setImgs(filterJuiceItemsData.datas.Image);
-      } 
+    else if (
+      filterJuiceItemsData.datas != undefined &&
+      category == "JuiceItem"
+    ) {
+      setImgs(filterJuiceItemsData.datas.Image);
+    }
     // load data of drink
-   else if (filterDrinkItemsData.datas != undefined && category=="DrinkItem") {
-        setImgs(filterDrinkItemsData.datas.Image);
-      }
-    else {
+    else if (
+      filterDrinkItemsData.datas != undefined &&
+      category == "DrinkItem"
+    ) {
+      setImgs(filterDrinkItemsData.datas.Image);
+    } else {
       router.back();
     }
-  }, [filterFoodItemsData,filterJuiceItemsData,filterDrinkItemsData,filterCoffeeItemsData]);
+  }, [
+    filterFoodItemsData,
+    filterJuiceItemsData,
+    filterDrinkItemsData,
+    filterCoffeeItemsData,
+  ]);
   // images handle
   const handleChange = async (e) => {
     if (e.target.files[0]) {
@@ -65,28 +76,32 @@ export default function UpdateItemsImage({category}) {
 
     const dataImage = new FormData();
 
+    // load data of food
+    if (category == "FoodItem" && filterFoodItemsData.datas != undefined) {
+      dataImage.append("_id", filterFoodItemsData.datas._id);
+    }
+    // load data of coffee
+    else if (
+      category == "CoffeeItem" &&
+      filterCoffeeItemsData.datas != undefined
+    ) {
+      dataImage.append("_id", filterCoffeeItemsData.datas._id);
+    }
+    // load data of juice
+    else if (
+      category == "JuiceItem" &&
+      filterJuiceItemsData.datas != undefined
+    ) {
+      dataImage.append("_id", filterJuiceItemsData.datas._id);
+    }
+    // load data of drink
+    else if (
+      category == "DrinkItem" &&
+      filterDrinkItemsData.datas != undefined
+    ) {
+      dataImage.append("_id", filterDrinkItemsData.datas._id);
+    }
 
-     // load data of food
-     if (category=="FoodItem" && filterFoodItemsData.datas != undefined) {
-        dataImage.append("_id", filterFoodItemsData.datas._id);
-      } 
-      // load data of coffee
-      else if (category=="CoffeeItem" && filterCoffeeItemsData.datas != undefined) {
-          dataImage.append("_id", filterCoffeeItemsData.datas._id);
-        } 
-      // load data of juice
-      else if (category=="JuiceItem" && filterJuiceItemsData.datas != undefined) {
-         
-          dataImage.append("_id", filterJuiceItemsData.datas._id);
-
-        } 
-      // load data of drink
-     else if (category=="DrinkItem" && filterDrinkItemsData.datas != undefined) {
- 
-          dataImage.append("_id", filterDrinkItemsData.datas._id);
-
-        }
-   
     dataImage.append("Image", files);
 
     if (!files) {
@@ -120,17 +135,21 @@ export default function UpdateItemsImage({category}) {
       return;
     }
 
-    let response = await fetch(`${HOST}/api/UpdateItemsImage?category=${
+    let response = await fetch(
+      `${HOST}/api/UpdateItemsImage?category=${
         category == "FoodItem"
           ? "food"
           : category == "CoffeeItem"
           ? "coffee"
           : category == "DrinkItem"
           ? "drink"
-          : "juice"}`, {
-      method: "POST",
-      body: dataImage,
-    });
+          : "juice"
+      }`,
+      {
+        method: "POST",
+        body: dataImage,
+      }
+    );
     setProgress(100);
     if (response.status == 401) {
       toast.error("Please Login With Admin Credentials", {
@@ -186,29 +205,25 @@ export default function UpdateItemsImage({category}) {
     }
 
     if (response.status == 201) {
-      toast.success(
-        `Image Successfully Updated`,
-        {
-          position: "bottom-right",
-          autoClose: 1200,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        }
-      );
+      toast.success(`Image Successfully Updated`, {
+        position: "bottom-right",
+        autoClose: 1200,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
       setTimeout(RedirectFunction, 1500);
       function RedirectFunction() {
         category == "FoodItem"
-        ? router.push("/admin/UpdateFoodItem")
-        : category == "CoffeeItem"
-        ? router.push("/admin/UpdateCoffeeItem")
-        : category == "DrinkItem"
-        ? router.push("/admin/UpdateDrinkItem")
-        : router.push("/admin/UpdateJuiceItem");
-   
+          ? router.push("/admin/UpdateFoodItem")
+          : category == "CoffeeItem"
+          ? router.push("/admin/UpdateCoffeeItem")
+          : category == "DrinkItem"
+          ? router.push("/admin/UpdateDrinkItem")
+          : router.push("/admin/UpdateJuiceItem");
       }
     }
   };
@@ -223,7 +238,8 @@ export default function UpdateItemsImage({category}) {
         progress={progress}
         transitionTime={100}
       />
-      <HeadTag title={
+      <HeadTag
+        title={
           category == "FoodItem"
             ? "Update Food Item Image"
             : category == "CoffeeItem"
@@ -231,14 +247,15 @@ export default function UpdateItemsImage({category}) {
             : category == "DrinkItem"
             ? "Update Drink Item Image"
             : "Update Juice Item Image"
-        } />
-
+        }
+      />
       <VerifyAdminLogin />
       {/* left panel bar */}
       <AdminLeftMenu />
       {/* right bar */}
       <div className={StyleFood.rightSideBar}>
-        <AdminRightInnerHeader title={
+        <AdminRightInnerHeader
+          title={
             category == "FoodItem"
               ? "Update Food Item Image"
               : category == "CoffeeItem"
@@ -246,7 +263,8 @@ export default function UpdateItemsImage({category}) {
               : category == "JuiceItem"
               ? "Update Juice Item Image"
               : "Update Drink Item Image"
-          } />
+          }
+        />
         <PathNavigate
           mainSection="Admin"
           mainSectionURL="/admin"
@@ -259,7 +277,6 @@ export default function UpdateItemsImage({category}) {
               ? "Update Juice Item"
               : "Update Drink Item"
           }
-        
           subsectionURL={
             category == "FoodItem"
               ? "/admin/UpdateFoodItem"
@@ -284,13 +301,17 @@ export default function UpdateItemsImage({category}) {
 
         <div className={StyleFood.Form}>
           <div className={StyleFood.heading}>
-            <h1>Enter New {category == "FoodItem"
+            <h1>
+              Enter New{" "}
+              {category == "FoodItem"
                 ? "Food"
                 : category == "CoffeeItem"
                 ? "Coffee"
                 : category == "JuiceItem"
                 ? "Juice"
-                : "Drink"} Image For Website</h1>
+                : "Drink"}{" "}
+              Image For Website
+            </h1>
           </div>
           <div className={StyleFood.form_element}>
             <div
@@ -298,15 +319,22 @@ export default function UpdateItemsImage({category}) {
               style={{ textAlign: "center", color: "blue" }}
             >
               <h3>
-                <span onClick={()=>router.back()} style={{cursor:'pointer'}}><a>
-                  Click Here To Change {category == "FoodItem"
-                ? "Food"
-                : category == "CoffeeItem"
-                ? "Coffee"
-                : category == "JuiceItem"
-                ? "Juice"
-                : "Drink"} General Details
-                </a></span>
+                <span
+                  onClick={() => router.back()}
+                  style={{ cursor: "pointer" }}
+                >
+                  <a>
+                    Click Here To Change{" "}
+                    {category == "FoodItem"
+                      ? "Food"
+                      : category == "CoffeeItem"
+                      ? "Coffee"
+                      : category == "JuiceItem"
+                      ? "Juice"
+                      : "Drink"}{" "}
+                    General Details
+                  </a>
+                </span>
               </h3>
             </div>
             <li>
@@ -323,13 +351,14 @@ export default function UpdateItemsImage({category}) {
             <li>
               <p>Photo Realtime Preview</p>
               <div className={StyleFood.preview_photo}>
-                <Image
-                  src={imgs}
-                  alt="food image"
-                  id="output"
-                  width={600}
-                  height={600}
-                />
+                <div className={StyleFood.uploadImage}>
+                  <Image
+                    src={imgs}
+                    alt="item images"
+                    id="output"
+                    layout="fill"
+                  />
+                </div>
               </div>
             </li>
             <button onClick={updateImage}> UPDATE IMAGE</button>

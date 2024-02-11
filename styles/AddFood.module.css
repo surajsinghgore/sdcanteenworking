@@ -285,6 +285,9 @@
   left: 15%;
   vertical-align: middle;
   margin-left: 4px;
+} .Form .form_element h3 {
+
+  color: blue;
 }
 
 @media only screen and (min-device-width: 0px) and (max-device-width: 1000px) {
@@ -381,7 +384,13 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-
+  .Form .form_element h3 {
+font-size: 5vw;
+text-align: center;
+margin-bottom: 0;
+width: 90%;
+color: blue;
+  }
   .Form .form_element li {
     width: 100%;
     float: left;

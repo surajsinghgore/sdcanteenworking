@@ -1,4 +1,4 @@
-import React, { useContext,useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Styles from "../../styles/admin.module.css";
 import ShowStyles from "../../styles/ShowFoodItem.module.css";
 import StyleFood from "../../styles/AddFood.module.css";
@@ -9,13 +9,14 @@ import AdminRightInnerHeader from "../../Components/AdminRightInnerHeader";
 import { FiEdit } from "react-icons/fi";
 import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css";
-import VerifyAdminLogin from './VerifyAdminLogin';
+import VerifyAdminLogin from "./VerifyAdminLogin";
 import LoadingBar from "react-top-loading-bar";
 import router from "next/router";
 import { AllContext } from "../../context/AllContext";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 
-export default function UpdateFoodItem() {const [progress, setProgress] = useState(0);
+export default function UpdateFoodItem() {
+  const [progress, setProgress] = useState(0);
   const { updateFoodItem } = useContext(AllContext);
   const [foodNameSearch, setFoodNameSearch] = useState();
   const [categorySearch, setCategorySearch] = useState();
@@ -56,36 +57,41 @@ export default function UpdateFoodItem() {const [progress, setProgress] = useSta
     updateFoodItem(_id._id);
     router.push("/admin/UpdateItemForm");
   };
-// category and food items fetch
+  // category and food items fetch
   useEffect(() => {
-    async function dataFetch() { setProgress(40)
+    async function dataFetch() {
+      setProgress(40);
       let ress = await fetch(`${HOST}/api/ShowFoodCategory`);
-      let datas = await ress.json(); setProgress(100)
+      let datas = await ress.json();
+      setProgress(100);
       await setData(datas.data);
     }
     dataFetch();
 
-    async function dataCategoryFetch() { setProgress(40)
+    async function dataCategoryFetch() {
+      setProgress(40);
       let ress = await fetch(`${HOST}/api/ShowFoodItem`);
-      let datas = await ress.json(); setProgress(100)
+      let datas = await ress.json();
+      setProgress(100);
       await setFetchData(datas.data);
       await setDummyData(datas.data);
     }
     dataCategoryFetch();
   }, []);
   return (
-    <div className={Styles.admin}> <LoadingBar
+    <div className={Styles.admin}>
+      {" "}
+      <LoadingBar
         color="rgb(255 82 0)"
         height={3.5}
         waitingTime={400}
         progress={progress}
         transitionTime={100}
-      />  
+      />
       <HeadTag title="Update Food Item" />
-<VerifyAdminLogin />
+      <VerifyAdminLogin />
       {/* left panel bar */}
       <AdminLeftMenu />
-
       {/* right bar */}
       <div className={StyleFood.rightSideBar}>
         <AdminRightInnerHeader title="Update Food Item Page" />
@@ -99,7 +105,7 @@ export default function UpdateFoodItem() {const [progress, setProgress] = useSta
 
         {/* form add food */}
 
-        <div className={ShowStyles.display_List} style={{ marginTop: "0.5%" }}>
+        <div className={ShowStyles.display_List}>
           <div className={ShowStyles.top}>
             <div className={ShowStyles.deatils}>
               <h1>All Food Items</h1>
@@ -138,7 +144,7 @@ export default function UpdateFoodItem() {const [progress, setProgress] = useSta
               <li className={ShowStyles.Item_Name}>Food Name</li>
               <li className={ShowStyles.Item_Price}>Price</li>
               <li className={ShowStyles.Item_Category}>Category</li>
-                   <li className={ShowStyles.Item_Visibilty}>Visibility</li>
+              <li className={ShowStyles.Item_Visibilty}>Visibility</li>
               <li className={ShowStyles.Item_Category}>Action</li>
             </div>
 
@@ -149,59 +155,64 @@ export default function UpdateFoodItem() {const [progress, setProgress] = useSta
                     <div className={ShowStyles.card} key={index}>
                       <li className={ShowStyles.Image_Section}>
                         <Image
-                      src={item.Image}
+                          src={item.Image}
                           alt={item.Image}
-                          height="550"
-                          width="800"
-                        priority="true"
+                          layout="fill"
+                          priority="true"
                         />
                       </li>
                       <li className={ShowStyles.Item_Name}>
                         <p>{item.FoodName}</p>
                       </li>
-                        <li className={ShowStyles.Item_Price}>
-                            {(item.ItemCost!=undefined) ?
-                            <>
-                            {(item.ItemCost.length==1)?
-                             <>
-                          {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.One}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                             </>:
-                            <>
-     {item.ItemCost.map((items)=>{
-                      return(
-                        <p key={items._id} className={ShowStyles.Many}>
-                        <b>{items.sizeName} : </b>{items.Price}
-                        </p>
-                                            )
-                      })}
-                            </>
-                            }
-                       
-                      </>
-                      :""}
-                     
+                      <li className={ShowStyles.Item_Price}>
+                        {item.ItemCost != undefined ? (
+                          <>
+                            {item.ItemCost.length == 1 ? (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.One}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            ) : (
+                              <>
+                                {item.ItemCost.map((items) => {
+                                  return (
+                                    <p
+                                      key={items._id}
+                                      className={ShowStyles.Many}
+                                    >
+                                      <b>{items.sizeName} : </b>
+                                      {items.Price}
+                                    </p>
+                                  );
+                                })}
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          ""
+                        )}
                       </li>
                       <li className={ShowStyles.Item_Category}>
                         <p>{item.Category}</p>
                       </li>
-                             <li className={ShowStyles.Item_Visibilty}>
-                      {(item.Active=="ON")? <div className={ShowStyles.ON}>{item.Active}</div>: <div className={ShowStyles.OFF}>{item.Active}</div>}
-                     </li>
+                      <li className={ShowStyles.Item_Visibilty}>
+                        {item.Active == "ON" ? (
+                          <div className={ShowStyles.ON}>{item.Active}</div>
+                        ) : (
+                          <div className={ShowStyles.OFF}>{item.Active}</div>
+                        )}
+                      </li>
                       <li className={ShowStyles.Item_Category}>
-                        <p
-                          style={{
-                            color: "blue",
-                            cursor: "pointer",
-                            fontSize: "24px",
-                          }}
-                          title="Click To Update"
-                        >
+                        <p title="Click To Update" className={ShowStyles.updateBtn}>
                           <FiEdit onClick={() => UpdateFoodItems(item)} />
                         </p>
                       </li>

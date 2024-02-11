@@ -9,7 +9,7 @@ import Image from "next/image";
 import DataList from "../Data/DataList";
 import "react-toastify/dist/ReactToastify.css";
 export default function AdminLeftMenu() {
-  const { menuEnableState } = useContext(AllContext);
+  const { menuEnableState,setMenuEnableState } = useContext(AllContext);
 
   return (
     <>
