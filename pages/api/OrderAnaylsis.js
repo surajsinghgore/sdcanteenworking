@@ -17,7 +17,7 @@ export default async function OrderAnaylsis(req,res) {
 let year1=req.body.year1;
 let year2=req.body.year2;
 let year3=req.body.year3;
-
+console.log(year1,year2,year3)
 
 let jan=0,feb=0,mar=0,apr=0,may=0,jun=0,jul=0,aug=0,sep=0,oct=0,nov=0,dec=0;
 let total=0,total1=0,total2=0;
@@ -1396,7 +1396,14 @@ mostOrderedFood()
 mostOrderedCoffee()
 mostOrderedJuice()
 mostOrderedDrink()
-
+console.log(totalOrder,
+    totalOrderSum,
+    totalOrderComplete,
+    totalOrderCompleteSum,
+    totalOrderPending,
+    totalOrderPendingSum,
+    totalOrderReject,
+    totalOrderRejectSum,topFoodItem,topFoodItemMontWise,topCoffeeItemMontWise,topDrinkItemMontWise,topJuiceItemMontWise,allItemsTop)
 // !return values
 return res.status(200).json({
 totalOrder,
