@@ -6,7 +6,7 @@ const AllContext=createContext();
 const Provider=({children})=>{
 
 // useState
-const [menuEnableState,setMenuEnableState]=useState(true)
+const [menuEnableState,setMenuEnableState]=useState(false)
 const [refresh,setRefresh]=useState(false);
 const [userNameUpdateState,setUserNameUpdateState]=useState(false);
 const [filterAllFoodCategoriesData,setFilterAllFoodCategoriesData]=useState([]);
