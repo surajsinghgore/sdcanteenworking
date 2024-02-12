@@ -66,6 +66,7 @@ getData()
 
 
 useEffect(()=>{
+  console.log(allData)
 let codOnline=[]
 let codOnlineNumber=[]
 if(allData.TotalEarning!=undefined){

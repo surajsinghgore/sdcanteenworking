@@ -197,29 +197,7 @@ const AnaylsisOrder = () => {
       setItemRate(datasSet);
     }
 
-    // top food monthwise
-    if (allData.topFoodItemMontWise != undefined) {
-      let datasSet = [];
-      // [0] first year
-      for (let i = 0; i < allData.topFoodItemMontWise[0].length; i++) {
-        if (allData.topFoodItemMontWise[0][i][0]) {
-          datasSet.push({
-            label: `${allData.topFoodItemMontWise[0][i][0].Name[0]}`,
-            data: allData.topFoodItemMontWise[0][i][0].count,
-          });
-        } else {
-          datasSet.push({
-            label: `No`,
-            data: allData.topFoodItemMontWise[0][i].count,
-          });
-        }
 
-        // [1] second year
-
-        // [2] third year
-      }
-      setTopFoodMon(datasSet);
-    }
   }, [allData]);
 
 
