@@ -25,7 +25,10 @@ export default function AdminLeftMenu() {
   }, []);
 
   useEffect(() => {
-    setMenuEnableState(false);
+    if (window.screen.availWidth <= 1000) {
+      setMenuEnableState(false);
+    }
+ 
   }, [router.pathname]);
   return (
     <>
