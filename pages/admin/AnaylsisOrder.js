@@ -196,21 +196,14 @@ const AnaylsisOrder = () => {
       }
       setItemRate(datasSet);
     }
-
-
   }, [allData]);
 
-
-
-
-
-
-
-
-  const year1Change=async(e)=>{
-    if(e.target.value==year2){
-    if(year2!='no'){
-     toast.warn("This Year Is Already Selected,Please Select Different Year", {
+  const year1Change = async (e) => {
+    if (e.target.value == year2) {
+      if (year2 != "no") {
+        toast.warn(
+          "This Year Is Already Selected,Please Select Different Year",
+          {
             position: "bottom-right",
             autoClose: 1200,
             hideProgressBar: false,
@@ -218,14 +211,16 @@ const AnaylsisOrder = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          });
-          return ;
+          }
+        );
+        return;
+      }
     }
-    }
-    if(e.target.value==year3){
-    if(year3!='no'){
-    
-      toast.warn("This Year Is Already Selected,Please Select Different Year", {
+    if (e.target.value == year3) {
+      if (year3 != "no") {
+        toast.warn(
+          "This Year Is Already Selected,Please Select Different Year",
+          {
             position: "bottom-right",
             autoClose: 1200,
             hideProgressBar: false,
@@ -233,339 +228,350 @@ const AnaylsisOrder = () => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          });
-          return ;
+          }
+        );
+        return;
+      }
     }
-    }
-    setYear(e.target.value)
-    
-    if((year2=='no')&&(year3=='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    
-    }
-    
-    
-    if((year2=='no')&&(year3!='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((year2!='no')&&(year3=='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year2})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    
-    if((e.target.value!="no")&&(year2!='no')&&(year3!='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year2,year3:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2!="no")&&(year3!="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year2,year2:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2=="no")&&(year3!="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2!="no")&&(year3=="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year2})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2=="no")&&(year3=="no")){
-    allData=[]
-    }
-    
-    
-    }
-    
-    
-    const year2Change=async(e)=>{
-    if(e.target.value==year){
-    if(year!='no'){
-     toast.warn("This Year Is Already Selected,Please Select Different Year", {
-            position: "bottom-right",
-            autoClose: 1200,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          return ;
-    }
-    }
-    if(e.target.value==year3){
-    if(year3!='no'){
-      toast.warn("This Year Is Already Selected,Please Select Different Year", {
-            position: "bottom-right",
-            autoClose: 1200,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          return ;
-    }
-    }
-    setYear2(e.target.value)
-    
-    
-    if((year=='no')&&(year3=='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    
-    }
-    
-    
-    if((year=='no')&&(year3!='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((year!='no')&&(year3=='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    
-    if((e.target.value!="no")&&(year!='no')&&(year3!='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year,year3:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year!="no")&&(year3!="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year2,year:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year=="no")&&(year3!="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year3})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year!="no")&&(year3=="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year=="no")&&(year3=="no")){
-    allData=[]
-    }
-    
-    }
-    
-    const year3Change=async(e)=>{
-    if(e.target.value==year2){
-    if(year2!='no'){
-     toast.warn("This Year Is Already Selected,Please Select Different Year", {
-            position: "bottom-right",
-            autoClose: 1200,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          return ;
-    }
-    }
-    if(e.target.value==year){
-    if(year!='no'){
-    
-      toast.warn("This Year Is Already Selected,Please Select Different Year", {
-            position: "bottom-right",
-            autoClose: 1200,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          return ;
-    }
-    }
-    setYear3(e.target.value)
-    
-    if((year2=='no')&&(year=='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    
-    }
-    
-    
-    if((year2=='no')&&(year!='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((year2!='no')&&(year=='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year2})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    
-    if((e.target.value!="no")&&(year2!='no')&&(year!='no')){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:e.target.value,year2:year2,year3:year})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2!="no")&&(year!="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year2,year2:year})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2=="no")&&(year!="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2!="no")&&(year=="no")){
-    const res=await fetch(`${HOST}/api/OrderAnaylsis`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({year1:year2})
-    });
-    const data=await res.json();
-    if(res.status==200){
-    setAllData(data)
-    }
-    }
-    if((e.target.value=="no")&&(year2=="no")&&(year=="no")){
-    allData=[]
-    }
-    
+    setYear(e.target.value);
+
+    if (year2 == "no" && year3 == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
     }
 
+    if (year2 == "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value, year2: year3 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (year2 != "no" && year3 == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value, year2: year2 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+
+    if (e.target.value != "no" && year2 != "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          year1: e.target.value,
+          year2: year2,
+          year3: year3,
+        }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 != "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year2, year2: year3 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 == "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year3 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 != "no" && year3 == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year2 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 == "no" && year3 == "no") {
+      allData = [];
+    }
+  };
+
+  const year2Change = async (e) => {
+    if (e.target.value == year) {
+      if (year != "no") {
+        toast.warn(
+          "This Year Is Already Selected,Please Select Different Year",
+          {
+            position: "bottom-right",
+            autoClose: 1200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        return;
+      }
+    }
+    if (e.target.value == year3) {
+      if (year3 != "no") {
+        toast.warn(
+          "This Year Is Already Selected,Please Select Different Year",
+          {
+            position: "bottom-right",
+            autoClose: 1200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        return;
+      }
+    }
+    setYear2(e.target.value);
+
+    if (year == "no" && year3 == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+
+    if (year == "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value, year2: year3 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (year != "no" && year3 == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value, year2: year }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+
+    if (e.target.value != "no" && year != "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          year1: e.target.value,
+          year2: year,
+          year3: year3,
+        }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year != "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year2, year: year3 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year == "no" && year3 != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year3 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year != "no" && year3 == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year == "no" && year3 == "no") {
+      allData = [];
+    }
+  };
+
+  const year3Change = async (e) => {
+    if (e.target.value == year2) {
+      if (year2 != "no") {
+        toast.warn(
+          "This Year Is Already Selected,Please Select Different Year",
+          {
+            position: "bottom-right",
+            autoClose: 1200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        return;
+      }
+    }
+    if (e.target.value == year) {
+      if (year != "no") {
+        toast.warn(
+          "This Year Is Already Selected,Please Select Different Year",
+          {
+            position: "bottom-right",
+            autoClose: 1200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+        return;
+      }
+    }
+    setYear3(e.target.value);
+
+    if (year2 == "no" && year == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+
+    if (year2 == "no" && year != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value, year2: year }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (year2 != "no" && year == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: e.target.value, year2: year2 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+
+    if (e.target.value != "no" && year2 != "no" && year != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          year1: e.target.value,
+          year2: year2,
+          year3: year,
+        }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 != "no" && year != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year2, year2: year }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 == "no" && year != "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 != "no" && year == "no") {
+      const res = await fetch(`${HOST}/api/OrderAnaylsis`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ year1: year2 }),
+      });
+      const data = await res.json();
+      if (res.status == 200) {
+        setAllData(data);
+      }
+    }
+    if (e.target.value == "no" && year2 == "no" && year == "no") {
+      allData = [];
+    }
+  };
 
   return (
     <div className={Styles.admin}>
@@ -816,83 +822,6 @@ const AnaylsisOrder = () => {
                 ) : (
                   ""
                 )}
-              </div>
-            </div>
-
-            {/* top 10 food items */}
-            <div className={anaylsis.chartSigle}>
-              <h5>Top 10 Most Ordered Food Items</h5>
-              <div className={anaylsis.chartARea}>
-                <Top10Items datas={topFoodMon} />
-                {/* {(TopEar.length!=0) ? <MultiBarChart datas={TopEar}/>:""} */}
-              </div>
-              <div className={anaylsis.allDatas}>
-                {/* {(allData.length!=0)? <>
-{(allData.TotalEarningSum!=undefined)?
-<>
-{(allData.TotalEarningSum.map((item,index)=>{
-return <li key={index}><div className={anaylsis.title}>Total In {item.year} - </div><div className={anaylsis.datas}>{(item.total)? <> ₹ {item.total}</>:(item.total1)? <> ₹ {item.total1}</>:(item.total2)? <> ₹ {item.total2}</>:""}</div></li>
-}))}
-</>
-:""}
-</>:""} */}
-              </div>
-            </div>
-
-            {/* top 10 coffee items */}
-            <div className={anaylsis.chartSigle}>
-              <h5>Top 10 Most Ordered coffee Items</h5>
-              <div className={anaylsis.chartARea}>
-                {/* {(TopEar.length!=0) ? <MultiBarChart datas={TopEar}/>:""} */}
-              </div>
-              <div className={anaylsis.allDatas}>
-                {/* {(allData.length!=0)? <>
-{(allData.TotalEarningSum!=undefined)?
-<>
-{(allData.TotalEarningSum.map((item,index)=>{
-return <li key={index}><div className={anaylsis.title}>Total In {item.year} - </div><div className={anaylsis.datas}>{(item.total)? <> ₹ {item.total}</>:(item.total1)? <> ₹ {item.total1}</>:(item.total2)? <> ₹ {item.total2}</>:""}</div></li>
-}))}
-</>
-:""}
-</>:""} */}
-              </div>
-            </div>
-
-            {/* top 10 drink items */}
-            <div className={anaylsis.chartSigle}>
-              <h5>Top 10 Most Ordered drink Items</h5>
-              <div className={anaylsis.chartARea}>
-                {/* {(TopEar.length!=0) ? <MultiBarChart datas={TopEar}/>:""} */}
-              </div>
-              <div className={anaylsis.allDatas}>
-                {/* {(allData.length!=0)? <>
-{(allData.TotalEarningSum!=undefined)?
-<>
-{(allData.TotalEarningSum.map((item,index)=>{
-return <li key={index}><div className={anaylsis.title}>Total In {item.year} - </div><div className={anaylsis.datas}>{(item.total)? <> ₹ {item.total}</>:(item.total1)? <> ₹ {item.total1}</>:(item.total2)? <> ₹ {item.total2}</>:""}</div></li>
-}))}
-</>
-:""}
-</>:""} */}
-              </div>
-            </div>
-
-            {/* top 10 juice items */}
-            <div className={anaylsis.chartSigle}>
-              <h5>Top 10 Most Ordered juice Items</h5>
-              <div className={anaylsis.chartARea}>
-                {/* {(TopEar.length!=0) ? <MultiBarChart datas={TopEar}/>:""} */}
-              </div>
-              <div className={anaylsis.allDatas}>
-                {/* {(allData.length!=0)? <>
-{(allData.TotalEarningSum!=undefined)?
-<>
-{(allData.TotalEarningSum.map((item,index)=>{
-return <li key={index}><div className={anaylsis.title}>Total In {item.year} - </div><div className={anaylsis.datas}>{(item.total)? <> ₹ {item.total}</>:(item.total1)? <> ₹ {item.total1}</>:(item.total2)? <> ₹ {item.total2}</>:""}</div></li>
-}))}
-</>
-:""}
-</>:""} */}
               </div>
             </div>
 
