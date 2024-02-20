@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import StyleFood from "../styles/AddFood.module.css";
 import HeadTag from "../Components/Head";
 import AdminLeftMenu from "../Components/AdminLeftMenu";

@@ -77,7 +77,7 @@
   height: auto;
   padding-bottom: 3%;
   border-radius: 5px;
-  box-shadow: 2px 1px 20px 1px rgb(204, 204, 204);
+  box-shadow: 3px 1px 20px 1px rgb(204, 204, 204);
 }
 
 .Form .heading {
@@ -85,6 +85,7 @@
   box-sizing: border-box;
   height: 70px;
   border-bottom: 3px solid rgb(179, 179, 179);
+
 }
 .Form .heading h1 {
   font-size: 19px;
