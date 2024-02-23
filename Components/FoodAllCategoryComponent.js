@@ -142,7 +142,7 @@ progress: undefined,
         waitingTime={400}
         progress={progress}
         transitionTime={100}
-      />  
+      />    
 
 <div className={FoodStyles.DataList}>
 <li>{data.FoodCategoryName}</li>

@@ -7,9 +7,8 @@ import AdminRightInnerHeader from "../../Components/AdminRightInnerHeader";
 import StyleFood from "../../styles/AddFood.module.css";
 import payment from "../../styles/Payments.module.css";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
 let HOST = process.env.NEXT_PUBLIC_API_URL;
 import Loader from "../../Components/Loader";
 const SearchPayments = () => {

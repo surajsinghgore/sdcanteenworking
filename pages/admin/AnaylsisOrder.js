@@ -12,7 +12,6 @@ import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
 import MultiBarChart from "../../Charts/MultiBarChart";
 import MultiBarChart1 from "../../Charts/MultiBarChart1";
-import Top10Items from "../../Charts/Top10Items";
 
 const AnaylsisOrder = () => {
   const [progress, setProgress] = useState(0);
