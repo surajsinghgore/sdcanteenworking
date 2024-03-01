@@ -64,7 +64,7 @@ Welcome to SD CANTEEN!
  </div>
 <div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.6vw">Your order with Token Number : <b> ${dataUpdate[i].TokenUser}</b> has been <span style="color:red;">rejected</span></div>
 <div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please place your order responsibly.</div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery has been disabled for your account for a lifetime.</div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery has been disabled for your account for  lifetime.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
 <div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request was made wrongly, you can contact customer support.</div> 
@@ -191,7 +191,7 @@ Welcome to SD CANTEEN!
 </div>
 <div style="text-align:center;margin-top:3%;margin-bottom:2%;font-size:3.6vw">Your order with Token Number : <b> ${dataUpdate[i].TokenUser}</b> has been <span style="color:red;">rejected</span></div>
 <div style="font-size:3vw;color:#4f4f4f;margin-top:4%">Please place your order responsibly.</div>
-<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery has been disabled for your account for a lifetime.</div>
+<div style="font-size:3vw;color:#4f4f4f;margin-top:4%"><b>Note:</b>Cash On Delivery has been disabled for your account for  lifetime.</div>
 <div style="font-size:3vw;text-align:center;color:#383838;margin-top:5%">Thank You,</div>
 <div style="font-size:evw;text-align:center;color: rgb(255, 98, 0);">Team SD CANTEEN</div>
 <div style="font-size:2vw;text-align:center;color:#4f4f4f;margin-top:6%;margin-bottom:6%">If you think this request was made wrongly, you can contact customer support.</div> 

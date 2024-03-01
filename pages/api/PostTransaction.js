@@ -36,7 +36,7 @@ if(req.body.STATUS=="TXN_SUCCESS"){
 let data=await PaymentSchemaDataBase.findOne({OrderId: req.body.ORDERID})
 let TotalAmount=data.TotalAmount;
 if(req.body.TXNAMOUNT==`${TotalAmount}`){
-   return res.status(500).json({message:"Tempring is not allowed"})
+   return res.status(500).json({message:"Tempering is not allowed"})
 }
 await PaymentSchemaDataBase.findOneAndUpdate({OrderId: req.body.ORDERID},{PaymentOrderStatus:"complete",AmountReceived:TotalAmount,PaymentInfo:req.body})
 for(let i=0;i<data.ItemsOrder.length;i++){
