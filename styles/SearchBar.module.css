@@ -163,6 +163,7 @@
   font-weight: 500;
   padding-left: 2%;
   padding-right: 4%;
+  text-transform: capitalize;
 }
 
 .searchSection .topSection .right hr {
