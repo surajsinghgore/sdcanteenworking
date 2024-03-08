@@ -269,7 +269,7 @@ function AddCategory({ category }) {
               </h1>
             </div>
             <div className={StyleFood.form_element}>
-              <li >
+              <li style={{width:"100%"}}>
                 <p>
                   Enter{" "}
                   {category == "FoodItem"
@@ -284,7 +284,7 @@ function AddCategory({ category }) {
                 <input
                   type="text"
                   name="foodName"
-                 
+              
                   onChange={(e) => setItemCategory(e.target.value)}
                   value={itemCategory}
                 />
