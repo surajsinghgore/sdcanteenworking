@@ -264,7 +264,7 @@ export default function OtpVerifyClientRegister() {
         <div className={ClientStyle.clientLogin}>
           <div className={ClientStyle.form}>
             <h3>SD CANTEEN</h3>
-            <h2>
+            <h2 style={{textAlign:"center"}}>
               Otp Successfully send to <span>{email}</span>
             </h2>
             <form onSubmit={VerifyUser}>

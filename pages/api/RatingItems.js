@@ -131,8 +131,9 @@ const data = new ItemRatings({
 await data.save(); 
 return res.status(201).json({message:"review Successfully Send"});
 }
-// ! add cooments inside products
+// ! add comments inside products
 else{
+  
 let ZeroPointFive=0;
 let OnePointFive=0;
 let TwoPointFive=0;
